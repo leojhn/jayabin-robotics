@@ -1,146 +1,397 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Jayabin Robotics & Aviation</title>  
-    <link rel="stylesheet" href="css/style.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
-    <link rel="preconnect" href="https://fonts.googleapis.com">  
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">  
-</head>  
-<body>  
-    <header id="global-header">  
-        <div class="container">  
-            <div class="logo">Jayabin Robotics & Aviation</div>  
-            <nav>  
-                <ul>  
-                    <li><a href="index.html" class="active">Home</a></li>  
-                    <li><a href="about.html">About</a></li>  
-                    <li><a href="vision.html">Vision</a></li>  
-                    <li><a href="contact.html">Contact</a></li>  
-                </ul>  
-            </nav>  
-            <a href="contact.html" class="btn">Request Demo</a>  
-            <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>  
-        </div>  
-    </header>  
-  
-    <main>  
-        <!-- Hero Section -->  
-        <section id="hero">  
-            <div class="hero-content">  
-                <h1>Building the Future of Hospital Robotics</h1>  
-                <p>“We are developing an integrated ecosystem of intelligent robots for healthcare and advanced future technologies.”</p>  
-                <a href="contact.html" class="btn">Request Demo</a>  
-            </div>  
-        </section>  
-  
-        <!-- What We Do Section -->  
-        <section id="what-we-do">  
-            <div class="container">  
-                <div class="section-content">  
-                    <div class="text-content">  
-                        <h2>What We Do</h2>  
-                        <p>“We design autonomous systems that support staff, guide patients, automate workflows, and enhance hospital efficiency. Our ecosystem expands from reception robots to future nursing support, doctor-assistant modules, nano-robotics, and aviation innovations.”</p>  
-                    </div>  
-                    <div class="image-content">  
-                        <img src="images/what-we-do-illustration.jpg" alt="Healthcare Robotics Illustration">  
-                    </div>  
-                </div>  
-            </div>  
-        </section>  
-  
-        <!-- Products Section -->
-        <section id="products">
-            <div class="container">
-                <h2>Products</h2>
-                <div class="grid-container">
-                    <div class="grid-item full-width">
-                        <h3>Jayabin-AB001 Reception Assistant</h3>
-                        <img src="images/reception-assistant.jpg" alt="Reception Assistant">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JAYABIN MEDICAL CENTRE - Kiosk</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="kiosk-container">
+        <!-- Persistent Navigation -->
+        <nav class="persistent-nav">
+            <button id="back-btn" class="nav-btn" aria-label="Back">
+                <i class="fas fa-chevron-left"></i> <span>Back</span>
+            </button>
+            <button id="home-btn" class="nav-btn" aria-label="Home">
+                <i class="fas fa-home"></i> <span>Home</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="screen-container">
+            <!-- Screen 1: Welcome + Main Menu -->
+            <section id="screen-welcome" class="screen active">
+                <header class="hospital-header">
+                    <div class="logo-placeholder">
+                        <i class="fas fa-hospital-symbol"></i>
+                    </div>
+                    <h1>Welcome to Jayabin Medical Centre</h1>
+                </header>
+
+                <div class="main-menu-grid">
+                    <button class="menu-item" data-target="screen-checkin">
+                        <i class="fas fa-user-check"></i>
+                        <span>Patient Check-In</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-wayfinding">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Wayfinding & Navigation</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-scheduling">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Appointment Scheduling</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-directory">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Department & Staff Directory</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Information & FAQ</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-emergency">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Emergency & Assistance</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-wait-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Wait Time Dashboard</span>
+                    </button>
+                    <button class="menu-item" data-target="screen-billing">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>Billing & Payments</span>
+                    </button>
+                </div>
+
+                <footer class="status-footer">
+                    <p><i class="fas fa-robot"></i> Robot Status: <span class="status-online">Connected & Ready</span></p>
+                </footer>
+            </section>
+
+            <!-- Screen 2: Patient Check-In -->
+            <section id="screen-checkin" class="screen">
+                <h2>Patient Check-In</h2>
+                <div class="selection-grid">
+                    <button class="large-card" data-target="screen-checkin-returning">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Returning Patient</h3>
+                        <p>With Appointment</p>
+                    </button>
+                    <button class="large-card" onclick="alert('New Patient flow is simulated. Proceeding as returning patient.'); showScreen('screen-checkin-returning')">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>New Patient</h3>
+                        <p>Register Now</p>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Check-In Step 1: Verification -->
+            <section id="screen-checkin-returning" class="screen">
+                <h2>Appointment Verification</h2>
+                <div class="selection-grid">
+                    <button class="large-card" data-target="screen-checkin-info">
+                        <i class="fas fa-qrcode"></i>
+                        <h3>Scan QR Code</h3>
+                        <p>Place your code below the scanner</p>
+                    </button>
+                    <div class="input-card">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Enter Appointment ID</h3>
+                        <input type="text" placeholder="e.g. APT12345" id="apt-id">
+                        <button class="btn-primary" data-target="screen-checkin-info">Verify</button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Milestones Section -->  
-        <section id="milestones">  
-            <div class="container">  
-                <h2>Milestones (upcoming)</h2>  
-                <div class="grid-container">  
-                    <div class="grid-item">  
-                        <h3>Surgical Robotics (Upcoming)</h3>  
-                        <img src="images/surgical-robotics.jpg" alt="Surgical Robotics (Upcoming)">  
-                    </div>  
-                    <div class="grid-item">  
-                        <h3>Nano Robotics Research (Upcoming)</h3>  
-                        <img src="images/nano-robotics.jpg" alt="Nano Robotics (Upcoming)">  
-                    </div>  
-                    <div class="grid-item">  
-                        <h3>Aviation R&D (Upcoming)</h3>  
-                        <img src="images/aviation-robotics.jpg" alt="Aviation Robotics (Upcoming)">  
-                    </div>  
-                    <div class="grid-item">  
-                        <h3>Health Care Automation (Upcoming)</h3>  
-                        <img src="images/health-care-automation.jpg" alt="Health Care Automation (Upcoming)">  
-                    </div>  
-                    <div class="grid-item full-width">  
-                        <h3>Longevity R&D (Upcoming)</h3>  
-                        <img src="images/longevity.jpg" alt="Longevity R&D (Upcoming)">  
-                    </div>  
-                </div>  
-            </div>  
-        </section>  
-  
-        <!-- Our Vision Section -->  
-        <section id="our-vision">  
-            <div class="container">  
-                <h2>Our Vision</h2>  
-                <p>“Technology must serve humanity. Our long-term vision spans advanced healthcare robotics, aviation technologies, nano-scale innovation, and human-centered AI systems.”</p>  
-            </div>  
-        </section>  
-  
-        <!-- Partner With Us Section -->  
-        <section id="partner-with-us">  
-            <div class="container">  
-                <h2>Partner With Us</h2>  
-                <p>“We collaborate with hospitals, clinics, and research institutions for pilots, testing, and early deployment of our robotics ecosystem.”</p>  
-                <a href="contact.html" class="btn">Contact Us</a>  
-            </div>  
-        </section>  
-    </main>  
-  
-    <footer id="global-footer">  
-        <div class="container">  
-            <div class="footer-content">  
-                <div class="footer-logo">  
-                    <h2>Jayabin Robotics & Aviation</h2>  
-                    <p>Engineering intelligent systems for healthcare</p>  
-                </div>  
-                <div class="footer-links">  
-                    <h3>Navigation</h3>  
-                    <ul>  
-                        <li><a href="index.html">Home</a></li>  
-                        <li><a href="about.html">About</a></li>  
-                        <li><a href="vision.html">Vision</a></li>  
-                        <li><a href="contact.html">Contact</a></li>  
-                    </ul>  
-                </div>  
-                <div class="footer-contact">  
-                    <h3>Contact</h3>  
-                    <p>Email: jayabinroboavion@gmail.com</p>  
-                    <p>Phone: +91 90741 29113</p>  
-                    <p>Kerala, India</p>  
-                </div>  
-            </div>  
-            <div class="copyright">  
-                <p>© 2024 Jayabin Robotics & Aviation. All rights reserved.</p>  
-            </div>  
-        </div>  
-    </footer>  
-  
-    <script src="js/main.js"></script>  
-</body>  
-</html> 
+            <!-- Check-In Step 2: Personal Info -->
+            <section id="screen-checkin-info" class="screen">
+                <h2>Confirm Personal Information</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" value="John Doe" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" value="+91 98765 43210" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="text" value="15-05-1985" readonly>
+                    </div>
+                    <button class="btn-primary full-width" data-target="screen-checkin-insurance">Confirm & Continue</button>
+                </div>
+            </section>
+
+            <!-- Check-In Step 3: Insurance -->
+            <section id="screen-checkin-insurance" class="screen">
+                <h2>Insurance Verification</h2>
+                <div class="selection-grid">
+                    <button class="large-card" data-target="screen-checkin-signature">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Scan Insurance Card</h3>
+                    </button>
+                    <button class="large-card secondary" data-target="screen-checkin-signature">
+                        <i class="fas fa-forward"></i>
+                        <h3>Skip for now</h3>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Check-In Step 4: Signature -->
+            <section id="screen-checkin-signature" class="screen">
+                <h2>Digital Consent Signature</h2>
+                <div class="signature-container">
+                    <p>Please sign inside the box below:</p>
+                    <canvas id="signature-pad"></canvas>
+                    <div class="sig-buttons">
+                        <button class="btn-secondary" id="clear-signature">Clear</button>
+                        <button class="btn-primary" data-target="screen-checkin-complete">Finish</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Check-In Step 5: Completion -->
+            <section id="screen-checkin-complete" class="screen">
+                <div class="success-message">
+                    <i class="fas fa-check-circle animated-icon"></i>
+                    <h2>Check-in Complete</h2>
+                    <div class="ticket-card">
+                        <p class="ticket-label">Ticket Number</p>
+                        <p class="ticket-number">A102</p>
+                        <hr>
+                        <p class="wait-label">Estimated Wait</p>
+                        <p class="wait-time">15 Minutes</p>
+                    </div>
+                    <button class="btn-primary" data-target="screen-welcome">Continue</button>
+                </div>
+            </section>
+
+            <!-- Screen 3: Wayfinding -->
+            <section id="screen-wayfinding" class="screen">
+                <h2>Wayfinding & Navigation</h2>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="wayfinding-search" placeholder="Search doctor, department, or cabin">
+                </div>
+                <div class="map-placeholder">
+                    <div class="map-mock">
+                        <span class="map-text">Hospital Map Placeholder</span>
+                        <div class="map-poi" style="top: 20%; left: 30%;">You are here</div>
+                    </div>
+                </div>
+                <div class="category-grid">
+                    <button class="cat-btn" onclick="searchWayfinding('Doctors')">Doctors</button>
+                    <button class="cat-btn" onclick="searchWayfinding('Departments')">Departments</button>
+                    <button class="cat-btn" onclick="searchWayfinding('Labs')">Labs</button>
+                    <button class="cat-btn" onclick="searchWayfinding('Pharmacy')">Pharmacy</button>
+                </div>
+                <div id="search-results" class="results-container"></div>
+            </section>
+
+            <!-- Screen 4: Appointment Scheduling -->
+            <section id="screen-scheduling" class="screen">
+                <h2>Appointment Scheduling</h2>
+                <div class="selection-grid">
+                    <button class="large-card" data-target="screen-scheduling-dept">
+                        <i class="fas fa-calendar-plus"></i>
+                        <h3>Book Appointment</h3>
+                    </button>
+                    <button class="large-card" onclick="alert('Feature coming soon!')">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Reschedule</h3>
+                    </button>
+                    <button class="large-card" onclick="alert('Feature coming soon!')">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>Cancel</h3>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Scheduling Step 1: Department -->
+            <section id="screen-scheduling-dept" class="screen">
+                <h2>Select Department</h2>
+                <div class="list-grid">
+                    <button class="list-item" onclick="selectDept('Cardiology')">Cardiology</button>
+                    <button class="list-item" onclick="selectDept('Orthopedics')">Orthopedics</button>
+                    <button class="list-item" onclick="selectDept('Neurology')">Neurology</button>
+                    <button class="list-item" onclick="selectDept('Dermatology')">Dermatology</button>
+                </div>
+            </section>
+
+            <!-- Scheduling Step 2: Doctor -->
+            <section id="screen-scheduling-doctor" class="screen">
+                <h2 id="dept-title">Select Doctor</h2>
+                <div id="doctor-list" class="list-grid">
+                    <!-- Dynamic doctors here -->
+                </div>
+            </section>
+
+            <!-- Scheduling Step 3: Calendar -->
+            <section id="screen-scheduling-calendar" class="screen">
+                <h2>Select Date & Time</h2>
+                <div class="calendar-mock">
+                    <div class="calendar-header">October 2024</div>
+                    <div class="calendar-days">
+                        <span class="day">14</span><span class="day selected">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span>
+                    </div>
+                    <div class="slots-grid">
+                        <button class="slot-btn" data-target="screen-scheduling-confirm">09:00 AM</button>
+                        <button class="slot-btn" data-target="screen-scheduling-confirm">10:30 AM</button>
+                        <button class="slot-btn" data-target="screen-scheduling-confirm">01:00 PM</button>
+                        <button class="slot-btn" data-target="screen-scheduling-confirm">03:30 PM</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scheduling Step 4: Confirmation -->
+            <section id="screen-scheduling-confirm" class="screen">
+                <div class="success-message">
+                    <i class="fas fa-check-circle animated-icon"></i>
+                    <h2>Appointment Confirmed</h2>
+                    <div class="ticket-card">
+                        <p id="confirm-doctor-name" style="font-weight: 700; font-size: 1.4rem;"></p>
+                        <p>Tomorrow 10:30 AM</p>
+                    </div>
+                    <button class="btn-primary" data-target="screen-welcome">Return Home</button>
+                </div>
+            </section>
+
+            <!-- Screen 5: Directory -->
+            <section id="screen-directory" class="screen">
+                <h2>Department & Staff Directory</h2>
+                <div class="directory-list">
+                    <div class="dir-card">
+                        <h3>Cardiology</h3>
+                        <p><strong>Services:</strong> ECG, Echo, Stress Test</p>
+                        <p><strong>Doctors:</strong> Dr. John Heart, Dr. Sarah Pulse</p>
+                    </div>
+                    <div class="dir-card">
+                        <h3>Orthopedics</h3>
+                        <p><strong>Services:</strong> X-Ray, Fracture Care, Joint Replacement</p>
+                        <p><strong>Doctors:</strong> Dr. Bone Kumar</p>
+                    </div>
+                    <div class="dir-card">
+                        <h3>Neurology</h3>
+                        <p><strong>Services:</strong> EEG, MRI, Nerve Studies</p>
+                        <p><strong>Doctors:</strong> Dr. Brain Das</p>
+                    </div>
+                    <div class="dir-card">
+                        <h3>Dermatology</h3>
+                        <p><strong>Services:</strong> Skin Allergy, Laser Therapy</p>
+                        <p><strong>Doctors:</strong> Dr. Skin Mary</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 6: FAQ -->
+            <section id="screen-info" class="screen">
+                <h2>Information & FAQ</h2>
+                <div class="faq-container">
+                    <details>
+                        <summary>What are visiting hours?</summary>
+                        <div class="faq-content">9 AM – 7 PM</div>
+                    </details>
+                    <details>
+                        <summary>Where is parking?</summary>
+                        <div class="faq-content">Near main entrance.</div>
+                    </details>
+                    <details>
+                        <summary>How to collect reports?</summary>
+                        <div class="faq-content">Use lab counter.</div>
+                    </details>
+                    <details>
+                        <summary>Pharmacy timings?</summary>
+                        <div class="faq-content">24 Hours.</div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Screen 7: Emergency -->
+            <section id="screen-emergency" class="screen">
+                <h2>Emergency & Assistance</h2>
+                <div class="emergency-grid">
+                    <button class="emergency-btn" onclick="sendHelpRequest('Ambulance')">
+                        <i class="fas fa-ambulance"></i>
+                        <span>Call Ambulance</span>
+                    </button>
+                    <button class="emergency-btn" onclick="sendHelpRequest('Emergency Staff')">
+                        <i class="fas fa-user-md"></i>
+                        <span>Call Emergency Staff</span>
+                    </button>
+                    <button class="emergency-btn" onclick="sendHelpRequest('Wheelchair')">
+                        <i class="fas fa-wheelchair"></i>
+                        <span>Request Wheelchair</span>
+                    </button>
+                    <button class="emergency-btn" onclick="sendHelpRequest('Reception')">
+                        <i class="fas fa-headset"></i>
+                        <span>Call Reception</span>
+                    </button>
+                </div>
+                <div id="emergency-status" class="alert-box hidden">Help request sent successfully.</div>
+            </section>
+
+            <!-- Screen 8: Wait Time Dashboard -->
+            <section id="screen-wait-time" class="screen">
+                <h2>Wait Time Dashboard</h2>
+                <div class="wait-grid">
+                    <div class="wait-card">
+                        <h3>Cardiology</h3>
+                        <p class="wait-val">15 min</p>
+                    </div>
+                    <div class="wait-card">
+                        <h3>Orthopedics</h3>
+                        <p class="wait-val">8 min</p>
+                    </div>
+                    <div class="wait-card">
+                        <h3>Neurology</h3>
+                        <p class="wait-val">20 min</p>
+                    </div>
+                    <div class="wait-card">
+                        <h3>Dermatology</h3>
+                        <p class="wait-val">12 min</p>
+                    </div>
+                </div>
+                <div class="queue-status">
+                    <p>Your Queue Position: <span>4</span></p>
+                </div>
+            </section>
+
+            <!-- Screen 9: Billing -->
+            <section id="screen-billing" class="screen">
+                <h2>Billing & Payments</h2>
+                <div class="billing-container">
+                    <div class="bill-details">
+                        <div class="bill-row"><span>Consultation</span> <span>₹500</span></div>
+                        <div class="bill-row"><span>Lab</span> <span>₹1200</span></div>
+                        <hr>
+                        <div class="bill-row total"><span>Total</span> <span>₹1700</span></div>
+                    </div>
+                    <div class="billing-actions">
+                        <button class="btn-primary" data-target="screen-final">Pay Now</button>
+                        <button class="btn-secondary" data-target="screen-final">Print Receipt</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 10: Final Screen -->
+            <section id="screen-final" class="screen">
+                <div class="success-message">
+                    <i class="fas fa-heartbeat animated-icon" style="color: #27ae60; font-size: 5rem;"></i>
+                    <h2>Thank you for visiting Jayabin Medical Centre</h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 2rem;">Stay Safe</p>
+                    <button class="btn-primary" data-target="screen-welcome">Return Home</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
