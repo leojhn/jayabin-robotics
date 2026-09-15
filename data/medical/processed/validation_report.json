@@ -1,0 +1,49 @@
+{
+  "status": "ready",
+  "source_files": [
+    "medical_diseases_250_complete.jsonl",
+    "medical_diseases_251_436_complete.jsonl",
+    "medical_diseases_437_686_complete.jsonl",
+    "medical_diseases_687_936_complete.jsonl",
+    "medical_diseases_937_1186_complete.jsonl"
+  ],
+  "valid_records": 1186,
+  "id_range": [
+    "DIS_000001",
+    "DIS_001186"
+  ],
+  "duplicate_records_skipped": 0,
+  "invalid_records_skipped": 0,
+  "body_system_counts": {
+    "cardiovascular": 66,
+    "congenital_pediatric": 7,
+    "critical_care": 5,
+    "dermatologic": 50,
+    "endocrine": 57,
+    "gastrointestinal": 86,
+    "genetic": 61,
+    "genitourinary": 22,
+    "gynecologic": 1,
+    "hematologic": 78,
+    "immune": 12,
+    "infectious": 33,
+    "multisystem": 309,
+    "musculoskeletal": 43,
+    "neurologic": 78,
+    "obstetric": 6,
+    "obstetric_gynecologic": 14,
+    "oncologic": 52,
+    "ophthalmic": 15,
+    "otolaryngologic": 4,
+    "pain": 1,
+    "pediatric": 2,
+    "psychiatric": 42,
+    "rehabilitation": 4,
+    "renal": 39,
+    "respiratory": 61,
+    "rheumatologic": 28,
+    "toxicology": 10
+  },
+  "duplicates": [],
+  "invalid_records": []
+}
