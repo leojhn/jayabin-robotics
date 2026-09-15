@@ -1,21 +1,21 @@
 // ==========================================
-// HMS TOUCHSCREEN KEYBOARD
-// Physical keyboard style
-// Automatic + manual keyboard
+// HMS MOBILE TOUCHSCREEN KEYBOARD
+// Modern Mobile Model (iOS / Android Style)
 // ==========================================
 
 (function () {
     "use strict";
 
-    // Prevent duplicate loading
     if (window.HMSTouchKeyboardLoaded) return;
     window.HMSTouchKeyboardLoaded = true;
 
     let activeInput = null;
     let lastInput = null;
 
+    // Mobile layout states: 'abc', '123', 'sym'
+    let layoutMode = "abc";
     let shiftOn = false;
-    let capsOn = false;
+    let capsLock = false;
 
     // Secret exit password tracking ("jayabin")
     let exitBuffer = "";
@@ -34,7 +34,6 @@
     }
 
     function executeKioskExit() {
-        // Clean up secret password from active input field if present
         if (activeInput && activeInput.value) {
             const val = activeInput.value;
             const idx = val.toLowerCase().lastIndexOf(EXIT_PASSWORD);
@@ -44,10 +43,8 @@
             }
         }
 
-        // Hide virtual keyboard
         hideKeyboard();
 
-        // 1. Exit Fullscreen if active
         if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
             if (document.exitFullscreen) {
                 document.exitFullscreen().catch(function () {});
@@ -60,12 +57,10 @@
             }
         }
 
-        // 2. Attempt window close (simulates Alt+F4 exit)
         try {
             window.close();
         } catch (e) {}
 
-        // 3. Display Kiosk Exit Confirmation Overlay
         let overlay = document.getElementById("kioskExitOverlay");
         if (!overlay) {
             overlay = document.createElement("div");
@@ -97,1192 +92,327 @@
         }
     }
 
-    // ==========================================
-    // CREATE KEYBOARD
-    // ==========================================
-
+    // CREATE KEYBOARD CONTAINER
     const keyboard = document.createElement("div");
-
     keyboard.id = "hmsKeyboard";
-
+    keyboard.className = "mobile-keyboard";
     keyboard.setAttribute("aria-hidden", "true");
 
     keyboard.innerHTML = `
-
         <div class="keyboard-header">
-
-            <span>Touch Keyboard</span>
-
-            <button
-                id="keyboardClose"
-                type="button"
-                aria-label="Hide keyboard">
-                ✕
-            </button>
-
+            <span class="keyboard-title">📱 Touch Keyboard</span>
+            <button id="keyboardClose" type="button" aria-label="Hide keyboard">✕</button>
         </div>
-
-        <div class="keyboard-body">
-
-            <div
-                class="keyboard-main"
-                id="keyboardMain">
-            </div>
-
-            <div
-                class="keyboard-numpad"
-                id="keyboardNumpad">
-
-                <button class="keyboard-key"
-                        data-key="7"
-                        type="button">7</button>
-
-                <button class="keyboard-key"
-                        data-key="8"
-                        type="button">8</button>
-
-                <button class="keyboard-key"
-                        data-key="9"
-                        type="button">9</button>
-
-                <button class="keyboard-key"
-                        data-key="4"
-                        type="button">4</button>
-
-                <button class="keyboard-key"
-                        data-key="5"
-                        type="button">5</button>
-
-                <button class="keyboard-key"
-                        data-key="6"
-                        type="button">6</button>
-
-                <button class="keyboard-key"
-                        data-key="1"
-                        type="button">1</button>
-
-                <button class="keyboard-key"
-                        data-key="2"
-                        type="button">2</button>
-
-                <button class="keyboard-key"
-                        data-key="3"
-                        type="button">3</button>
-
-                <button
-                    class="keyboard-key numpad-wide"
-                    data-key="0"
-                    type="button">0</button>
-
-                <button
-                    class="keyboard-key"
-                    data-key="."
-                    type="button">.</button>
-
-            </div>
-
-        </div>
+        <div class="keyboard-body" id="keyboardMain"></div>
     `;
 
     document.body.appendChild(keyboard);
 
+    const main = keyboard.querySelector("#keyboardMain");
+    const closeButton = keyboard.querySelector("#keyboardClose");
 
-    const main =
-        keyboard.querySelector("#keyboardMain");
-
-    const closeButton =
-        keyboard.querySelector("#keyboardClose");
-
-
-    // ==========================================
-    // KEYBOARD LAYOUT (Simplified for Kiosk)
-    // Removed unnecessary keys like Ctrl, Alt, Win, Tab, Esc
-    // ==========================================
-
-    const rows = [
-
-        // NUMBER ROW
+    // LAYOUT DEFINITIONS (MOBILE MODEL)
+    const abcLayout = [
         [
-            {
-                key: "1",
-                shift: "!"
-            },
-
-            {
-                key: "2",
-                shift: "@"
-            },
-
-            {
-                key: "3",
-                shift: "#"
-            },
-
-            {
-                key: "4",
-                shift: "$"
-            },
-
-            {
-                key: "5",
-                shift: "%"
-            },
-
-            {
-                key: "6",
-                shift: "^"
-            },
-
-            {
-                key: "7",
-                shift: "&"
-            },
-
-            {
-                key: "8",
-                shift: "*"
-            },
-
-            {
-                key: "9",
-                shift: "("
-            },
-
-            {
-                key: "0",
-                shift: ")"
-            },
-
-            {
-                key: "-",
-                shift: "_"
-            },
-
-            {
-                key: "=",
-                shift: "+"
-            },
-
-            {
-                key: "Backspace",
-                label: "⌫ Delete",
-                cls: "key-wide key-action"
-            }
+            { key: "q" }, { key: "w" }, { key: "e" }, { key: "r" }, { key: "t" },
+            { key: "y" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" }
         ],
-
-
-        // QWERTY ROW
         [
-            { key: "q" },
-            { key: "w" },
-            { key: "e" },
-            { key: "r" },
-            { key: "t" },
-            { key: "y" },
-            { key: "u" },
-            { key: "i" },
-            { key: "o" },
-            { key: "p" },
-
-            {
-                key: "@",
-                cls: "key-small"
-            },
-
-            {
-                key: ".",
-                cls: "key-small"
-            }
+            { key: "a" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
+            { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }
         ],
-
-
-        // HOME ROW
         [
-            {
-                key: "CapsLock",
-                label: "Caps Lock",
-                cls: "key-wide key-accent"
-            },
-
-            { key: "a" },
-            { key: "s" },
-            { key: "d" },
-            { key: "f" },
-            { key: "g" },
-            { key: "h" },
-            { key: "j" },
-            { key: "k" },
-            { key: "l" },
-
-            {
-                key: "Enter",
-                label: "Enter ↵",
-                cls: "key-wide key-enter"
-            }
+            { key: "Shift", label: "⇧", cls: "key-action key-shift" },
+            { key: "z" }, { key: "x" }, { key: "c" }, { key: "v" },
+            { key: "b" }, { key: "n" }, { key: "m" },
+            { key: "Backspace", label: "⌫", cls: "key-action key-delete" }
         ],
-
-
-        // SHIFT & SPACE ROW
         [
-            {
-                key: "Shift",
-                label: "⇧ Shift",
-                cls: "key-wide key-accent"
-            },
-
-            { key: "z" },
-            { key: "x" },
-            { key: "c" },
-            { key: "v" },
-            { key: "b" },
-            { key: "n" },
-            { key: "m" },
-
-            {
-                key: ",",
-                shift: "<"
-            },
-
-            {
-                key: "/",
-                shift: "?"
-            },
-
-            {
-                key: " ",
-                label: "SPACE",
-                cls: "key-space"
-            }
+            { key: "Mode123", label: "?123", cls: "key-action key-mode" },
+            { key: "@", cls: "key-symbol" },
+            { key: " ", label: "space", cls: "key-space" },
+            { key: ".", cls: "key-symbol" },
+            { key: "Enter", label: "return", cls: "key-enter" }
         ]
     ];
 
+    const numLayout = [
+        [
+            { key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }, { key: "5" },
+            { key: "6" }, { key: "7" }, { key: "8" }, { key: "9" }, { key: "0" }
+        ],
+        [
+            { key: "-" }, { key: "/" }, { key: ":" }, { key: ";" }, { key: "(" },
+            { key: ")" }, { key: "$" }, { key: "&" }, { key: "@" }, { key: '"' }
+        ],
+        [
+            { key: "ModeSym", label: "=#\\", cls: "key-action key-mode" },
+            { key: "." }, { key: "," }, { key: "?" }, { key: "!" }, { key: "'" },
+            { key: "Backspace", label: "⌫", cls: "key-action key-delete" }
+        ],
+        [
+            { key: "ModeABC", label: "ABC", cls: "key-action key-mode" },
+            { key: "-", cls: "key-symbol" },
+            { key: " ", label: "space", cls: "key-space" },
+            { key: ".", cls: "key-symbol" },
+            { key: "Enter", label: "return", cls: "key-enter" }
+        ]
+    ];
 
-    // ==========================================
-    // CREATE KEY BUTTON
-    // ==========================================
+    const symLayout = [
+        [
+            { key: "[" }, { key: "]" }, { key: "{" }, { key: "}" }, { key: "#" },
+            { key: "%" }, { key: "^" }, { key: "*" }, { key: "+" }, { key: "=" }
+        ],
+        [
+            { key: "_" }, { key: "\\" }, { key: "|" }, { key: "~" }, { key: "<" },
+            { key: ">" }, { key: "€" }, { key: "£" }, { key: "¥" }, { key: "•" }
+        ],
+        [
+            { key: "Mode123", label: "123", cls: "key-action key-mode" },
+            { key: "." }, { key: "," }, { key: "?" }, { key: "!" }, { key: "'" },
+            { key: "Backspace", label: "⌫", cls: "key-action key-delete" }
+        ],
+        [
+            { key: "ModeABC", label: "ABC", cls: "key-action key-mode" },
+            { key: "-", cls: "key-symbol" },
+            { key: " ", label: "space", cls: "key-space" },
+            { key: ".", cls: "key-symbol" },
+            { key: "Enter", label: "return", cls: "key-enter" }
+        ]
+    ];
+
+    function getCurrentRows() {
+        if (layoutMode === "123") return numLayout;
+        if (layoutMode === "sym") return symLayout;
+        return abcLayout;
+    }
 
     function createKey(definition) {
-
-        const button =
-            document.createElement("button");
-
+        const button = document.createElement("button");
         button.type = "button";
+        button.className = "keyboard-key " + (definition.cls || "");
+        button.dataset.key = definition.key;
 
-        button.className =
-            "keyboard-key " +
-            (definition.cls || "");
+        let displayLabel = definition.label || definition.key;
 
-        button.dataset.key =
-            definition.key;
-
-
-        // Keys with secondary characters
-        if (definition.shift) {
-
-            button.innerHTML =
-
-                `<span class="key-shift">
-                    ${escapeHtml(definition.shift)}
-                 </span>
-
-                 <span class="key-main">
-                    ${escapeHtml(definition.key)}
-                 </span>`;
-
+        if (layoutMode === "abc" && /^[a-z]$/i.test(definition.key)) {
+            displayLabel = (shiftOn || capsLock) ? definition.key.toUpperCase() : definition.key.toLowerCase();
         }
 
-        else {
+        button.innerHTML = `<span class="key-main">${escapeHtml(displayLabel)}</span>`;
 
-            button.innerHTML =
-
-                `<span class="key-main">
-                    ${escapeHtml(
-                        definition.label ||
-                        definition.key
-                    )}
-                 </span>`;
-
+        if (definition.key === "Shift" && (shiftOn || capsLock)) {
+            button.classList.add("key-active");
         }
 
+        button.addEventListener("pointerdown", function (event) {
+            event.preventDefault();
+        });
 
-        // Shift / Caps styling
-        if (
-            definition.key === "CapsLock" ||
-            definition.key === "Shift" ||
-            definition.key === "ShiftRight"
-        ) {
-
-            button.classList.add(
-                "key-accent"
-            );
-
-        }
-
-
-        // Prevent input from losing focus
-        button.addEventListener(
-            "pointerdown",
-            function (event) {
-
-                event.preventDefault();
-
-            }
-        );
-
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                handleKey(
-                    definition.key
-                );
-
-            }
-        );
-
+        button.addEventListener("click", function () {
+            handleKey(definition.key);
+        });
 
         return button;
     }
 
-
-    // ==========================================
-    // BUILD KEYBOARD
-    // ==========================================
-
     function buildKeyboard() {
-
         main.innerHTML = "";
+        const rows = getCurrentRows();
 
         rows.forEach(function (row) {
-
-            const rowElement =
-                document.createElement("div");
-
-            rowElement.className =
-                "keyboard-row";
-
+            const rowElement = document.createElement("div");
+            rowElement.className = "keyboard-row";
 
             row.forEach(function (definition) {
-
-                rowElement.appendChild(
-                    createKey(definition)
-                );
-
+                rowElement.appendChild(createKey(definition));
             });
 
-
-            main.appendChild(
-                rowElement
-            );
-
+            main.appendChild(rowElement);
         });
-
     }
-
-
-    // ==========================================
-    // ESCAPE HTML
-    // ==========================================
 
     function escapeHtml(value) {
-
         return String(value)
-
             .replace(/&/g, "&amp;")
-
             .replace(/</g, "&lt;")
-
             .replace(/>/g, "&gt;")
-
             .replace(/"/g, "&quot;")
-
             .replace(/'/g, "&#039;");
-
     }
-
-
-    // ==========================================
-    // SHOW KEYBOARD
-    // ==========================================
 
     function showKeyboard(input) {
-
         if (!input) return;
-
         activeInput = input;
-
         lastInput = input;
 
-
-        keyboard.classList.add(
-            "keyboard-visible"
-        );
-
-
-        keyboard.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        toggleButton.classList.add(
-            "keyboard-open"
-        );
-
+        keyboard.classList.add("keyboard-visible");
+        keyboard.setAttribute("aria-hidden", "false");
+        toggleButton.classList.add("keyboard-open");
     }
-
-
-    // ==========================================
-    // HIDE KEYBOARD
-    // ==========================================
 
     function hideKeyboard() {
-
-        keyboard.classList.remove(
-            "keyboard-visible"
-        );
-
-
-        keyboard.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-
-        toggleButton.classList.remove(
-            "keyboard-open"
-        );
-
-
-        // Do NOT delete lastInput.
-        // This allows the ⌨ button to reopen it.
-
+        keyboard.classList.remove("keyboard-visible");
+        keyboard.setAttribute("aria-hidden", "true");
+        toggleButton.classList.remove("keyboard-open");
         activeInput = null;
-
     }
-
-
-    // ==========================================
-    // INSERT TEXT AT CURSOR
-    // ==========================================
 
     function insertText(text) {
-
-        if (
-            !activeInput ||
-            !document.contains(activeInput)
-        ) {
-
-            return;
-
-        }
-
-
-        const input =
-            activeInput;
-
-
-        const start =
-            typeof input.selectionStart === "number"
-                ? input.selectionStart
-                : input.value.length;
-
-
-        const end =
-            typeof input.selectionEnd === "number"
-                ? input.selectionEnd
-                : input.value.length;
-
+        if (!activeInput || !document.contains(activeInput)) return;
+        const input = activeInput;
+        const start = typeof input.selectionStart === "number" ? input.selectionStart : input.value.length;
+        const end = typeof input.selectionEnd === "number" ? input.selectionEnd : input.value.length;
 
         input.focus();
-
-
-        input.value =
-
-            input.value.slice(
-                0,
-                start
-            )
-
-            +
-
-            text
-
-            +
-
-            input.value.slice(
-                end
-            );
-
-
-        const cursor =
-            start + text.length;
-
+        input.value = input.value.slice(0, start) + text + input.value.slice(end);
+        const cursor = start + text.length;
 
         try {
+            input.setSelectionRange(cursor, cursor);
+        } catch (_) {}
 
-            input.setSelectionRange(
-                cursor,
-                cursor
-            );
-
-        }
-
-        catch (_) {}
-
-
-        input.dispatchEvent(
-            new Event(
-                "input",
-                {
-                    bubbles: true
-                }
-            )
-        );
-
+        input.dispatchEvent(new Event("input", { bubbles: true }));
     }
-
-
-    // ==========================================
-    // BACKSPACE
-    // ==========================================
 
     function deleteCharacter() {
-
-        if (
-            !activeInput ||
-            !document.contains(activeInput)
-        ) {
-
-            return;
-
-        }
-
-
-        const input =
-            activeInput;
-
-
-        const start =
-            input.selectionStart ??
-            input.value.length;
-
-
-        const end =
-            input.selectionEnd ??
-            input.value.length;
-
+        if (!activeInput || !document.contains(activeInput)) return;
+        const input = activeInput;
+        const start = input.selectionStart ?? input.value.length;
+        const end = input.selectionEnd ?? input.value.length;
 
         input.focus();
-
-
-        // Delete selected text
         if (start !== end) {
-
-            input.value =
-
-                input.value.slice(
-                    0,
-                    start
-                )
-
-                +
-
-                input.value.slice(
-                    end
-                );
-
-
-            input.setSelectionRange(
-                start,
-                start
-            );
-
+            input.value = input.value.slice(0, start) + input.value.slice(end);
+            input.setSelectionRange(start, start);
+        } else if (start > 0) {
+            input.value = input.value.slice(0, start - 1) + input.value.slice(end);
+            input.setSelectionRange(start - 1, start - 1);
         }
 
-
-        // Delete previous character
-        else if (start > 0) {
-
-            input.value =
-
-                input.value.slice(
-                    0,
-                    start - 1
-                )
-
-                +
-
-                input.value.slice(
-                    end
-                );
-
-
-            input.setSelectionRange(
-                start - 1,
-                start - 1
-            );
-
-        }
-
-
-        input.dispatchEvent(
-            new Event(
-                "input",
-                {
-                    bubbles: true
-                }
-            )
-        );
-
+        input.dispatchEvent(new Event("input", { bubbles: true }));
     }
-
-
-    // ==========================================
-    // HANDLE KEY
-    // ==========================================
 
     function handleKey(key) {
-
-
-        // SHIFT
-        if (
-            key === "Shift" ||
-            key === "ShiftRight"
-        ) {
-
-            shiftOn =
-                !shiftOn;
-
-            updateKeyLabels();
-
+        if (key === "Mode123") {
+            layoutMode = "123";
+            buildKeyboard();
             return;
-
         }
 
-
-        // CAPS LOCK
-        if (
-            key === "CapsLock"
-        ) {
-
-            capsOn =
-                !capsOn;
-
-            updateKeyLabels();
-
+        if (key === "ModeABC") {
+            layoutMode = "abc";
+            buildKeyboard();
             return;
-
         }
 
-
-        // BACKSPACE
-        if (
-            key === "Backspace"
-        ) {
-
-            deleteCharacter();
-
+        if (key === "ModeSym") {
+            layoutMode = "sym";
+            buildKeyboard();
             return;
-
         }
 
-
-        // TAB
-        if (
-            key === "Tab"
-        ) {
-
-            moveToNextInput();
-
-            return;
-
-        }
-
-
-        // ENTER
-        if (
-            key === "Enter"
-        ) {
-
-            if (activeInput) {
-
-                activeInput.dispatchEvent(
-
-                    new KeyboardEvent(
-                        "keydown",
-                        {
-                            key: "Enter",
-                            code: "Enter",
-                            bubbles: true
-                        }
-                    )
-
-                );
-
+        if (key === "Shift") {
+            if (!shiftOn && !capsLock) {
+                shiftOn = true;
+            } else if (shiftOn && !capsLock) {
+                shiftOn = false;
+                capsLock = true;
+            } else {
+                shiftOn = false;
+                capsLock = false;
             }
-
-
-            hideKeyboard();
-
+            buildKeyboard();
             return;
-
         }
 
-
-        // ESC
-        if (
-            key === "Escape"
-        ) {
-
-            hideKeyboard();
-
+        if (key === "Backspace") {
+            deleteCharacter();
             return;
-
         }
 
+        if (key === "Enter") {
+            if (activeInput) {
+                activeInput.dispatchEvent(
+                    new KeyboardEvent("keydown", {
+                        key: "Enter",
+                        code: "Enter",
+                        bubbles: true
+                    })
+                );
+            }
+            hideKeyboard();
+            return;
+        }
 
-        // SPACE
-        if (
-            key === " "
-        ) {
-
+        if (key === " ") {
             insertText(" ");
-
             return;
-
         }
 
-
-        // CTRL / ALT / WIN
-        if (
-            [
-                "Control",
-                "ControlRight",
-                "Alt",
-                "AltRight",
-                "Meta"
-            ].includes(key)
-        ) {
-
-            return;
-
+        // Letter or Symbol Key
+        let character = key;
+        if (layoutMode === "abc" && /^[a-z]$/i.test(key)) {
+            character = (shiftOn || capsLock) ? key.toUpperCase() : key.toLowerCase();
         }
 
-
-        // NORMAL CHARACTER
-        const character =
-            getCharacter(key);
-
-
-        insertText(
-            character
-        );
-
+        insertText(character);
         checkExitPassword(character);
 
-
-        // Physical keyboard behavior:
-        // Shift resets after one character.
-
-        if (shiftOn) {
-
+        // Reset single-tap shift
+        if (shiftOn && !capsLock) {
             shiftOn = false;
-
-            updateKeyLabels();
-
+            buildKeyboard();
         }
-
     }
 
-
-    // ==========================================
-    // GET CHARACTER
-    // ==========================================
-
-    function getCharacter(key) {
-
-        const definition =
-            findDefinition(key);
-
-
-        // Symbols
-        if (
-            definition &&
-            definition.shift
-        ) {
-
-            if (shiftOn) {
-
-                return definition.shift;
-
-            }
-
-            return key;
-
+    // Focus listener
+    document.addEventListener("focusin", function (event) {
+        const element = event.target;
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            showKeyboard(element);
         }
-
-
-        // Letters
-        if (
-            /^[a-z]$/i.test(key)
-        ) {
-
-            const uppercase =
-                capsOn !== shiftOn;
-
-
-            return uppercase
-                ? key.toUpperCase()
-                : key.toLowerCase();
-
-        }
-
-
-        return key;
-
-    }
-
-
-    // ==========================================
-    // FIND KEY DEFINITION
-    // ==========================================
-
-    function findDefinition(key) {
-
-        for (
-            const row of rows
-        ) {
-
-            const found =
-                row.find(
-                    item =>
-                        item.key === key
-                );
-
-
-            if (found) {
-
-                return found;
-
-            }
-
-        }
-
-
-        return null;
-
-    }
-
-
-    // ==========================================
-    // UPDATE KEY LABELS
-    // ==========================================
-
-    function updateKeyLabels() {
-
-        main
-            .querySelectorAll(
-                ".keyboard-key"
-            )
-            .forEach(
-                function (button) {
-
-                    const key =
-                        button.dataset.key;
-
-
-                    const definition =
-                        findDefinition(key);
-
-
-                    if (!definition)
-                        return;
-
-
-                    const mainLabel =
-                        button.querySelector(
-                            ".key-main"
-                        );
-
-
-                    const shiftLabel =
-                        button.querySelector(
-                            ".key-shift"
-                        );
-
-
-                    // Letters
-                    if (
-                        /^[a-z]$/i.test(key)
-                    ) {
-
-                        mainLabel.textContent =
-
-                            (
-                                capsOn !== shiftOn
-                            )
-
-                                ? key.toUpperCase()
-
-                                : key.toLowerCase();
-
-                    }
-
-
-                    // Shift symbols
-                    if (
-                        shiftLabel &&
-                        definition.shift
-                    ) {
-
-                        shiftLabel.textContent =
-                            definition.shift;
-
-                    }
-
-
-                    // Caps state
-                    if (
-                        key === "CapsLock"
-                    ) {
-
-                        button.classList.toggle(
-                            "key-locked",
-                            capsOn
-                        );
-
-                    }
-
-
-                    // Shift state
-                    if (
-                        key === "Shift" ||
-                        key === "ShiftRight"
-                    ) {
-
-                        button.classList.toggle(
-                            "key-locked",
-                            shiftOn
-                        );
-
-                    }
-
-                }
-            );
-
-    }
-
-
-    // ==========================================
-    // MOVE TO NEXT INPUT
-    // ==========================================
-
-    function moveToNextInput() {
-
-        if (!activeInput)
-            return;
-
-
-        const inputs = Array.from(
-
-            document.querySelectorAll(
-
-                "input:not([disabled]), " +
-                "textarea:not([disabled]), " +
-                "select:not([disabled])"
-
-            )
-
-        );
-
-
-        const index =
-            inputs.indexOf(
-                activeInput
-            );
-
-
-        if (
-            index >= 0 &&
-            index < inputs.length - 1
-        ) {
-
-            const next =
-                inputs[index + 1];
-
-
-            next.focus();
-
-            showKeyboard(next);
-
-        }
-
-    }
-
-
-    // ==========================================
-    // AUTOMATIC KEYBOARD
-    // ==========================================
-
-    document.addEventListener(
-        "focusin",
-        function (event) {
-
-            const element =
-                event.target;
-
-
-            if (
-                element.tagName === "INPUT" ||
-                element.tagName === "TEXTAREA"
-            ) {
-
-                showKeyboard(
-                    element
-                );
-
-            }
-
-        }
-    );
-
-
-    // ==========================================
-    // CLOSE BUTTON
-    // ==========================================
-
-    closeButton.addEventListener(
-        "click",
-        function () {
-
+    });
+
+    closeButton.addEventListener("click", hideKeyboard);
+
+    const toggleButton = document.createElement("button");
+    toggleButton.id = "keyboardToggle";
+    toggleButton.type = "button";
+    toggleButton.innerHTML = "⌨";
+    toggleButton.title = "Show / Hide keyboard";
+    toggleButton.setAttribute("aria-label", "Show or hide keyboard");
+
+    toggleButton.addEventListener("pointerdown", function (event) {
+        event.preventDefault();
+    });
+
+    toggleButton.addEventListener("click", function () {
+        if (keyboard.classList.contains("keyboard-visible")) {
             hideKeyboard();
-
+            return;
         }
-    );
 
+        const candidate =
+            (activeInput && document.contains(activeInput)) ? activeInput :
+            (lastInput && document.contains(lastInput)) ? lastInput :
+            document.querySelector("input:not([disabled]), textarea:not([disabled])");
 
-    // ==========================================
-    // FLOATING KEYBOARD BUTTON
-    // ==========================================
-
-    const toggleButton =
-        document.createElement(
-            "button"
-        );
-
-
-    toggleButton.id =
-        "keyboardToggle";
-
-
-    toggleButton.type =
-        "button";
-
-
-    toggleButton.innerHTML =
-        "⌨";
-
-
-    toggleButton.title =
-        "Show / Hide keyboard";
-
-
-    toggleButton.setAttribute(
-        "aria-label",
-        "Show or hide keyboard"
-    );
-
-
-    // Prevent input from losing focus
-    toggleButton.addEventListener(
-        "pointerdown",
-        function (event) {
-
-            event.preventDefault();
-
+        if (candidate) {
+            showKeyboard(candidate);
+            candidate.focus();
         }
-    );
+    });
 
+    document.body.appendChild(toggleButton);
 
-    toggleButton.addEventListener(
-        "click",
-        function () {
-
-            // Currently open
-            if (
-                keyboard.classList.contains(
-                    "keyboard-visible"
-                )
-            ) {
-
-                hideKeyboard();
-
-                return;
-
-            }
-
-
-            // Reopen current/last input
-            const candidate =
-
-                (
-                    activeInput &&
-                    document.contains(activeInput)
-                )
-
-                    ? activeInput
-
-                    :
-
-                (
-                    lastInput &&
-                    document.contains(lastInput)
-                )
-
-                    ? lastInput
-
-                    :
-
-                document.querySelector(
-                    "input:not([disabled]), " +
-                    "textarea:not([disabled])"
-                );
-
-
-            if (candidate) {
-
-                showKeyboard(
-                    candidate
-                );
-
-                candidate.focus();
-
-            }
-
-        }
-    );
-
-
-    document.body.appendChild(
-        toggleButton
-    );
-
-
-    // Global listener for physical keyboard keydown to support secret exit password
+    // Global listener for physical keyboard
     document.addEventListener("keydown", function (event) {
         if (event.key && event.key.length === 1) {
             checkExitPassword(event.key);
         }
     });
 
-    // ==========================================
-    // INITIALIZE
-    // ==========================================
-
     buildKeyboard();
-
-    updateKeyLabels();
-
 })();

@@ -12,6 +12,10 @@
 !images/**
 !frontend/
 !frontend/**
+*.png
+*.jpg
+*.xlsx
+*.jsonl
 !backend/*.py
 !backend/neo_nano_ai/*.py
 !api/*.py
