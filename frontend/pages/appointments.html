@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Appointment Booking</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card checkin-card">
+
+<h1>📅 Appointment Booking</h1>
+
+<div class="progress-bar">
+
+<div
+class="progress"
+id="progress"
+style="width:100%;">
+</div>
+
+</div>
+
+<!-- ===================== -->
+<!-- Patient Information -->
+<!-- ===================== -->
+
+<div class="history-card">
+
+<h2>
+
+Patient Information
+
+</h2>
+
+<p>
+
+<b>Patient Name :</b>
+
+<span id="patientName">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<b>Patient ID :</b>
+
+<span id="patientId">
+
+Loading...
+
+</span>
+
+</p>
+
+</div>
+
+<br>
+
+<!-- ===================== -->
+<!-- Department -->
+<!-- ===================== -->
+
+<label>
+
+Department
+
+</label>
+
+<select id="department">
+
+<option>
+
+Loading Departments...
+
+</option>
+
+</select>
+
+<br><br>
+
+<!-- ===================== -->
+<!-- Doctor -->
+<!-- ===================== -->
+
+<label>
+
+Doctor
+
+</label>
+
+<select id="doctor">
+
+<option>
+
+Select Department First
+
+</option>
+
+</select>
+
+<br><br>
+
+<!-- ===================== -->
+<!-- Appointment Date -->
+<!-- ===================== -->
+
+<label>
+
+Appointment Date
+
+</label>
+
+<input
+type="date"
+id="appointmentDate">
+
+<br><br>
+
+<!-- ===================== -->
+<!-- Appointment Time -->
+<!-- ===================== -->
+
+<label>
+
+Appointment Time
+
+</label>
+
+<select id="opdTime">
+
+<option>
+
+Select OPD Time
+
+</option>
+
+</select>
+
+<br><br>
+
+<!-- ===================== -->
+<!-- Appointment Summary -->
+<!-- ===================== -->
+
+<div
+class="history-card"
+id="appointmentSummary">
+
+<h2>
+
+Appointment Summary
+
+</h2>
+
+<p>
+
+<b>Department :</b>
+
+<span id="summaryDepartment">
+
+-
+
+</span>
+
+</p>
+
+<p>
+
+<b>Doctor :</b>
+
+<span id="summaryDoctor">
+
+-
+
+</span>
+
+</p>
+
+<p>
+
+<b>Appointment Date :</b>
+
+<span id="summaryDay">
+
+-
+
+</span>
+
+</p>
+
+<p>
+
+<b>Appointment Time :</b>
+
+<span id="summaryTime">
+
+-
+
+</span>
+
+</p>
+
+</div>
+
+<br>
+
+<button
+id="confirmBtn"
+onclick="confirmAppointment()">
+
+Confirm Appointment
+
+</button>
+
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+
+
+<script>
+
+//==========================================
+// Load Patient Information
+//==========================================
+
+const patient = JSON.parse(
+    sessionStorage.getItem("patient")
+);
+
+if(!patient){ alert("Please complete patient check-in and Neo Nano assessment first."); window.location.href="checkin.html"; }
+
+if(patient){
+
+    const patientName =
+        patient["PATIENT NAME"] ||
+        patient["Patient Name"] ||
+        patient.patient_name ||
+        patient.patientName ||
+        "-";
+
+    const patientId =
+        patient["PATIENT ID"] ||
+        patient["Patient ID"] ||
+        patient.patient_id ||
+        patient.patientId ||
+        "-";
+
+    document.getElementById("patientName").textContent =
+        patientName;
+
+    document.getElementById("patientId").textContent =
+        patientId;
+
+}
+
+//==========================================
+// Load Departments
+//==========================================
+
+window.onload = async function(){
+
+    const dateInput =
+    document.getElementById("appointmentDate");
+
+    const today = new Date();
+
+    dateInput.min =
+    today.toISOString().split("T")[0];
+
+    dateInput.value =
+    today.toISOString().split("T")[0];
+
+    document.getElementById(
+        "summaryDay"
+    ).innerHTML =
+    dateInput.value;
+
+
+    await loadDepartments();
+
+};
+
+async function loadDepartments(){
+
+    const departments = await getDepartments();
+
+    const department =
+    document.getElementById("department");
+
+    department.innerHTML = "";
+
+    departments.forEach(dep=>{
+        department.innerHTML += `<option value="${dep["Department"]}">${dep["Department"]}</option>`;
+    });
+
+    const recommended = sessionStorage.getItem("neoNanoRecommendedDepartment");
+    if (recommended) {
+        const option = Array.from(department.options).find(o => o.value.trim().toLowerCase() === recommended.trim().toLowerCase());
+        if (option) department.value = option.value;
+    }
+    department.dispatchEvent(new Event("change"));
+
+}
+
+//==========================================
+// Department Changed
+//==========================================
+
+document.getElementById("department")
+.addEventListener(
+
+"change",
+
+async function(){
+
+    document.getElementById(
+        "summaryDepartment"
+    ).innerHTML = this.value;
+
+    const doctors =
+    await getDoctors(this.value);
+
+    const doctor =
+    document.getElementById("doctor");
+
+    doctor.innerHTML = "";
+
+    doctors.forEach(doc=>{
+
+        doctor.innerHTML +=
+
+        `<option value="${doc["Doctor Name"]}">
+
+            ${doc["Doctor Name"]}
+
+        </option>`;
+
+    });
+
+    doctor.dispatchEvent(
+        new Event("change")
+    );
+
+}
+
+);
+
+//==========================================
+// Doctor Changed
+//==========================================
+
+document.getElementById("doctor")
+.addEventListener(
+
+"change",
+
+async function(){
+
+    document.getElementById(
+        "summaryDoctor"
+    ).innerHTML = this.value;
+
+
+    const schedule =
+    await getSchedule(this.value);
+    console.log("Schedule:", schedule);
+
+
+
+    const timeSelect =
+    document.getElementById("opdTime");
+
+
+    timeSelect.innerHTML = "";
+
+    if(schedule.length === 0){
+
+
+        timeSelect.innerHTML =
+        "<option>No Time Available</option>";
+
+        return;
+
+    }
+
+
+    //--------------------------------------
+    // Load Appointment Times Slots
+    //--------------------------------------
+    timeSelect.innerHTML = "";
+
+    generateTimeSlots(schedule[0]["OPD Time"],timeSelect);
+
+
+
+
+    document.getElementById(
+        "summaryDay"
+    ).innerHTML =
+    document.getElementById("appointmentDate").value;
+
+    document.getElementById(
+        "summaryTime"
+    ).innerHTML =
+    timeSelect.value;
+
+}
+
+);
+document.getElementById(
+"appointmentDate"
+
+).addEventListener(
+
+"change",
+
+function(){
+
+document.getElementById(
+"summaryDay"
+).innerHTML =
+this.value;
+
+});
+
+
+//==========================================
+// Time Changed
+//==========================================
+
+document.getElementById("opdTime")
+.addEventListener(
+
+"change",
+
+function(){
+
+    document.getElementById(
+        "summaryTime"
+    ).innerHTML = this.value;
+
+}
+
+);
+//======================================
+// Generate 15-minute Appointment Slots
+//======================================
+
+function generateTimeSlots(opdTime, timeSelect){
+
+    timeSelect.innerHTML = "";
+
+    const sessions = opdTime.split(",");
+
+    sessions.forEach(function(session){
+
+        session = session.trim();
+
+        const range = session.split("–");
+
+        if(range.length !== 2){
+
+            return;
+
+        }
+
+        let start =
+        convertToMinutes(range[0].trim());
+
+        let end =
+        convertToMinutes(range[1].trim());
+
+        while(start <= end){
+
+            const option =
+            document.createElement("option");
+
+            option.value =
+            convertToTime(start);
+
+            option.text =
+            convertToTime(start);
+
+            timeSelect.appendChild(option);
+
+            start += 15;
+
+        }
+
+    });
+
+}
+function convertToMinutes(time){
+
+    let parts = time.split(" ");
+
+    let hm = parts[0].split(":");
+
+    let hour = parseInt(hm[0]);
+
+    let minute = parseInt(hm[1]);
+
+    let ampm = parts[1];
+
+    if(ampm === "PM" && hour !== 12)
+        hour += 12;
+
+    if(ampm === "AM" && hour === 12)
+        hour = 0;
+
+    return hour * 60 + minute;
+
+}
+function convertToTime(minutes){
+
+    let hour =
+    Math.floor(minutes / 60);
+
+    let minute =
+    minutes % 60;
+
+    let ampm =
+    hour >= 12 ? "PM" : "AM";
+
+    if(hour > 12)
+        hour -= 12;
+
+    if(hour === 0)
+        hour = 12;
+
+    return (
+
+        hour +
+
+        ":" +
+
+        String(minute).padStart(2,"0")
+
+        + " " +
+
+        ampm
+
+    );
+
+}
+//==========================================
+// Confirm Appointment
+//==========================================
+
+//==========================================
+// Confirm Appointment
+//==========================================
+
+async function confirmAppointment(){
+
+    const confirmBtn = document.getElementById("confirmBtn");
+
+    try{
+
+        const patientId =
+            patient?.["PATIENT ID"] ||
+            patient?.["Patient ID"] ||
+            patient?.patient_id ||
+            patient?.patientId;
+
+        const department =
+            document.getElementById("department").value;
+
+        const doctor =
+            document.getElementById("doctor").value;
+
+        const date =
+            document.getElementById("appointmentDate").value;
+
+        const time =
+            document.getElementById("opdTime").value;
+
+        if(!patientId){
+            throw new Error(
+                "Patient ID is missing. Please complete patient registration again."
+            );
+        }
+
+        if(!department){
+            throw new Error("Please select a department.");
+        }
+
+        if(!doctor){
+            throw new Error("Please select a doctor.");
+        }
+
+        if(!date){
+            throw new Error("Please select appointment date.");
+        }
+
+        if(!time || time === "No Time Available"){
+            throw new Error("Please select a valid appointment time.");
+        }
+
+        // Prevent double booking from repeated clicks.
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = "Booking Appointment...";
+
+        const bookingData = {
+            patient_id: String(patientId).trim(),
+            department: String(department).trim(),
+            doctor: String(doctor).trim(),
+            date: String(date).trim(),
+            time: String(time).trim()
+        };
+
+        console.log("Booking Data:", bookingData);
+
+        const result = await bookAppointment(bookingData);
+
+        console.log("Backend Response:", result);
+
+        if(!result || !result.success){
+
+            throw new Error(
+                result?.message ||
+                "Appointment booking failed. Please try again."
+            );
+
+        }
+
+        if(!result.appointment){
+
+            throw new Error(
+                "Appointment was saved but no appointment data was returned."
+            );
+
+        }
+
+        // Save appointment for billing and receipt pages.
+        sessionStorage.setItem(
+            "appointment",
+            JSON.stringify(result.appointment)
+        );
+
+        // NO JSON ALERT AND NO CONFIRMATION POPUP.
+        // Go directly to the dashboard.
+        window.location.href = "dashboard.html";
+
+    }
+
+    catch(error){
+
+        console.error("Appointment booking error:", error);
+
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = "Confirm Appointment";
+
+        alert(
+            error?.message ||
+            "Appointment booking failed."
+        );
+
+    }
+
+}
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const recommendedDepartment = sessionStorage.getItem("neoNanoRecommendedDepartment");
+    if (!recommendedDepartment) return;
+
+    const selects = Array.from(document.querySelectorAll("select"));
+    const departmentSelect = selects.find(select =>
+        (select.id || "").toLowerCase().includes("department") ||
+        (select.name || "").toLowerCase().includes("department")
+    );
+
+    if (departmentSelect) {
+        const option = Array.from(departmentSelect.options).find(
+            option => option.text.trim().toLowerCase() === recommendedDepartment.toLowerCase()
+        );
+        if (option) {
+            departmentSelect.value = option.value;
+            departmentSelect.dispatchEvent(new Event("change"));
+        }
+    }
+
+    const note = document.createElement("div");
+    note.style.cssText = "padding:12px;margin:12px 0;border-radius:10px;background:#eef7ff;border:1px solid #b7d8f5;";
+    note.innerHTML = "<b>Neo Nano recommendation:</b> " + recommendedDepartment +
+                     "<br><small>You can change the department before booking.</small>";
+
+    const firstContainer = document.querySelector(".container") || document.body;
+    firstContainer.insertBefore(note, firstContainer.firstChild);
+});
+</script>
+
+
+
+</body>
+
+</html>

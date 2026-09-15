@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Consultant Payment Receipt</title>
+
+    <style>
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+
+            margin:0;
+
+            padding:20px;
+
+            background:#f2f2f2;
+
+            font-family:
+            "Courier New",
+            Courier,
+            monospace;
+
+        }
+
+        .receipt{
+
+            width:80mm;
+
+            min-height:100vh;
+
+            margin:auto;
+
+            background:#ffffff;
+
+            color:#000000;
+
+            padding:8mm 6mm;
+
+            font-size:14px;
+
+            line-height:1.45;
+
+        }
+
+        .center{
+
+            text-align:center;
+
+        }
+
+        .hospital-name{
+
+            font-family:Arial,sans-serif;
+
+            font-size:25px;
+
+            font-weight:bold;
+
+            letter-spacing:1px;
+
+            margin-bottom:2px;
+
+        }
+
+        .receipt-title{
+
+            font-family:Arial,sans-serif;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            margin-bottom:12px;
+
+        }
+
+        .line{
+
+            border-top:1px dashed #000;
+
+            margin:12px 0;
+
+        }
+
+        .token-title{
+
+            font-family:Arial,sans-serif;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            margin-bottom:4px;
+
+        }
+
+        .token-number{
+
+            font-family:Arial,sans-serif;
+
+            font-size:34px;
+
+            font-weight:bold;
+
+            letter-spacing:2px;
+
+        }
+
+        .row{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            gap:15px;
+
+            margin:5px 0;
+
+        }
+
+        .row .label{
+
+            flex:1;
+
+        }
+
+        .row .value{
+
+            text-align:right;
+
+            max-width:55%;
+
+            word-break:break-word;
+
+        }
+
+        .consultant-row{
+
+            margin:8px 0;
+
+        }
+
+        .fee-row{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            font-size:15px;
+
+            margin:5px 0;
+
+        }
+
+        .total-row{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            font-family:Arial,sans-serif;
+
+            font-size:19px;
+
+            font-weight:bold;
+
+        }
+
+        .paid{
+
+            text-align:center;
+
+            font-family:Arial,sans-serif;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+            margin-top:4px;
+
+        }
+
+        .footer{
+
+            text-align:center;
+
+            margin-top:18px;
+
+            font-family:Arial,sans-serif;
+
+            font-weight:bold;
+
+        }
+
+        .footer .thank{
+
+            font-size:17px;
+
+            margin-bottom:3px;
+
+        }
+
+        .footer .city{
+
+            font-size:19px;
+
+        }
+
+        .screen-actions{
+
+            width:80mm;
+
+            margin:20px auto;
+
+            text-align:center;
+
+        }
+
+        button{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:8px;
+
+            background:#17658c;
+
+            color:white;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+        }
+
+        @media print{
+
+            @page{
+
+                size:80mm auto;
+
+                margin:0;
+
+            }
+
+            body{
+
+                background:white;
+
+                padding:0;
+
+            }
+
+            .receipt{
+
+                width:80mm;
+
+                min-height:auto;
+
+                margin:0;
+
+                padding:8mm 6mm;
+
+            }
+
+            .screen-actions{
+
+                display:none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="receipt">
+
+    <div class="center">
+
+        <div class="hospital-name">
+
+            CITY HOSPITAL
+
+        </div>
+
+        <div class="receipt-title">
+
+            CONSULTANT PAYMENT RECEIPT
+
+        </div>
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="center">
+
+        <div class="token-title">
+
+            TOKEN NUMBER
+
+        </div>
+
+        <div
+            class="token-number"
+            id="tokenNo">
+
+            A-001
+
+        </div>
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Receipt No
+
+        </span>
+
+        <span
+            class="value"
+            id="receiptNo">
+
+        </span>
+
+    </div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Date
+
+        </span>
+
+        <span
+            class="value"
+            id="date">
+
+        </span>
+
+    </div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Time
+
+        </span>
+
+        <span
+            class="value"
+            id="time">
+
+        </span>
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Patient ID
+
+        </span>
+
+        <span
+            class="value"
+            id="patientId">
+
+        </span>
+
+    </div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Patient Name
+
+        </span>
+
+        <span
+            class="value"
+            id="patientName">
+
+        </span>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="consultant-row">
+
+        <b>Consultant</b>
+
+        <br>
+
+        <span id="consultant"></span>
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="fee-row">
+
+        <span>
+
+            Consultation Fee
+
+        </span>
+
+        <span>
+
+            Rs. <span id="amount"></span>
+
+        </span>
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="total-row">
+
+        <span>
+
+            TOTAL
+
+        </span>
+
+        <span>
+
+            Rs. <span id="total"></span>
+
+        </span>
+
+    </div>
+
+
+    <div class="paid">
+
+        PAID
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Payment Method
+
+        </span>
+
+        <span
+            class="value"
+            id="paymentMethod">
+
+        </span>
+
+    </div>
+
+
+    <br>
+
+
+    <div class="row">
+
+        <span class="label">
+
+            Status
+
+        </span>
+
+        <span
+            class="value"
+            id="status">
+
+        </span>
+
+    </div>
+
+
+    <div class="footer">
+
+        <div class="thank">
+
+            Thank You
+
+        </div>
+
+        <div class="city">
+
+            CITY HOSPITAL
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="screen-actions">
+
+    <button
+        onclick="printAgain()">
+
+        🖨 Print Receipt
+
+    </button>
+
+</div>
+
+
+<script>
+
+    // ==========================================
+    // GET RECEIPT
+    // ==========================================
+
+    const receipt = JSON.parse(
+        sessionStorage.getItem("receipt")
+    );
+
+
+    // ==========================================
+    // LOAD RECEIPT
+    // ==========================================
+
+    function loadReceipt(){
+
+        if(!receipt){
+
+            alert("Receipt not found.");
+
+            window.location.href =
+                "consultant_bill.html";
+
+            return false;
+
+        }
+
+        document.getElementById("receiptNo").textContent =
+            receipt.receiptNo || "-";
+
+        document.getElementById("date").textContent =
+            receipt.date || "-";
+
+        document.getElementById("time").textContent =
+            receipt.time || "-";
+
+        document.getElementById("patientId").textContent =
+            receipt.patientId || "-";
+
+        document.getElementById("patientName").textContent =
+            receipt.patientName || "-";
+
+        document.getElementById("tokenNo").textContent =
+            receipt.token || "A-001";
+
+        document.getElementById("consultant").textContent =
+            receipt.consultant || "-";
+
+        document.getElementById("amount").textContent =
+            receipt.amount || "0";
+
+        document.getElementById("total").textContent =
+            receipt.amount || "0";
+
+        document.getElementById("paymentMethod").textContent =
+            (receipt.paymentMethod || "-").toUpperCase();
+
+        document.getElementById("status").textContent =
+            (receipt.status || "PAID").toUpperCase();
+
+        return true;
+
+    }
+
+
+    // ==========================================
+    // THERMAL RECEIPT HTML
+    // ==========================================
+
+    function buildReceiptHTML(){
+
+        const escapeHTML = (value) => {
+
+            return String(value ?? "-")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        };
+
+        return `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+
+@page {
+    size: 80mm auto;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 80mm;
+    font-family: "Courier New", Courier, monospace;
+    color: #000;
+    background: #fff;
+}
+
+.receipt {
+    width: 80mm;
+    padding: 6mm;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.center {
+    text-align: center;
+}
+
+.hospital-name {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.receipt-title {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.line {
+    border-top: 1px dashed #000;
+    margin: 10px 0;
+}
+
+.token-title {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.token-number {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.label {
+    flex: 1;
+}
+
+.value {
+    text-align: right;
+    max-width: 55%;
+    word-break: break-word;
+}
+
+.consultant {
+    margin: 8px 0;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.paid {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="receipt">
+
+    <div class="center">
+        <div class="hospital-name">CITY HOSPITAL</div>
+        <div class="receipt-title">
+            CONSULTANT PAYMENT RECEIPT
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="center">
+        <div class="token-title">TOKEN NUMBER</div>
+        <div class="token-number">
+            ${escapeHTML(receipt.token || "A-001")}
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span class="label">Receipt No</span>
+        <span class="value">
+            ${escapeHTML(receipt.receiptNo)}
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="label">Date</span>
+        <span class="value">
+            ${escapeHTML(receipt.date)}
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="label">Time</span>
+        <span class="value">
+            ${escapeHTML(receipt.time)}
+        </span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span class="label">Patient ID</span>
+        <span class="value">
+            ${escapeHTML(receipt.patientId)}
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="label">Patient Name</span>
+        <span class="value">
+            ${escapeHTML(receipt.patientName)}
+        </span>
+    </div>
+
+    <br>
+
+    <div class="consultant">
+        <b>Consultant</b><br>
+        ${escapeHTML(receipt.consultant)}
+    </div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span class="label">Consultation / Service</span>
+        <span class="value">
+            ${escapeHTML(
+                receipt.service ||
+                receipt.consultation ||
+                "Consultation"
+            )}
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="label">Consultation Fee</span>
+        <span class="value">
+            Rs. ${escapeHTML(receipt.amount || "0")}
+        </span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="total">
+        <span>TOTAL</span>
+        <span>
+            Rs. ${escapeHTML(receipt.amount || "0")}
+        </span>
+    </div>
+
+    <div class="paid">PAID</div>
+
+    <div class="line"></div>
+
+    <div class="row">
+        <span class="label">Payment Method</span>
+        <span class="value">
+            ${escapeHTML(
+                (receipt.paymentMethod || "-").toUpperCase()
+            )}
+        </span>
+    </div>
+
+    <div class="row">
+        <span class="label">Status</span>
+        <span class="value">
+            ${escapeHTML(
+                (receipt.status || "PAID").toUpperCase()
+            )}
+        </span>
+    </div>
+
+</div>
+
+</body>
+</html>
+`;
+
+    }
+
+
+    // ==========================================
+    // THERMAL PRINT
+    // ==========================================
+
+    async function printAgain(){
+
+        const button =
+            document.querySelector(".screen-actions button");
+
+        const originalText =
+            button ? button.textContent : "";
+
+        if(button){
+
+            button.disabled = true;
+            button.textContent = "🖨 Printing...";
+
+        }
+
+        let errorMessage = null;
+
+        try{
+
+            const receiptHTML =
+                buildReceiptHTML();
+
+            const response =
+                await fetch(
+                    "http://127.0.0.1:5000/api/print_receipt",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            html: receiptHTML
+                        })
+                    }
+                );
+
+            let result = {};
+
+            try{
+
+                result = await response.json();
+
+            }
+            catch(parseError){
+
+                throw new Error(
+                    "Invalid response from print server."
+                );
+
+            }
+
+            if(!response.ok || !result.success){
+
+                throw new Error(
+                    result.message ||
+                    result.error ||
+                    "Receipt printing failed."
+                );
+
+            }
+
+            window.location.href =
+                "../menu.html";
+
+        }
+        catch(error){
+
+            console.error(
+                "Receipt printing error:",
+                error
+            );
+
+            errorMessage =
+                error.message ||
+                "Receipt printing failed.";
+
+            let errorBox =
+                document.getElementById("printError");
+
+            if(!errorBox){
+
+                errorBox =
+                    document.createElement("div");
+
+                errorBox.id = "printError";
+
+                errorBox.style.color = "#b00020";
+                errorBox.style.background = "#ffe6e6";
+                errorBox.style.padding = "10px";
+                errorBox.style.marginTop = "10px";
+                errorBox.style.borderRadius = "6px";
+                errorBox.style.fontWeight = "bold";
+
+                const actions =
+                    document.querySelector(".screen-actions");
+
+                if(actions){
+
+                    actions.appendChild(errorBox);
+
+                }
+
+            }
+
+            errorBox.textContent =
+                "Print failed: " + errorMessage;
+
+            if(button){
+
+                button.disabled = false;
+                button.textContent = originalText;
+
+            }
+
+        }
+
+    }
+
+
+    // ==========================================
+    // LOAD ONLY — NO AUTOMATIC PRINTING
+    // ==========================================
+
+    window.addEventListener(
+        "DOMContentLoaded",
+        function(){
+
+            loadReceipt();
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>

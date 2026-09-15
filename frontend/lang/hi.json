@@ -1,0 +1,42 @@
+{
+    "menu":"मेनू",
+    "appointments":"अपॉइंटमेंट",
+    "billing":"बिलिंग",
+    "faq":"अक्सर पूछे जाने वाले प्रश्न",
+    "wait_dashboard":"वैट डैशबोर्ड",
+    "location":"स्थान",
+    "thank_you":"धन्यवाद",
+    "wayfinding":"मार्गदर्शन",
+    "department":"विभाग",
+    "floor":"मंजिल",
+    "room":"कमरा नंबर",
+    "doctor":"डॉक्टर",
+    "patient":"रोगी",
+    "back":"वापस",
+    "next":"अगला",
+    "close":"बंद करें",
+    "search":"खोजें",
+    "continue":"जारी रखें",
+    "yes":"हाँ",
+    "no":"नहीं",
+
+    "patient_checkin":" रोगी चेक-इन",
+
+    "automatic_authentication":"स्वचालित रोगी प्रमाणीकरण",
+
+    "welcome_message":"सिटी हॉस्पिटल में आपका स्वागत है।",
+
+    "patient_detected":"रोगी का पता चला।<br><br>प्रमाणीकरण शुरू हो रहा है...",
+
+    "scanning_face":"चेहरा स्कैन किया जा रहा है...",
+
+    "verifying_voice":"आवाज़ सत्यापित की जा रही है...",
+
+    "checking_database":"अस्पताल डेटाबेस की जाँच की जा रही है...",
+
+    "authentication_successful":"प्रमाणीकरण सफल।<br><br>स्वागत है ",
+
+    "patient_not_found":"रोगी नहीं मिला।<br><br>पंजीकरण खोला जा रहा है...",
+
+    "server_error":"अस्पताल सर्वर से कनेक्ट नहीं हो सका।"
+}

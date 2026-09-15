@@ -1,0 +1,154 @@
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fullscreen viewport container to hold and center the box */
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevents outer page scrollbars */
+  background-color: #eef2f5; /* Outer background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/*
+  Main Card / Form / Receipt Box
+  Occupies 75% of screen width and 75% of screen height, centered.
+  Leaves 12.5% margin on top, bottom, left, and right (25% total space).
+*/
+.container,
+.form-box,
+.receipt-container,
+.card,
+#main-card {
+  width: 65vw;
+  height: 65vh;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid #dcdfe6;
+
+  /* Enables scrolling inside the box if form content overflows */
+  overflow-y: auto;
+
+  /* Flex layout inside the box to stack contents neatly */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Larger Text Scale */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 2.0rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+p, span, label, td, th, li {
+  font-size: 1.5rem;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Larger Form Controls */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.2rem;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #3182ce;
+  background-color: #ffffff;
+}
+
+button,
+.btn {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3182ce;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #2b6cb0;
+}
+
+/* Tables inside the box */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.2rem;
+}
+
+th {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  font-weight: 700;
+}

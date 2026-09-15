@@ -1,0 +1,14 @@
+*
+!.gitignore
+!index.html
+!about.html
+!contact.html
+!vision.html
+!css/
+!css/**
+!js/
+!js/**
+!images/
+!images/**
+!frontend/
+!frontend/**

@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Existing Patient</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container"><div class="glass-card checkin-card"><h1>✅ Existing Patient</h1><p>Enter your Patient ID or Patient Name.</p>
+<input id="patientSearch" type="text" placeholder="Example: PAT-001 or patient name"><br><br>
+<button onclick="findPatient()">Find Patient</button><p id="status" style="margin-top:20px;"></p><div id="patientCard" class="history-card" style="display:none;"><h2 id="patientName"></h2><p><b>Patient ID:</b> <span id="patientId"></span></p><p><b>Gender:</b> <span id="gender"></span></p><p><b>Age:</b> <span id="age"></span></p><button onclick="continueToNeoNano()">Continue to Neo Nano</button></div><br><a href="checkin.html"><button>← Back</button></a></div></div>
+<script src="../api.js"></script><script>
+let selectedPatient=null;
+async function findPatient(){const q=document.getElementById('patientSearch').value.trim();const status=document.getElementById('status');if(!q){status.textContent='Please enter a Patient ID or Patient Name.';return;}status.textContent='Searching...';try{let patient=null;if(/^PAT-/i.test(q)){const r=await getPatient(q.toUpperCase());if(r&&r['PATIENT ID']) patient=r;}if(!patient){const all=await getPatients();patient=all.find(p=>String(p['PATIENT ID']).toLowerCase()===q.toLowerCase()||String(p['PATIENT NAME']).toLowerCase()===q.toLowerCase());}if(!patient){status.textContent='Patient not found. Please register as a new patient.';document.getElementById('patientCard').style.display='none';return;}selectedPatient=patient;sessionStorage.setItem('patient',JSON.stringify(patient));document.getElementById('patientName').textContent=patient['PATIENT NAME']||'-';document.getElementById('patientId').textContent=patient['PATIENT ID']||'-';document.getElementById('gender').textContent=patient['GENDER']||'-';document.getElementById('age').textContent=patient['AGE']||'-';document.getElementById('patientCard').style.display='block';status.textContent='Patient found.';}catch(e){console.error(e);status.textContent='Unable to connect to Hospital Server.';}}
+function continueToNeoNano(){if(selectedPatient) window.location.href='neo_nano.html';}
+</script>
+<script src="../keyboard.js"></script>
+</body>
+</html>

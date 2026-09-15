@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Service Receipt</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.receipt{
+
+width:700px;
+
+margin:30px auto;
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+color:black;
+
+}
+
+.receipt h1{
+
+text-align:center;
+
+margin:0;
+
+}
+
+.receipt h2{
+
+text-align:center;
+
+margin-top:5px;
+
+color:#555;
+
+}
+
+.receipt table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:15px;
+
+}
+
+.receipt td{
+
+padding:10px;
+
+font-size:18px;
+
+border-bottom:1px solid #ddd;
+
+}
+
+.total{
+
+font-size:24px;
+
+font-weight:bold;
+
+border-top:2px solid black;
+
+}
+
+.footer{
+
+text-align:center;
+
+margin-top:40px;
+
+}
+
+@media print{
+
+button{
+
+display:none;
+
+}
+
+.receipt{
+
+width:100%;
+
+box-shadow:none;
+
+margin:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="receipt">
+
+<h1>
+
+CITY HOSPITAL
+
+</h1>
+
+<h2>
+
+SERVICE PAYMENT RECEIPT
+
+</h2>
+
+<hr>
+
+<table>
+
+<tr>
+
+<td>
+
+Receipt No
+
+</td>
+
+<td id="receiptNo">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Date
+
+</td>
+
+<td id="date">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Time
+
+</td>
+
+<td id="time">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Patient ID
+
+</td>
+
+<td id="patientId">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Patient Name
+
+</td>
+
+<td id="patientName">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Consultant
+
+</td>
+
+<td id="doctor">
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<h3>
+
+Services
+
+</h3>
+
+<table id="serviceTable">
+
+</table>
+
+<br>
+
+<table>
+
+<tr class="total">
+
+<td>
+
+TOTAL PAID
+
+</td>
+
+<td align="right">
+
+₹ <span id="total"></span>
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<table>
+
+<tr>
+
+<td>
+
+Payment Method
+
+</td>
+
+<td id="method">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Status
+
+</td>
+
+<td style="color:green;font-weight:bold;">
+
+PAID
+
+</td>
+
+</tr>
+
+</table>
+
+<div class="footer">
+
+<h3>
+
+Thank You
+
+</h3>
+
+
+
+</div>
+
+</div>
+
+<script>
+
+const appointment =
+JSON.parse(
+sessionStorage.getItem("appointment")
+);
+
+const service =
+JSON.parse(
+sessionStorage.getItem("serviceBill")
+);
+
+const method =
+sessionStorage.getItem(
+"servicePaymentMethod"
+);
+
+const now =
+new Date();
+
+document.getElementById("receiptNo").innerHTML =
+"SR-"+Date.now();
+
+document.getElementById("date").innerHTML =
+now.toLocaleDateString();
+
+document.getElementById("time").innerHTML =
+now.toLocaleTimeString();
+
+document.getElementById("patientId").innerHTML =
+service["Patient ID"];
+
+document.getElementById("patientName").innerHTML =
+service["Patient Name"];
+
+document.getElementById("doctor").innerHTML =
+service["Consultant"];
+
+document.getElementById("method").innerHTML =
+method;
+
+document.getElementById("total").innerHTML =
+service.Total;
+
+let rows="";
+
+service.Services.forEach(item=>{
+
+rows +=
+
+`
+
+<tr>
+
+<td>
+
+${item.Service}
+
+</td>
+
+<td align="right">
+
+₹ ${item.Amount}
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("serviceTable").innerHTML =
+rows;
+
+
+
+
+
+</script>
+
+</body>
+
+</html>

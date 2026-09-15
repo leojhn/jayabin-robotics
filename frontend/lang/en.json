@@ -1,0 +1,42 @@
+{
+    "menu":"Menu",
+    "appointments":"Appointments",
+    "billing":"Billing",
+    "faq":"FAQ",
+    "wait_dashboard":"Wait Dashboard",
+    "location":"Location",
+    "thank_you":"Thank You",
+    "wayfinding":"Wayfinding",
+    "department":"Department",
+    "floor":"Floor",
+    "room":"Room Number",
+    "doctor":"Doctor",
+    "patient":"Patient",
+    "back":"Back",
+    "next":"Next",
+    "close":"Close",
+    "search":"Search",
+    "continue":"Continue",
+    "yes":"Yes",
+    "no":"No",
+
+    "patient_checkin":" Patient Check-In",
+
+    "automatic_authentication":"Automatic Patient Authentication",
+
+    "welcome_message":"Welcome to City Hospital",
+
+    "patient_detected":"Patient detected.<br><br>Starting authentication...",
+
+    "scanning_face":"Scanning Face...",
+
+    "verifying_voice":"Verifying Voice...",
+
+    "checking_database":"Checking Hospital Database...",
+
+    "authentication_successful":"Authentication Successful.<br><br>Welcome ",
+
+    "patient_not_found":"Patient Not Found.<br><br>Opening Registration...",
+
+    "server_error":"Unable to connect to Hospital Server."
+}

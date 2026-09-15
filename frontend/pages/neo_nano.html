@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask Neo Nano</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.neo-panel{max-width:1000px;margin:20px auto;padding:24px}
+.neo-input{width:100%;min-height:130px;padding:18px;border-radius:14px;border:1px solid #ccc;font-size:18px;box-sizing:border-box}
+.neo-actions{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}
+.neo-result{margin-top:20px;padding:20px;border-radius:16px;background:rgba(255,255,255,.9)}
+.neo-card{border:1px solid #ddd;border-radius:14px;padding:16px;margin:12px 0}
+.neo-departments button{margin:5px}
+.urgent{border-left:6px solid #c62828}
+.routine{border-left:6px solid #2e7d32}
+.small-note{font-size:18px;opacity:.8}
+.neo-result,
+.neo-result p,
+.neo-result h2,
+.neo-result h3,
+.neo-result b,
+.neo-card,
+.neo-card p,
+.neo-card h3 {
+    color: #111 !important;
+    opacity: 1 !important;
+}
+
+.neo-card {
+    background: #ffffff !important;
+    border: 1px solid #ccc !important;
+}
+
+.small-note {
+    color: #444 !important;
+    opacity: 1 !important;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="welcome-section">
+    <h1>🧠 Neo Nano AI Assistant</h1>
+    <p>Describe your symptoms so Neo Nano can recommend the appropriate department before appointment booking.</p>
+  </div>
+
+  <div class="glass-card neo-panel"><div class="history-card"><b>Patient:</b> <span id="neoPatientName"></span> &nbsp; <b>ID:</b> <span id="neoPatientId"></span></div><br>
+    <textarea id="neoQuery" class="neo-input"
+      placeholder="Example: I have headache, palpitations and sweating. Which department should I visit?"></textarea>
+
+    <div class="neo-actions">
+      <button onclick="runNeoNano()">Ask with Neo Nano</button>
+      <a href="checkin.html"><button type="button">← Back to Patient Check-In</button></a>
+    </div>
+
+    <div id="neoResult"></div>
+  </div>
+</div>
+
+<script src="../api.js"></script>
+<script>
+const neoPatient = JSON.parse(sessionStorage.getItem("patient"));
+if (!neoPatient) { alert("Please complete patient check-in first."); window.location.href="checkin.html"; }
+else { document.getElementById("neoPatientName").textContent = neoPatient["PATIENT NAME"] || ""; document.getElementById("neoPatientId").textContent = neoPatient["PATIENT ID"] || ""; }
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+}
+
+async function runNeoNano() {
+  const query = document.getElementById("neoQuery").value.trim();
+  const box = document.getElementById("neoResult");
+
+  if (!query) {
+    box.innerHTML = "<div class='neo-result'>Please enter symptoms or a medical question.</div>";
+    return;
+  }
+
+  box.innerHTML = "<div class='neo-result'>Neo Nano is analyzing the medical knowledge base...</div>";
+
+  try {
+    const result = await analyzeWithNeoNano(query);
+
+    if (!result.success) {
+      box.innerHTML = `<div class='neo-result'>${escapeHtml(result.message || "Analysis failed.")}</div>`;
+      return;
+    }
+
+    const triageClass = result.triage.urgency === "high" ? "urgent" : "routine";
+    const conditions = (result.possible_conditions || []).map(item => `
+      <div class="neo-card">
+        <h3>${escapeHtml(item.name)}</h3>
+        <p>${escapeHtml(item.description)}</p>
+        <p><b>Body system:</b> ${escapeHtml(item.body_system)}</p>
+        <p><b>Matched:</b> ${escapeHtml((item.matched_features || []).join(", ") || "No direct structured match")}</p>
+      </div>
+    `).join("") || "<p>No strong structured match was found. General Medicine is recommended as a starting point.</p>";
+
+    const departments = (result.recommended_departments || []).map(dep =>
+      `<button onclick="bookDepartment('${escapeHtml(dep).replace(/'/g, "\\'")}')">Book ${escapeHtml(dep)}</button>`
+    ).join("");
+
+    box.innerHTML = `
+      <div class="neo-result ${triageClass}">
+        <h2>${result.triage.urgency === "high" ? "⚠ Urgent Clinical Assessment" : "Neo Nano Medical Guidance"}</h2>
+        <p>${escapeHtml(result.triage.message)}</p>
+        <h3>Recommended department</h3><p><b>Primary recommendation:</b> ${escapeHtml((result.recommended_departments || ["General Medicine"])[0])}</p>
+        <div class="neo-departments">${departments}</div>
+        <h3>Possible knowledge-base matches</h3>
+        ${conditions}
+        <p class="small-note">${escapeHtml(result.clinical_note)}</p>
+        <p class="small-note">Knowledge base records currently available: ${escapeHtml(result.knowledge_base_records)}</p>
+      </div>`;
+  } catch (error) {
+    box.innerHTML = `<div class='neo-result'>Unable to contact the Neo Nano backend: ${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function bookDepartment(department) {
+  sessionStorage.setItem("neoNanoRecommendedDepartment", department);
+  sessionStorage.setItem("neoNanoQuery", document.getElementById("neoQuery").value.trim());
+  window.location.href = "appointments.html";
+}
+</script>
+</body>
+</html>
