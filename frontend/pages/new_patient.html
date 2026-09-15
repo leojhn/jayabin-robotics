@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>New Patient Registration</title><link rel="stylesheet" href="../style.css">
+<style>
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.form-grid label{display:block;font-weight:600;margin-bottom:6px}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;padding:12px;box-sizing:border-box;border-radius:8px;border:1px solid #ccc}
+.full{grid-column:1/-1}.status{margin-top:14px;padding:12px;border-radius:8px}
+</style>
+</head><body>
+<div class="container"><div class="glass-card checkin-card">
+<h1>🆕 New Patient Registration</h1>
+<p>Please complete the registration details before continuing to Neo Nano.</p>
+<form id="patientForm">
+<div class="form-grid">
+<div><label>Full Name *</label><input id="patientName" required></div>
+<div><label>Date of Birth *</label><input id="patientDob" type="date" required></div>
+<div><label>Age *</label><input id="patientAge" type="number" min="0" max="130" required></div>
+<div><label>Gender *</label><select id="patientGender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+<div><label>Mobile Number *</label><input id="patientPhone" type="tel" required></div>
+<div><label>Email</label><input id="patientEmail" type="email"></div>
+<div><label>Blood Group</label><select id="bloodGroup"><option value="">Unknown</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></div>
+<div><label>Emergency Contact Name</label><input id="emergencyName"></div>
+<div><label>Emergency Contact Number</label><input id="emergencyPhone" type="tel"></div>
+<div class="full"><label>Address</label><textarea id="patientAddress" rows="3"></textarea></div>
+</div>
+<br><button type="submit">Register & Continue to Neo Nano →</button> <br><br>
+<a href="checkin.html"><button type="button">← Back</button></a>
+</form>
+<div id="status"></div>
+</div></div>
+<script src="../api.js"></script>
+<script>
+const form=document.getElementById("patientForm");
+document.getElementById("patientDob").addEventListener("change",e=>{
+ const d=new Date(e.target.value); if(!isNaN(d)){const t=new Date(); let age=t.getFullYear()-d.getFullYear(); const m=t.getMonth()-d.getMonth(); if(m<0||(m===0&&t.getDate()<d.getDate())) age--; document.getElementById("patientAge").value=age;}
+});
+form.addEventListener("submit",async e=>{
+ e.preventDefault();
+ const btn=form.querySelector('button[type="submit"]'); btn.disabled=true;
+ const patient={
+  "PATIENT NAME":document.getElementById("patientName").value.trim(),
+  "AGE":parseInt(document.getElementById("patientAge").value,10),
+  "GENDER":document.getElementById("patientGender").value,
+  "DATE OF BIRTH":document.getElementById("patientDob").value,
+  "PHONE":document.getElementById("patientPhone").value.trim(),
+  "EMAIL":document.getElementById("patientEmail").value.trim(),
+  "BLOOD GROUP":document.getElementById("bloodGroup").value,
+  "ADDRESS":document.getElementById("patientAddress").value.trim(),
+  "EMERGENCY CONTACT NAME":document.getElementById("emergencyName").value.trim(),
+  "EMERGENCY CONTACT":document.getElementById("emergencyPhone").value.trim()
+ };
+ try{
+   const result=await registerPatient(patient);
+   if(result.success){
+     patient["PATIENT ID"]=result.patient_id;
+     sessionStorage.setItem("patient",JSON.stringify(patient));
+     sessionStorage.removeItem("neoNanoRecommendedDepartment");
+     document.getElementById("status").innerHTML="<div class='status'>✅ Registration successful. Opening Neo Nano...</div>";
+     window.location.href="neo_nano.html";
+   } else throw new Error(result.message||"Registration failed");
+ }catch(err){document.getElementById("status").innerHTML="<div class='status'>❌ "+err.message+"</div>";btn.disabled=false;}
+});
+</script></body></html>

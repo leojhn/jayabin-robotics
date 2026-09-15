@@ -1,0 +1,2380 @@
+{
+  "headache": [
+    "DIS_000001",
+    "DIS_000015",
+    "DIS_000016",
+    "DIS_000017",
+    "DIS_000019",
+    "DIS_000036",
+    "DIS_000040",
+    "DIS_000044",
+    "DIS_000075",
+    "DIS_000139",
+    "DIS_000213"
+  ],
+  "palpitations": [
+    "DIS_000001",
+    "DIS_000166",
+    "DIS_000215"
+  ],
+  "sweating": [
+    "DIS_000001",
+    "DIS_000045",
+    "DIS_000081",
+    "DIS_000144"
+  ],
+  "recurrent infections": [
+    "DIS_000002",
+    "DIS_000050",
+    "DIS_000108",
+    "DIS_000150",
+    "DIS_000187",
+    "DIS_000190"
+  ],
+  "fatigue": [
+    "DIS_000002",
+    "DIS_000004",
+    "DIS_000017",
+    "DIS_000034",
+    "DIS_000050",
+    "DIS_000071",
+    "DIS_000072",
+    "DIS_000079",
+    "DIS_000082",
+    "DIS_000096",
+    "DIS_000112",
+    "DIS_000120",
+    "DIS_000126",
+    "DIS_000127",
+    "DIS_000130",
+    "DIS_000133",
+    "DIS_000143",
+    "DIS_000153",
+    "DIS_000159",
+    "DIS_000164",
+    "DIS_000166",
+    "DIS_000168",
+    "DIS_000169",
+    "DIS_000199",
+    "DIS_000215",
+    "DIS_000217",
+    "DIS_000227",
+    "DIS_000243"
+  ],
+  "chronic diarrhea": [
+    "DIS_000002",
+    "DIS_000150",
+    "DIS_000189"
+  ],
+  "sudden vision loss": [
+    "DIS_000003"
+  ],
+  "blurred vision": [
+    "DIS_000003",
+    "DIS_000106",
+    "DIS_000142",
+    "DIS_000156",
+    "DIS_000161",
+    "DIS_000177"
+  ],
+  "visual field changes": [
+    "DIS_000003"
+  ],
+  "pallor": [
+    "DIS_000004"
+  ],
+  "shortness of breath": [
+    "DIS_000004",
+    "DIS_000006",
+    "DIS_000007",
+    "DIS_000064",
+    "DIS_000083",
+    "DIS_000092",
+    "DIS_000107",
+    "DIS_000126",
+    "DIS_000133",
+    "DIS_000141",
+    "DIS_000153",
+    "DIS_000169",
+    "DIS_000215",
+    "DIS_000224",
+    "DIS_000229",
+    "DIS_000243"
+  ],
+  "swelling": [
+    "DIS_000005",
+    "DIS_000020",
+    "DIS_000033",
+    "DIS_000052",
+    "DIS_000059",
+    "DIS_000069",
+    "DIS_000086",
+    "DIS_000090",
+    "DIS_000101",
+    "DIS_000115",
+    "DIS_000133",
+    "DIS_000140",
+    "DIS_000181",
+    "DIS_000220"
+  ],
+  "foamy urine": [
+    "DIS_000005"
+  ],
+  "high blood pressure": [
+    "DIS_000005",
+    "DIS_000083"
+  ],
+  "chest pain": [
+    "DIS_000006",
+    "DIS_000026",
+    "DIS_000219",
+    "DIS_000242"
+  ],
+  "weight loss": [
+    "DIS_000006",
+    "DIS_000023",
+    "DIS_000049",
+    "DIS_000062",
+    "DIS_000071",
+    "DIS_000085",
+    "DIS_000111",
+    "DIS_000154",
+    "DIS_000159",
+    "DIS_000164",
+    "DIS_000190",
+    "DIS_000200"
+  ],
+  "facial swelling": [
+    "DIS_000007",
+    "DIS_000249"
+  ],
+  "arm swelling": [
+    "DIS_000007"
+  ],
+  "easy bruising": [
+    "DIS_000008",
+    "DIS_000039",
+    "DIS_000079",
+    "DIS_000134",
+    "DIS_000226"
+  ],
+  "petechiae": [
+    "DIS_000008"
+  ],
+  "bleeding": [
+    "DIS_000008",
+    "DIS_000061",
+    "DIS_000084",
+    "DIS_000108"
+  ],
+  "loud snoring": [
+    "DIS_000009"
+  ],
+  "daytime sleepiness": [
+    "DIS_000009"
+  ],
+  "gasping during sleep": [
+    "DIS_000009"
+  ],
+  "severe shortness of breath": [
+    "DIS_000010"
+  ],
+  "rapid breathing": [
+    "DIS_000010",
+    "DIS_000141",
+    "DIS_000197"
+  ],
+  "low oxygen levels": [
+    "DIS_000010"
+  ],
+  "hip pain": [
+    "DIS_000011",
+    "DIS_000066",
+    "DIS_000067"
+  ],
+  "limping": [
+    "DIS_000011",
+    "DIS_000067"
+  ],
+  "limited hip movement": [
+    "DIS_000011"
+  ],
+  "reduced vision": [
+    "DIS_000012"
+  ],
+  "poor depth perception": [
+    "DIS_000012"
+  ],
+  "eye misalignment": [
+    "DIS_000012"
+  ],
+  "painful skin lumps": [
+    "DIS_000013"
+  ],
+  "abscesses": [
+    "DIS_000013"
+  ],
+  "scarring": [
+    "DIS_000013"
+  ],
+  "low blood pressure": [
+    "DIS_000014",
+    "DIS_000071",
+    "DIS_000084",
+    "DIS_000195",
+    "DIS_000221",
+    "DIS_000229"
+  ],
+  "confusion": [
+    "DIS_000014",
+    "DIS_000028",
+    "DIS_000036",
+    "DIS_000045",
+    "DIS_000055",
+    "DIS_000080",
+    "DIS_000103",
+    "DIS_000104",
+    "DIS_000113",
+    "DIS_000165",
+    "DIS_000197",
+    "DIS_000204",
+    "DIS_000217",
+    "DIS_000221",
+    "DIS_000229"
+  ],
+  "reduced urine output": [
+    "DIS_000014",
+    "DIS_000069",
+    "DIS_000096",
+    "DIS_000120"
+  ],
+  "dizziness": [
+    "DIS_000015",
+    "DIS_000037",
+    "DIS_000051",
+    "DIS_000186",
+    "DIS_000195"
+  ],
+  "nausea": [
+    "DIS_000015",
+    "DIS_000019",
+    "DIS_000024",
+    "DIS_000100",
+    "DIS_000125",
+    "DIS_000149",
+    "DIS_000171",
+    "DIS_000174",
+    "DIS_000192",
+    "DIS_000197",
+    "DIS_000205"
+  ],
+  "vomiting": [
+    "DIS_000016",
+    "DIS_000028",
+    "DIS_000109",
+    "DIS_000122",
+    "DIS_000148",
+    "DIS_000149",
+    "DIS_000193",
+    "DIS_000203"
+  ],
+  "balance problems": [
+    "DIS_000016",
+    "DIS_000202"
+  ],
+  "fever": [
+    "DIS_000017",
+    "DIS_000027",
+    "DIS_000044",
+    "DIS_000056",
+    "DIS_000063",
+    "DIS_000085",
+    "DIS_000114",
+    "DIS_000143",
+    "DIS_000144",
+    "DIS_000147",
+    "DIS_000150",
+    "DIS_000165",
+    "DIS_000190",
+    "DIS_000205",
+    "DIS_000209",
+    "DIS_000221",
+    "DIS_000244"
+  ],
+  "vision changes": [
+    "DIS_000018",
+    "DIS_000040"
+  ],
+  "weakness": [
+    "DIS_000018",
+    "DIS_000022",
+    "DIS_000047",
+    "DIS_000135",
+    "DIS_000172"
+  ],
+  "numbness": [
+    "DIS_000018",
+    "DIS_000097",
+    "DIS_000098",
+    "DIS_000101",
+    "DIS_000136",
+    "DIS_000188"
+  ],
+  "upper abdominal pain": [
+    "DIS_000019",
+    "DIS_000125"
+  ],
+  "tight foreskin": [
+    "DIS_000020"
+  ],
+  "painful urination": [
+    "DIS_000020",
+    "DIS_000033",
+    "DIS_000041",
+    "DIS_000056",
+    "DIS_000250"
+  ],
+  "often no symptoms": [
+    "DIS_000021",
+    "DIS_000042",
+    "DIS_000077",
+    "DIS_000129",
+    "DIS_000155",
+    "DIS_000170",
+    "DIS_000175",
+    "DIS_000179",
+    "DIS_000230"
+  ],
+  "cough": [
+    "DIS_000021",
+    "DIS_000107",
+    "DIS_000184",
+    "DIS_000248"
+  ],
+  "chest discomfort": [
+    "DIS_000021",
+    "DIS_000130",
+    "DIS_000223"
+  ],
+  "loss of sensation": [
+    "DIS_000022"
+  ],
+  "bladder dysfunction": [
+    "DIS_000022",
+    "DIS_000135",
+    "DIS_000176"
+  ],
+  "abdominal pain": [
+    "DIS_000023",
+    "DIS_000080",
+    "DIS_000088",
+    "DIS_000122",
+    "DIS_000151",
+    "DIS_000154",
+    "DIS_000178",
+    "DIS_000193",
+    "DIS_000194",
+    "DIS_000200",
+    "DIS_000203",
+    "DIS_000212",
+    "DIS_000222",
+    "DIS_000249"
+  ],
+  "jaundice": [
+    "DIS_000023",
+    "DIS_000032",
+    "DIS_000127",
+    "DIS_000199"
+  ],
+  "sudden severe abdominal pain": [
+    "DIS_000024"
+  ],
+  "rigid abdomen": [
+    "DIS_000024"
+  ],
+  "frequent urination": [
+    "DIS_000025",
+    "DIS_000029",
+    "DIS_000055",
+    "DIS_000089",
+    "DIS_000129",
+    "DIS_000145"
+  ],
+  "weak urine stream": [
+    "DIS_000025",
+    "DIS_000131"
+  ],
+  "difficulty urinating": [
+    "DIS_000025",
+    "DIS_000131"
+  ],
+  "difficulty swallowing": [
+    "DIS_000026",
+    "DIS_000076",
+    "DIS_000077",
+    "DIS_000119",
+    "DIS_000198",
+    "DIS_000223"
+  ],
+  "regurgitation": [
+    "DIS_000026"
+  ],
+  "rash": [
+    "DIS_000027",
+    "DIS_000065",
+    "DIS_000086",
+    "DIS_000087",
+    "DIS_000091",
+    "DIS_000138",
+    "DIS_000185",
+    "DIS_000201",
+    "DIS_000211"
+  ],
+  "joint pain": [
+    "DIS_000027",
+    "DIS_000057",
+    "DIS_000062",
+    "DIS_000144",
+    "DIS_000151",
+    "DIS_000167",
+    "DIS_000183",
+    "DIS_000201"
+  ],
+  "tremor": [
+    "DIS_000028",
+    "DIS_000192"
+  ],
+  "urinary urgency": [
+    "DIS_000029",
+    "DIS_000089"
+  ],
+  "urge incontinence": [
+    "DIS_000029"
+  ],
+  "intrusive thoughts": [
+    "DIS_000030"
+  ],
+  "compulsive behaviors": [
+    "DIS_000030"
+  ],
+  "anxiety": [
+    "DIS_000030",
+    "DIS_000158"
+  ],
+  "vertigo": [
+    "DIS_000031"
+  ],
+  "hearing loss": [
+    "DIS_000031",
+    "DIS_000202"
+  ],
+  "tinnitus": [
+    "DIS_000031",
+    "DIS_000202"
+  ],
+  "pale stools": [
+    "DIS_000032"
+  ],
+  "dark urine": [
+    "DIS_000032"
+  ],
+  "scrotal pain": [
+    "DIS_000033"
+  ],
+  "poor weight gain": [
+    "DIS_000034"
+  ],
+  "feeding difficulties": [
+    "DIS_000034"
+  ],
+  "nasal blockage": [
+    "DIS_000035"
+  ],
+  "reduced smell": [
+    "DIS_000035"
+  ],
+  "runny nose": [
+    "DIS_000035",
+    "DIS_000094"
+  ],
+  "loss of consciousness": [
+    "DIS_000036",
+    "DIS_000102",
+    "DIS_000204"
+  ],
+  "nose bleeding": [
+    "DIS_000037"
+  ],
+  "nasal irritation": [
+    "DIS_000037"
+  ],
+  "mood instability": [
+    "DIS_000038"
+  ],
+  "impulsivity": [
+    "DIS_000038",
+    "DIS_000128"
+  ],
+  "fear of abandonment": [
+    "DIS_000038"
+  ],
+  "prolonged bleeding": [
+    "DIS_000039",
+    "DIS_000226"
+  ],
+  "joint bleeding": [
+    "DIS_000039",
+    "DIS_000226"
+  ],
+  "menstrual irregularities": [
+    "DIS_000040"
+  ],
+  "abnormal discharge": [
+    "DIS_000041",
+    "DIS_000250"
+  ],
+  "pelvic pain": [
+    "DIS_000041",
+    "DIS_000056",
+    "DIS_000060",
+    "DIS_000089",
+    "DIS_000170",
+    "DIS_000218",
+    "DIS_000250"
+  ],
+  "abdominal discomfort": [
+    "DIS_000042",
+    "DIS_000127",
+    "DIS_000155",
+    "DIS_000179"
+  ],
+  "fullness": [
+    "DIS_000042",
+    "DIS_000155"
+  ],
+  "severe eye pain": [
+    "DIS_000043"
+  ],
+  "tearing": [
+    "DIS_000043",
+    "DIS_000220"
+  ],
+  "nasal congestion": [
+    "DIS_000043"
+  ],
+  "muscle pain": [
+    "DIS_000044"
+  ],
+  "low blood sugar": [
+    "DIS_000045"
+  ],
+  "back pain": [
+    "DIS_000046",
+    "DIS_000135",
+    "DIS_000146",
+    "DIS_000162",
+    "DIS_000188",
+    "DIS_000207"
+  ],
+  "height loss": [
+    "DIS_000046"
+  ],
+  "limited mobility": [
+    "DIS_000046"
+  ],
+  "bone pain": [
+    "DIS_000047",
+    "DIS_000050",
+    "DIS_000072",
+    "DIS_000082",
+    "DIS_000140",
+    "DIS_000227"
+  ],
+  "excessive urination": [
+    "DIS_000047",
+    "DIS_000116"
+  ],
+  "fear of judgment": [
+    "DIS_000048"
+  ],
+  "blushing": [
+    "DIS_000048"
+  ],
+  "avoidance": [
+    "DIS_000048"
+  ],
+  "muscle loss": [
+    "DIS_000049"
+  ],
+  "loss of appetite": [
+    "DIS_000049"
+  ],
+  "vomiting blood": [
+    "DIS_000051"
+  ],
+  "black stools": [
+    "DIS_000051"
+  ],
+  "severe thigh pain": [
+    "DIS_000052"
+  ],
+  "inability to bear weight": [
+    "DIS_000052",
+    "DIS_000066"
+  ],
+  "penile swelling": [
+    "DIS_000053"
+  ],
+  "pain": [
+    "DIS_000053",
+    "DIS_000099",
+    "DIS_000228"
+  ],
+  "discoloration": [
+    "DIS_000053"
+  ],
+  "flashbacks": [
+    "DIS_000054"
+  ],
+  "nightmares": [
+    "DIS_000054"
+  ],
+  "hypervigilance": [
+    "DIS_000054"
+  ],
+  "extreme thirst": [
+    "DIS_000055",
+    "DIS_000116"
+  ],
+  "joint swelling": [
+    "DIS_000057",
+    "DIS_000167"
+  ],
+  "eye inflammation": [
+    "DIS_000057"
+  ],
+  "low back pain": [
+    "DIS_000058",
+    "DIS_000124"
+  ],
+  "leg pain": [
+    "DIS_000058",
+    "DIS_000097",
+    "DIS_000163",
+    "DIS_000188"
+  ],
+  "stiffness": [
+    "DIS_000058",
+    "DIS_000162"
+  ],
+  "prolonged erection": [
+    "DIS_000059"
+  ],
+  "penile pain": [
+    "DIS_000059"
+  ],
+  "difficulty walking": [
+    "DIS_000060",
+    "DIS_000068",
+    "DIS_000090"
+  ],
+  "bruising": [
+    "DIS_000060",
+    "DIS_000061",
+    "DIS_000120",
+    "DIS_000217"
+  ],
+  "organ dysfunction": [
+    "DIS_000061",
+    "DIS_000143"
+  ],
+  "diarrhea": [
+    "DIS_000062",
+    "DIS_000154",
+    "DIS_000194",
+    "DIS_000200"
+  ],
+  "painful rash": [
+    "DIS_000063"
+  ],
+  "blistering": [
+    "DIS_000063",
+    "DIS_000211"
+  ],
+  "cyanosis": [
+    "DIS_000064"
+  ],
+  "poor growth": [
+    "DIS_000064",
+    "DIS_000189"
+  ],
+  "itching": [
+    "DIS_000065",
+    "DIS_000086",
+    "DIS_000087",
+    "DIS_000138",
+    "DIS_000191",
+    "DIS_000210",
+    "DIS_000211"
+  ],
+  "dry skin": [
+    "DIS_000065"
+  ],
+  "leg shortening": [
+    "DIS_000066"
+  ],
+  "knee pain": [
+    "DIS_000067"
+  ],
+  "muscle weakness": [
+    "DIS_000068",
+    "DIS_000134",
+    "DIS_000157",
+    "DIS_000183"
+  ],
+  "frequent falls": [
+    "DIS_000068"
+  ],
+  "blood in urine": [
+    "DIS_000069",
+    "DIS_000174",
+    "DIS_000175",
+    "DIS_000184"
+  ],
+  "persistent pain": [
+    "DIS_000070"
+  ],
+  "sleep disturbance": [
+    "DIS_000070"
+  ],
+  "reduced function": [
+    "DIS_000070"
+  ],
+  "neurologic symptoms": [
+    "DIS_000072"
+  ],
+  "jaw pain": [
+    "DIS_000073"
+  ],
+  "clicking": [
+    "DIS_000073"
+  ],
+  "difficulty chewing": [
+    "DIS_000073"
+  ],
+  "walking difficulty": [
+    "DIS_000074"
+  ],
+  "memory problems": [
+    "DIS_000074",
+    "DIS_000103"
+  ],
+  "urinary incontinence": [
+    "DIS_000074"
+  ],
+  "seizures": [
+    "DIS_000075",
+    "DIS_000213"
+  ],
+  "neurologic deficits": [
+    "DIS_000075",
+    "DIS_000213"
+  ],
+  "neck swelling": [
+    "DIS_000076"
+  ],
+  "hoarseness": [
+    "DIS_000076",
+    "DIS_000119"
+  ],
+  "neck lump": [
+    "DIS_000077",
+    "DIS_000119"
+  ],
+  "burning pain": [
+    "DIS_000078"
+  ],
+  "tingling": [
+    "DIS_000078"
+  ],
+  "shooting pain": [
+    "DIS_000078"
+  ],
+  "infections": [
+    "DIS_000079"
+  ],
+  "visual disturbances": [
+    "DIS_000080"
+  ],
+  "excessive salivation": [
+    "DIS_000081"
+  ],
+  "breathing difficulty": [
+    "DIS_000081",
+    "DIS_000181"
+  ],
+  "skin rash": [
+    "DIS_000082"
+  ],
+  "weak leg pulses": [
+    "DIS_000083"
+  ],
+  "sudden shortness of breath": [
+    "DIS_000084",
+    "DIS_000242"
+  ],
+  "swollen lymph nodes": [
+    "DIS_000085",
+    "DIS_000091",
+    "DIS_000147",
+    "DIS_000152",
+    "DIS_000244"
+  ],
+  "wheezing": [
+    "DIS_000087",
+    "DIS_000107",
+    "DIS_000248"
+  ],
+  "flushing": [
+    "DIS_000088"
+  ],
+  "hives": [
+    "DIS_000088",
+    "DIS_000181"
+  ],
+  "sudden heel pain": [
+    "DIS_000090"
+  ],
+  "painless sore": [
+    "DIS_000091"
+  ],
+  "dry cough": [
+    "DIS_000092",
+    "DIS_000243"
+  ],
+  "chest tightness": [
+    "DIS_000092"
+  ],
+  "asthma": [
+    "DIS_000093"
+  ],
+  "sinus symptoms": [
+    "DIS_000093",
+    "DIS_000184"
+  ],
+  "nerve pain": [
+    "DIS_000093",
+    "DIS_000212"
+  ],
+  "sneezing": [
+    "DIS_000094"
+  ],
+  "itchy eyes": [
+    "DIS_000094"
+  ],
+  "clinical symptoms may vary": [
+    "DIS_000095",
+    "DIS_000173",
+    "DIS_000232",
+    "DIS_000233",
+    "DIS_000234",
+    "DIS_000235",
+    "DIS_000236",
+    "DIS_000237",
+    "DIS_000238",
+    "DIS_000239",
+    "DIS_000240",
+    "DIS_000241"
+  ],
+  "abdominal swelling": [
+    "DIS_000096",
+    "DIS_000109",
+    "DIS_000122",
+    "DIS_000203",
+    "DIS_000224"
+  ],
+  "buttock pain": [
+    "DIS_000097",
+    "DIS_000124"
+  ],
+  "neck pain": [
+    "DIS_000098",
+    "DIS_000166",
+    "DIS_000246"
+  ],
+  "arm pain": [
+    "DIS_000098"
+  ],
+  "joint stiffness": [
+    "DIS_000099"
+  ],
+  "reduced mobility": [
+    "DIS_000099",
+    "DIS_000228"
+  ],
+  "groin lump": [
+    "DIS_000100"
+  ],
+  "groin pain": [
+    "DIS_000100"
+  ],
+  "severe pain": [
+    "DIS_000101"
+  ],
+  "sudden severe headache": [
+    "DIS_000102"
+  ],
+  "neck stiffness": [
+    "DIS_000102"
+  ],
+  "visual hallucinations": [
+    "DIS_000103"
+  ],
+  "sudden memory loss": [
+    "DIS_000104"
+  ],
+  "repetitive questioning": [
+    "DIS_000104"
+  ],
+  "mood elevation": [
+    "DIS_000105"
+  ],
+  "depression": [
+    "DIS_000105"
+  ],
+  "sleep changes": [
+    "DIS_000105"
+  ],
+  "eye pain": [
+    "DIS_000106",
+    "DIS_000206",
+    "DIS_000209",
+    "DIS_000245"
+  ],
+  "redness": [
+    "DIS_000106",
+    "DIS_000160",
+    "DIS_000210"
+  ],
+  "eczema": [
+    "DIS_000108"
+  ],
+  "constipation": [
+    "DIS_000109"
+  ],
+  "social communication difficulties": [
+    "DIS_000110"
+  ],
+  "repetitive behaviors": [
+    "DIS_000110"
+  ],
+  "sensory differences": [
+    "DIS_000110"
+  ],
+  "projectile vomiting": [
+    "DIS_000111"
+  ],
+  "dehydration": [
+    "DIS_000111",
+    "DIS_000116",
+    "DIS_000145"
+  ],
+  "shoulder pain": [
+    "DIS_000112",
+    "DIS_000136",
+    "DIS_000186"
+  ],
+  "hip stiffness": [
+    "DIS_000112"
+  ],
+  "drowsiness": [
+    "DIS_000113"
+  ],
+  "slurred speech": [
+    "DIS_000113"
+  ],
+  "ear pain": [
+    "DIS_000114"
+  ],
+  "hearing difficulty": [
+    "DIS_000114"
+  ],
+  "testicular lump": [
+    "DIS_000115"
+  ],
+  "testicular discomfort": [
+    "DIS_000115"
+  ],
+  "breast lump": [
+    "DIS_000117"
+  ],
+  "breast pain": [
+    "DIS_000117"
+  ],
+  "skin changes": [
+    "DIS_000117",
+    "DIS_000212",
+    "DIS_000225"
+  ],
+  "scrotal heaviness": [
+    "DIS_000118"
+  ],
+  "dull pain": [
+    "DIS_000118"
+  ],
+  "infertility": [
+    "DIS_000118"
+  ],
+  "flashes": [
+    "DIS_000121"
+  ],
+  "floaters": [
+    "DIS_000121",
+    "DIS_000177"
+  ],
+  "curtain over vision": [
+    "DIS_000121"
+  ],
+  "reduced fetal growth": [
+    "DIS_000123"
+  ],
+  "reduced fetal movement": [
+    "DIS_000123"
+  ],
+  "abnormal ultrasound findings": [
+    "DIS_000123"
+  ],
+  "leg discomfort": [
+    "DIS_000124"
+  ],
+  "indigestion": [
+    "DIS_000125"
+  ],
+  "leg swelling": [
+    "DIS_000126",
+    "DIS_000163",
+    "DIS_000169"
+  ],
+  "inattention": [
+    "DIS_000128"
+  ],
+  "hyperactivity": [
+    "DIS_000128"
+  ],
+  "increased thirst": [
+    "DIS_000129"
+  ],
+  "reduced exercise tolerance": [
+    "DIS_000130"
+  ],
+  "urinary retention": [
+    "DIS_000131"
+  ],
+  "eye bulging": [
+    "DIS_000132"
+  ],
+  "eye irritation": [
+    "DIS_000132"
+  ],
+  "double vision": [
+    "DIS_000132",
+    "DIS_000157"
+  ],
+  "weight gain": [
+    "DIS_000134"
+  ],
+  "arm weakness": [
+    "DIS_000136"
+  ],
+  "facial weakness": [
+    "DIS_000137"
+  ],
+  "drooling": [
+    "DIS_000137"
+  ],
+  "difficulty closing eye": [
+    "DIS_000137"
+  ],
+  "target lesions": [
+    "DIS_000138"
+  ],
+  "blood clots": [
+    "DIS_000139"
+  ],
+  "recurrent miscarriage": [
+    "DIS_000139"
+  ],
+  "fracture": [
+    "DIS_000140"
+  ],
+  "sudden chest pain": [
+    "DIS_000141"
+  ],
+  "glare": [
+    "DIS_000142"
+  ],
+  "eye discomfort": [
+    "DIS_000142"
+  ],
+  "excessive thirst": [
+    "DIS_000145"
+  ],
+  "morning stiffness": [
+    "DIS_000146",
+    "DIS_000167"
+  ],
+  "reduced spinal mobility": [
+    "DIS_000146"
+  ],
+  "sore throat": [
+    "DIS_000147"
+  ],
+  "intermittent abdominal pain": [
+    "DIS_000148"
+  ],
+  "bloody stool": [
+    "DIS_000148",
+    "DIS_000194"
+  ],
+  "early fullness": [
+    "DIS_000149",
+    "DIS_000218",
+    "DIS_000224"
+  ],
+  "purpuric rash": [
+    "DIS_000151"
+  ],
+  "enlarged spleen": [
+    "DIS_000152"
+  ],
+  "autoimmune cytopenias": [
+    "DIS_000152"
+  ],
+  "air hunger": [
+    "DIS_000153"
+  ],
+  "light sensitivity": [
+    "DIS_000156"
+  ],
+  "distorted vision": [
+    "DIS_000156"
+  ],
+  "drooping eyelids": [
+    "DIS_000157"
+  ],
+  "hopelessness": [
+    "DIS_000158"
+  ],
+  "loss of meaning": [
+    "DIS_000158"
+  ],
+  "abdominal fullness": [
+    "DIS_000159"
+  ],
+  "itchy welts": [
+    "DIS_000160"
+  ],
+  "skin swelling": [
+    "DIS_000160"
+  ],
+  "central vision loss": [
+    "DIS_000161"
+  ],
+  "distorted lines": [
+    "DIS_000161"
+  ],
+  "rounded back": [
+    "DIS_000162"
+  ],
+  "warmth": [
+    "DIS_000163"
+  ],
+  "site-specific pain": [
+    "DIS_000164"
+  ],
+  "muscle rigidity": [
+    "DIS_000165"
+  ],
+  "kidney dysfunction": [
+    "DIS_000168"
+  ],
+  "protein in urine": [
+    "DIS_000168"
+  ],
+  "bloating": [
+    "DIS_000170"
+  ],
+  "visual changes": [
+    "DIS_000171"
+  ],
+  "irregular heartbeat": [
+    "DIS_000171"
+  ],
+  "limited movement": [
+    "DIS_000172"
+  ],
+  "postoperative pain": [
+    "DIS_000172"
+  ],
+  "severe flank pain": [
+    "DIS_000174"
+  ],
+  "flank pain": [
+    "DIS_000175"
+  ],
+  "leg weakness": [
+    "DIS_000176"
+  ],
+  "spinal deformity": [
+    "DIS_000176"
+  ],
+  "vision loss": [
+    "DIS_000177",
+    "DIS_000206",
+    "DIS_000245"
+  ],
+  "vaginal bleeding": [
+    "DIS_000178"
+  ],
+  "uterine tenderness": [
+    "DIS_000178"
+  ],
+  "hormonal symptoms": [
+    "DIS_000179"
+  ],
+  "head pressure": [
+    "DIS_000180"
+  ],
+  "neck tension": [
+    "DIS_000180"
+  ],
+  "mild to moderate pain": [
+    "DIS_000180"
+  ],
+  "night blindness": [
+    "DIS_000182"
+  ],
+  "loss of peripheral vision": [
+    "DIS_000182"
+  ],
+  "vision decline": [
+    "DIS_000182"
+  ],
+  "raynaud phenomenon": [
+    "DIS_000183"
+  ],
+  "prolonged fever": [
+    "DIS_000185"
+  ],
+  "red eyes": [
+    "DIS_000185"
+  ],
+  "left upper abdominal pain": [
+    "DIS_000186"
+  ],
+  "chronic cough": [
+    "DIS_000187"
+  ],
+  "sputum production": [
+    "DIS_000187"
+  ],
+  "severe infections": [
+    "DIS_000189"
+  ],
+  "scaly plaques": [
+    "DIS_000191"
+  ],
+  "skin redness": [
+    "DIS_000191"
+  ],
+  "rapid heartbeat": [
+    "DIS_000192",
+    "DIS_000242"
+  ],
+  "intestinal bleeding": [
+    "DIS_000193"
+  ],
+  "slow heart rate": [
+    "DIS_000195"
+  ],
+  "muscle stiffness": [
+    "DIS_000196"
+  ],
+  "movement difficulties": [
+    "DIS_000196"
+  ],
+  "poor coordination": [
+    "DIS_000196"
+  ],
+  "severe sore throat": [
+    "DIS_000198"
+  ],
+  "muffled voice": [
+    "DIS_000198"
+  ],
+  "pain episodes": [
+    "DIS_000199"
+  ],
+  "high fever": [
+    "DIS_000201"
+  ],
+  "persistent seizure activity": [
+    "DIS_000204"
+  ],
+  "right lower abdominal pain": [
+    "DIS_000205"
+  ],
+  "color vision changes": [
+    "DIS_000206"
+  ],
+  "regular contractions": [
+    "DIS_000207"
+  ],
+  "pelvic pressure": [
+    "DIS_000207"
+  ],
+  "visible cord": [
+    "DIS_000208"
+  ],
+  "fetal heart rate changes": [
+    "DIS_000208"
+  ],
+  "labor symptoms": [
+    "DIS_000208"
+  ],
+  "eye swelling": [
+    "DIS_000209"
+  ],
+  "flaking": [
+    "DIS_000210"
+  ],
+  "severe fatigue": [
+    "DIS_000214"
+  ],
+  "post-exertional malaise": [
+    "DIS_000214"
+  ],
+  "sleep problems": [
+    "DIS_000214"
+  ],
+  "reduced movement": [
+    "DIS_000216"
+  ],
+  "mutism": [
+    "DIS_000216"
+  ],
+  "abnormal posturing": [
+    "DIS_000216"
+  ],
+  "abdominal bloating": [
+    "DIS_000218"
+  ],
+  "difficulty breathing": [
+    "DIS_000219",
+    "DIS_000248"
+  ],
+  "paradoxical chest movement": [
+    "DIS_000219"
+  ],
+  "pain near eye": [
+    "DIS_000220"
+  ],
+  "bloody diarrhea": [
+    "DIS_000222"
+  ],
+  "urgency": [
+    "DIS_000222"
+  ],
+  "food impaction": [
+    "DIS_000223"
+  ],
+  "nerve weakness": [
+    "DIS_000225"
+  ],
+  "organ enlargement": [
+    "DIS_000225"
+  ],
+  "kidney stones": [
+    "DIS_000227"
+  ],
+  "phantom sensations": [
+    "DIS_000228"
+  ],
+  "transient weakness": [
+    "DIS_000230"
+  ],
+  "speech difficulty": [
+    "DIS_000230"
+  ],
+  "slow breathing": [
+    "DIS_000231"
+  ],
+  "unconsciousness": [
+    "DIS_000231"
+  ],
+  "pinpoint pupils": [
+    "DIS_000231"
+  ],
+  "muscle aches": [
+    "DIS_000244"
+  ],
+  "eye redness": [
+    "DIS_000245"
+  ],
+  "shooting head pain": [
+    "DIS_000246"
+  ],
+  "scalp tenderness": [
+    "DIS_000246"
+  ],
+  "changing mole": [
+    "DIS_000247"
+  ],
+  "irregular pigmentation": [
+    "DIS_000247"
+  ],
+  "skin lesion": [
+    "DIS_000247"
+  ],
+  "airway swelling": [
+    "DIS_000249"
+  ],
+  "condition-specific symptoms may vary": [
+    "DIS_000251",
+    "DIS_000252",
+    "DIS_000253",
+    "DIS_000254",
+    "DIS_000255",
+    "DIS_000256",
+    "DIS_000257",
+    "DIS_000258",
+    "DIS_000259",
+    "DIS_000260",
+    "DIS_000261",
+    "DIS_000262",
+    "DIS_000263",
+    "DIS_000264",
+    "DIS_000265",
+    "DIS_000266",
+    "DIS_000267",
+    "DIS_000268",
+    "DIS_000269",
+    "DIS_000270",
+    "DIS_000271",
+    "DIS_000272",
+    "DIS_000273",
+    "DIS_000274",
+    "DIS_000275",
+    "DIS_000276",
+    "DIS_000277",
+    "DIS_000278",
+    "DIS_000279",
+    "DIS_000280",
+    "DIS_000281",
+    "DIS_000282",
+    "DIS_000283",
+    "DIS_000284",
+    "DIS_000285",
+    "DIS_000286",
+    "DIS_000287",
+    "DIS_000288",
+    "DIS_000289",
+    "DIS_000290",
+    "DIS_000291",
+    "DIS_000292",
+    "DIS_000293",
+    "DIS_000294",
+    "DIS_000295",
+    "DIS_000296",
+    "DIS_000297",
+    "DIS_000298",
+    "DIS_000299",
+    "DIS_000300",
+    "DIS_000301",
+    "DIS_000302",
+    "DIS_000303",
+    "DIS_000304",
+    "DIS_000305",
+    "DIS_000306",
+    "DIS_000307",
+    "DIS_000308",
+    "DIS_000309",
+    "DIS_000310",
+    "DIS_000311",
+    "DIS_000312",
+    "DIS_000313",
+    "DIS_000314",
+    "DIS_000315",
+    "DIS_000316",
+    "DIS_000317",
+    "DIS_000318",
+    "DIS_000319",
+    "DIS_000320",
+    "DIS_000321",
+    "DIS_000322",
+    "DIS_000323",
+    "DIS_000324",
+    "DIS_000325",
+    "DIS_000326",
+    "DIS_000327",
+    "DIS_000328",
+    "DIS_000329",
+    "DIS_000330",
+    "DIS_000331",
+    "DIS_000332",
+    "DIS_000333",
+    "DIS_000334",
+    "DIS_000335",
+    "DIS_000336",
+    "DIS_000337",
+    "DIS_000338",
+    "DIS_000339",
+    "DIS_000340",
+    "DIS_000341",
+    "DIS_000342",
+    "DIS_000343",
+    "DIS_000344",
+    "DIS_000345",
+    "DIS_000346",
+    "DIS_000347",
+    "DIS_000348",
+    "DIS_000349",
+    "DIS_000350",
+    "DIS_000351",
+    "DIS_000352",
+    "DIS_000353",
+    "DIS_000354",
+    "DIS_000355",
+    "DIS_000356",
+    "DIS_000357",
+    "DIS_000358",
+    "DIS_000359",
+    "DIS_000360",
+    "DIS_000361",
+    "DIS_000362",
+    "DIS_000363",
+    "DIS_000364",
+    "DIS_000365",
+    "DIS_000366",
+    "DIS_000367",
+    "DIS_000368",
+    "DIS_000369",
+    "DIS_000370",
+    "DIS_000371",
+    "DIS_000372",
+    "DIS_000373",
+    "DIS_000374",
+    "DIS_000375",
+    "DIS_000376",
+    "DIS_000377",
+    "DIS_000378",
+    "DIS_000379",
+    "DIS_000380",
+    "DIS_000381",
+    "DIS_000382",
+    "DIS_000383",
+    "DIS_000384",
+    "DIS_000385",
+    "DIS_000386",
+    "DIS_000387",
+    "DIS_000388",
+    "DIS_000389",
+    "DIS_000390",
+    "DIS_000391",
+    "DIS_000392",
+    "DIS_000393",
+    "DIS_000394",
+    "DIS_000395",
+    "DIS_000396",
+    "DIS_000397",
+    "DIS_000398",
+    "DIS_000399",
+    "DIS_000400",
+    "DIS_000401",
+    "DIS_000402",
+    "DIS_000403",
+    "DIS_000404",
+    "DIS_000405",
+    "DIS_000406",
+    "DIS_000407",
+    "DIS_000408",
+    "DIS_000409",
+    "DIS_000410",
+    "DIS_000411",
+    "DIS_000412",
+    "DIS_000413",
+    "DIS_000414",
+    "DIS_000415",
+    "DIS_000416",
+    "DIS_000417",
+    "DIS_000418",
+    "DIS_000419",
+    "DIS_000420",
+    "DIS_000421",
+    "DIS_000422",
+    "DIS_000423",
+    "DIS_000424",
+    "DIS_000425",
+    "DIS_000426",
+    "DIS_000427",
+    "DIS_000428",
+    "DIS_000429",
+    "DIS_000430",
+    "DIS_000431",
+    "DIS_000432",
+    "DIS_000433",
+    "DIS_000434",
+    "DIS_000435",
+    "DIS_000436",
+    "DIS_000437",
+    "DIS_000438",
+    "DIS_000439",
+    "DIS_000440",
+    "DIS_000441",
+    "DIS_000442",
+    "DIS_000443",
+    "DIS_000444",
+    "DIS_000445",
+    "DIS_000446",
+    "DIS_000447",
+    "DIS_000448",
+    "DIS_000449",
+    "DIS_000450",
+    "DIS_000451",
+    "DIS_000452",
+    "DIS_000453",
+    "DIS_000454",
+    "DIS_000455",
+    "DIS_000456",
+    "DIS_000457",
+    "DIS_000458",
+    "DIS_000459",
+    "DIS_000460",
+    "DIS_000461",
+    "DIS_000462",
+    "DIS_000463",
+    "DIS_000464",
+    "DIS_000465",
+    "DIS_000466",
+    "DIS_000467",
+    "DIS_000468",
+    "DIS_000469",
+    "DIS_000470",
+    "DIS_000471",
+    "DIS_000472",
+    "DIS_000473",
+    "DIS_000474",
+    "DIS_000475",
+    "DIS_000476",
+    "DIS_000477",
+    "DIS_000478",
+    "DIS_000479",
+    "DIS_000480",
+    "DIS_000481",
+    "DIS_000482",
+    "DIS_000483",
+    "DIS_000484",
+    "DIS_000485",
+    "DIS_000486",
+    "DIS_000487",
+    "DIS_000488",
+    "DIS_000489",
+    "DIS_000490",
+    "DIS_000491",
+    "DIS_000492",
+    "DIS_000493",
+    "DIS_000494",
+    "DIS_000495",
+    "DIS_000496",
+    "DIS_000497",
+    "DIS_000498",
+    "DIS_000499",
+    "DIS_000500",
+    "DIS_000501",
+    "DIS_000502",
+    "DIS_000503",
+    "DIS_000504",
+    "DIS_000505",
+    "DIS_000506",
+    "DIS_000507",
+    "DIS_000508",
+    "DIS_000509",
+    "DIS_000510",
+    "DIS_000511",
+    "DIS_000512",
+    "DIS_000513",
+    "DIS_000514",
+    "DIS_000515",
+    "DIS_000516",
+    "DIS_000517",
+    "DIS_000518",
+    "DIS_000519",
+    "DIS_000520",
+    "DIS_000521",
+    "DIS_000522",
+    "DIS_000523",
+    "DIS_000524",
+    "DIS_000525",
+    "DIS_000526",
+    "DIS_000527",
+    "DIS_000528",
+    "DIS_000529",
+    "DIS_000530",
+    "DIS_000531",
+    "DIS_000532",
+    "DIS_000533",
+    "DIS_000534",
+    "DIS_000535",
+    "DIS_000536",
+    "DIS_000537",
+    "DIS_000538",
+    "DIS_000539",
+    "DIS_000540",
+    "DIS_000541",
+    "DIS_000542",
+    "DIS_000543",
+    "DIS_000544",
+    "DIS_000545",
+    "DIS_000546",
+    "DIS_000547",
+    "DIS_000548",
+    "DIS_000549",
+    "DIS_000550",
+    "DIS_000551",
+    "DIS_000552",
+    "DIS_000553",
+    "DIS_000554",
+    "DIS_000555",
+    "DIS_000556",
+    "DIS_000557",
+    "DIS_000558",
+    "DIS_000559",
+    "DIS_000560",
+    "DIS_000561",
+    "DIS_000562",
+    "DIS_000563",
+    "DIS_000564",
+    "DIS_000565",
+    "DIS_000566",
+    "DIS_000567",
+    "DIS_000568",
+    "DIS_000569",
+    "DIS_000570",
+    "DIS_000571",
+    "DIS_000572",
+    "DIS_000573",
+    "DIS_000574",
+    "DIS_000575",
+    "DIS_000576",
+    "DIS_000577",
+    "DIS_000578",
+    "DIS_000579",
+    "DIS_000580",
+    "DIS_000581",
+    "DIS_000582",
+    "DIS_000583",
+    "DIS_000584",
+    "DIS_000585",
+    "DIS_000586",
+    "DIS_000587",
+    "DIS_000588",
+    "DIS_000589",
+    "DIS_000590",
+    "DIS_000591",
+    "DIS_000592",
+    "DIS_000593",
+    "DIS_000594",
+    "DIS_000595",
+    "DIS_000596",
+    "DIS_000597",
+    "DIS_000598",
+    "DIS_000599",
+    "DIS_000600",
+    "DIS_000601",
+    "DIS_000602",
+    "DIS_000603",
+    "DIS_000604",
+    "DIS_000605",
+    "DIS_000606",
+    "DIS_000607",
+    "DIS_000608",
+    "DIS_000609",
+    "DIS_000610",
+    "DIS_000611",
+    "DIS_000612",
+    "DIS_000613",
+    "DIS_000614",
+    "DIS_000615",
+    "DIS_000616",
+    "DIS_000617",
+    "DIS_000618",
+    "DIS_000619",
+    "DIS_000620",
+    "DIS_000621",
+    "DIS_000622",
+    "DIS_000623",
+    "DIS_000624",
+    "DIS_000625",
+    "DIS_000626",
+    "DIS_000627",
+    "DIS_000628",
+    "DIS_000629",
+    "DIS_000630",
+    "DIS_000631",
+    "DIS_000632",
+    "DIS_000633",
+    "DIS_000634",
+    "DIS_000635",
+    "DIS_000636",
+    "DIS_000637",
+    "DIS_000638",
+    "DIS_000639",
+    "DIS_000640",
+    "DIS_000641",
+    "DIS_000642",
+    "DIS_000643",
+    "DIS_000644",
+    "DIS_000645",
+    "DIS_000646",
+    "DIS_000647",
+    "DIS_000648",
+    "DIS_000649",
+    "DIS_000650",
+    "DIS_000651",
+    "DIS_000652",
+    "DIS_000653",
+    "DIS_000654",
+    "DIS_000655",
+    "DIS_000656",
+    "DIS_000657",
+    "DIS_000658",
+    "DIS_000659",
+    "DIS_000660",
+    "DIS_000661",
+    "DIS_000662",
+    "DIS_000663",
+    "DIS_000664",
+    "DIS_000665",
+    "DIS_000666",
+    "DIS_000667",
+    "DIS_000668",
+    "DIS_000669",
+    "DIS_000670",
+    "DIS_000671",
+    "DIS_000672",
+    "DIS_000673",
+    "DIS_000674",
+    "DIS_000675",
+    "DIS_000676",
+    "DIS_000677",
+    "DIS_000678",
+    "DIS_000679",
+    "DIS_000680",
+    "DIS_000681",
+    "DIS_000682",
+    "DIS_000683",
+    "DIS_000684",
+    "DIS_000685",
+    "DIS_000686",
+    "DIS_000687",
+    "DIS_000688",
+    "DIS_000689",
+    "DIS_000690",
+    "DIS_000691",
+    "DIS_000692",
+    "DIS_000693",
+    "DIS_000694",
+    "DIS_000695",
+    "DIS_000696",
+    "DIS_000697",
+    "DIS_000698",
+    "DIS_000699",
+    "DIS_000700",
+    "DIS_000701",
+    "DIS_000702",
+    "DIS_000703",
+    "DIS_000704",
+    "DIS_000705",
+    "DIS_000706",
+    "DIS_000707",
+    "DIS_000708",
+    "DIS_000709",
+    "DIS_000710",
+    "DIS_000711",
+    "DIS_000712",
+    "DIS_000713",
+    "DIS_000714",
+    "DIS_000715",
+    "DIS_000716",
+    "DIS_000717",
+    "DIS_000718",
+    "DIS_000719",
+    "DIS_000720",
+    "DIS_000721",
+    "DIS_000722",
+    "DIS_000723",
+    "DIS_000724",
+    "DIS_000725",
+    "DIS_000726",
+    "DIS_000727",
+    "DIS_000728",
+    "DIS_000729",
+    "DIS_000730",
+    "DIS_000731",
+    "DIS_000732",
+    "DIS_000733",
+    "DIS_000734",
+    "DIS_000735",
+    "DIS_000736",
+    "DIS_000737",
+    "DIS_000738",
+    "DIS_000739",
+    "DIS_000740",
+    "DIS_000741",
+    "DIS_000742",
+    "DIS_000743",
+    "DIS_000744",
+    "DIS_000745",
+    "DIS_000746",
+    "DIS_000747",
+    "DIS_000748",
+    "DIS_000749",
+    "DIS_000750",
+    "DIS_000751",
+    "DIS_000752",
+    "DIS_000753",
+    "DIS_000754",
+    "DIS_000755",
+    "DIS_000756",
+    "DIS_000757",
+    "DIS_000758",
+    "DIS_000759",
+    "DIS_000760",
+    "DIS_000761",
+    "DIS_000762",
+    "DIS_000763",
+    "DIS_000764",
+    "DIS_000765",
+    "DIS_000766",
+    "DIS_000767",
+    "DIS_000768",
+    "DIS_000769",
+    "DIS_000770",
+    "DIS_000771",
+    "DIS_000772",
+    "DIS_000773",
+    "DIS_000774",
+    "DIS_000775",
+    "DIS_000776",
+    "DIS_000777",
+    "DIS_000778",
+    "DIS_000779",
+    "DIS_000780",
+    "DIS_000781",
+    "DIS_000782",
+    "DIS_000783",
+    "DIS_000784",
+    "DIS_000785",
+    "DIS_000786",
+    "DIS_000787",
+    "DIS_000788",
+    "DIS_000789",
+    "DIS_000790",
+    "DIS_000791",
+    "DIS_000792",
+    "DIS_000793",
+    "DIS_000794",
+    "DIS_000795",
+    "DIS_000796",
+    "DIS_000797",
+    "DIS_000798",
+    "DIS_000799",
+    "DIS_000800",
+    "DIS_000801",
+    "DIS_000802",
+    "DIS_000803",
+    "DIS_000804",
+    "DIS_000805",
+    "DIS_000806",
+    "DIS_000807",
+    "DIS_000808",
+    "DIS_000809",
+    "DIS_000810",
+    "DIS_000811",
+    "DIS_000812",
+    "DIS_000813",
+    "DIS_000814",
+    "DIS_000815",
+    "DIS_000816",
+    "DIS_000817",
+    "DIS_000818",
+    "DIS_000819",
+    "DIS_000820",
+    "DIS_000821",
+    "DIS_000822",
+    "DIS_000823",
+    "DIS_000824",
+    "DIS_000825",
+    "DIS_000826",
+    "DIS_000827",
+    "DIS_000828",
+    "DIS_000829",
+    "DIS_000830",
+    "DIS_000831",
+    "DIS_000832",
+    "DIS_000833",
+    "DIS_000834",
+    "DIS_000835",
+    "DIS_000836",
+    "DIS_000837",
+    "DIS_000838",
+    "DIS_000839",
+    "DIS_000840",
+    "DIS_000841",
+    "DIS_000842",
+    "DIS_000843",
+    "DIS_000844",
+    "DIS_000845",
+    "DIS_000846",
+    "DIS_000847",
+    "DIS_000848",
+    "DIS_000849",
+    "DIS_000850",
+    "DIS_000851",
+    "DIS_000852",
+    "DIS_000853",
+    "DIS_000854",
+    "DIS_000855",
+    "DIS_000856",
+    "DIS_000857",
+    "DIS_000858",
+    "DIS_000859",
+    "DIS_000860",
+    "DIS_000861",
+    "DIS_000862",
+    "DIS_000863",
+    "DIS_000864",
+    "DIS_000865",
+    "DIS_000866",
+    "DIS_000867",
+    "DIS_000868",
+    "DIS_000869",
+    "DIS_000870",
+    "DIS_000871",
+    "DIS_000872",
+    "DIS_000873",
+    "DIS_000874",
+    "DIS_000875",
+    "DIS_000876",
+    "DIS_000877",
+    "DIS_000878",
+    "DIS_000879",
+    "DIS_000880",
+    "DIS_000881",
+    "DIS_000882",
+    "DIS_000883",
+    "DIS_000884",
+    "DIS_000885",
+    "DIS_000886",
+    "DIS_000887",
+    "DIS_000888",
+    "DIS_000889",
+    "DIS_000890",
+    "DIS_000891",
+    "DIS_000892",
+    "DIS_000893",
+    "DIS_000894",
+    "DIS_000895",
+    "DIS_000896",
+    "DIS_000897",
+    "DIS_000898",
+    "DIS_000899",
+    "DIS_000900",
+    "DIS_000901",
+    "DIS_000902",
+    "DIS_000903",
+    "DIS_000904",
+    "DIS_000905",
+    "DIS_000906",
+    "DIS_000907",
+    "DIS_000908",
+    "DIS_000909",
+    "DIS_000910",
+    "DIS_000911",
+    "DIS_000912",
+    "DIS_000913",
+    "DIS_000914",
+    "DIS_000915",
+    "DIS_000916",
+    "DIS_000917",
+    "DIS_000918",
+    "DIS_000919",
+    "DIS_000920",
+    "DIS_000921",
+    "DIS_000922",
+    "DIS_000923",
+    "DIS_000924",
+    "DIS_000925",
+    "DIS_000926",
+    "DIS_000927",
+    "DIS_000928",
+    "DIS_000929",
+    "DIS_000930",
+    "DIS_000931",
+    "DIS_000932",
+    "DIS_000933",
+    "DIS_000934",
+    "DIS_000935",
+    "DIS_000936",
+    "DIS_000937",
+    "DIS_000938",
+    "DIS_000939",
+    "DIS_000940",
+    "DIS_000941",
+    "DIS_000942",
+    "DIS_000943",
+    "DIS_000944",
+    "DIS_000945",
+    "DIS_000946",
+    "DIS_000947",
+    "DIS_000948",
+    "DIS_000949",
+    "DIS_000950",
+    "DIS_000951",
+    "DIS_000952",
+    "DIS_000953",
+    "DIS_000954",
+    "DIS_000955",
+    "DIS_000956",
+    "DIS_000957",
+    "DIS_000958",
+    "DIS_000959",
+    "DIS_000960",
+    "DIS_000961",
+    "DIS_000962",
+    "DIS_000963",
+    "DIS_000964",
+    "DIS_000965",
+    "DIS_000966",
+    "DIS_000967",
+    "DIS_000968",
+    "DIS_000969",
+    "DIS_000970",
+    "DIS_000971",
+    "DIS_000972",
+    "DIS_000973",
+    "DIS_000974",
+    "DIS_000975",
+    "DIS_000976",
+    "DIS_000977",
+    "DIS_000978",
+    "DIS_000979",
+    "DIS_000980",
+    "DIS_000981",
+    "DIS_000982",
+    "DIS_000983",
+    "DIS_000984",
+    "DIS_000985",
+    "DIS_000986",
+    "DIS_000987",
+    "DIS_000988",
+    "DIS_000989",
+    "DIS_000990",
+    "DIS_000991",
+    "DIS_000992",
+    "DIS_000993",
+    "DIS_000994",
+    "DIS_000995",
+    "DIS_000996",
+    "DIS_000997",
+    "DIS_000998",
+    "DIS_000999",
+    "DIS_001000",
+    "DIS_001001",
+    "DIS_001002",
+    "DIS_001003",
+    "DIS_001004",
+    "DIS_001005",
+    "DIS_001006",
+    "DIS_001007",
+    "DIS_001008",
+    "DIS_001009",
+    "DIS_001010",
+    "DIS_001011",
+    "DIS_001012",
+    "DIS_001013",
+    "DIS_001014",
+    "DIS_001015",
+    "DIS_001016",
+    "DIS_001017",
+    "DIS_001018",
+    "DIS_001019",
+    "DIS_001020",
+    "DIS_001021",
+    "DIS_001022",
+    "DIS_001023",
+    "DIS_001024",
+    "DIS_001025",
+    "DIS_001026",
+    "DIS_001027",
+    "DIS_001028",
+    "DIS_001029",
+    "DIS_001030",
+    "DIS_001031",
+    "DIS_001032",
+    "DIS_001033",
+    "DIS_001034",
+    "DIS_001035",
+    "DIS_001036",
+    "DIS_001037",
+    "DIS_001038",
+    "DIS_001039",
+    "DIS_001040",
+    "DIS_001041",
+    "DIS_001042",
+    "DIS_001043",
+    "DIS_001044",
+    "DIS_001045",
+    "DIS_001046",
+    "DIS_001047",
+    "DIS_001048",
+    "DIS_001049",
+    "DIS_001050",
+    "DIS_001051",
+    "DIS_001052",
+    "DIS_001053",
+    "DIS_001054",
+    "DIS_001055",
+    "DIS_001056",
+    "DIS_001057",
+    "DIS_001058",
+    "DIS_001059",
+    "DIS_001060",
+    "DIS_001061",
+    "DIS_001062",
+    "DIS_001063",
+    "DIS_001064",
+    "DIS_001065",
+    "DIS_001066",
+    "DIS_001067",
+    "DIS_001068",
+    "DIS_001069",
+    "DIS_001070",
+    "DIS_001071",
+    "DIS_001072",
+    "DIS_001073",
+    "DIS_001074",
+    "DIS_001075",
+    "DIS_001076",
+    "DIS_001077",
+    "DIS_001078",
+    "DIS_001079",
+    "DIS_001080",
+    "DIS_001081",
+    "DIS_001082",
+    "DIS_001083",
+    "DIS_001084",
+    "DIS_001085",
+    "DIS_001086",
+    "DIS_001087",
+    "DIS_001088",
+    "DIS_001089",
+    "DIS_001090",
+    "DIS_001091",
+    "DIS_001092",
+    "DIS_001093",
+    "DIS_001094",
+    "DIS_001095",
+    "DIS_001096",
+    "DIS_001097",
+    "DIS_001098",
+    "DIS_001099",
+    "DIS_001100",
+    "DIS_001101",
+    "DIS_001102",
+    "DIS_001103",
+    "DIS_001104",
+    "DIS_001105",
+    "DIS_001106",
+    "DIS_001107",
+    "DIS_001108",
+    "DIS_001109",
+    "DIS_001110",
+    "DIS_001111",
+    "DIS_001112",
+    "DIS_001113",
+    "DIS_001114",
+    "DIS_001115",
+    "DIS_001116",
+    "DIS_001117",
+    "DIS_001118",
+    "DIS_001119",
+    "DIS_001120",
+    "DIS_001121",
+    "DIS_001122",
+    "DIS_001123",
+    "DIS_001124",
+    "DIS_001125",
+    "DIS_001126",
+    "DIS_001127",
+    "DIS_001128",
+    "DIS_001129",
+    "DIS_001130",
+    "DIS_001131",
+    "DIS_001132",
+    "DIS_001133",
+    "DIS_001134",
+    "DIS_001135",
+    "DIS_001136",
+    "DIS_001137",
+    "DIS_001138",
+    "DIS_001139",
+    "DIS_001140",
+    "DIS_001141",
+    "DIS_001142",
+    "DIS_001143",
+    "DIS_001144",
+    "DIS_001145",
+    "DIS_001146",
+    "DIS_001147",
+    "DIS_001148",
+    "DIS_001149",
+    "DIS_001150",
+    "DIS_001151",
+    "DIS_001152",
+    "DIS_001153",
+    "DIS_001154",
+    "DIS_001155",
+    "DIS_001156",
+    "DIS_001157",
+    "DIS_001158",
+    "DIS_001159",
+    "DIS_001160",
+    "DIS_001161",
+    "DIS_001162",
+    "DIS_001163",
+    "DIS_001164",
+    "DIS_001165",
+    "DIS_001166",
+    "DIS_001167",
+    "DIS_001168",
+    "DIS_001169",
+    "DIS_001170",
+    "DIS_001171",
+    "DIS_001172",
+    "DIS_001173",
+    "DIS_001174",
+    "DIS_001175",
+    "DIS_001176",
+    "DIS_001177",
+    "DIS_001178",
+    "DIS_001179",
+    "DIS_001180",
+    "DIS_001181",
+    "DIS_001182",
+    "DIS_001183",
+    "DIS_001184",
+    "DIS_001185",
+    "DIS_001186"
+  ]
+}

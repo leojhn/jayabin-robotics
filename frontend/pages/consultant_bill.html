@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Consultant Billing</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="glass-card billing-card">
+
+        <h1>
+            💳 Consultant Billing
+        </h1>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress"
+                style="width:100%;">
+            </div>
+
+        </div>
+
+        <br>
+
+        <!-- ========================= -->
+        <!-- Patient Information -->
+        <!-- ========================= -->
+
+        <div class="history-card">
+
+            <h2>
+                Patient Information
+            </h2>
+
+            <p>
+
+                <b>Patient Name :</b>
+
+                <span id="patientName">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Patient ID :</b>
+
+                <span id="patientId">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Appointment ID :</b>
+
+                <span id="appointmentId">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Token :</b>
+
+                <span id="tokenNo">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <br>
+
+        <!-- ========================= -->
+        <!-- Consultant -->
+        <!-- ========================= -->
+
+        <div class="history-card">
+
+            <h2>
+
+                Consultant Details
+
+            </h2>
+
+            <p>
+
+                <b>Department :</b>
+
+                <span id="department">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Consultant :</b>
+
+                <span id="doctorName">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Date :</b>
+
+                <span id="appointmentDate">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Time :</b>
+
+                <span id="appointmentTime">
+
+                    Loading...
+
+                </span>
+
+            </p>
+
+            <p>
+
+                <b>Consultation Fee :</b>
+
+                ₹
+
+                <span id="consultationFee">
+
+                    0
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <br>
+
+        <!-- ========================= -->
+        <!-- Total -->
+        <!-- ========================= -->
+
+        <div class="history-card">
+
+            <h2>
+
+                Total Bill
+
+            </h2>
+
+            <p>
+
+                Consultation :
+
+                ₹
+
+                <span id="consultationTotal">
+
+                    0
+
+                </span>
+
+            </p>
+
+            <hr>
+
+            <h2>
+
+                Grand Total :
+
+                ₹
+
+                <span id="grandTotal">
+
+                    0
+
+                </span>
+
+            </h2>
+
+        </div>
+
+        <br>
+
+        <!-- ========================= -->
+        <!-- Payment -->
+        <!-- ========================= -->
+
+        <h2>
+
+            Select Payment Method
+
+        </h2>
+
+        <div class="payment-grid">
+
+            <button
+                class="payment-btn"
+                id="upiBtn">
+
+                📱 UPI
+
+            </button>
+
+            <button
+                class="payment-btn"
+                id="cardBtn">
+
+                💳 Card
+
+            </button>
+
+            <button
+                class="payment-btn"
+                id="cashBtn">
+
+                💵 Cash
+
+            </button>
+
+        </div>
+
+        <br>
+
+        <button
+            id="payButton">
+
+            💳 Pay Now
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../api.js"></script>
+<script src="../language.js"></script>
+
+<script>
+
+
+//=====================================================
+// GLOBAL VARIABLES
+//=====================================================
+
+let paymentMethod = "";
+
+let consultantBill = null;
+let grandTotal = 0;
+
+//=====================================================
+// SESSION DATA
+//=====================================================
+
+const patient = JSON.parse(
+
+    sessionStorage.getItem(
+
+        "patient"
+
+    )
+
+);
+
+const appointment = JSON.parse(
+
+    sessionStorage.getItem(
+
+        "appointment"
+
+    )
+
+);
+
+//=====================================================
+// RECEIPT OBJECT
+//=====================================================
+
+const receipt = {
+
+    receiptNo: "",
+
+    patientId: "",
+
+    patientName: "",
+
+    appointmentId: "",
+
+    token: "",
+
+    consultant: "",
+
+    amount: 0,
+
+    paymentMethod: "",
+
+    status: "",
+
+    date: "",
+
+    time: ""
+
+};
+
+//=====================================================
+// PAGE LOAD
+//=====================================================
+
+window.onload = async function(){
+
+    if(
+
+        !patient ||
+
+        !appointment
+
+    ){
+
+        alert(
+
+            "Appointment not found."
+
+        );
+
+        window.location.href =
+
+        "checkin.html";
+
+        return;
+
+    }
+
+    loadPatient();
+
+    await loadConsultantBill();
+calculateGrandTotal();
+
+};
+
+//=====================================================
+// LOAD PATIENT
+//=====================================================
+
+function loadPatient(){
+
+    document.getElementById(
+
+        "patientName"
+
+    ).innerHTML =
+
+    patient["PATIENT NAME"];
+
+    document.getElementById(
+
+        "patientId"
+
+    ).innerHTML =
+
+    patient["PATIENT ID"];
+
+    document.getElementById(
+
+        "appointmentId"
+
+    ).innerHTML =
+
+    appointment["Appointment ID"];
+
+    document.getElementById(
+
+        "tokenNo"
+
+    ).innerHTML =
+
+    appointment["Token"];
+
+}
+
+//=====================================================
+// LOAD CONSULTANT BILL
+//=====================================================
+
+async function loadConsultantBill(){
+
+    consultantBill =
+
+    await getConsultantBill(
+
+        patient["PATIENT ID"]
+
+    );
+
+    if(
+
+        !consultantBill
+
+    ){
+
+        alert(
+
+            "Unable to load consultant bill."
+
+        );
+
+        return;
+
+    }
+
+    document.getElementById(
+
+        "department"
+
+    ).innerHTML =
+
+    consultantBill["Department"];
+
+    document.getElementById(
+
+        "doctorName"
+
+    ).innerHTML =
+
+    consultantBill["Consultant"];
+
+    document.getElementById(
+
+        "appointmentDate"
+
+    ).innerHTML =
+
+    consultantBill["Date"];
+
+    document.getElementById(
+
+        "appointmentTime"
+
+    ).innerHTML =
+
+    consultantBill["Time"];
+
+    document.getElementById(
+
+        "consultationFee"
+
+    ).innerHTML =
+
+    consultantBill["Total"];
+
+}
+
+//=====================================================
+// GRAND TOTAL
+//=====================================================
+
+function calculateGrandTotal(){
+
+    const consultation =
+    Number(
+        consultantBill["Total"]
+    );
+
+    grandTotal =
+    consultation;
+
+    document.getElementById(
+        "consultationTotal"
+    ).innerHTML =
+    consultation;
+
+    document.getElementById(
+        "grandTotal"
+    ).innerHTML =
+    grandTotal;
+
+}
+
+//=====================================================
+// PAYMENT METHOD
+//=====================================================
+
+function clearPaymentSelection(){
+
+    document.querySelectorAll(
+
+        ".payment-btn"
+
+    ).forEach(
+
+        button =>{
+
+            button.classList.remove(
+
+                "selected-payment"
+
+            );
+
+        }
+
+    );
+
+}
+
+//=====================================================
+// SELECT UPI
+//=====================================================
+
+document.getElementById(
+
+    "upiBtn"
+
+).addEventListener(
+
+    "click",
+
+    function(){
+
+        paymentMethod = "UPI";
+
+        clearPaymentSelection();
+
+        this.classList.add(
+
+            "selected-payment"
+
+        );
+
+    }
+
+);
+
+//=====================================================
+// SELECT CARD
+//=====================================================
+
+document.getElementById(
+
+    "cardBtn"
+
+).addEventListener(
+
+    "click",
+
+    function(){
+
+        paymentMethod = "Card";
+
+        clearPaymentSelection();
+
+        this.classList.add(
+
+            "selected-payment"
+
+        );
+
+    }
+
+);
+
+
+//=====================================================
+// SELECT CASH
+//=====================================================
+
+document.getElementById(
+
+    "cashBtn"
+
+).addEventListener(
+
+    "click",
+
+    function(){
+
+        paymentMethod = "Cash";
+
+        clearPaymentSelection();
+
+        this.classList.add(
+
+            "selected-payment"
+
+        );
+
+    }
+
+);
+
+//=====================================================
+// VALIDATE PAYMENT
+//=====================================================
+
+function validatePayment(){
+
+    if(
+
+        paymentMethod === ""
+
+    ){
+
+        alert(
+
+            "Please select a payment method."
+
+        );
+
+        return false;
+
+    }
+
+    if(
+
+        grandTotal <= 0
+
+    ){
+
+        alert(
+
+            "Invalid bill amount."
+
+        );
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+//=====================================================
+// PAY BUTTON
+//=====================================================
+
+document.getElementById(
+
+    "payButton"
+
+).addEventListener(
+
+    "click",
+
+    function(){
+
+        if(
+
+            !validatePayment()
+
+        ){
+
+            return;
+
+        }
+
+        switch(
+
+            paymentMethod
+
+        ){
+
+            case "UPI":
+
+                openUPIPopup();
+
+                break;
+
+            case "Card":
+
+                openCardPopup();
+
+                break;
+
+            case "Cash":
+
+                openCashPopup();
+
+                break;
+
+            default:
+
+                alert(
+
+                    "Please select a payment method."
+
+                );
+
+        }
+
+    }
+
+);
+
+//=====================================================
+// PAYMENT POPUP PLACEHOLDERS
+//=====================================================
+
+//=====================================================
+// OPEN UPI POPUP
+//=====================================================
+
+function openUPIPopup(){
+
+    document.getElementById(
+
+        "upiAmount"
+
+    ).innerHTML =
+
+    grandTotal;
+
+    document.getElementById(
+
+        "upiPopup"
+
+    ).style.display =
+
+    "flex";
+
+}
+
+//=====================================================
+// OPEN CARD POPUP
+//=====================================================
+
+function openCardPopup(){
+
+    document.getElementById(
+
+        "cardAmount"
+
+    ).innerHTML =
+
+    grandTotal;
+
+    document.getElementById(
+
+        "cardPopup"
+
+    ).style.display =
+
+    "flex";
+
+}
+
+//=====================================================
+// OPEN CASH POPUP
+//=====================================================
+
+function openCashPopup(){
+
+    document.getElementById(
+
+        "cashAmount"
+
+    ).innerHTML =
+
+    grandTotal;
+
+    document.getElementById(
+
+        "cashPopup"
+
+    ).style.display =
+
+    "flex";
+
+}
+
+//=====================================================
+// CLOSE PAYMENT POPUP
+//=====================================================
+
+function closeGateway(){
+
+    document.getElementById(
+
+        "cardPopup"
+
+    ).style.display =
+
+    "none";
+
+    document.getElementById(
+
+        "upiPopup"
+
+    ).style.display =
+
+    "none";
+
+    document.getElementById(
+
+        "cashPopup"
+
+    ).style.display =
+
+    "none";
+
+}
+
+//=====================================================
+// CARD PAYMENT
+//=====================================================
+
+async function processCardPayment(){
+
+    closeGateway();
+
+    await paymentSuccessful();
+
+}
+
+//=====================================================
+// UPI PAYMENT
+//=====================================================
+
+async function processUPIPayment(){
+
+    closeGateway();
+
+    await paymentSuccessful();
+
+}
+
+//=====================================================
+// CASH PAYMENT
+//=====================================================
+
+async function processCashPayment(){
+
+    closeGateway();
+
+    await paymentSuccessful();
+
+}
+
+//=====================================================
+// PAYMENT SUCCESS
+//=====================================================
+
+async function paymentSuccessful(){
+
+    try{
+
+        //------------------------------------------------
+        // Update Backend
+        //------------------------------------------------
+
+        await updatePaymentStatus(
+
+            patient["PATIENT ID"],
+
+            "Paid"
+
+        );
+
+        //------------------------------------------------
+        // Date & Time
+        //------------------------------------------------
+
+        const now = new Date();
+
+        //------------------------------------------------
+        // Receipt Number
+        //------------------------------------------------
+
+        const receiptNumber =
+
+            "RC-" +
+
+            now.getFullYear() +
+
+            String(
+
+                now.getMonth()+1
+
+            ).padStart(
+
+                2,
+
+                "0"
+
+            ) +
+
+            String(
+
+                now.getDate()
+
+            ).padStart(
+
+                2,
+
+                "0"
+
+            ) +
+
+            "-" +
+
+            Date.now();
+
+        //------------------------------------------------
+        // Receipt Object
+        //------------------------------------------------
+
+        receipt.receiptNo =
+
+            receiptNumber;
+
+        receipt.patientId =
+
+            patient["PATIENT ID"];
+
+        receipt.patientName =
+
+            patient["PATIENT NAME"];
+
+        receipt.appointmentId =
+
+            appointment["Appointment ID"];
+
+        receipt.token =
+
+            appointment["Token"];
+
+        receipt.consultant =
+
+            consultantBill["Consultant"];
+
+        receipt.amount =
+
+            grandTotal;
+
+        receipt.paymentMethod =
+
+            paymentMethod;
+
+        receipt.status =
+
+            "PAID";
+
+        receipt.date =
+
+            now.toLocaleDateString();
+
+        receipt.time =
+
+            now.toLocaleTimeString();
+
+        //------------------------------------------------
+        // Save Receipt
+        //------------------------------------------------
+
+        sessionStorage.setItem(
+
+            "receipt",
+
+            JSON.stringify(
+
+                receipt
+
+            )
+
+        );
+
+        //------------------------------------------------
+        // Show Summary
+        //------------------------------------------------
+
+        document.getElementById(
+
+            "paymentSummary"
+
+        ).innerHTML =
+
+        `
+        <p>
+
+        <b>Receipt :</b>
+
+        ${receipt.receiptNo}
+
+        </p>
+
+        <p>
+
+        <b>Patient :</b>
+
+        ${receipt.patientName}
+
+        </p>
+
+        <p>
+
+        <b>Consultant :</b>
+
+        ${receipt.consultant}
+
+        </p>
+
+        <p>
+
+        <b>Total :</b>
+
+        ₹${receipt.amount}
+
+        </p>
+
+        <p>
+
+        <b>Payment :</b>
+
+        ${receipt.paymentMethod}
+
+        </p>
+
+        `;
+
+        //------------------------------------------------
+        // Show Popup
+        //------------------------------------------------
+
+        document.getElementById(
+
+            "paymentPopup"
+
+        ).style.display =
+
+        "flex";
+
+    }
+
+    catch(error){
+
+        console.error(
+
+            error
+
+        );
+
+        alert(
+
+            "Payment completed but backend update failed."
+
+        );
+
+    }
+
+}
+
+//=====================================================
+// RECEIPT PAGE
+//=====================================================
+
+function goToReceipt(){
+
+    window.location.href =
+
+    "receipt.html";
+
+}
+</script>
+
+<!-- ====================================== -->
+<!-- CARD PAYMENT POPUP -->
+<!-- ====================================== -->
+
+<div id="cardPopup" class="popup">
+
+    <div class="popup-content">
+
+        <h2>💳 Card Payment</h2>
+
+        <input
+            type="text"
+            id="cardNumber"
+            placeholder="Card Number">
+
+        <br><br>
+
+        <input
+            type="text"
+            id="cardHolder"
+            placeholder="Card Holder Name">
+
+        <br><br>
+
+        <div class="card-row">
+
+            <input
+                type="text"
+                id="expiry"
+                placeholder="MM/YY">
+
+            <input
+                type="password"
+                id="cvv"
+                placeholder="CVV">
+
+        </div>
+
+        <br>
+
+        <h3>
+
+            Amount :
+            ₹ <span id="cardAmount">0</span>
+
+        </h3>
+
+        <br>
+
+        <button onclick="processCardPayment()">
+
+            Pay Now
+
+        </button>
+
+        <br><br>
+
+        <button onclick="closeGateway()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================== -->
+<!-- UPI PAYMENT POPUP -->
+<!-- ====================================== -->
+
+<div id="upiPopup" class="popup">
+
+    <div class="popup-content">
+
+        <h2>📱 UPI Payment</h2>
+
+        <input
+            type="text"
+            id="upiId"
+            placeholder="Enter UPI ID">
+
+        <br><br>
+
+        <div class="qr-box">
+
+            QR CODE
+
+        </div>
+
+        <br>
+
+        <h3>
+
+            Amount :
+            ₹ <span id="upiAmount">0</span>
+
+        </h3>
+
+        <br>
+
+        <button onclick="processUPIPayment()">
+
+            Pay Now
+
+        </button>
+
+        <br><br>
+
+        <button onclick="closeGateway()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================== -->
+<!-- CASH PAYMENT POPUP -->
+<!-- ====================================== -->
+
+<div id="cashPopup" class="popup">
+
+    <div class="popup-content">
+
+        <h2>
+
+            💵 Cash Payment
+
+        </h2>
+
+        <p>
+
+            Please collect the amount at the billing counter.
+
+        </p>
+
+        <br>
+
+        <h3>
+
+            Amount :
+            ₹ <span id="cashAmount">0</span>
+
+        </h3>
+
+        <br>
+
+        <button onclick="processCashPayment()">
+
+            Payment Received
+
+        </button>
+
+        <br><br>
+
+        <button onclick="closeGateway()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ====================================== -->
+<!-- PAYMENT SUCCESS POPUP -->
+<!-- ====================================== -->
+
+<div id="paymentPopup" class="popup">
+
+    <div class="popup-content">
+
+        <h2>
+
+            ✅ Payment Successful
+
+        </h2>
+
+        <br>
+
+        <div id="paymentSummary">
+
+        </div>
+
+        <br>
+
+        <button
+            onclick="goToReceipt()">
+
+            🧾 View Receipt
+
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>

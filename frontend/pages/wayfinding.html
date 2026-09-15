@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Wayfinding</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.map-popup{
+
+    width:900px;
+
+    max-width:95%;
+
+}
+
+.hospital-map{
+
+    width:100%;
+
+    border-radius:12px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card checkin-card">
+
+<h1>
+
+🧭 WAYFINDING
+
+</h1>
+
+<br>
+
+<div class="history-card">
+
+<h2>
+
+Destination
+
+</h2>
+
+<p>
+
+<b>Department :</b>
+
+<span id="department">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<b>Floor :</b>
+
+<span id="floor">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<b>Room Number :</b>
+
+<span id="room">
+
+Loading...
+
+</span>
+
+</p>
+<p>
+
+<b>Directions :</b>
+
+<span id="direction">
+
+Loading...
+
+</span>
+
+</p>
+
+</div>
+
+<br>
+
+<button onclick="openMap()">
+
+🗺 View Hospital Map
+
+</button>
+
+<br><br>
+
+<button onclick="reached()">
+
+✅ I've Reached
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ===================== -->
+<!-- MAP POPUP -->
+<!-- ===================== -->
+
+<div
+id="mapPopup"
+class="popup">
+
+<div
+class="popup-content map-popup">
+
+<h2>
+
+Hospital Map
+
+</h2>
+
+<img
+
+id="hospitalMap"
+
+class="hospital-map">
+
+<br><br>
+
+<button onclick="closeMap()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+<script src="../language.js"></script>
+
+<script>
+
+    // ==========================================
+    // GET APPOINTMENT
+    // ==========================================
+
+    const appointment = JSON.parse(
+
+        sessionStorage.getItem(
+            "appointment"
+        )
+
+    );
+
+
+    // ==========================================
+    // LOAD DESTINATION
+    // ==========================================
+
+    window.onload =
+    async function(){
+
+        if(!appointment){
+
+            alert(
+                "Appointment not found."
+            );
+
+            window.location.href =
+            "checkin.html";
+
+            return;
+
+        }
+
+
+        // IMPORTANT:
+        // AppointmentManager uses "Department"
+        // with a capital D.
+
+        const departmentName =
+
+        appointment["Department"] ||
+
+        appointment.department ||
+
+        "";
+
+
+        if(!departmentName){
+
+            document.getElementById(
+                "department"
+            ).textContent =
+            "Department not found";
+
+
+            document.getElementById(
+                "floor"
+            ).textContent =
+            "-";
+
+
+            document.getElementById(
+                "room"
+            ).textContent =
+            "-";
+
+
+            document.getElementById(
+                "direction"
+            ).textContent =
+            "Unable to load destination.";
+
+            return;
+
+        }
+
+
+        try{
+
+            const map =
+
+            await getDepartmentMap(
+                departmentName
+            );
+
+
+            console.log(
+                "Appointment:",
+                appointment
+            );
+
+
+            console.log(
+                "Map:",
+                map
+            );
+
+
+            if(
+                !map ||
+                map.success === false
+            ){
+
+                throw new Error(
+
+                    map &&
+                    map.message
+
+                    ?
+
+                    map.message
+
+                    :
+
+                    "Department map not found."
+
+                );
+
+            }
+
+
+            document.getElementById(
+                "department"
+            ).textContent =
+
+            map["Department"] ||
+
+            map.department ||
+
+            departmentName;
+
+
+            document.getElementById(
+                "floor"
+            ).textContent =
+
+            map["Floor"] ||
+
+            map.floor ||
+
+            "-";
+
+
+            document.getElementById(
+                "room"
+            ).textContent =
+
+            map["Room No."] ||
+
+            map["Room Number"] ||
+
+            map.room ||
+
+            "-";
+
+
+            document.getElementById(
+                "direction"
+            ).textContent =
+
+            map["Location Details"] ||
+
+            map["Directions"] ||
+
+            map.direction ||
+
+            "-";
+
+
+            const mapImage =
+
+            map["More Details"] ||
+
+            map["Map Image"] ||
+
+            map.image ||
+
+            "";
+
+
+            if(mapImage){
+
+                document.getElementById(
+                    "hospitalMap"
+                ).src =
+
+                "../images/" +
+
+                mapImage;
+
+            }
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Wayfinding Error:",
+                error
+            );
+
+
+            document.getElementById(
+                "department"
+            ).textContent =
+            departmentName;
+
+
+            document.getElementById(
+                "floor"
+            ).textContent =
+            "Not available";
+
+
+            document.getElementById(
+                "room"
+            ).textContent =
+            "Not available";
+
+
+            document.getElementById(
+                "direction"
+            ).textContent =
+
+            "Unable to load directions: " +
+
+            error.message;
+
+        }
+
+    };
+
+
+    // ==========================================
+    // OPEN MAP
+    // ==========================================
+
+    function openMap(){
+
+        document.getElementById(
+            "mapPopup"
+        ).style.display =
+        "flex";
+
+    }
+
+
+    // ==========================================
+    // CLOSE MAP
+    // ==========================================
+
+    function closeMap(){
+
+        document.getElementById(
+            "mapPopup"
+        ).style.display =
+        "none";
+
+    }
+
+
+    // ==========================================
+    // REACHED DESTINATION
+    // ==========================================
+
+    function reached(){
+
+        window.location.href =
+        "thankyou.html";
+
+    }
+
+</script>
+
+</body>
+
+</html>

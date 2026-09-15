@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>FAQ</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.faq-item{
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+background:white;
+
+color:black;
+
+overflow:hidden;
+
+}
+
+.question{
+
+padding:18px;
+
+font-size:20px;
+
+cursor:pointer;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+font-weight:bold;
+
+}
+
+.answer{
+
+display:none;
+
+padding:18px;
+
+border-top:1px solid #ddd;
+
+font-size:18px;
+
+background:#f5f5f5;
+
+}
+
+.arrow{
+
+font-size:22px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card">
+
+<h1>
+
+❓ Frequently Asked Questions
+
+</h1>
+
+<br>
+
+<div class="faq-body" id="faqContainer">
+
+Loading...
+
+</div>
+
+<br>
+
+<button onclick="window.location.href='../menu.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+<script src="../language.js"></script>
+
+<script>
+
+window.onload = async function(){
+
+    const faqs = await getFAQs();
+
+    let html="";
+
+    faqs.forEach((faq,index)=>{
+
+        html +=
+
+        `
+
+        <div class="faq-item">
+
+            <div
+            class="question"
+            onclick="toggle(${index})">
+
+            ${faq.Question}
+
+            <span class="arrow"
+            id="arrow${index}">
+
+            ▼
+
+            </span>
+
+            </div>
+
+            <div
+            class="answer"
+            id="answer${index}">
+
+            ${faq.Answer}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+    "faqContainer"
+    ).innerHTML=html;
+
+}
+
+function toggle(index){
+
+    const ans=
+    document.getElementById(
+    "answer"+index);
+
+    const arrow=
+    document.getElementById(
+    "arrow"+index);
+
+    if(ans.style.display=="block"){
+
+        ans.style.display="none";
+
+        arrow.innerHTML="▼";
+
+    }
+
+    else{
+
+        ans.style.display="block";
+
+        arrow.innerHTML="▲";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

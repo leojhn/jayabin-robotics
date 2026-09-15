@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Select Language</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Welcome -->
+
+    <div class="welcome-section">
+
+        <img src="https://cdn.creativefabrica.com/2018/11/Medical-Logo-by-Acongraphic-52.jpg"
+        class="hospital-logo">
+
+        <h1>
+
+            Welcome to City Hospital
+
+        </h1>
+
+        <p>
+
+            Please Select Your Language
+
+        </p>
+
+    </div>
+
+    <!-- Language Card -->
+
+    <div class="glass-card home-card">
+
+        <div class="menu-buttons">
+
+            <button onclick="selectLanguage('en')">
+
+                English
+
+            </button>
+
+            <button onclick="selectLanguage('ml')">
+
+                മലയാളം
+
+            </button>
+
+            <button onclick="selectLanguage('ta')">
+
+                தமிழ்
+
+            </button>
+            <button onclick="selectLanguage('hi')">
+
+                हिंदी
+
+            </button>
+            <button onclick="selectLanguage('ar')">
+
+                عربي
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function selectLanguage(language){
+
+    sessionStorage.setItem("language",language);
+
+    window.location.href="menu.html";
+
+}
+
+</script>
+<script src="../api.js"></script>
+<script src="language.js"></script>
+<script src="../app.js"></script>
+</body>
+
+</html>

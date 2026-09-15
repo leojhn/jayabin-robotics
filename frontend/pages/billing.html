@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Billing Details</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.bill-card{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.bill-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.bill-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.bill-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+.total{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#00ff99;
+
+}
+
+.status-paid{
+
+    color:#00ff66;
+
+    font-weight:bold;
+
+}
+
+.status-pending{
+
+    color:#ffcc00;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card dashboard-card">
+
+<h1>
+
+💳 Billing Details
+
+</h1>
+
+<div class="bill-card">
+
+<h2>Patient Details</h2>
+
+<table class="bill-table">
+
+<tr>
+
+<td><b>Patient ID</b></td>
+
+<td id="patientId"></td>
+
+</tr>
+
+<tr>
+
+<td><b>Patient Name</b></td>
+
+<td id="patientName"></td>
+
+</tr>
+
+<tr>
+
+<td><b>Consultant</b></td>
+
+<td id="doctor"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="bill-card">
+
+<h2>Consultant Bill</h2>
+
+<table class="bill-table">
+
+<tr>
+
+<td>Consultation Fee</td>
+
+<td id="consultantAmount"></td>
+
+</tr>
+
+<tr>
+
+<td>Status</td>
+
+<td id="consultantStatus"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="bill-card">
+
+<h2>Service Bill</h2>
+
+<table
+class="bill-table"
+id="serviceTable">
+
+</table>
+
+<br>
+
+<div class="total">
+
+Total :
+₹ <span id="serviceTotal">0</span>
+
+</div>
+
+</div>
+
+<div class="bill-card">
+
+<h2>Payment History</h2>
+
+<table
+class="bill-table"
+id="historyTable">
+
+</table>
+
+</div>
+
+<br>
+
+<button
+id="payBtn"
+onclick="payServiceBill()">
+
+💳 Pay Service Bill
+
+</button>
+
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const patientId =
+params.get("patient");
+
+loadBilling();
+
+async function loadBilling(){
+
+const consultant =
+await getConsultantBill(patientId);
+
+const service =
+await getServiceBill(patientId);
+
+const history =
+await getPaymentHistory(patientId);
+
+document.getElementById("patientId").innerHTML =
+consultant["Patient ID"];
+
+document.getElementById("patientName").innerHTML =
+consultant["Patient Name"];
+
+document.getElementById("doctor").innerHTML =
+consultant["Consultant"];
+
+document.getElementById("consultantAmount").innerHTML =
+"₹ " + consultant.Total;
+
+document.getElementById("consultantStatus").innerHTML =
+'<span class="status-paid">PAID</span>';
+
+let total = 0;
+
+let rows = "";
+
+service.Services.forEach(item=>{
+
+total += item.Amount;
+
+rows +=
+`
+<tr>
+
+<td>${item.Service}</td>
+
+<td>₹ ${item.Amount}</td>
+
+</tr>
+`;
+
+});
+
+document.getElementById("serviceTable").innerHTML =
+rows;
+
+document.getElementById("serviceTotal").innerHTML =
+total;
+
+rows="";
+
+history.forEach(item=>{
+
+rows +=
+`
+<tr>
+
+<td>${item.Type}</td>
+
+<td>${item.Description}</td>
+
+<td>₹ ${item.Amount}</td>
+
+<td>${item.Status}</td>
+
+</tr>
+`;
+
+});
+
+document.getElementById("historyTable").innerHTML =
+rows;
+
+sessionStorage.setItem(
+
+"serviceBill",
+
+JSON.stringify(service)
+
+);
+
+}
+
+function payServiceBill(){
+
+window.location.href=
+"service_payment.html?patient="+
+patientId;
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Thank You</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.success-icon{
+
+font-size:90px;
+
+margin-bottom:20px;
+
+}
+
+.message-card{
+
+width:85%;
+
+margin:auto;
+
+padding:30px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.18);
+
+text-align:center;
+
+}
+
+.message-card p{
+
+font-size:22px;
+
+margin:15px 0;
+
+line-height:1.8;
+
+}
+
+.finish-btn{
+
+margin-top:35px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card dashboard-card">
+
+<div class="success-icon">
+
+🎉
+
+</div>
+
+<h1>
+
+Thank You!
+
+</h1>
+
+<h2>
+
+Your Consultation Has Been Completed
+
+</h2>
+
+<br>
+
+<div class="message-card">
+
+<p>
+
+Thank you for visiting <b>City Hospital.</b>
+
+</p>
+
+<p>
+
+If your doctor has prescribed any
+
+tests, scans or medicines,
+
+please proceed to the
+
+<b>Billing Counter</b>
+
+for service billing.
+
+</p>
+
+<p>
+
+Please provide your
+
+<b>Patient ID</b>
+
+at the billing counter
+
+to retrieve your pending services.
+
+</p>
+
+<p>
+
+We wish you a speedy recovery.
+
+</p>
+
+</div>
+
+<br>
+
+<button
+
+class="finish-btn"
+
+onclick="finishVisit()">
+
+🏠 Return to Home
+
+</button>
+
+</div>
+
+</div>
+<script src="../language.js"></script>
+
+<script>
+
+function finishVisit(){
+
+sessionStorage.clear();
+
+window.location.href="../menu.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

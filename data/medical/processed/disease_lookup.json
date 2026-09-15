@@ -1,0 +1,4766 @@
+{
+  "pheochromocytoma": [
+    "DIS_000001",
+    "DIS_000001"
+  ],
+  "common variable immunodeficiency": [
+    "DIS_000002",
+    "DIS_000002"
+  ],
+  "retinal vein occlusion": [
+    "DIS_000003",
+    "DIS_000003"
+  ],
+  "thalassemia major": [
+    "DIS_000004",
+    "DIS_000004"
+  ],
+  "lupus nephritis": [
+    "DIS_000005",
+    "DIS_000005"
+  ],
+  "mesothelioma": [
+    "DIS_000006",
+    "DIS_000006"
+  ],
+  "superior vena cava syndrome": [
+    "DIS_000007",
+    "DIS_000007"
+  ],
+  "idiopathic thrombocytopenic purpura": [
+    "DIS_000008"
+  ],
+  "itp": [
+    "DIS_000008"
+  ],
+  "immune thrombocytopenia": [
+    "DIS_000008",
+    "DIS_000689",
+    "DIS_000689"
+  ],
+  "sleep apnea": [
+    "DIS_000009",
+    "DIS_000009"
+  ],
+  "acute respiratory distress syndrome": [
+    "DIS_000010",
+    "DIS_000010"
+  ],
+  "perthes disease": [
+    "DIS_000011",
+    "DIS_000011"
+  ],
+  "amblyopia": [
+    "DIS_000012",
+    "DIS_000012"
+  ],
+  "hidradenitis suppurativa": [
+    "DIS_000013",
+    "DIS_000013"
+  ],
+  "multi-organ dysfunction syndrome": [
+    "DIS_000014",
+    "DIS_000014"
+  ],
+  "carbon monoxide poisoning": [
+    "DIS_000015",
+    "DIS_000015"
+  ],
+  "medulloblastoma": [
+    "DIS_000016",
+    "DIS_000016"
+  ],
+  "q fever": [
+    "DIS_000017"
+  ],
+  "query fever": [
+    "DIS_000017"
+  ],
+  "coxiella burnetii infection": [
+    "DIS_000017"
+  ],
+  "multiple sclerosis relapse": [
+    "DIS_000018",
+    "DIS_000018"
+  ],
+  "hellp syndrome": [
+    "DIS_000019",
+    "DIS_000019"
+  ],
+  "phimosis": [
+    "DIS_000020",
+    "DIS_000020"
+  ],
+  "pulmonary nodule": [
+    "DIS_000021",
+    "DIS_000021"
+  ],
+  "spinal cord injury": [
+    "DIS_000022",
+    "DIS_000022"
+  ],
+  "pancreatic adenocarcinoma": [
+    "DIS_000023",
+    "DIS_000023"
+  ],
+  "perforated peptic ulcer": [
+    "DIS_000024",
+    "DIS_000024"
+  ],
+  "benign prostatic hyperplasia": [
+    "DIS_000025",
+    "DIS_000025"
+  ],
+  "achalasia": [
+    "DIS_000026",
+    "DIS_000026"
+  ],
+  "lyme disease": [
+    "DIS_000027",
+    "DIS_000027"
+  ],
+  "lithium toxicity": [
+    "DIS_000028",
+    "DIS_000028"
+  ],
+  "overactive bladder": [
+    "DIS_000029",
+    "DIS_000029"
+  ],
+  "obsessive-compulsive disorder": [
+    "DIS_000030",
+    "DIS_000030"
+  ],
+  "meniere disease": [
+    "DIS_000031",
+    "DIS_000031"
+  ],
+  "biliary atresia": [
+    "DIS_000032",
+    "DIS_000032"
+  ],
+  "epididymitis": [
+    "DIS_000033",
+    "DIS_000033"
+  ],
+  "failure to thrive": [
+    "DIS_000034",
+    "DIS_000034"
+  ],
+  "nasal polyposis": [
+    "DIS_000035",
+    "DIS_000035"
+  ],
+  "traumatic brain injury": [
+    "DIS_000036",
+    "DIS_000036"
+  ],
+  "epistaxis": [
+    "DIS_000037",
+    "DIS_000037"
+  ],
+  "borderline personality disorder": [
+    "DIS_000038",
+    "DIS_000038"
+  ],
+  "hemophilia a": [
+    "DIS_000039",
+    "DIS_000039"
+  ],
+  "prolactinoma": [
+    "DIS_000040",
+    "DIS_000040"
+  ],
+  "chlamydia": [
+    "DIS_000041",
+    "DIS_000041"
+  ],
+  "hepatic hemangioma": [
+    "DIS_000042",
+    "DIS_000042"
+  ],
+  "cluster headache": [
+    "DIS_000043",
+    "DIS_000043"
+  ],
+  "leptospirosis": [
+    "DIS_000044",
+    "DIS_000044"
+  ],
+  "insulinoma": [
+    "DIS_000045",
+    "DIS_000045"
+  ],
+  "vertebral compression fracture": [
+    "DIS_000046",
+    "DIS_000046"
+  ],
+  "fanconi syndrome": [
+    "DIS_000047",
+    "DIS_000047"
+  ],
+  "social anxiety disorder": [
+    "DIS_000048",
+    "DIS_000048"
+  ],
+  "cancer cachexia": [
+    "DIS_000049",
+    "DIS_000049"
+  ],
+  "multiple myeloma": [
+    "DIS_000050",
+    "DIS_000050"
+  ],
+  "esophageal varices": [
+    "DIS_000051",
+    "DIS_000051"
+  ],
+  "femoral shaft fracture": [
+    "DIS_000052",
+    "DIS_000052"
+  ],
+  "paraphimosis": [
+    "DIS_000053",
+    "DIS_000053"
+  ],
+  "post-traumatic stress disorder": [
+    "DIS_000054",
+    "DIS_000054"
+  ],
+  "hyperosmolar hyperglycemic state": [
+    "DIS_000055",
+    "DIS_000055"
+  ],
+  "prostatitis": [
+    "DIS_000056",
+    "DIS_000056"
+  ],
+  "reactive arthritis": [
+    "DIS_000057",
+    "DIS_000057"
+  ],
+  "spondylolisthesis": [
+    "DIS_000058",
+    "DIS_000058"
+  ],
+  "priapism": [
+    "DIS_000059",
+    "DIS_000059"
+  ],
+  "pelvic fracture": [
+    "DIS_000060",
+    "DIS_000060"
+  ],
+  "disseminated intravascular coagulation": [
+    "DIS_000061",
+    "DIS_000061"
+  ],
+  "whipple disease": [
+    "DIS_000062",
+    "DIS_000062"
+  ],
+  "stevens-johnson syndrome": [
+    "DIS_000063",
+    "DIS_000063"
+  ],
+  "tetralogy of fallot": [
+    "DIS_000064",
+    "DIS_000064"
+  ],
+  "atopic dermatitis": [
+    "DIS_000065",
+    "DIS_000065"
+  ],
+  "hip fracture": [
+    "DIS_000066",
+    "DIS_000066"
+  ],
+  "slipped capital femoral epiphysis": [
+    "DIS_000067",
+    "DIS_000067"
+  ],
+  "muscular dystrophy": [
+    "DIS_000068",
+    "DIS_000068"
+  ],
+  "rapidly progressive glomerulonephritis": [
+    "DIS_000069",
+    "DIS_000069"
+  ],
+  "refractory pain": [
+    "DIS_000070",
+    "DIS_000070"
+  ],
+  "addison disease": [
+    "DIS_000071",
+    "DIS_000071"
+  ],
+  "erdheim-chester disease": [
+    "DIS_000072",
+    "DIS_000072"
+  ],
+  "temporomandibular joint disorder": [
+    "DIS_000073",
+    "DIS_000073"
+  ],
+  "normal pressure hydrocephalus": [
+    "DIS_000074",
+    "DIS_000074"
+  ],
+  "glioblastoma multiforme": [
+    "DIS_000075",
+    "DIS_000075"
+  ],
+  "goiter": [
+    "DIS_000076",
+    "DIS_000076"
+  ],
+  "thyroid nodule": [
+    "DIS_000077",
+    "DIS_000077"
+  ],
+  "phantom limb pain": [
+    "DIS_000078",
+    "DIS_000078"
+  ],
+  "myelodysplastic syndrome": [
+    "DIS_000079",
+    "DIS_000079"
+  ],
+  "methanol poisoning": [
+    "DIS_000080",
+    "DIS_000080"
+  ],
+  "organophosphate poisoning": [
+    "DIS_000081",
+    "DIS_000081"
+  ],
+  "langerhans cell histiocytosis": [
+    "DIS_000082",
+    "DIS_000082"
+  ],
+  "coarctation of aorta": [
+    "DIS_000083",
+    "DIS_000083"
+  ],
+  "amniotic fluid embolism": [
+    "DIS_000084",
+    "DIS_000084"
+  ],
+  "non-hodgkin lymphoma": [
+    "DIS_000085",
+    "DIS_000085"
+  ],
+  "drug allergy": [
+    "DIS_000086",
+    "DIS_000086"
+  ],
+  "latex allergy": [
+    "DIS_000087",
+    "DIS_000087"
+  ],
+  "mast cell activation syndrome": [
+    "DIS_000088",
+    "DIS_000088"
+  ],
+  "interstitial cystitis": [
+    "DIS_000089",
+    "DIS_000089"
+  ],
+  "achilles tendon rupture": [
+    "DIS_000090",
+    "DIS_000090"
+  ],
+  "syphilis": [
+    "DIS_000091",
+    "DIS_000091"
+  ],
+  "asbestosis": [
+    "DIS_000092",
+    "DIS_000092"
+  ],
+  "eosinophilic granulomatosis with polyangiitis": [
+    "DIS_000093",
+    "DIS_000093"
+  ],
+  "allergic rhinitis": [
+    "DIS_000094",
+    "DIS_000094"
+  ],
+  "elder abuse": [
+    "DIS_000095",
+    "DIS_000095"
+  ],
+  "hepatorenal syndrome": [
+    "DIS_000096",
+    "DIS_000096"
+  ],
+  "piriformis syndrome": [
+    "DIS_000097",
+    "DIS_000097"
+  ],
+  "cervical radiculopathy": [
+    "DIS_000098",
+    "DIS_000098"
+  ],
+  "joint replacement rehabilitation": [
+    "DIS_000099",
+    "DIS_000099"
+  ],
+  "femoral hernia": [
+    "DIS_000100",
+    "DIS_000100"
+  ],
+  "compartment syndrome": [
+    "DIS_000101",
+    "DIS_000101"
+  ],
+  "subarachnoid hemorrhage": [
+    "DIS_000102",
+    "DIS_000102"
+  ],
+  "parkinson disease dementia": [
+    "DIS_000103",
+    "DIS_000103"
+  ],
+  "transient global amnesia": [
+    "DIS_000104",
+    "DIS_000104"
+  ],
+  "bipolar disorder": [
+    "DIS_000105",
+    "DIS_000105"
+  ],
+  "uveitis": [
+    "DIS_000106",
+    "DIS_000106"
+  ],
+  "allergic bronchopulmonary aspergillosis": [
+    "DIS_000107",
+    "DIS_000107"
+  ],
+  "wiskott-aldrich syndrome": [
+    "DIS_000108",
+    "DIS_000108"
+  ],
+  "hirschsprung disease": [
+    "DIS_000109",
+    "DIS_000109"
+  ],
+  "autism spectrum disorder": [
+    "DIS_000110",
+    "DIS_000110"
+  ],
+  "pyloric stenosis": [
+    "DIS_000111",
+    "DIS_000111"
+  ],
+  "polymyalgia rheumatica": [
+    "DIS_000112",
+    "DIS_000112"
+  ],
+  "benzodiazepine overdose": [
+    "DIS_000113",
+    "DIS_000113"
+  ],
+  "acute otitis media": [
+    "DIS_000114",
+    "DIS_000114"
+  ],
+  "testicular cancer": [
+    "DIS_000115",
+    "DIS_000115"
+  ],
+  "nephrogenic diabetes insipidus": [
+    "DIS_000116",
+    "DIS_000116"
+  ],
+  "breast mass": [
+    "DIS_000117",
+    "DIS_000117"
+  ],
+  "varicocele": [
+    "DIS_000118",
+    "DIS_000118"
+  ],
+  "laryngeal cancer": [
+    "DIS_000119",
+    "DIS_000119"
+  ],
+  "hemolytic uremic syndrome": [
+    "DIS_000120",
+    "DIS_000120"
+  ],
+  "retinal detachment": [
+    "DIS_000121",
+    "DIS_000121"
+  ],
+  "malignant bowel obstruction": [
+    "DIS_000122",
+    "DIS_000122"
+  ],
+  "fetal growth restriction": [
+    "DIS_000123",
+    "DIS_000123"
+  ],
+  "sacroiliac joint dysfunction": [
+    "DIS_000124",
+    "DIS_000124"
+  ],
+  "gastritis": [
+    "DIS_000125",
+    "DIS_000125"
+  ],
+  "restrictive cardiomyopathy": [
+    "DIS_000126",
+    "DIS_000126"
+  ],
+  "autoimmune hepatitis": [
+    "DIS_000127",
+    "DIS_000127"
+  ],
+  "attention deficit hyperactivity disorder": [
+    "DIS_000128",
+    "DIS_000128"
+  ],
+  "gestational diabetes": [
+    "DIS_000129",
+    "DIS_000129"
+  ],
+  "cardiac rehabilitation": [
+    "DIS_000130",
+    "DIS_000130"
+  ],
+  "urethral stricture": [
+    "DIS_000131",
+    "DIS_000131"
+  ],
+  "graves ophthalmopathy": [
+    "DIS_000132",
+    "DIS_000132"
+  ],
+  "amyloidosis": [
+    "DIS_000133",
+    "DIS_000133"
+  ],
+  "cushing syndrome": [
+    "DIS_000134",
+    "DIS_000134"
+  ],
+  "spinal cord compression": [
+    "DIS_000135",
+    "DIS_000135"
+  ],
+  "brachial plexus injury": [
+    "DIS_000136",
+    "DIS_000136"
+  ],
+  "bell palsy": [
+    "DIS_000137",
+    "DIS_000137"
+  ],
+  "erythema multiforme": [
+    "DIS_000138",
+    "DIS_000138"
+  ],
+  "antiphospholipid syndrome": [
+    "DIS_000139",
+    "DIS_000139"
+  ],
+  "bone lesion": [
+    "DIS_000140",
+    "DIS_000140"
+  ],
+  "pneumothorax": [
+    "DIS_000141",
+    "DIS_000141"
+  ],
+  "fuchs dystrophy": [
+    "DIS_000142",
+    "DIS_000142"
+  ],
+  "transplant rejection": [
+    "DIS_000143",
+    "DIS_000143"
+  ],
+  "brucellosis": [
+    "DIS_000144",
+    "DIS_000144"
+  ],
+  "diabetes insipidus": [
+    "DIS_000145",
+    "DIS_000145"
+  ],
+  "ankylosing spondylitis": [
+    "DIS_000146",
+    "DIS_000146"
+  ],
+  "epstein-barr virus": [
+    "DIS_000147",
+    "DIS_000147"
+  ],
+  "intussusception": [
+    "DIS_000148",
+    "DIS_000148"
+  ],
+  "gastroparesis": [
+    "DIS_000149",
+    "DIS_000149"
+  ],
+  "hyper-igm syndrome": [
+    "DIS_000150",
+    "DIS_000150"
+  ],
+  "henoch-schonlein purpura": [
+    "DIS_000151"
+  ],
+  "iga vasculitis": [
+    "DIS_000151"
+  ],
+  "autoimmune lymphoproliferative syndrome": [
+    "DIS_000152",
+    "DIS_000152"
+  ],
+  "refractory dyspnea": [
+    "DIS_000153",
+    "DIS_000153"
+  ],
+  "crohn disease": [
+    "DIS_000154",
+    "DIS_000154"
+  ],
+  "focal nodular hyperplasia": [
+    "DIS_000155",
+    "DIS_000155"
+  ],
+  "keratoconus": [
+    "DIS_000156",
+    "DIS_000156"
+  ],
+  "myasthenia gravis": [
+    "DIS_000157",
+    "DIS_000157"
+  ],
+  "existential distress": [
+    "DIS_000158",
+    "DIS_000158"
+  ],
+  "chronic myelogenous leukemia": [
+    "DIS_000159"
+  ],
+  "cml": [
+    "DIS_000159"
+  ],
+  "chronic myeloid leukemia": [
+    "DIS_000159"
+  ],
+  "urticaria": [
+    "DIS_000160",
+    "DIS_000160"
+  ],
+  "age-related macular degeneration": [
+    "DIS_000161",
+    "DIS_000161"
+  ],
+  "kyphosis": [
+    "DIS_000162",
+    "DIS_000162"
+  ],
+  "deep vein thrombosis": [
+    "DIS_000163",
+    "DIS_000163"
+  ],
+  "metastatic cancer": [
+    "DIS_000164",
+    "DIS_000164"
+  ],
+  "neuroleptic malignant syndrome": [
+    "DIS_000165",
+    "DIS_000165"
+  ],
+  "thyroiditis": [
+    "DIS_000166",
+    "DIS_000166"
+  ],
+  "psoriatic arthritis": [
+    "DIS_000167",
+    "DIS_000167"
+  ],
+  "light chain deposition disease": [
+    "DIS_000168",
+    "DIS_000168"
+  ],
+  "cor pulmonale": [
+    "DIS_000169",
+    "DIS_000169"
+  ],
+  "simple ovarian cyst": [
+    "DIS_000170",
+    "DIS_000170"
+  ],
+  "digoxin toxicity": [
+    "DIS_000171",
+    "DIS_000171"
+  ],
+  "tendon transfer": [
+    "DIS_000172",
+    "DIS_000172"
+  ],
+  "multiple sclerosis": [
+    "DIS_000173",
+    "DIS_000173"
+  ],
+  "ureteral stone": [
+    "DIS_000174",
+    "DIS_000174"
+  ],
+  "renal cyst": [
+    "DIS_000175",
+    "DIS_000175"
+  ],
+  "spina bifida": [
+    "DIS_000176",
+    "DIS_000176"
+  ],
+  "diabetic retinopathy": [
+    "DIS_000177",
+    "DIS_000177"
+  ],
+  "placental abruption": [
+    "DIS_000178",
+    "DIS_000178"
+  ],
+  "incidental adrenal nodule": [
+    "DIS_000179",
+    "DIS_000179"
+  ],
+  "tension headache": [
+    "DIS_000180",
+    "DIS_000180"
+  ],
+  "insect sting allergy": [
+    "DIS_000181",
+    "DIS_000181"
+  ],
+  "retinitis pigmentosa": [
+    "DIS_000182",
+    "DIS_000182"
+  ],
+  "mixed connective tissue disease": [
+    "DIS_000183",
+    "DIS_000183"
+  ],
+  "granulomatosis with polyangiitis": [
+    "DIS_000184",
+    "DIS_000184"
+  ],
+  "kawasaki disease": [
+    "DIS_000185",
+    "DIS_000185"
+  ],
+  "splenic rupture": [
+    "DIS_000186",
+    "DIS_000186"
+  ],
+  "bronchiectasis": [
+    "DIS_000187",
+    "DIS_000187"
+  ],
+  "spinal stenosis": [
+    "DIS_000188",
+    "DIS_000188"
+  ],
+  "severe combined immunodeficiency": [
+    "DIS_000189",
+    "DIS_000189"
+  ],
+  "hiv/aids": [
+    "DIS_000190"
+  ],
+  "human immunodeficiency virus infection": [
+    "DIS_000190"
+  ],
+  "aids": [
+    "DIS_000190"
+  ],
+  "psoriasis": [
+    "DIS_000191",
+    "DIS_000191"
+  ],
+  "theophylline toxicity": [
+    "DIS_000192",
+    "DIS_000192"
+  ],
+  "meckel diverticulum": [
+    "DIS_000193",
+    "DIS_000193"
+  ],
+  "ischemic colitis": [
+    "DIS_000194",
+    "DIS_000194"
+  ],
+  "calcium channel blocker overdose": [
+    "DIS_000195",
+    "DIS_000195"
+  ],
+  "cerebral palsy": [
+    "DIS_000196",
+    "DIS_000196"
+  ],
+  "ethylene glycol poisoning": [
+    "DIS_000197",
+    "DIS_000197"
+  ],
+  "peritonsillar abscess": [
+    "DIS_000198",
+    "DIS_000198"
+  ],
+  "sickle cell disease": [
+    "DIS_000199",
+    "DIS_000199"
+  ],
+  "celiac disease": [
+    "DIS_000200",
+    "DIS_000200"
+  ],
+  "adult-onset still disease": [
+    "DIS_000201",
+    "DIS_000201"
+  ],
+  "acoustic neuroma": [
+    "DIS_000202",
+    "DIS_000202"
+  ],
+  "small bowel obstruction": [
+    "DIS_000203",
+    "DIS_000203"
+  ],
+  "status epilepticus": [
+    "DIS_000204",
+    "DIS_000204"
+  ],
+  "acute appendicitis": [
+    "DIS_000205",
+    "DIS_000205"
+  ],
+  "optic neuritis": [
+    "DIS_000206",
+    "DIS_000206"
+  ],
+  "preterm labor": [
+    "DIS_000207",
+    "DIS_000207"
+  ],
+  "cord prolapse": [
+    "DIS_000208",
+    "DIS_000208"
+  ],
+  "orbital cellulitis": [
+    "DIS_000209",
+    "DIS_000209"
+  ],
+  "seborrheic dermatitis": [
+    "DIS_000210",
+    "DIS_000210"
+  ],
+  "contact dermatitis": [
+    "DIS_000211",
+    "DIS_000211"
+  ],
+  "polyarteritis nodosa": [
+    "DIS_000212",
+    "DIS_000212"
+  ],
+  "cerebral venous thrombosis": [
+    "DIS_000213",
+    "DIS_000213"
+  ],
+  "chronic fatigue syndrome": [
+    "DIS_000214",
+    "DIS_000214"
+  ],
+  "mitral stenosis": [
+    "DIS_000215",
+    "DIS_000215"
+  ],
+  "catatonia": [
+    "DIS_000216",
+    "DIS_000216"
+  ],
+  "thrombotic thrombocytopenic purpura": [
+    "DIS_000217",
+    "DIS_000217"
+  ],
+  "ovarian cancer": [
+    "DIS_000218",
+    "DIS_000218"
+  ],
+  "flail chest": [
+    "DIS_000219",
+    "DIS_000219"
+  ],
+  "dacryocystitis": [
+    "DIS_000220",
+    "DIS_000220"
+  ],
+  "septic shock": [
+    "DIS_000221",
+    "DIS_000221"
+  ],
+  "ulcerative colitis": [
+    "DIS_000222",
+    "DIS_000222"
+  ],
+  "eosinophilic esophagitis": [
+    "DIS_000223",
+    "DIS_000223"
+  ],
+  "malignant ascites": [
+    "DIS_000224",
+    "DIS_000224"
+  ],
+  "poems syndrome": [
+    "DIS_000225",
+    "DIS_000225"
+  ],
+  "hemophilia b": [
+    "DIS_000226",
+    "DIS_000226"
+  ],
+  "parathyroid adenoma": [
+    "DIS_000227",
+    "DIS_000227"
+  ],
+  "amputation": [
+    "DIS_000228",
+    "DIS_000228"
+  ],
+  "cardiogenic shock": [
+    "DIS_000229",
+    "DIS_000229"
+  ],
+  "carotid stenosis": [
+    "DIS_000230",
+    "DIS_000230"
+  ],
+  "opioid overdose": [
+    "DIS_000231",
+    "DIS_000231"
+  ],
+  "iga nephropathy": [
+    "DIS_000232",
+    "DIS_000232"
+  ],
+  "primary hyperaldosteronism": [
+    "DIS_000233",
+    "DIS_000233"
+  ],
+  "hypersensitivity pneumonitis": [
+    "DIS_000234",
+    "DIS_000234"
+  ],
+  "diverticular perforation": [
+    "DIS_000235",
+    "DIS_000235"
+  ],
+  "thyroid cancer": [
+    "DIS_000236",
+    "DIS_000236"
+  ],
+  "vascular dementia": [
+    "DIS_000237",
+    "DIS_000237"
+  ],
+  "chorioamnionitis": [
+    "DIS_000238",
+    "DIS_000238"
+  ],
+  "complement deficiency": [
+    "DIS_000239",
+    "DIS_000239"
+  ],
+  "anaphylaxis": [
+    "DIS_000240",
+    "DIS_000240"
+  ],
+  "scoliosis": [
+    "DIS_000241",
+    "DIS_000241"
+  ],
+  "pulmonary embolism": [
+    "DIS_000242",
+    "DIS_000242"
+  ],
+  "interstitial lung disease": [
+    "DIS_000243",
+    "DIS_000243"
+  ],
+  "toxoplasmosis": [
+    "DIS_000244",
+    "DIS_000244"
+  ],
+  "endophthalmitis": [
+    "DIS_000245",
+    "DIS_000245"
+  ],
+  "occipital neuralgia": [
+    "DIS_000246",
+    "DIS_000246"
+  ],
+  "melanoma": [
+    "DIS_000247",
+    "DIS_000247"
+  ],
+  "respiratory syncytial virus bronchiolitis": [
+    "DIS_000248",
+    "DIS_000248"
+  ],
+  "hereditary angioedema": [
+    "DIS_000249",
+    "DIS_000249"
+  ],
+  "gonorrhea": [
+    "DIS_000250",
+    "DIS_000250"
+  ],
+  "silicosis": [
+    "DIS_000251",
+    "DIS_000251"
+  ],
+  "pathological fracture": [
+    "DIS_000252",
+    "DIS_000252"
+  ],
+  "somatic symptom disorder": [
+    "DIS_000253",
+    "DIS_000253"
+  ],
+  "hereditary spherocytosis": [
+    "DIS_000254",
+    "DIS_000254"
+  ],
+  "allergic conjunctivitis": [
+    "DIS_000255",
+    "DIS_000255"
+  ],
+  "pericarditis": [
+    "DIS_000256",
+    "DIS_000256"
+  ],
+  "chronic idiopathic urticaria": [
+    "DIS_000257",
+    "DIS_000257"
+  ],
+  "anterior cruciate ligament tear": [
+    "DIS_000258",
+    "DIS_000258"
+  ],
+  "atrial fibrillation": [
+    "DIS_000259",
+    "DIS_000259"
+  ],
+  "factor v leiden": [
+    "DIS_000260",
+    "DIS_000260"
+  ],
+  "insomnia disorder": [
+    "DIS_000261",
+    "DIS_000261"
+  ],
+  "hemophagocytic lymphohistiocytosis": [
+    "DIS_000262",
+    "DIS_000262"
+  ],
+  "rotator cuff tear": [
+    "DIS_000263",
+    "DIS_000263"
+  ],
+  "thyroid storm": [
+    "DIS_000264",
+    "DIS_000264"
+  ],
+  "panic disorder": [
+    "DIS_000265",
+    "DIS_000265"
+  ],
+  "goodpasture syndrome": [
+    "DIS_000266",
+    "DIS_000266"
+  ],
+  "cervical spondylosis": [
+    "DIS_000267",
+    "DIS_000267"
+  ],
+  "hypertensive crisis": [
+    "DIS_000268",
+    "DIS_000268"
+  ],
+  "acute lymphoblastic leukemia": [
+    "DIS_000269",
+    "DIS_000269"
+  ],
+  "carpal tunnel syndrome": [
+    "DIS_000270",
+    "DIS_000270"
+  ],
+  "patent ductus arteriosus": [
+    "DIS_000271",
+    "DIS_000271"
+  ],
+  "end-stage liver disease": [
+    "DIS_000272",
+    "DIS_000272"
+  ],
+  "necrotizing enterocolitis": [
+    "DIS_000273",
+    "DIS_000273"
+  ],
+  "renal tubular acidosis": [
+    "DIS_000274",
+    "DIS_000274"
+  ],
+  "acetaminophen overdose": [
+    "DIS_000275",
+    "DIS_000275"
+  ],
+  "testicular torsion": [
+    "DIS_000276",
+    "DIS_000276"
+  ],
+  "wilms tumor": [
+    "DIS_000277",
+    "DIS_000277"
+  ],
+  "pancreatic pseudocyst": [
+    "DIS_000278",
+    "DIS_000278"
+  ],
+  "necrotizing fasciitis": [
+    "DIS_000279",
+    "DIS_000279"
+  ],
+  "salicylate poisoning": [
+    "DIS_000280",
+    "DIS_000280"
+  ],
+  "chronic sinusitis": [
+    "DIS_000281",
+    "DIS_000281"
+  ],
+  "mastocytosis": [
+    "DIS_000282",
+    "DIS_000282"
+  ],
+  "vocal cord paralysis": [
+    "DIS_000283",
+    "DIS_000283"
+  ],
+  "aortic regurgitation": [
+    "DIS_000284",
+    "DIS_000284"
+  ],
+  "endocarditis": [
+    "DIS_000285",
+    "DIS_000285"
+  ],
+  "systemic lupus erythematosus": [
+    "DIS_000286",
+    "DIS_000286"
+  ],
+  "lactic acidosis": [
+    "DIS_000287",
+    "DIS_000287"
+  ],
+  "bladder cancer": [
+    "DIS_000288",
+    "DIS_000288"
+  ],
+  "ventricular tachycardia": [
+    "DIS_000289",
+    "DIS_000289"
+  ],
+  "bullous pemphigoid": [
+    "DIS_000290",
+    "DIS_000290"
+  ],
+  "varicella zoster": [
+    "DIS_000291",
+    "DIS_000291"
+  ],
+  "malignant hyperthermia": [
+    "DIS_000292",
+    "DIS_000292"
+  ],
+  "cytomegalovirus": [
+    "DIS_000293",
+    "DIS_000293"
+  ],
+  "alport syndrome": [
+    "DIS_000294",
+    "DIS_000294"
+  ],
+  "large bowel obstruction": [
+    "DIS_000295",
+    "DIS_000295"
+  ],
+  "corneal ulcer": [
+    "DIS_000296",
+    "DIS_000296"
+  ],
+  "dermatomyositis": [
+    "DIS_000297",
+    "DIS_000297"
+  ],
+  "end-stage heart failure": [
+    "DIS_000298",
+    "DIS_000298"
+  ],
+  "hemothorax": [
+    "DIS_000299",
+    "DIS_000299"
+  ],
+  "foreign body aspiration": [
+    "DIS_000300",
+    "DIS_000300"
+  ],
+  "takayasu arteritis": [
+    "DIS_000301",
+    "DIS_000301"
+  ],
+  "placenta previa": [
+    "DIS_000302",
+    "DIS_000302"
+  ],
+  "renal cell carcinoma": [
+    "DIS_000303",
+    "DIS_000303"
+  ],
+  "bartter syndrome": [
+    "DIS_000304",
+    "DIS_000304"
+  ],
+  "strangulated hernia": [
+    "DIS_000305",
+    "DIS_000305"
+  ],
+  "pulmonary fibrosis": [
+    "DIS_000306",
+    "DIS_000306"
+  ],
+  "hyperemesis gravidarum": [
+    "DIS_000307",
+    "DIS_000307"
+  ],
+  "angioedema": [
+    "DIS_000308",
+    "DIS_000308"
+  ],
+  "heavy metal poisoning": [
+    "DIS_000309",
+    "DIS_000309"
+  ],
+  "end-stage copd": [
+    "DIS_000310",
+    "DIS_000310"
+  ],
+  "cryoglobulinemia": [
+    "DIS_000311",
+    "DIS_000311"
+  ],
+  "mycosis fungoides": [
+    "DIS_000312",
+    "DIS_000312"
+  ],
+  "narcolepsy": [
+    "DIS_000313",
+    "DIS_000313"
+  ],
+  "wegener granulomatosis": [
+    "DIS_000314",
+    "DIS_000314"
+  ],
+  "lumbar radiculopathy": [
+    "DIS_000315",
+    "DIS_000315"
+  ],
+  "trigeminal neuralgia": [
+    "DIS_000316",
+    "DIS_000316"
+  ],
+  "rosai-dorfman disease": [
+    "DIS_000317",
+    "DIS_000317"
+  ],
+  "amyotrophic lateral sclerosis": [
+    "DIS_000318",
+    "DIS_000318"
+  ],
+  "abdominal aortic aneurysm rupture": [
+    "DIS_000319",
+    "DIS_000319"
+  ],
+  "siadh": [
+    "DIS_000320",
+    "DIS_000320"
+  ],
+  "hepatic encephalopathy": [
+    "DIS_000321",
+    "DIS_000321"
+  ],
+  "ectopic pregnancy rupture": [
+    "DIS_000322",
+    "DIS_000322"
+  ],
+  "acromegaly": [
+    "DIS_000323",
+    "DIS_000323"
+  ],
+  "post-herpetic neuralgia": [
+    "DIS_000324",
+    "DIS_000324"
+  ],
+  "x-linked agammaglobulinemia": [
+    "DIS_000325",
+    "DIS_000325"
+  ],
+  "job syndrome": [
+    "DIS_000326",
+    "DIS_000326"
+  ],
+  "antithrombin deficiency": [
+    "DIS_000327",
+    "DIS_000327"
+  ],
+  "thin basement membrane disease": [
+    "DIS_000328",
+    "DIS_000328"
+  ],
+  "alopecia areata": [
+    "DIS_000329",
+    "DIS_000329"
+  ],
+  "polypharmacy": [
+    "DIS_000330",
+    "DIS_000330"
+  ],
+  "renal artery stenosis": [
+    "DIS_000331",
+    "DIS_000331"
+  ],
+  "substance use disorder": [
+    "DIS_000332",
+    "DIS_000332"
+  ],
+  "creutzfeldt-jakob disease": [
+    "DIS_000333",
+    "DIS_000333"
+  ],
+  "lymphangioleiomyomatosis": [
+    "DIS_000334",
+    "DIS_000334"
+  ],
+  "frailty syndrome": [
+    "DIS_000335",
+    "DIS_000335"
+  ],
+  "pemphigus vulgaris": [
+    "DIS_000336",
+    "DIS_000336"
+  ],
+  "guillain-barre recovery": [
+    "DIS_000337",
+    "DIS_000337"
+  ],
+  "aortic dissection": [
+    "DIS_000338",
+    "DIS_000338"
+  ],
+  "retinoblastoma": [
+    "DIS_000339",
+    "DIS_000339"
+  ],
+  "kaposi sarcoma": [
+    "DIS_000340",
+    "DIS_000340"
+  ],
+  "eating disorder": [
+    "DIS_000341",
+    "DIS_000341"
+  ],
+  "heavy chain disease": [
+    "DIS_000342",
+    "DIS_000342"
+  ],
+  "prostate nodule": [
+    "DIS_000343",
+    "DIS_000343"
+  ],
+  "dementia with lewy bodies": [
+    "DIS_000344",
+    "DIS_000344"
+  ],
+  "strabismus": [
+    "DIS_000345",
+    "DIS_000345"
+  ],
+  "acute cholecystitis": [
+    "DIS_000346",
+    "DIS_000346"
+  ],
+  "restless leg syndrome": [
+    "DIS_000347",
+    "DIS_000347"
+  ],
+  "pleural effusion": [
+    "DIS_000348",
+    "DIS_000348"
+  ],
+  "beta-blocker overdose": [
+    "DIS_000349",
+    "DIS_000349"
+  ],
+  "transposition of great arteries": [
+    "DIS_000350",
+    "DIS_000350"
+  ],
+  "chronic low back pain": [
+    "DIS_000351",
+    "DIS_000351"
+  ],
+  "adrenal crisis": [
+    "DIS_000352",
+    "DIS_000352"
+  ],
+  "peripheral nerve injury": [
+    "DIS_000353",
+    "DIS_000353"
+  ],
+  "acute sinusitis": [
+    "DIS_000354",
+    "DIS_000354"
+  ],
+  "delirium": [
+    "DIS_000355",
+    "DIS_000355"
+  ],
+  "polycystic kidney disease": [
+    "DIS_000356",
+    "DIS_000356"
+  ],
+  "aortic aneurysm": [
+    "DIS_000357",
+    "DIS_000357"
+  ],
+  "end-stage renal disease": [
+    "DIS_000358",
+    "DIS_000358"
+  ],
+  "incisional hernia": [
+    "DIS_000359",
+    "DIS_000359"
+  ],
+  "serotonin syndrome": [
+    "DIS_000360",
+    "DIS_000360"
+  ],
+  "chronic otitis media": [
+    "DIS_000361",
+    "DIS_000361"
+  ],
+  "hyperparathyroidism": [
+    "DIS_000362",
+    "DIS_000362"
+  ],
+  "meningococcemia": [
+    "DIS_000363",
+    "DIS_000363"
+  ],
+  "giant cell arteritis": [
+    "DIS_000364",
+    "DIS_000364"
+  ],
+  "soft tissue mass": [
+    "DIS_000365",
+    "DIS_000365"
+  ],
+  "castleman disease": [
+    "DIS_000366",
+    "DIS_000366"
+  ],
+  "herpes simplex": [
+    "DIS_000367",
+    "DIS_000367"
+  ],
+  "lung abscess": [
+    "DIS_000368",
+    "DIS_000368"
+  ],
+  "primary sclerosing cholangitis": [
+    "DIS_000369",
+    "DIS_000369"
+  ],
+  "lichen planus": [
+    "DIS_000370",
+    "DIS_000370"
+  ],
+  "cardiac tamponade": [
+    "DIS_000371",
+    "DIS_000371"
+  ],
+  "hypoparathyroidism": [
+    "DIS_000372",
+    "DIS_000372"
+  ],
+  "toxic epidermal necrolysis": [
+    "DIS_000373",
+    "DIS_000373"
+  ],
+  "subglottic stenosis": [
+    "DIS_000374",
+    "DIS_000374"
+  ],
+  "stroke recovery": [
+    "DIS_000375",
+    "DIS_000375"
+  ],
+  "paroxysmal nocturnal hemoglobinuria": [
+    "DIS_000376",
+    "DIS_000376"
+  ],
+  "systemic sclerosis": [
+    "DIS_000377",
+    "DIS_000377"
+  ],
+  "hepatic cyst": [
+    "DIS_000378",
+    "DIS_000378"
+  ],
+  "falls": [
+    "DIS_000379",
+    "DIS_000379"
+  ],
+  "fibromyalgia": [
+    "DIS_000380",
+    "DIS_000380"
+  ],
+  "irritable bowel syndrome": [
+    "DIS_000381",
+    "DIS_000381"
+  ],
+  "behçet disease": [
+    "DIS_000382",
+    "DIS_000382"
+  ],
+  "pulmonary hypertension": [
+    "DIS_000383",
+    "DIS_000383"
+  ],
+  "lung nodule": [
+    "DIS_000384",
+    "DIS_000384"
+  ],
+  "hydrocele": [
+    "DIS_000385",
+    "DIS_000385"
+  ],
+  "igg4-related disease": [
+    "DIS_000386",
+    "DIS_000386"
+  ],
+  "frontotemporal dementia": [
+    "DIS_000387",
+    "DIS_000387"
+  ],
+  "hodgkin lymphoma": [
+    "DIS_000388",
+    "DIS_000388"
+  ],
+  "sjogren syndrome": [
+    "DIS_000389",
+    "DIS_000389"
+  ],
+  "complex regional pain syndrome": [
+    "DIS_000390",
+    "DIS_000390"
+  ],
+  "tricyclic antidepressant overdose": [
+    "DIS_000391",
+    "DIS_000391"
+  ],
+  "burn injury": [
+    "DIS_000392",
+    "DIS_000392"
+  ],
+  "polymyositis": [
+    "DIS_000393",
+    "DIS_000393"
+  ],
+  "sleep-disordered breathing": [
+    "DIS_000394",
+    "DIS_000394"
+  ],
+  "shoulder dystocia": [
+    "DIS_000395",
+    "DIS_000395"
+  ],
+  "sarcoidosis": [
+    "DIS_000396",
+    "DIS_000396"
+  ],
+  "digeorge syndrome": [
+    "DIS_000397",
+    "DIS_000397"
+  ],
+  "ovarian torsion": [
+    "DIS_000398",
+    "DIS_000398"
+  ],
+  "lumbar disc herniation": [
+    "DIS_000399",
+    "DIS_000399"
+  ],
+  "hypertrophic cardiomyopathy": [
+    "DIS_000400",
+    "DIS_000400"
+  ],
+  "meniscal tear": [
+    "DIS_000401",
+    "DIS_000401"
+  ],
+  "urinary incontinence": [
+    "DIS_000402",
+    "DIS_000402"
+  ],
+  "von willebrand disease": [
+    "DIS_000403",
+    "DIS_000403"
+  ],
+  "huntington disease": [
+    "DIS_000404",
+    "DIS_000404"
+  ],
+  "chronic granulomatous disease": [
+    "DIS_000405",
+    "DIS_000405"
+  ],
+  "vitiligo": [
+    "DIS_000406",
+    "DIS_000406"
+  ],
+  "pressure ulcer": [
+    "DIS_000407",
+    "DIS_000407"
+  ],
+  "croup": [
+    "DIS_000408",
+    "DIS_000408"
+  ],
+  "postpartum hemorrhage": [
+    "DIS_000409",
+    "DIS_000409"
+  ],
+  "eclampsia": [
+    "DIS_000410",
+    "DIS_000410"
+  ],
+  "preeclampsia": [
+    "DIS_000411",
+    "DIS_000411"
+  ],
+  "malignant pleural effusion": [
+    "DIS_000412",
+    "DIS_000412"
+  ],
+  "rocky mountain spotted fever": [
+    "DIS_000413",
+    "DIS_000413"
+  ],
+  "myxedema coma": [
+    "DIS_000414",
+    "DIS_000414"
+  ],
+  "cyanide poisoning": [
+    "DIS_000415",
+    "DIS_000415"
+  ],
+  "tension pneumothorax": [
+    "DIS_000416",
+    "DIS_000416"
+  ],
+  "selective iga deficiency": [
+    "DIS_000417",
+    "DIS_000417"
+  ],
+  "graft-versus-host disease": [
+    "DIS_000418",
+    "DIS_000418"
+  ],
+  "tibial plateau fracture": [
+    "DIS_000419",
+    "DIS_000419"
+  ],
+  "tonsillitis": [
+    "DIS_000420",
+    "DIS_000420"
+  ],
+  "myofascial pain syndrome": [
+    "DIS_000421",
+    "DIS_000421"
+  ],
+  "uterine rupture": [
+    "DIS_000422",
+    "DIS_000422"
+  ],
+  "food allergy": [
+    "DIS_000423",
+    "DIS_000423"
+  ],
+  "microscopic polyangiitis": [
+    "DIS_000424",
+    "DIS_000424"
+  ],
+  "dilated cardiomyopathy": [
+    "DIS_000425",
+    "DIS_000425"
+  ],
+  "diverticulitis": [
+    "DIS_000426",
+    "DIS_000426"
+  ],
+  "protein c deficiency": [
+    "DIS_000427",
+    "DIS_000427"
+  ],
+  "chediak-higashi syndrome": [
+    "DIS_000428",
+    "DIS_000428"
+  ],
+  "diabetic ketoacidosis": [
+    "DIS_000429",
+    "DIS_000429"
+  ],
+  "sarcopenia": [
+    "DIS_000430",
+    "DIS_000430"
+  ],
+  "guillain-barre syndrome": [
+    "DIS_000431",
+    "DIS_000431"
+  ],
+  "neuroblastoma": [
+    "DIS_000432",
+    "DIS_000432"
+  ],
+  "cholangiocarcinoma": [
+    "DIS_000433",
+    "DIS_000433"
+  ],
+  "short bowel syndrome": [
+    "DIS_000434",
+    "DIS_000434"
+  ],
+  "nephrotic syndrome": [
+    "DIS_000435",
+    "DIS_000435"
+  ],
+  "bronchopulmonary dysplasia": [
+    "DIS_000436",
+    "DIS_000436"
+  ],
+  "acute myeloid leukemia": [
+    "DIS_000437",
+    "DIS_000437"
+  ],
+  "chronic lymphocytic leukemia": [
+    "DIS_000438",
+    "DIS_000438"
+  ],
+  "hairy cell leukemia": [
+    "DIS_000439",
+    "DIS_000439"
+  ],
+  "burkitt lymphoma": [
+    "DIS_000440",
+    "DIS_000440"
+  ],
+  "waldenstrom macroglobulinemia": [
+    "DIS_000441",
+    "DIS_000441"
+  ],
+  "aplastic anemia": [
+    "DIS_000442",
+    "DIS_000442"
+  ],
+  "iron deficiency anemia": [
+    "DIS_000443",
+    "DIS_000443"
+  ],
+  "megaloblastic anemia": [
+    "DIS_000444",
+    "DIS_000444"
+  ],
+  "autoimmune hemolytic anemia": [
+    "DIS_000445",
+    "DIS_000445"
+  ],
+  "g6pd deficiency": [
+    "DIS_000446",
+    "DIS_000446"
+  ],
+  "polycythemia vera": [
+    "DIS_000447",
+    "DIS_000447"
+  ],
+  "essential thrombocythemia": [
+    "DIS_000448",
+    "DIS_000448"
+  ],
+  "primary myelofibrosis": [
+    "DIS_000449",
+    "DIS_000449"
+  ],
+  "factor v leiden thrombophilia": [
+    "DIS_000450",
+    "DIS_000450"
+  ],
+  "protein s deficiency": [
+    "DIS_000451",
+    "DIS_000451"
+  ],
+  "hemochromatosis": [
+    "DIS_000452",
+    "DIS_000452"
+  ],
+  "porphyria": [
+    "DIS_000453",
+    "DIS_000453"
+  ],
+  "acute promyelocytic leukemia": [
+    "DIS_000454",
+    "DIS_000454"
+  ],
+  "chronic eosinophilic leukemia": [
+    "DIS_000455",
+    "DIS_000455"
+  ],
+  "type 1 diabetes mellitus": [
+    "DIS_000456",
+    "DIS_000456"
+  ],
+  "hypoglycemia": [
+    "DIS_000457",
+    "DIS_000457"
+  ],
+  "hyperthyroidism": [
+    "DIS_000458",
+    "DIS_000458"
+  ],
+  "hypothyroidism": [
+    "DIS_000459",
+    "DIS_000459"
+  ],
+  "hashimoto thyroiditis": [
+    "DIS_000460",
+    "DIS_000460"
+  ],
+  "primary hyperparathyroidism": [
+    "DIS_000461",
+    "DIS_000461"
+  ],
+  "growth hormone deficiency": [
+    "DIS_000462",
+    "DIS_000462"
+  ],
+  "congenital adrenal hyperplasia": [
+    "DIS_000463",
+    "DIS_000463"
+  ],
+  "adrenal insufficiency": [
+    "DIS_000464",
+    "DIS_000464"
+  ],
+  "polycystic ovary syndrome": [
+    "DIS_000465",
+    "DIS_000465"
+  ],
+  "pheochromocytoma crisis": [
+    "DIS_000466",
+    "DIS_000466"
+  ],
+  "hyperprolactinemia": [
+    "DIS_000467",
+    "DIS_000467"
+  ],
+  "syndrome of inappropriate antidiuretic hormone secretion": [
+    "DIS_000468",
+    "DIS_000468"
+  ],
+  "hypercalcemia": [
+    "DIS_000469",
+    "DIS_000469"
+  ],
+  "hypocalcemia": [
+    "DIS_000470",
+    "DIS_000470"
+  ],
+  "hyperkalemia": [
+    "DIS_000471",
+    "DIS_000471"
+  ],
+  "hypokalemia": [
+    "DIS_000472",
+    "DIS_000472"
+  ],
+  "metabolic syndrome": [
+    "DIS_000473",
+    "DIS_000473"
+  ],
+  "obesity": [
+    "DIS_000474",
+    "DIS_000474"
+  ],
+  "familial hypercholesterolemia": [
+    "DIS_000475",
+    "DIS_000475"
+  ],
+  "hypertriglyceridemia": [
+    "DIS_000476",
+    "DIS_000476"
+  ],
+  "coronary artery disease": [
+    "DIS_000477",
+    "DIS_000477"
+  ],
+  "acute myocardial infarction": [
+    "DIS_000478",
+    "DIS_000478"
+  ],
+  "heart failure": [
+    "DIS_000479",
+    "DIS_000479"
+  ],
+  "arrhythmogenic right ventricular cardiomyopathy": [
+    "DIS_000480",
+    "DIS_000480"
+  ],
+  "atrial flutter": [
+    "DIS_000481",
+    "DIS_000481"
+  ],
+  "supraventricular tachycardia": [
+    "DIS_000482",
+    "DIS_000482"
+  ],
+  "ventricular fibrillation": [
+    "DIS_000483",
+    "DIS_000483"
+  ],
+  "bradycardia": [
+    "DIS_000484",
+    "DIS_000484"
+  ],
+  "aortic stenosis": [
+    "DIS_000485",
+    "DIS_000485"
+  ],
+  "mitral regurgitation": [
+    "DIS_000486",
+    "DIS_000486"
+  ],
+  "tricuspid regurgitation": [
+    "DIS_000487",
+    "DIS_000487"
+  ],
+  "infective endocarditis": [
+    "DIS_000488",
+    "DIS_000488"
+  ],
+  "myocarditis": [
+    "DIS_000489",
+    "DIS_000489"
+  ],
+  "peripheral artery disease": [
+    "DIS_000490",
+    "DIS_000490"
+  ],
+  "chronic venous insufficiency": [
+    "DIS_000491",
+    "DIS_000491"
+  ],
+  "varicose veins": [
+    "DIS_000492",
+    "DIS_000492"
+  ],
+  "acute ischemic stroke": [
+    "DIS_000493",
+    "DIS_000493"
+  ],
+  "transient ischemic attack": [
+    "DIS_000494",
+    "DIS_000494"
+  ],
+  "intracerebral hemorrhage": [
+    "DIS_000495",
+    "DIS_000495"
+  ],
+  "migraine": [
+    "DIS_000496",
+    "DIS_000496"
+  ],
+  "chronic migraine": [
+    "DIS_000497",
+    "DIS_000497"
+  ],
+  "alzheimer disease": [
+    "DIS_000498",
+    "DIS_000498"
+  ],
+  "lewy body dementia": [
+    "DIS_000499",
+    "DIS_000499"
+  ],
+  "essential tremor": [
+    "DIS_000500",
+    "DIS_000500"
+  ],
+  "peripheral neuropathy": [
+    "DIS_000501",
+    "DIS_000501"
+  ],
+  "multiple system atrophy": [
+    "DIS_000502",
+    "DIS_000502"
+  ],
+  "progressive supranuclear palsy": [
+    "DIS_000503",
+    "DIS_000503"
+  ],
+  "chiari malformation": [
+    "DIS_000504",
+    "DIS_000504"
+  ],
+  "syringomyelia": [
+    "DIS_000505",
+    "DIS_000505"
+  ],
+  "meningitis": [
+    "DIS_000506",
+    "DIS_000506"
+  ],
+  "encephalitis": [
+    "DIS_000507",
+    "DIS_000507"
+  ],
+  "brain abscess": [
+    "DIS_000508",
+    "DIS_000508"
+  ],
+  "cerebral aneurysm": [
+    "DIS_000509",
+    "DIS_000509"
+  ],
+  "acute bronchitis": [
+    "DIS_000510",
+    "DIS_000510"
+  ],
+  "chronic bronchitis": [
+    "DIS_000511",
+    "DIS_000511"
+  ],
+  "chronic obstructive pulmonary disease": [
+    "DIS_000512",
+    "DIS_000512"
+  ],
+  "emphysema": [
+    "DIS_000513",
+    "DIS_000513"
+  ],
+  "asthma": [
+    "DIS_000514",
+    "DIS_000514"
+  ],
+  "status asthmaticus": [
+    "DIS_000515",
+    "DIS_000515"
+  ],
+  "community-acquired pneumonia": [
+    "DIS_000516",
+    "DIS_000516"
+  ],
+  "hospital-acquired pneumonia": [
+    "DIS_000517",
+    "DIS_000517"
+  ],
+  "tuberculosis": [
+    "DIS_000518",
+    "DIS_000518"
+  ],
+  "pulmonary tuberculosis": [
+    "DIS_000519",
+    "DIS_000519"
+  ],
+  "empyema": [
+    "DIS_000520",
+    "DIS_000520"
+  ],
+  "cystic fibrosis": [
+    "DIS_000521",
+    "DIS_000521"
+  ],
+  "pulmonary edema": [
+    "DIS_000522",
+    "DIS_000522"
+  ],
+  "obstructive sleep apnea": [
+    "DIS_000523",
+    "DIS_000523"
+  ],
+  "central sleep apnea": [
+    "DIS_000524",
+    "DIS_000524"
+  ],
+  "gastroesophageal reflux disease": [
+    "DIS_000525",
+    "DIS_000525"
+  ],
+  "peptic ulcer disease": [
+    "DIS_000526",
+    "DIS_000526"
+  ],
+  "duodenal ulcer": [
+    "DIS_000527",
+    "DIS_000527"
+  ],
+  "gastrointestinal bleeding": [
+    "DIS_000528",
+    "DIS_000528"
+  ],
+  "diverticulosis": [
+    "DIS_000529",
+    "DIS_000529"
+  ],
+  "acute pancreatitis": [
+    "DIS_000530",
+    "DIS_000530"
+  ],
+  "chronic pancreatitis": [
+    "DIS_000531",
+    "DIS_000531"
+  ],
+  "cholelithiasis": [
+    "DIS_000532",
+    "DIS_000532"
+  ],
+  "cholangitis": [
+    "DIS_000533",
+    "DIS_000533"
+  ],
+  "choledocholithiasis": [
+    "DIS_000534",
+    "DIS_000534"
+  ],
+  "hepatitis a": [
+    "DIS_000535",
+    "DIS_000535"
+  ],
+  "hepatitis b": [
+    "DIS_000536",
+    "DIS_000536"
+  ],
+  "hepatitis c": [
+    "DIS_000537",
+    "DIS_000537"
+  ],
+  "alcoholic hepatitis": [
+    "DIS_000538",
+    "DIS_000538"
+  ],
+  "cirrhosis": [
+    "DIS_000539",
+    "DIS_000539"
+  ],
+  "portal hypertension": [
+    "DIS_000540",
+    "DIS_000540"
+  ],
+  "acute liver failure": [
+    "DIS_000541",
+    "DIS_000541"
+  ],
+  "nonalcoholic fatty liver disease": [
+    "DIS_000542",
+    "DIS_000542"
+  ],
+  "nonalcoholic steatohepatitis": [
+    "DIS_000543",
+    "DIS_000543"
+  ],
+  "anal fissure": [
+    "DIS_000544",
+    "DIS_000544"
+  ],
+  "hemorrhoids": [
+    "DIS_000545",
+    "DIS_000545"
+  ],
+  "acute kidney injury": [
+    "DIS_000546",
+    "DIS_000546"
+  ],
+  "chronic kidney disease": [
+    "DIS_000547",
+    "DIS_000547"
+  ],
+  "glomerulonephritis": [
+    "DIS_000548",
+    "DIS_000548"
+  ],
+  "membranous nephropathy": [
+    "DIS_000549",
+    "DIS_000549"
+  ],
+  "pyelonephritis": [
+    "DIS_000550",
+    "DIS_000550"
+  ],
+  "urinary tract infection": [
+    "DIS_000551",
+    "DIS_000551"
+  ],
+  "vesicoureteral reflux": [
+    "DIS_000552",
+    "DIS_000552"
+  ],
+  "hydronephrosis": [
+    "DIS_000553",
+    "DIS_000553"
+  ],
+  "prostate cancer": [
+    "DIS_000554",
+    "DIS_000554"
+  ],
+  "erectile dysfunction": [
+    "DIS_000555",
+    "DIS_000555"
+  ],
+  "stress urinary incontinence": [
+    "DIS_000556",
+    "DIS_000556"
+  ],
+  "pelvic organ prolapse": [
+    "DIS_000557",
+    "DIS_000557"
+  ],
+  "rheumatoid arthritis": [
+    "DIS_000558",
+    "DIS_000558"
+  ],
+  "osteoarthritis": [
+    "DIS_000559",
+    "DIS_000559"
+  ],
+  "gout": [
+    "DIS_000560",
+    "DIS_000560"
+  ],
+  "pseudogout": [
+    "DIS_000561",
+    "DIS_000561"
+  ],
+  "behcet disease": [
+    "DIS_000562",
+    "DIS_000562"
+  ],
+  "osteoporosis": [
+    "DIS_000563",
+    "DIS_000563"
+  ],
+  "osteomalacia": [
+    "DIS_000564",
+    "DIS_000564"
+  ],
+  "paget disease of bone": [
+    "DIS_000565",
+    "DIS_000565"
+  ],
+  "avascular necrosis": [
+    "DIS_000566",
+    "DIS_000566"
+  ],
+  "septic arthritis": [
+    "DIS_000567",
+    "DIS_000567"
+  ],
+  "bursitis": [
+    "DIS_000568",
+    "DIS_000568"
+  ],
+  "acne vulgaris": [
+    "DIS_000569",
+    "DIS_000569"
+  ],
+  "rosacea": [
+    "DIS_000570",
+    "DIS_000570"
+  ],
+  "androgenetic alopecia": [
+    "DIS_000571",
+    "DIS_000571"
+  ],
+  "cellulitis": [
+    "DIS_000572",
+    "DIS_000572"
+  ],
+  "impetigo": [
+    "DIS_000573",
+    "DIS_000573"
+  ],
+  "tinea corporis": [
+    "DIS_000574",
+    "DIS_000574"
+  ],
+  "onychomycosis": [
+    "DIS_000575",
+    "DIS_000575"
+  ],
+  "scabies": [
+    "DIS_000576",
+    "DIS_000576"
+  ],
+  "herpes zoster": [
+    "DIS_000577",
+    "DIS_000577"
+  ],
+  "herpes simplex infection": [
+    "DIS_000578",
+    "DIS_000578"
+  ],
+  "major depressive disorder": [
+    "DIS_000579",
+    "DIS_000579"
+  ],
+  "generalized anxiety disorder": [
+    "DIS_000580",
+    "DIS_000580"
+  ],
+  "specific phobia": [
+    "DIS_000581",
+    "DIS_000581"
+  ],
+  "agoraphobia": [
+    "DIS_000582",
+    "DIS_000582"
+  ],
+  "schizophrenia": [
+    "DIS_000583",
+    "DIS_000583"
+  ],
+  "schizoaffective disorder": [
+    "DIS_000584",
+    "DIS_000584"
+  ],
+  "anorexia nervosa": [
+    "DIS_000585",
+    "DIS_000585"
+  ],
+  "bulimia nervosa": [
+    "DIS_000586",
+    "DIS_000586"
+  ],
+  "binge eating disorder": [
+    "DIS_000587",
+    "DIS_000587"
+  ],
+  "alcohol use disorder": [
+    "DIS_000588",
+    "DIS_000588"
+  ],
+  "nicotine dependence": [
+    "DIS_000589",
+    "DIS_000589"
+  ],
+  "insomnia": [
+    "DIS_000590",
+    "DIS_000590"
+  ],
+  "restless legs syndrome": [
+    "DIS_000591",
+    "DIS_000591"
+  ],
+  "attention deficit hyperactivity disorder, predominantly inattentive presentation": [
+    "DIS_000592",
+    "DIS_000592"
+  ],
+  "down syndrome": [
+    "DIS_000593",
+    "DIS_000593"
+  ],
+  "turner syndrome": [
+    "DIS_000594",
+    "DIS_000594"
+  ],
+  "klinefelter syndrome": [
+    "DIS_000595",
+    "DIS_000595"
+  ],
+  "marfan syndrome": [
+    "DIS_000596",
+    "DIS_000596"
+  ],
+  "ehlers-danlos syndrome": [
+    "DIS_000597",
+    "DIS_000597"
+  ],
+  "fragile x syndrome": [
+    "DIS_000598",
+    "DIS_000598"
+  ],
+  "neurofibromatosis type 1": [
+    "DIS_000599",
+    "DIS_000599"
+  ],
+  "tuberous sclerosis complex": [
+    "DIS_000600",
+    "DIS_000600"
+  ],
+  "wilson disease": [
+    "DIS_000601",
+    "DIS_000601"
+  ],
+  "gaucher disease": [
+    "DIS_000602",
+    "DIS_000602"
+  ],
+  "fabry disease": [
+    "DIS_000603",
+    "DIS_000603"
+  ],
+  "tay-sachs disease": [
+    "DIS_000604",
+    "DIS_000604"
+  ],
+  "phenylketonuria": [
+    "DIS_000605",
+    "DIS_000605"
+  ],
+  "maple syrup urine disease": [
+    "DIS_000606",
+    "DIS_000606"
+  ],
+  "congenital hypothyroidism": [
+    "DIS_000607",
+    "DIS_000607"
+  ],
+  "congenital heart disease": [
+    "DIS_000608",
+    "DIS_000608"
+  ],
+  "ventricular septal defect": [
+    "DIS_000609",
+    "DIS_000609"
+  ],
+  "atrial septal defect": [
+    "DIS_000610",
+    "DIS_000610"
+  ],
+  "coarctation of the aorta": [
+    "DIS_000611",
+    "DIS_000611"
+  ],
+  "endometriosis": [
+    "DIS_000612",
+    "DIS_000612"
+  ],
+  "uterine fibroids": [
+    "DIS_000613",
+    "DIS_000613"
+  ],
+  "adenomyosis": [
+    "DIS_000614",
+    "DIS_000614"
+  ],
+  "pelvic inflammatory disease": [
+    "DIS_000615",
+    "DIS_000615"
+  ],
+  "ectopic pregnancy": [
+    "DIS_000616",
+    "DIS_000616"
+  ],
+  "postpartum depression": [
+    "DIS_000617",
+    "DIS_000617"
+  ],
+  "breast cancer": [
+    "DIS_000618",
+    "DIS_000618"
+  ],
+  "cervical cancer": [
+    "DIS_000619",
+    "DIS_000619"
+  ],
+  "endometrial cancer": [
+    "DIS_000620",
+    "DIS_000620"
+  ],
+  "vulvar cancer": [
+    "DIS_000621",
+    "DIS_000621"
+  ],
+  "vaginal cancer": [
+    "DIS_000622",
+    "DIS_000622"
+  ],
+  "colorectal cancer": [
+    "DIS_000623",
+    "DIS_000623"
+  ],
+  "gastric cancer": [
+    "DIS_000624",
+    "DIS_000624"
+  ],
+  "esophageal cancer": [
+    "DIS_000625",
+    "DIS_000625"
+  ],
+  "hepatocellular carcinoma": [
+    "DIS_000626",
+    "DIS_000626"
+  ],
+  "lung cancer": [
+    "DIS_000627",
+    "DIS_000627"
+  ],
+  "acute megakaryoblastic leukemia": [
+    "DIS_000628",
+    "DIS_000628"
+  ],
+  "chronic neutrophilic leukemia": [
+    "DIS_000629",
+    "DIS_000629"
+  ],
+  "myeloproliferative neoplasm": [
+    "DIS_000630",
+    "DIS_000630"
+  ],
+  "cold agglutinin disease": [
+    "DIS_000631",
+    "DIS_000631"
+  ],
+  "hereditary hemochromatosis": [
+    "DIS_000632",
+    "DIS_000632"
+  ],
+  "sideroblastic anemia": [
+    "DIS_000633",
+    "DIS_000633"
+  ],
+  "diamond-blackfan anemia": [
+    "DIS_000634",
+    "DIS_000634"
+  ],
+  "thrombasthenia": [
+    "DIS_000635",
+    "DIS_000635"
+  ],
+  "factor xi deficiency": [
+    "DIS_000636",
+    "DIS_000636"
+  ],
+  "factor xiii deficiency": [
+    "DIS_000637",
+    "DIS_000637"
+  ],
+  "lada diabetes": [
+    "DIS_000638",
+    "DIS_000638"
+  ],
+  "primary ovarian insufficiency": [
+    "DIS_000639",
+    "DIS_000639"
+  ],
+  "hypogonadotropic hypogonadism": [
+    "DIS_000640",
+    "DIS_000640"
+  ],
+  "congenital hyperinsulinism": [
+    "DIS_000641",
+    "DIS_000641"
+  ],
+  "panhypopituitarism": [
+    "DIS_000642",
+    "DIS_000642"
+  ],
+  "craniopharyngioma": [
+    "DIS_000643",
+    "DIS_000643"
+  ],
+  "thyrotoxic periodic paralysis": [
+    "DIS_000644",
+    "DIS_000644"
+  ],
+  "takotsubo cardiomyopathy": [
+    "DIS_000645",
+    "DIS_000645"
+  ],
+  "left bundle branch block": [
+    "DIS_000646",
+    "DIS_000646"
+  ],
+  "right bundle branch block": [
+    "DIS_000647",
+    "DIS_000647"
+  ],
+  "sick sinus syndrome": [
+    "DIS_000648",
+    "DIS_000648"
+  ],
+  "long qt syndrome": [
+    "DIS_000649",
+    "DIS_000649"
+  ],
+  "brugada syndrome": [
+    "DIS_000650",
+    "DIS_000650"
+  ],
+  "wolff-parkinson-white syndrome": [
+    "DIS_000651",
+    "DIS_000651"
+  ],
+  "constrictive pericarditis": [
+    "DIS_000652",
+    "DIS_000652"
+  ],
+  "chronic limb-threatening ischemia": [
+    "DIS_000653",
+    "DIS_000653"
+  ],
+  "buerger disease": [
+    "DIS_000654",
+    "DIS_000654"
+  ],
+  "cadasil": [
+    "DIS_000655",
+    "DIS_000655"
+  ],
+  "moyamoya disease": [
+    "DIS_000656",
+    "DIS_000656"
+  ],
+  "neuromyelitis optica spectrum disorder": [
+    "DIS_000657",
+    "DIS_000657"
+  ],
+  "acute disseminated encephalomyelitis": [
+    "DIS_000658",
+    "DIS_000658"
+  ],
+  "idiopathic intracranial hypertension": [
+    "DIS_000659",
+    "DIS_000659"
+  ],
+  "temporal lobe epilepsy": [
+    "DIS_000660",
+    "DIS_000660"
+  ],
+  "absence epilepsy": [
+    "DIS_000661",
+    "DIS_000661"
+  ],
+  "west syndrome": [
+    "DIS_000662",
+    "DIS_000662"
+  ],
+  "dravet syndrome": [
+    "DIS_000663",
+    "DIS_000663"
+  ],
+  "bronchiolitis": [
+    "DIS_000664",
+    "DIS_000664"
+  ],
+  "idiopathic pulmonary arterial hypertension": [
+    "DIS_000665",
+    "DIS_000665"
+  ],
+  "occupational asthma": [
+    "DIS_000666",
+    "DIS_000666"
+  ],
+  "bronchiolitis obliterans": [
+    "DIS_000667",
+    "DIS_000667"
+  ],
+  "pulmonary alveolar proteinosis": [
+    "DIS_000668",
+    "DIS_000668"
+  ],
+  "barrett esophagus": [
+    "DIS_000669",
+    "DIS_000669"
+  ],
+  "achlorhydria": [
+    "DIS_000670",
+    "DIS_000670"
+  ],
+  "mallory-weiss syndrome": [
+    "DIS_000671",
+    "DIS_000671"
+  ],
+  "mesenteric ischemia": [
+    "DIS_000672",
+    "DIS_000672"
+  ],
+  "mesenteric venous thrombosis": [
+    "DIS_000673",
+    "DIS_000673"
+  ],
+  "clostridioides difficile colitis": [
+    "DIS_000674",
+    "DIS_000674"
+  ],
+  "microscopic colitis": [
+    "DIS_000675",
+    "DIS_000675"
+  ],
+  "primary biliary cholangitis": [
+    "DIS_000676",
+    "DIS_000676"
+  ],
+  "wilson hepatitis": [
+    "DIS_000677",
+    "DIS_000677"
+  ],
+  "budd-chiari syndrome": [
+    "DIS_000678",
+    "DIS_000678"
+  ],
+  "acute interstitial nephritis": [
+    "DIS_000679",
+    "DIS_000679"
+  ],
+  "renovascular hypertension": [
+    "DIS_000680",
+    "DIS_000680"
+  ],
+  "fournier gangrene": [
+    "DIS_000681",
+    "DIS_000681"
+  ],
+  "peyronie disease": [
+    "DIS_000682",
+    "DIS_000682"
+  ],
+  "interstitial nephritis": [
+    "DIS_000683",
+    "DIS_000683"
+  ],
+  "relapsing polychondritis": [
+    "DIS_000684",
+    "DIS_000684"
+  ],
+  "sapho syndrome": [
+    "DIS_000685",
+    "DIS_000685"
+  ],
+  "osteogenesis imperfecta": [
+    "DIS_000686",
+    "DIS_000686"
+  ],
+  "chronic myelomonocytic leukemia": [
+    "DIS_000687",
+    "DIS_000687"
+  ],
+  "juvenile myelomonocytic leukemia": [
+    "DIS_000688",
+    "DIS_000688"
+  ],
+  "sickle cell crisis": [
+    "DIS_000690",
+    "DIS_000690"
+  ],
+  "pyruvate kinase deficiency": [
+    "DIS_000691",
+    "DIS_000691"
+  ],
+  "alpha thalassemia": [
+    "DIS_000692",
+    "DIS_000692"
+  ],
+  "beta thalassemia intermedia": [
+    "DIS_000693",
+    "DIS_000693"
+  ],
+  "fanconi anemia": [
+    "DIS_000694",
+    "DIS_000694"
+  ],
+  "paroxysmal cold hemoglobinuria": [
+    "DIS_000695",
+    "DIS_000695"
+  ],
+  "hypereosinophilic syndrome": [
+    "DIS_000696",
+    "DIS_000696"
+  ],
+  "lupus anticoagulant-hypoprothrombinemia syndrome": [
+    "DIS_000697",
+    "DIS_000697"
+  ],
+  "cushing disease": [
+    "DIS_000698",
+    "DIS_000698"
+  ],
+  "subacute thyroiditis": [
+    "DIS_000699",
+    "DIS_000699"
+  ],
+  "riedel thyroiditis": [
+    "DIS_000700",
+    "DIS_000700"
+  ],
+  "thyroid eye disease": [
+    "DIS_000701",
+    "DIS_000701"
+  ],
+  "graves dermopathy": [
+    "DIS_000702",
+    "DIS_000702"
+  ],
+  "diabetic nephropathy": [
+    "DIS_000703",
+    "DIS_000703"
+  ],
+  "diabetic neuropathy": [
+    "DIS_000704",
+    "DIS_000704"
+  ],
+  "lipoatrophic diabetes": [
+    "DIS_000705",
+    "DIS_000705"
+  ],
+  "multiple endocrine neoplasia type 1": [
+    "DIS_000706",
+    "DIS_000706"
+  ],
+  "multiple endocrine neoplasia type 2": [
+    "DIS_000707",
+    "DIS_000707"
+  ],
+  "carcinoid syndrome": [
+    "DIS_000708",
+    "DIS_000708"
+  ],
+  "neuroendocrine tumor": [
+    "DIS_000709",
+    "DIS_000709"
+  ],
+  "glucagonoma": [
+    "DIS_000710",
+    "DIS_000710"
+  ],
+  "vipoma": [
+    "DIS_000711",
+    "DIS_000711"
+  ],
+  "unstable angina": [
+    "DIS_000712",
+    "DIS_000712"
+  ],
+  "stable angina": [
+    "DIS_000713",
+    "DIS_000713"
+  ],
+  "prinzmetal angina": [
+    "DIS_000714",
+    "DIS_000714"
+  ],
+  "orthostatic hypotension": [
+    "DIS_000715",
+    "DIS_000715"
+  ],
+  "postural orthostatic tachycardia syndrome": [
+    "DIS_000716",
+    "DIS_000716"
+  ],
+  "rheumatic heart disease": [
+    "DIS_000717",
+    "DIS_000717"
+  ],
+  "tricuspid stenosis": [
+    "DIS_000718",
+    "DIS_000718"
+  ],
+  "pulmonic stenosis": [
+    "DIS_000719",
+    "DIS_000719"
+  ],
+  "pulmonic regurgitation": [
+    "DIS_000720",
+    "DIS_000720"
+  ],
+  "aortic coarctation": [
+    "DIS_000721",
+    "DIS_000721"
+  ],
+  "ebstein anomaly": [
+    "DIS_000722",
+    "DIS_000722"
+  ],
+  "transposition of the great arteries": [
+    "DIS_000723",
+    "DIS_000723"
+  ],
+  "truncus arteriosus": [
+    "DIS_000724",
+    "DIS_000724"
+  ],
+  "hypoplastic left heart syndrome": [
+    "DIS_000725",
+    "DIS_000725"
+  ],
+  "thoracic outlet syndrome": [
+    "DIS_000726",
+    "DIS_000726"
+  ],
+  "subdural hematoma": [
+    "DIS_000727",
+    "DIS_000727"
+  ],
+  "epidural hematoma": [
+    "DIS_000728",
+    "DIS_000728"
+  ],
+  "cerebral venous sinus thrombosis": [
+    "DIS_000729",
+    "DIS_000729"
+  ],
+  "lambert-eaton myasthenic syndrome": [
+    "DIS_000730",
+    "DIS_000730"
+  ],
+  "charcot-marie-tooth disease": [
+    "DIS_000731",
+    "DIS_000731"
+  ],
+  "friedreich ataxia": [
+    "DIS_000732",
+    "DIS_000732"
+  ],
+  "spinocerebellar ataxia": [
+    "DIS_000733",
+    "DIS_000733"
+  ],
+  "duchenne muscular dystrophy": [
+    "DIS_000734",
+    "DIS_000734"
+  ],
+  "becker muscular dystrophy": [
+    "DIS_000735",
+    "DIS_000735"
+  ],
+  "myotonic dystrophy": [
+    "DIS_000736",
+    "DIS_000736"
+  ],
+  "spinal muscular atrophy": [
+    "DIS_000737",
+    "DIS_000737"
+  ],
+  "rasmussen encephalitis": [
+    "DIS_000738",
+    "DIS_000738"
+  ],
+  "cataplexy": [
+    "DIS_000739",
+    "DIS_000739"
+  ],
+  "rem sleep behavior disorder": [
+    "DIS_000740",
+    "DIS_000740"
+  ],
+  "tension-type headache": [
+    "DIS_000741",
+    "DIS_000741"
+  ],
+  "pertussis": [
+    "DIS_000742",
+    "DIS_000742"
+  ],
+  "influenza": [
+    "DIS_000743",
+    "DIS_000743"
+  ],
+  "respiratory syncytial virus infection": [
+    "DIS_000744",
+    "DIS_000744"
+  ],
+  "covid-19": [
+    "DIS_000745",
+    "DIS_000745"
+  ],
+  "legionnaires disease": [
+    "DIS_000746",
+    "DIS_000746"
+  ],
+  "pneumocystis pneumonia": [
+    "DIS_000747",
+    "DIS_000747"
+  ],
+  "aspergillosis": [
+    "DIS_000748",
+    "DIS_000748"
+  ],
+  "histoplasmosis": [
+    "DIS_000749",
+    "DIS_000749"
+  ],
+  "pulmonary embolism with infarction": [
+    "DIS_000750",
+    "DIS_000750"
+  ],
+  "spontaneous pneumothorax": [
+    "DIS_000751",
+    "DIS_000751"
+  ],
+  "chronic rhinosinusitis": [
+    "DIS_000752",
+    "DIS_000752"
+  ],
+  "nasal polyps": [
+    "DIS_000753",
+    "DIS_000753"
+  ],
+  "laryngitis": [
+    "DIS_000754",
+    "DIS_000754"
+  ],
+  "appendicitis": [
+    "DIS_000755",
+    "DIS_000755"
+  ],
+  "peritonitis": [
+    "DIS_000756",
+    "DIS_000756"
+  ],
+  "intestinal obstruction": [
+    "DIS_000757",
+    "DIS_000757"
+  ],
+  "volvulus": [
+    "DIS_000758",
+    "DIS_000758"
+  ],
+  "gastroenteritis": [
+    "DIS_000759",
+    "DIS_000759"
+  ],
+  "lactose intolerance": [
+    "DIS_000760",
+    "DIS_000760"
+  ],
+  "zenker diverticulum": [
+    "DIS_000761",
+    "DIS_000761"
+  ],
+  "hiatal hernia": [
+    "DIS_000762",
+    "DIS_000762"
+  ],
+  "acute mesenteric ischemia": [
+    "DIS_000763",
+    "DIS_000763"
+  ],
+  "nephritic syndrome": [
+    "DIS_000764",
+    "DIS_000764"
+  ],
+  "minimal change disease": [
+    "DIS_000765",
+    "DIS_000765"
+  ],
+  "focal segmental glomerulosclerosis": [
+    "DIS_000766",
+    "DIS_000766"
+  ],
+  "medullary sponge kidney": [
+    "DIS_000767",
+    "DIS_000767"
+  ],
+  "acute cystitis": [
+    "DIS_000768",
+    "DIS_000768"
+  ],
+  "ureteral stricture": [
+    "DIS_000769",
+    "DIS_000769"
+  ],
+  "orchitis": [
+    "DIS_000770",
+    "DIS_000770"
+  ],
+  "systemic vasculitis": [
+    "DIS_000771",
+    "DIS_000771"
+  ],
+  "enteropathic arthritis": [
+    "DIS_000772",
+    "DIS_000772"
+  ],
+  "juvenile idiopathic arthritis": [
+    "DIS_000773",
+    "DIS_000773"
+  ],
+  "antisynthetase syndrome": [
+    "DIS_000774",
+    "DIS_000774"
+  ],
+  "sarcoid arthropathy": [
+    "DIS_000775",
+    "DIS_000775"
+  ],
+  "discoid lupus": [
+    "DIS_000776",
+    "DIS_000776"
+  ],
+  "chronic urticaria": [
+    "DIS_000777",
+    "DIS_000777"
+  ],
+  "actinic keratosis": [
+    "DIS_000778",
+    "DIS_000778"
+  ],
+  "basal cell carcinoma": [
+    "DIS_000779",
+    "DIS_000779"
+  ],
+  "squamous cell carcinoma of skin": [
+    "DIS_000780",
+    "DIS_000780"
+  ],
+  "molluscum contagiosum": [
+    "DIS_000781",
+    "DIS_000781"
+  ],
+  "hand foot and mouth disease": [
+    "DIS_000782",
+    "DIS_000782"
+  ],
+  "erysipelas": [
+    "DIS_000783",
+    "DIS_000783"
+  ],
+  "folliculitis": [
+    "DIS_000784",
+    "DIS_000784"
+  ],
+  "furunculosis": [
+    "DIS_000785",
+    "DIS_000785"
+  ],
+  "antisocial personality disorder": [
+    "DIS_000786",
+    "DIS_000786"
+  ],
+  "narcissistic personality disorder": [
+    "DIS_000787",
+    "DIS_000787"
+  ],
+  "illness anxiety disorder": [
+    "DIS_000788",
+    "DIS_000788"
+  ],
+  "premenstrual dysphoric disorder": [
+    "DIS_000789",
+    "DIS_000789"
+  ],
+  "bipolar i disorder": [
+    "DIS_000790",
+    "DIS_000790"
+  ],
+  "bipolar ii disorder": [
+    "DIS_000791",
+    "DIS_000791"
+  ],
+  "substance-induced psychotic disorder": [
+    "DIS_000792",
+    "DIS_000792"
+  ],
+  "opioid use disorder": [
+    "DIS_000793",
+    "DIS_000793"
+  ],
+  "cannabis use disorder": [
+    "DIS_000794",
+    "DIS_000794"
+  ],
+  "22q11.2 deletion syndrome": [
+    "DIS_000795",
+    "DIS_000795"
+  ],
+  "achondroplasia": [
+    "DIS_000796",
+    "DIS_000796"
+  ],
+  "albinism": [
+    "DIS_000797",
+    "DIS_000797"
+  ],
+  "alkaptonuria": [
+    "DIS_000798",
+    "DIS_000798"
+  ],
+  "galactosemia": [
+    "DIS_000799",
+    "DIS_000799"
+  ],
+  "homocystinuria": [
+    "DIS_000800",
+    "DIS_000800"
+  ],
+  "mucopolysaccharidosis type i": [
+    "DIS_000801",
+    "DIS_000801"
+  ],
+  "mucopolysaccharidosis type ii": [
+    "DIS_000802",
+    "DIS_000802"
+  ],
+  "pompe disease": [
+    "DIS_000803",
+    "DIS_000803"
+  ],
+  "krabbe disease": [
+    "DIS_000804",
+    "DIS_000804"
+  ],
+  "niemann-pick disease": [
+    "DIS_000805",
+    "DIS_000805"
+  ],
+  "xeroderma pigmentosum": [
+    "DIS_000806",
+    "DIS_000806"
+  ],
+  "congenital adrenal hypoplasia": [
+    "DIS_000807",
+    "DIS_000807"
+  ],
+  "congenital diaphragmatic hernia": [
+    "DIS_000808",
+    "DIS_000808"
+  ],
+  "anencephaly": [
+    "DIS_000809",
+    "DIS_000809"
+  ],
+  "omphalocele": [
+    "DIS_000810",
+    "DIS_000810"
+  ],
+  "gastroschisis": [
+    "DIS_000811",
+    "DIS_000811"
+  ],
+  "premature rupture of membranes": [
+    "DIS_000812",
+    "DIS_000812"
+  ],
+  "gestational diabetes mellitus": [
+    "DIS_000813",
+    "DIS_000813"
+  ],
+  "rh incompatibility": [
+    "DIS_000814",
+    "DIS_000814"
+  ],
+  "postpartum psychosis": [
+    "DIS_000815",
+    "DIS_000815"
+  ],
+  "molar pregnancy": [
+    "DIS_000816",
+    "DIS_000816"
+  ],
+  "high-grade serous ovarian carcinoma": [
+    "DIS_000817",
+    "DIS_000817"
+  ],
+  "ovarian germ cell tumor": [
+    "DIS_000818",
+    "DIS_000818"
+  ],
+  "pancreatic cancer": [
+    "DIS_000819",
+    "DIS_000819"
+  ],
+  "gallbladder cancer": [
+    "DIS_000820",
+    "DIS_000820"
+  ],
+  "renal pelvis cancer": [
+    "DIS_000821",
+    "DIS_000821"
+  ],
+  "urothelial carcinoma": [
+    "DIS_000822",
+    "DIS_000822"
+  ],
+  "acute lymphoblastic leukemia of t-cell type": [
+    "DIS_000823",
+    "DIS_000823"
+  ],
+  "glioblastoma": [
+    "DIS_000824",
+    "DIS_000824"
+  ],
+  "low-grade glioma": [
+    "DIS_000825",
+    "DIS_000825"
+  ],
+  "meningioma": [
+    "DIS_000826",
+    "DIS_000826"
+  ],
+  "pituitary adenoma": [
+    "DIS_000827",
+    "DIS_000827"
+  ],
+  "paraganglioma": [
+    "DIS_000828",
+    "DIS_000828"
+  ],
+  "thymoma": [
+    "DIS_000829",
+    "DIS_000829"
+  ],
+  "adrenal cortical carcinoma": [
+    "DIS_000830",
+    "DIS_000830"
+  ],
+  "acute coronary syndrome": [
+    "DIS_000831",
+    "DIS_000831"
+  ],
+  "left ventricular noncompaction": [
+    "DIS_000832",
+    "DIS_000832"
+  ],
+  "pulmonary valve atresia": [
+    "DIS_000833",
+    "DIS_000833"
+  ],
+  "patent foramen ovale": [
+    "DIS_000834",
+    "DIS_000834"
+  ],
+  "coronary artery vasospasm": [
+    "DIS_000835",
+    "DIS_000835"
+  ],
+  "mesenteric artery stenosis": [
+    "DIS_000836",
+    "DIS_000836"
+  ],
+  "takayasu retinopathy": [
+    "DIS_000837",
+    "DIS_000837"
+  ],
+  "acute limb ischemia": [
+    "DIS_000838",
+    "DIS_000838"
+  ],
+  "phlebitis": [
+    "DIS_000839",
+    "DIS_000839"
+  ],
+  "lymphedema": [
+    "DIS_000840",
+    "DIS_000840"
+  ],
+  "idiopathic parkinsonism": [
+    "DIS_000841",
+    "DIS_000841"
+  ],
+  "cervical dystonia": [
+    "DIS_000842",
+    "DIS_000842"
+  ],
+  "blepharospasm": [
+    "DIS_000843",
+    "DIS_000843"
+  ],
+  "hemifacial spasm": [
+    "DIS_000844",
+    "DIS_000844"
+  ],
+  "periodic limb movement disorder": [
+    "DIS_000845",
+    "DIS_000845"
+  ],
+  "idiopathic hypersomnia": [
+    "DIS_000846",
+    "DIS_000846"
+  ],
+  "kleine-levin syndrome": [
+    "DIS_000847",
+    "DIS_000847"
+  ],
+  "vestibular migraine": [
+    "DIS_000848",
+    "DIS_000848"
+  ],
+  "post-concussion syndrome": [
+    "DIS_000849",
+    "DIS_000849"
+  ],
+  "diffuse axonal injury": [
+    "DIS_000850",
+    "DIS_000850"
+  ],
+  "acute flaccid myelitis": [
+    "DIS_000851",
+    "DIS_000851"
+  ],
+  "transverse myelitis": [
+    "DIS_000852",
+    "DIS_000852"
+  ],
+  "cauda equina syndrome": [
+    "DIS_000853",
+    "DIS_000853"
+  ],
+  "cervical myelopathy": [
+    "DIS_000854",
+    "DIS_000854"
+  ],
+  "pulmonary langerhans cell histiocytosis": [
+    "DIS_000855",
+    "DIS_000855"
+  ],
+  "churg-strauss syndrome": [
+    "DIS_000856",
+    "DIS_000856"
+  ],
+  "cryptogenic organizing pneumonia": [
+    "DIS_000857",
+    "DIS_000857"
+  ],
+  "acute eosinophilic pneumonia": [
+    "DIS_000858",
+    "DIS_000858"
+  ],
+  "chronic eosinophilic pneumonia": [
+    "DIS_000859",
+    "DIS_000859"
+  ],
+  "mediastinitis": [
+    "DIS_000860",
+    "DIS_000860"
+  ],
+  "tracheal stenosis": [
+    "DIS_000861",
+    "DIS_000861"
+  ],
+  "vocal cord dysfunction": [
+    "DIS_000862",
+    "DIS_000862"
+  ],
+  "epiglottitis": [
+    "DIS_000863",
+    "DIS_000863"
+  ],
+  "lemierre syndrome": [
+    "DIS_000864",
+    "DIS_000864"
+  ],
+  "functional dyspepsia": [
+    "DIS_000865",
+    "DIS_000865"
+  ],
+  "rumination syndrome": [
+    "DIS_000866",
+    "DIS_000866"
+  ],
+  "esophageal spasm": [
+    "DIS_000867",
+    "DIS_000867"
+  ],
+  "esophageal perforation": [
+    "DIS_000868",
+    "DIS_000868"
+  ],
+  "gastric outlet obstruction": [
+    "DIS_000869",
+    "DIS_000869"
+  ],
+  "gastric volvulus": [
+    "DIS_000870",
+    "DIS_000870"
+  ],
+  "superior mesenteric artery syndrome": [
+    "DIS_000871",
+    "DIS_000871"
+  ],
+  "protein-losing enteropathy": [
+    "DIS_000872",
+    "DIS_000872"
+  ],
+  "small intestinal bacterial overgrowth": [
+    "DIS_000873",
+    "DIS_000873"
+  ],
+  "proctitis": [
+    "DIS_000874",
+    "DIS_000874"
+  ],
+  "rectal prolapse": [
+    "DIS_000875",
+    "DIS_000875"
+  ],
+  "anal fistula": [
+    "DIS_000876",
+    "DIS_000876"
+  ],
+  "perianal abscess": [
+    "DIS_000877",
+    "DIS_000877"
+  ],
+  "chronic intestinal pseudo-obstruction": [
+    "DIS_000878",
+    "DIS_000878"
+  ],
+  "renal papillary necrosis": [
+    "DIS_000879",
+    "DIS_000879"
+  ],
+  "autosomal dominant tubulointerstitial kidney disease": [
+    "DIS_000880",
+    "DIS_000880"
+  ],
+  "cystinuria": [
+    "DIS_000881",
+    "DIS_000881"
+  ],
+  "hyporeninemic hypoaldosteronism": [
+    "DIS_000882",
+    "DIS_000882"
+  ],
+  "emphysematous pyelonephritis": [
+    "DIS_000883",
+    "DIS_000883"
+  ],
+  "renal artery thrombosis": [
+    "DIS_000884",
+    "DIS_000884"
+  ],
+  "bladder exstrophy": [
+    "DIS_000885",
+    "DIS_000885"
+  ],
+  "posterior urethral valves": [
+    "DIS_000886",
+    "DIS_000886"
+  ],
+  "relapsing polychondritis with airway involvement": [
+    "DIS_000887",
+    "DIS_000887"
+  ],
+  "sapho syndrome with osteitis": [
+    "DIS_000888",
+    "DIS_000888"
+  ],
+  "osteonecrosis of the jaw": [
+    "DIS_000889",
+    "DIS_000889"
+  ],
+  "charcot arthropathy": [
+    "DIS_000890",
+    "DIS_000890"
+  ],
+  "dupuytren contracture": [
+    "DIS_000891",
+    "DIS_000891"
+  ],
+  "adhesive capsulitis": [
+    "DIS_000892",
+    "DIS_000892"
+  ],
+  "tennis elbow": [
+    "DIS_000893",
+    "DIS_000893"
+  ],
+  "golfer's elbow": [
+    "DIS_000894",
+    "DIS_000894"
+  ],
+  "plantar fasciitis": [
+    "DIS_000895",
+    "DIS_000895"
+  ],
+  "complex regional pain syndrome type ii": [
+    "DIS_000896",
+    "DIS_000896"
+  ],
+  "sweet syndrome": [
+    "DIS_000897",
+    "DIS_000897"
+  ],
+  "pyoderma gangrenosum": [
+    "DIS_000898",
+    "DIS_000898"
+  ],
+  "pityriasis rosea": [
+    "DIS_000899",
+    "DIS_000899"
+  ],
+  "pityriasis versicolor": [
+    "DIS_000900",
+    "DIS_000900"
+  ],
+  "keloid disorder": [
+    "DIS_000901",
+    "DIS_000901"
+  ],
+  "melasma": [
+    "DIS_000902",
+    "DIS_000902"
+  ],
+  "trichotillomania": [
+    "DIS_000903",
+    "DIS_000903"
+  ],
+  "excoriation disorder": [
+    "DIS_000904",
+    "DIS_000904"
+  ],
+  "selective mutism": [
+    "DIS_000905",
+    "DIS_000905"
+  ],
+  "separation anxiety disorder": [
+    "DIS_000906",
+    "DIS_000906"
+  ],
+  "disruptive mood dysregulation disorder": [
+    "DIS_000907",
+    "DIS_000907"
+  ],
+  "conduct disorder": [
+    "DIS_000908",
+    "DIS_000908"
+  ],
+  "intermittent explosive disorder": [
+    "DIS_000909",
+    "DIS_000909"
+  ],
+  "paranoid personality disorder": [
+    "DIS_000910",
+    "DIS_000910"
+  ],
+  "avoidant personality disorder": [
+    "DIS_000911",
+    "DIS_000911"
+  ],
+  "dependent personality disorder": [
+    "DIS_000912",
+    "DIS_000912"
+  ],
+  "intellectual developmental disorder": [
+    "DIS_000913",
+    "DIS_000913"
+  ],
+  "specific learning disorder": [
+    "DIS_000914",
+    "DIS_000914"
+  ],
+  "tourette syndrome": [
+    "DIS_000915",
+    "DIS_000915"
+  ],
+  "smith-magenis syndrome": [
+    "DIS_000916",
+    "DIS_000916"
+  ],
+  "cornelia de lange syndrome": [
+    "DIS_000917",
+    "DIS_000917"
+  ],
+  "bardet-biedl syndrome": [
+    "DIS_000918",
+    "DIS_000918"
+  ],
+  "von hippel-lindau disease": [
+    "DIS_000919",
+    "DIS_000919"
+  ],
+  "li-fraumeni syndrome": [
+    "DIS_000920",
+    "DIS_000920"
+  ],
+  "hereditary retinoblastoma": [
+    "DIS_000921",
+    "DIS_000921"
+  ],
+  "familial adenomatous polyposis": [
+    "DIS_000922",
+    "DIS_000922"
+  ],
+  "lynch syndrome": [
+    "DIS_000923",
+    "DIS_000923"
+  ],
+  "hereditary diffuse gastric cancer": [
+    "DIS_000924",
+    "DIS_000924"
+  ],
+  "peutz-jeghers syndrome": [
+    "DIS_000925",
+    "DIS_000925"
+  ],
+  "congenital syphilis": [
+    "DIS_000926",
+    "DIS_000926"
+  ],
+  "neonatal herpes simplex infection": [
+    "DIS_000927",
+    "DIS_000927"
+  ],
+  "neonatal hypoglycemia": [
+    "DIS_000928",
+    "DIS_000928"
+  ],
+  "retinopathy of prematurity": [
+    "DIS_000929",
+    "DIS_000929"
+  ],
+  "intraventricular hemorrhage of prematurity": [
+    "DIS_000930",
+    "DIS_000930"
+  ],
+  "necrotizing enterocolitis of prematurity": [
+    "DIS_000931",
+    "DIS_000931"
+  ],
+  "neonatal abstinence syndrome": [
+    "DIS_000932",
+    "DIS_000932"
+  ],
+  "placenta accreta spectrum": [
+    "DIS_000933",
+    "DIS_000933"
+  ],
+  "vasa previa": [
+    "DIS_000934",
+    "DIS_000934"
+  ],
+  "twin-to-twin transfusion syndrome": [
+    "DIS_000935",
+    "DIS_000935"
+  ],
+  "oligohydramnios": [
+    "DIS_000936",
+    "DIS_000936"
+  ],
+  "basophilic leukemia": [
+    "DIS_000937",
+    "DIS_000937"
+  ],
+  "chronic basophilic leukemia": [
+    "DIS_000938",
+    "DIS_000938"
+  ],
+  "acute erythroid leukemia": [
+    "DIS_000939",
+    "DIS_000939"
+  ],
+  "blastic plasmacytoid dendritic cell neoplasm": [
+    "DIS_000940",
+    "DIS_000940"
+  ],
+  "plasma cell leukemia": [
+    "DIS_000941",
+    "DIS_000941"
+  ],
+  "primary cns lymphoma": [
+    "DIS_000942",
+    "DIS_000942"
+  ],
+  "mantle cell lymphoma": [
+    "DIS_000943",
+    "DIS_000943"
+  ],
+  "follicular lymphoma": [
+    "DIS_000944",
+    "DIS_000944"
+  ],
+  "marginal zone lymphoma": [
+    "DIS_000945",
+    "DIS_000945"
+  ],
+  "diffuse large b-cell lymphoma": [
+    "DIS_000946",
+    "DIS_000946"
+  ],
+  "cutaneous t-cell lymphoma": [
+    "DIS_000947",
+    "DIS_000947"
+  ],
+  "sezary syndrome": [
+    "DIS_000948",
+    "DIS_000948"
+  ],
+  "angioimmunoblastic t-cell lymphoma": [
+    "DIS_000949",
+    "DIS_000949"
+  ],
+  "acute hemolytic transfusion reaction": [
+    "DIS_000950",
+    "DIS_000950"
+  ],
+  "delayed hemolytic transfusion reaction": [
+    "DIS_000951",
+    "DIS_000951"
+  ],
+  "transfusion-related acute lung injury": [
+    "DIS_000952",
+    "DIS_000952"
+  ],
+  "transfusion-associated graft-versus-host disease": [
+    "DIS_000953",
+    "DIS_000953"
+  ],
+  "post-transfusion purpura": [
+    "DIS_000954",
+    "DIS_000954"
+  ],
+  "heparin-induced thrombocytopenia": [
+    "DIS_000955",
+    "DIS_000955"
+  ],
+  "factor viii inhibitor disorder": [
+    "DIS_000956",
+    "DIS_000956"
+  ],
+  "acquired hemophilia a": [
+    "DIS_000957",
+    "DIS_000957"
+  ],
+  "bernard-soulier syndrome": [
+    "DIS_000958",
+    "DIS_000958"
+  ],
+  "glanzmann thrombasthenia": [
+    "DIS_000959",
+    "DIS_000959"
+  ],
+  "may-hegglin anomaly": [
+    "DIS_000960",
+    "DIS_000960"
+  ],
+  "thrombocytosis": [
+    "DIS_000961",
+    "DIS_000961"
+  ],
+  "secondary polycythemia": [
+    "DIS_000962",
+    "DIS_000962"
+  ],
+  "methemoglobinemia": [
+    "DIS_000963",
+    "DIS_000963"
+  ],
+  "sulfhemoglobinemia": [
+    "DIS_000964",
+    "DIS_000964"
+  ],
+  "hereditary elliptocytosis": [
+    "DIS_000965",
+    "DIS_000965"
+  ],
+  "congenital dyserythropoietic anemia": [
+    "DIS_000966",
+    "DIS_000966"
+  ],
+  "pure red cell aplasia": [
+    "DIS_000967",
+    "DIS_000967"
+  ],
+  "blackfan-diamond anemia": [
+    "DIS_000968",
+    "DIS_000968"
+  ],
+  "primary adrenal lymphoma": [
+    "DIS_000969",
+    "DIS_000969"
+  ],
+  "autoimmune addison disease": [
+    "DIS_000970",
+    "DIS_000970"
+  ],
+  "nelson syndrome": [
+    "DIS_000971",
+    "DIS_000971"
+  ],
+  "empty sella syndrome": [
+    "DIS_000972",
+    "DIS_000972"
+  ],
+  "sheehan syndrome": [
+    "DIS_000973",
+    "DIS_000973"
+  ],
+  "kallmann syndrome": [
+    "DIS_000974",
+    "DIS_000974"
+  ],
+  "laron syndrome": [
+    "DIS_000975",
+    "DIS_000975"
+  ],
+  "hyperandrogenism": [
+    "DIS_000976",
+    "DIS_000976"
+  ],
+  "hirsutism": [
+    "DIS_000977",
+    "DIS_000977"
+  ],
+  "thyroid hormone resistance syndrome": [
+    "DIS_000978",
+    "DIS_000978"
+  ],
+  "euthyroid sick syndrome": [
+    "DIS_000979",
+    "DIS_000979"
+  ],
+  "thyroglossal duct cyst": [
+    "DIS_000980",
+    "DIS_000980"
+  ],
+  "familial hypocalciuric hypercalcemia": [
+    "DIS_000981",
+    "DIS_000981"
+  ],
+  "pseudohypoparathyroidism": [
+    "DIS_000982",
+    "DIS_000982"
+  ],
+  "osteitis fibrosa cystica": [
+    "DIS_000983",
+    "DIS_000983"
+  ],
+  "primary hyperoxaluria": [
+    "DIS_000984",
+    "DIS_000984"
+  ],
+  "familial partial lipodystrophy": [
+    "DIS_000985",
+    "DIS_000985"
+  ],
+  "congenital generalized lipodystrophy": [
+    "DIS_000986",
+    "DIS_000986"
+  ],
+  "diabetic amyotrophy": [
+    "DIS_000987",
+    "DIS_000987"
+  ],
+  "diabetic gastroparesis": [
+    "DIS_000988",
+    "DIS_000988"
+  ],
+  "diabetic foot syndrome": [
+    "DIS_000989",
+    "DIS_000989"
+  ],
+  "coronary microvascular dysfunction": [
+    "DIS_000990",
+    "DIS_000990"
+  ],
+  "coronary artery ectasia": [
+    "DIS_000991",
+    "DIS_000991"
+  ],
+  "spontaneous coronary artery dissection": [
+    "DIS_000992",
+    "DIS_000992"
+  ],
+  "coronary artery embolism": [
+    "DIS_000993",
+    "DIS_000993"
+  ],
+  "kounis syndrome": [
+    "DIS_000994",
+    "DIS_000994"
+  ],
+  "dressler syndrome": [
+    "DIS_000995",
+    "DIS_000995"
+  ],
+  "acute pericardial effusion": [
+    "DIS_000996",
+    "DIS_000996"
+  ],
+  "pericardial mesothelioma": [
+    "DIS_000997",
+    "DIS_000997"
+  ],
+  "atrial septal aneurysm": [
+    "DIS_000998",
+    "DIS_000998"
+  ],
+  "cor triatriatum": [
+    "DIS_000999",
+    "DIS_000999"
+  ],
+  "double outlet right ventricle": [
+    "DIS_001000",
+    "DIS_001000"
+  ],
+  "total anomalous pulmonary venous return": [
+    "DIS_001001",
+    "DIS_001001"
+  ],
+  "pulmonary atresia": [
+    "DIS_001002",
+    "DIS_001002"
+  ],
+  "persistent truncus arteriosus": [
+    "DIS_001003",
+    "DIS_001003"
+  ],
+  "interrupted aortic arch": [
+    "DIS_001004",
+    "DIS_001004"
+  ],
+  "eisenmenger syndrome": [
+    "DIS_001005",
+    "DIS_001005"
+  ],
+  "fontan circulation failure": [
+    "DIS_001006",
+    "DIS_001006"
+  ],
+  "thromboangiitis obliterans": [
+    "DIS_001007",
+    "DIS_001007"
+  ],
+  "livedoid vasculopathy": [
+    "DIS_001008",
+    "DIS_001008"
+  ],
+  "may-thurner syndrome": [
+    "DIS_001009",
+    "DIS_001009"
+  ],
+  "nutcracker syndrome": [
+    "DIS_001010",
+    "DIS_001010"
+  ],
+  "portal vein thrombosis": [
+    "DIS_001011",
+    "DIS_001011"
+  ],
+  "splenic vein thrombosis": [
+    "DIS_001012",
+    "DIS_001012"
+  ],
+  "budd-chiari syndrome type ii": [
+    "DIS_001013",
+    "DIS_001013"
+  ],
+  "posterior reversible encephalopathy syndrome": [
+    "DIS_001014",
+    "DIS_001014"
+  ],
+  "reversible cerebral vasoconstriction syndrome": [
+    "DIS_001015",
+    "DIS_001015"
+  ],
+  "primary progressive aphasia": [
+    "DIS_001016",
+    "DIS_001016"
+  ],
+  "posterior cortical atrophy": [
+    "DIS_001017",
+    "DIS_001017"
+  ],
+  "corticobasal degeneration": [
+    "DIS_001018",
+    "DIS_001018"
+  ],
+  "alien hand syndrome": [
+    "DIS_001019",
+    "DIS_001019"
+  ],
+  "stiff-person syndrome": [
+    "DIS_001020",
+    "DIS_001020"
+  ],
+  "opsoclonus-myoclonus syndrome": [
+    "DIS_001021",
+    "DIS_001021"
+  ],
+  "miller fisher syndrome": [
+    "DIS_001022",
+    "DIS_001022"
+  ],
+  "bickerstaff brainstem encephalitis": [
+    "DIS_001023",
+    "DIS_001023"
+  ],
+  "chronic inflammatory demyelinating polyneuropathy": [
+    "DIS_001024",
+    "DIS_001024"
+  ],
+  "multifocal motor neuropathy": [
+    "DIS_001025",
+    "DIS_001025"
+  ],
+  "small fiber neuropathy": [
+    "DIS_001026",
+    "DIS_001026"
+  ],
+  "hereditary spastic paraplegia": [
+    "DIS_001027",
+    "DIS_001027"
+  ],
+  "ataxia telangiectasia": [
+    "DIS_001028",
+    "DIS_001028"
+  ],
+  "alexander disease": [
+    "DIS_001029",
+    "DIS_001029"
+  ],
+  "canavan disease": [
+    "DIS_001030",
+    "DIS_001030"
+  ],
+  "adrenoleukodystrophy": [
+    "DIS_001031",
+    "DIS_001031"
+  ],
+  "metachromatic leukodystrophy": [
+    "DIS_001032",
+    "DIS_001032"
+  ],
+  "progressive multifocal leukoencephalopathy": [
+    "DIS_001033",
+    "DIS_001033"
+  ],
+  "anti-nmda receptor encephalitis": [
+    "DIS_001034",
+    "DIS_001034"
+  ],
+  "autoimmune encephalitis": [
+    "DIS_001035",
+    "DIS_001035"
+  ],
+  "hashimoto encephalopathy": [
+    "DIS_001036",
+    "DIS_001036"
+  ],
+  "subacute sclerosing panencephalitis": [
+    "DIS_001037",
+    "DIS_001037"
+  ],
+  "locked-in syndrome": [
+    "DIS_001038",
+    "DIS_001038"
+  ],
+  "apraxia": [
+    "DIS_001039",
+    "DIS_001039"
+  ],
+  "aphasia": [
+    "DIS_001040",
+    "DIS_001040"
+  ],
+  "agnosia": [
+    "DIS_001041",
+    "DIS_001041"
+  ],
+  "central cord syndrome": [
+    "DIS_001042",
+    "DIS_001042"
+  ],
+  "anterior cord syndrome": [
+    "DIS_001043",
+    "DIS_001043"
+  ],
+  "brown-sequard syndrome": [
+    "DIS_001044",
+    "DIS_001044"
+  ],
+  "conus medullaris syndrome": [
+    "DIS_001045",
+    "DIS_001045"
+  ],
+  "acute respiratory failure": [
+    "DIS_001046",
+    "DIS_001046"
+  ],
+  "chronic respiratory failure": [
+    "DIS_001047",
+    "DIS_001047"
+  ],
+  "obesity hypoventilation syndrome": [
+    "DIS_001048",
+    "DIS_001048"
+  ],
+  "acute fibrinous and organizing pneumonia": [
+    "DIS_001049",
+    "DIS_001049"
+  ],
+  "desquamative interstitial pneumonia": [
+    "DIS_001050",
+    "DIS_001050"
+  ],
+  "respiratory bronchiolitis-associated interstitial lung disease": [
+    "DIS_001051",
+    "DIS_001051"
+  ],
+  "chronic thromboembolic pulmonary hypertension": [
+    "DIS_001052",
+    "DIS_001052"
+  ],
+  "pulmonary veno-occlusive disease": [
+    "DIS_001053",
+    "DIS_001053"
+  ],
+  "goodpasture pulmonary-renal syndrome": [
+    "DIS_001054",
+    "DIS_001054"
+  ],
+  "pleuroparenchymal fibroelastosis": [
+    "DIS_001055",
+    "DIS_001055"
+  ],
+  "black lung disease": [
+    "DIS_001056",
+    "DIS_001056"
+  ],
+  "byssinosis": [
+    "DIS_001057",
+    "DIS_001057"
+  ],
+  "farmer's lung": [
+    "DIS_001058",
+    "DIS_001058"
+  ],
+  "acute silicosis": [
+    "DIS_001059",
+    "DIS_001059"
+  ],
+  "diffuse alveolar hemorrhage": [
+    "DIS_001060",
+    "DIS_001060"
+  ],
+  "hereditary hemorrhagic telangiectasia": [
+    "DIS_001061",
+    "DIS_001061"
+  ],
+  "aspirin-exacerbated respiratory disease": [
+    "DIS_001062",
+    "DIS_001062"
+  ],
+  "vasomotor rhinitis": [
+    "DIS_001063",
+    "DIS_001063"
+  ],
+  "deviated nasal septum": [
+    "DIS_001064",
+    "DIS_001064"
+  ],
+  "retropharyngeal abscess": [
+    "DIS_001065",
+    "DIS_001065"
+  ],
+  "ludwig angina": [
+    "DIS_001066",
+    "DIS_001066"
+  ],
+  "zenker's diverticulitis": [
+    "DIS_001067",
+    "DIS_001067"
+  ],
+  "caustic esophagitis": [
+    "DIS_001068",
+    "DIS_001068"
+  ],
+  "esophageal intramural hematoma": [
+    "DIS_001069",
+    "DIS_001069"
+  ],
+  "boerhaave syndrome": [
+    "DIS_001070",
+    "DIS_001070"
+  ],
+  "dieulafoy lesion": [
+    "DIS_001071",
+    "DIS_001071"
+  ],
+  "gastric antral vascular ectasia": [
+    "DIS_001072",
+    "DIS_001072"
+  ],
+  "portal hypertensive gastropathy": [
+    "DIS_001073",
+    "DIS_001073"
+  ],
+  "gastric malt lymphoma": [
+    "DIS_001074",
+    "DIS_001074"
+  ],
+  "menetrier disease": [
+    "DIS_001075",
+    "DIS_001075"
+  ],
+  "zollinger-ellison syndrome": [
+    "DIS_001076",
+    "DIS_001076"
+  ],
+  "pernicious anemia": [
+    "DIS_001077",
+    "DIS_001077"
+  ],
+  "autoimmune gastritis": [
+    "DIS_001078",
+    "DIS_001078"
+  ],
+  "collagenous colitis": [
+    "DIS_001079",
+    "DIS_001079"
+  ],
+  "lymphocytic colitis": [
+    "DIS_001080",
+    "DIS_001080"
+  ],
+  "solitary rectal ulcer syndrome": [
+    "DIS_001081",
+    "DIS_001081"
+  ],
+  "rectocele": [
+    "DIS_001082",
+    "DIS_001082"
+  ],
+  "colonic pseudo-obstruction": [
+    "DIS_001083",
+    "DIS_001083"
+  ],
+  "toxic megacolon": [
+    "DIS_001084",
+    "DIS_001084"
+  ],
+  "familial mediterranean fever": [
+    "DIS_001085",
+    "DIS_001085"
+  ],
+  "acute hepatic porphyria": [
+    "DIS_001086",
+    "DIS_001086"
+  ],
+  "hepatic adenoma": [
+    "DIS_001087",
+    "DIS_001087"
+  ],
+  "wilson disease hepatic manifestation": [
+    "DIS_001088",
+    "DIS_001088"
+  ],
+  "hemochromatosis cardiomyopathy": [
+    "DIS_001089",
+    "DIS_001089"
+  ],
+  "acute fatty liver of pregnancy": [
+    "DIS_001090",
+    "DIS_001090"
+  ],
+  "drug-induced liver injury": [
+    "DIS_001091",
+    "DIS_001091"
+  ],
+  "hepatic veno-occlusive disease": [
+    "DIS_001092",
+    "DIS_001092"
+  ],
+  "spontaneous bacterial peritonitis": [
+    "DIS_001093",
+    "DIS_001093"
+  ],
+  "acute-on-chronic liver failure": [
+    "DIS_001094",
+    "DIS_001094"
+  ],
+  "alagille syndrome": [
+    "DIS_001095",
+    "DIS_001095"
+  ],
+  "renal infarction": [
+    "DIS_001096",
+    "DIS_001096"
+  ],
+  "renal vein thrombosis": [
+    "DIS_001097",
+    "DIS_001097"
+  ],
+  "renal cortical necrosis": [
+    "DIS_001098",
+    "DIS_001098"
+  ],
+  "papillary necrosis": [
+    "DIS_001099",
+    "DIS_001099"
+  ],
+  "thin basement membrane nephropathy": [
+    "DIS_001100",
+    "DIS_001100"
+  ],
+  "dense deposit disease": [
+    "DIS_001101",
+    "DIS_001101"
+  ],
+  "c3 glomerulopathy": [
+    "DIS_001102",
+    "DIS_001102"
+  ],
+  "membranoproliferative glomerulonephritis": [
+    "DIS_001103",
+    "DIS_001103"
+  ],
+  "anti-gbm disease": [
+    "DIS_001104",
+    "DIS_001104"
+  ],
+  "loin pain hematuria syndrome": [
+    "DIS_001105",
+    "DIS_001105"
+  ],
+  "nutcracker kidney syndrome": [
+    "DIS_001106",
+    "DIS_001106"
+  ],
+  "urothelial carcinoma in situ": [
+    "DIS_001107",
+    "DIS_001107"
+  ],
+  "urachal cancer": [
+    "DIS_001108",
+    "DIS_001108"
+  ],
+  "neurogenic bladder": [
+    "DIS_001109",
+    "DIS_001109"
+  ],
+  "detrusor sphincter dyssynergia": [
+    "DIS_001110",
+    "DIS_001110"
+  ],
+  "fournier gangrene with sepsis": [
+    "DIS_001111",
+    "DIS_001111"
+  ],
+  "premature ejaculation": [
+    "DIS_001112",
+    "DIS_001112"
+  ],
+  "male infertility": [
+    "DIS_001113",
+    "DIS_001113"
+  ],
+  "female infertility": [
+    "DIS_001114",
+    "DIS_001114"
+  ],
+  "primary amenorrhea": [
+    "DIS_001115",
+    "DIS_001115"
+  ],
+  "secondary amenorrhea": [
+    "DIS_001116",
+    "DIS_001116"
+  ],
+  "systemic capillary leak syndrome": [
+    "DIS_001117",
+    "DIS_001117"
+  ],
+  "cryopyrin-associated periodic syndrome": [
+    "DIS_001118",
+    "DIS_001118"
+  ],
+  "vexas syndrome": [
+    "DIS_001119",
+    "DIS_001119"
+  ],
+  "palindromic rheumatism": [
+    "DIS_001120",
+    "DIS_001120"
+  ],
+  "calcium pyrophosphate deposition disease": [
+    "DIS_001121",
+    "DIS_001121"
+  ],
+  "jaccoud arthropathy": [
+    "DIS_001122",
+    "DIS_001122"
+  ],
+  "chondrocalcinosis": [
+    "DIS_001123",
+    "DIS_001123"
+  ],
+  "diffuse idiopathic skeletal hyperostosis": [
+    "DIS_001124",
+    "DIS_001124"
+  ],
+  "legg-calve-perthes disease": [
+    "DIS_001125",
+    "DIS_001125"
+  ],
+  "osgood-schlatter disease": [
+    "DIS_001126",
+    "DIS_001126"
+  ],
+  "pes planus": [
+    "DIS_001127",
+    "DIS_001127"
+  ],
+  "pes cavus": [
+    "DIS_001128",
+    "DIS_001128"
+  ],
+  "hallux valgus": [
+    "DIS_001129",
+    "DIS_001129"
+  ],
+  "trigger finger": [
+    "DIS_001130",
+    "DIS_001130"
+  ],
+  "de quervain tenosynovitis": [
+    "DIS_001131",
+    "DIS_001131"
+  ],
+  "chondromalacia patellae": [
+    "DIS_001132",
+    "DIS_001132"
+  ],
+  "patellar tendinopathy": [
+    "DIS_001133",
+    "DIS_001133"
+  ],
+  "stress fracture": [
+    "DIS_001134",
+    "DIS_001134"
+  ],
+  "ecthyma gangrenosum": [
+    "DIS_001135",
+    "DIS_001135"
+  ],
+  "epidermolysis bullosa": [
+    "DIS_001136",
+    "DIS_001136"
+  ],
+  "ichthyosis vulgaris": [
+    "DIS_001137",
+    "DIS_001137"
+  ],
+  "darier disease": [
+    "DIS_001138",
+    "DIS_001138"
+  ],
+  "hailey-hailey disease": [
+    "DIS_001139",
+    "DIS_001139"
+  ],
+  "porphyria cutanea tarda": [
+    "DIS_001140",
+    "DIS_001140"
+  ],
+  "cutaneous lupus erythematosus": [
+    "DIS_001141",
+    "DIS_001141"
+  ],
+  "subcutaneous panniculitis-like t-cell lymphoma": [
+    "DIS_001142",
+    "DIS_001142"
+  ],
+  "atypical nevus syndrome": [
+    "DIS_001143",
+    "DIS_001143"
+  ],
+  "dermatofibrosarcoma protuberans": [
+    "DIS_001144",
+    "DIS_001144"
+  ],
+  "delusional disorder": [
+    "DIS_001145",
+    "DIS_001145"
+  ],
+  "brief psychotic disorder": [
+    "DIS_001146",
+    "DIS_001146"
+  ],
+  "adjustment disorder": [
+    "DIS_001147",
+    "DIS_001147"
+  ],
+  "depersonalization-derealization disorder": [
+    "DIS_001148",
+    "DIS_001148"
+  ],
+  "acute psychosis": [
+    "DIS_001149",
+    "DIS_001149"
+  ],
+  "korsakoff syndrome": [
+    "DIS_001150",
+    "DIS_001150"
+  ],
+  "wernicke encephalopathy": [
+    "DIS_001151",
+    "DIS_001151"
+  ],
+  "factitious disorder": [
+    "DIS_001152",
+    "DIS_001152"
+  ],
+  "malingering-related clinical presentation": [
+    "DIS_001153",
+    "DIS_001153"
+  ],
+  "sanfilippo syndrome": [
+    "DIS_001154",
+    "DIS_001154"
+  ],
+  "hunter syndrome": [
+    "DIS_001155",
+    "DIS_001155"
+  ],
+  "morquio syndrome": [
+    "DIS_001156",
+    "DIS_001156"
+  ],
+  "maroteaux-lamy syndrome": [
+    "DIS_001157",
+    "DIS_001157"
+  ],
+  "smith-lemli-opitz syndrome": [
+    "DIS_001158",
+    "DIS_001158"
+  ],
+  "menkes disease": [
+    "DIS_001159",
+    "DIS_001159"
+  ],
+  "lesch-nyhan syndrome": [
+    "DIS_001160",
+    "DIS_001160"
+  ],
+  "lowe syndrome": [
+    "DIS_001161",
+    "DIS_001161"
+  ],
+  "congenital disorder of glycosylation": [
+    "DIS_001162",
+    "DIS_001162"
+  ],
+  "primary ciliary dyskinesia": [
+    "DIS_001163",
+    "DIS_001163"
+  ],
+  "kartagener syndrome": [
+    "DIS_001164",
+    "DIS_001164"
+  ],
+  "congenital pulmonary airway malformation": [
+    "DIS_001165",
+    "DIS_001165"
+  ],
+  "tracheoesophageal fistula": [
+    "DIS_001166",
+    "DIS_001166"
+  ],
+  "esophageal atresia": [
+    "DIS_001167",
+    "DIS_001167"
+  ],
+  "anorectal malformation": [
+    "DIS_001168",
+    "DIS_001168"
+  ],
+  "imperforate anus": [
+    "DIS_001169",
+    "DIS_001169"
+  ],
+  "cloacal malformation": [
+    "DIS_001170",
+    "DIS_001170"
+  ],
+  "congenital talipes equinovarus": [
+    "DIS_001171",
+    "DIS_001171"
+  ],
+  "developmental dysplasia of the hip": [
+    "DIS_001172",
+    "DIS_001172"
+  ],
+  "craniosynostosis": [
+    "DIS_001173",
+    "DIS_001173"
+  ],
+  "cleft lip and palate": [
+    "DIS_001174",
+    "DIS_001174"
+  ],
+  "neonatal respiratory distress syndrome": [
+    "DIS_001175",
+    "DIS_001175"
+  ],
+  "meconium aspiration syndrome": [
+    "DIS_001176",
+    "DIS_001176"
+  ],
+  "persistent pulmonary hypertension of the newborn": [
+    "DIS_001177",
+    "DIS_001177"
+  ],
+  "neonatal encephalopathy": [
+    "DIS_001178",
+    "DIS_001178"
+  ],
+  "hypoxic-ischemic encephalopathy": [
+    "DIS_001179",
+    "DIS_001179"
+  ],
+  "neonatal meningitis": [
+    "DIS_001180",
+    "DIS_001180"
+  ],
+  "neonatal cholestasis": [
+    "DIS_001181",
+    "DIS_001181"
+  ],
+  "congenital nephrotic syndrome": [
+    "DIS_001182",
+    "DIS_001182"
+  ],
+  "neonatal hemochromatosis": [
+    "DIS_001183",
+    "DIS_001183"
+  ],
+  "postpartum thyroiditis": [
+    "DIS_001184",
+    "DIS_001184"
+  ],
+  "peripartum cardiomyopathy": [
+    "DIS_001185",
+    "DIS_001185"
+  ],
+  "placenta percreta": [
+    "DIS_001186",
+    "DIS_001186"
+  ]
+}

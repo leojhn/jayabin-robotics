@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Service Payment</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+<style>
+
+.payment-card{
+
+    width:900px;
+
+    max-width:95%;
+
+    margin:auto;
+
+}
+
+.amount-box{
+
+    margin:30px auto;
+
+    padding:20px;
+
+    width:320px;
+
+    border-radius:15px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.amount-box h3{
+
+    margin:0;
+
+    font-size:24px;
+
+}
+
+.amount{
+
+    font-size:46px;
+
+    font-weight:bold;
+
+    margin-top:10px;
+
+}
+
+.payment-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+
+.pay-card{
+
+    background:white;
+
+    color:#222;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+.pay-card:hover{
+
+    transform:scale(1.04);
+
+    background:#0d6efd;
+
+    color:white;
+
+}
+
+.pay-icon{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+.popup{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.5);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.popup-content{
+
+    background:white;
+
+    width:500px;
+
+    max-width:95%;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    color:black;
+
+}
+
+.popup-content h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.popup-content label{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+.popup-content input,
+.popup-content select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:6px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:18px;
+
+    box-sizing:border-box;
+
+}
+
+.popup-content button{
+
+    width:100%;
+
+    margin-top:25px;
+
+}
+
+.processing{
+
+    text-align:center;
+
+    font-size:24px;
+
+}
+
+.processing h2{
+
+    color:#0d6efd;
+
+}
+
+.success{
+
+    text-align:center;
+
+}
+
+.success h2{
+
+    color:green;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card payment-card">
+
+<h1>
+
+💳 Service Payment
+
+</h1>
+
+<div class="amount-box">
+
+<h3>
+
+Total Amount
+
+</h3>
+
+<div
+class="amount"
+id="amount">
+
+₹0
+
+</div>
+
+</div>
+
+<h2>
+
+Select Payment Method
+
+</h2>
+
+<div class="payment-grid">
+
+<div
+class="pay-card"
+onclick="selectMethod('Card')">
+
+<div class="pay-icon">
+
+💳
+
+</div>
+
+Card Payment
+
+</div>
+
+<div
+class="pay-card"
+onclick="selectMethod('UPI')">
+
+<div class="pay-icon">
+
+📱
+
+</div>
+
+UPI Payment
+
+</div>
+
+<div
+class="pay-card"
+onclick="selectMethod('Cash')">
+
+<div class="pay-icon">
+
+💵
+
+</div>
+
+Cash Payment
+
+</div>
+
+<div
+class="pay-card"
+onclick="selectMethod('Insurance')">
+
+<div class="pay-icon">
+
+🏥
+
+</div>
+
+Insurance
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- CARD PAYMENT POPUP -->
+<!-- ========================================= -->
+
+<div id="cardPopup" class="popup">
+
+<div class="popup-content">
+
+<h2>💳 Card Payment</h2>
+
+<label>Card Number</label>
+
+<input
+type="text"
+id="cardNumber"
+maxlength="19"
+placeholder="1234 5678 9012 3456">
+
+<label>Card Holder Name</label>
+
+<input
+type="text"
+id="cardHolder"
+placeholder="Card Holder Name">
+
+<label>Expiry Date</label>
+
+<input
+type="month"
+id="expiryDate">
+
+<label>CVV</label>
+
+<input
+type="password"
+id="cvv"
+maxlength="3"
+placeholder="CVV">
+
+<button onclick="processPayment('Card')">
+
+💳 Pay Now
+
+</button>
+
+<button onclick="closeAllPopups()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- UPI PAYMENT POPUP -->
+<!-- ========================================= -->
+
+<div id="upiPopup" class="popup">
+
+<div class="popup-content">
+
+<h2>📱 UPI Payment</h2>
+
+<label>UPI ID</label>
+
+<input
+type="text"
+id="upiId"
+placeholder="example@upi">
+
+<br><br>
+
+<img
+src="../images/upi_qr.png"
+style="width:180px;display:block;margin:auto;">
+
+<br>
+
+<button onclick="processPayment('UPI')">
+
+📱 Pay Now
+
+</button>
+
+<button onclick="closeAllPopups()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- CASH PAYMENT POPUP -->
+<!-- ========================================= -->
+
+<div id="cashPopup" class="popup">
+
+<div class="popup-content">
+
+<h2>💵 Cash Payment</h2>
+
+<label>Total Bill</label>
+
+<input
+id="billAmount"
+readonly>
+
+<label>Cash Received</label>
+
+<input
+type="number"
+id="cashReceived"
+placeholder="Enter Amount"
+onkeyup="calculateBalance()">
+
+<label>Balance</label>
+
+<input
+id="balance"
+readonly>
+
+<button onclick="processPayment('Cash')">
+
+💵 Pay Now
+
+</button>
+
+<button onclick="closeAllPopups()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- INSURANCE PAYMENT POPUP -->
+<!-- ========================================= -->
+
+<div id="insurancePopup" class="popup">
+
+<div class="popup-content">
+
+<h2>🏥 Insurance Payment</h2>
+
+<label>Insurance Company</label>
+
+<select id="insuranceCompany">
+
+<option value="">Select Company</option>
+
+<option>Star Health</option>
+
+<option>Niva Bupa</option>
+
+<option>HDFC ERGO</option>
+
+<option>ICICI Lombard</option>
+
+<option>Care Health</option>
+
+</select>
+
+<label>Policy Number</label>
+
+<input
+type="text"
+id="policyNumber"
+placeholder="Policy Number">
+
+<label>Authorization Number</label>
+
+<input
+type="text"
+id="authorization"
+placeholder="Authorization Number">
+
+<button onclick="processPayment('Insurance')">
+
+🏥 Pay Now
+
+</button>
+
+<button onclick="closeAllPopups()">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- PROCESSING POPUP -->
+<!-- ========================================= -->
+
+<div
+id="processingPopup"
+class="popup">
+
+<div
+class="popup-content processing">
+
+<h2>
+
+⏳ Processing Payment...
+
+</h2>
+
+<br>
+
+<p>
+
+Please wait while we verify your payment.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- PAYMENT SUCCESSFUL -->
+<!-- ========================================= -->
+
+<div
+id="successPopup"
+class="popup">
+
+<div
+class="popup-content success">
+
+<h1>
+
+✅
+
+</h1>
+
+<h2>
+
+Payment Successful
+
+</h2>
+
+<p>
+
+Your payment has been completed successfully.
+
+</p>
+
+<br>
+
+<button onclick="printReceipt()">
+
+🖨 Generate Receipt
+
+</button>
+
+</div>
+
+</div>
+<script>
+    // =====================================
+// LOAD BILL
+// =====================================
+
+const params = new URLSearchParams(window.location.search);
+
+const patientId = params.get("patient");
+
+const service =
+JSON.parse(
+sessionStorage.getItem("serviceBill")
+);
+
+let paymentMethod="";
+
+window.onload=function(){
+
+    if(service){
+
+        document.getElementById("amount").innerHTML =
+        "₹"+service.Total;
+
+        document.getElementById("billAmount").value =
+        service.Total;
+
+    }
+
+}
+
+// =====================================
+// OPEN PAYMENT POPUPS
+// =====================================
+
+function selectMethod(method){
+
+    paymentMethod=method;
+
+    closeAllPopups();
+
+    if(method=="Card"){
+
+        document.getElementById(
+        "cardPopup"
+        ).style.display="flex";
+
+    }
+
+    else if(method=="UPI"){
+
+        document.getElementById(
+        "upiPopup"
+        ).style.display="flex";
+
+    }
+
+    else if(method=="Cash"){
+
+        document.getElementById(
+        "cashPopup"
+        ).style.display="flex";
+
+    }
+
+    else if(method=="Insurance"){
+
+        document.getElementById(
+        "insurancePopup"
+        ).style.display="flex";
+
+    }
+
+}
+
+// =====================================
+// CLOSE POPUPS
+// =====================================
+
+function closeAllPopups(){
+
+    document.getElementById(
+    "cardPopup").style.display="none";
+
+    document.getElementById(
+    "upiPopup").style.display="none";
+
+    document.getElementById(
+    "cashPopup").style.display="none";
+
+    document.getElementById(
+    "insurancePopup").style.display="none";
+
+    document.getElementById(
+    "processingPopup").style.display="none";
+
+    document.getElementById(
+    "successPopup").style.display="none";
+
+}
+
+// =====================================
+// CASH BALANCE
+// =====================================
+
+function calculateBalance(){
+
+    let bill =
+    Number(
+    document.getElementById(
+    "billAmount").value);
+
+    let received =
+    Number(
+    document.getElementById(
+    "cashReceived").value);
+
+    let balance =
+    received-bill;
+
+    document.getElementById(
+    "balance").value=balance;
+
+}
+
+// =====================================
+// PAYMENT VALIDATION
+// =====================================
+
+function processPayment(method){
+
+    if(method=="Card"){
+
+        if(
+        document.getElementById("cardNumber").value==""
+        ||
+        document.getElementById("cardHolder").value==""
+        ||
+        document.getElementById("expiryDate").value==""
+        ||
+        document.getElementById("cvv").value==""
+        ){
+
+            alert("Please complete card details.");
+
+            return;
+
+        }
+
+    }
+
+    if(method=="UPI"){
+
+        if(
+        document.getElementById("upiId").value==""
+        ){
+
+            alert("Enter UPI ID.");
+
+            return;
+
+        }
+
+    }
+
+    if(method=="Cash"){
+
+        let bill=
+        Number(
+        document.getElementById(
+        "billAmount").value);
+
+        let received=
+        Number(
+        document.getElementById(
+        "cashReceived").value);
+
+        if(received<bill){
+
+            alert(
+            "Cash received is less than bill amount."
+            );
+
+            return;
+
+        }
+
+    }
+
+    if(method=="Insurance"){
+
+        if(
+        document.getElementById(
+        "insuranceCompany").value==""
+        ||
+        document.getElementById(
+        "policyNumber").value==""
+        ||
+        document.getElementById(
+        "authorization").value==""
+        ){
+
+            alert(
+            "Complete insurance details."
+            );
+
+            return;
+
+        }
+
+    }
+
+    closeAllPopups();
+
+    document.getElementById(
+    "processingPopup"
+    ).style.display="flex";
+
+    setTimeout(function(){
+
+        document.getElementById(
+        "processingPopup"
+        ).style.display="none";
+
+        document.getElementById(
+        "successPopup"
+        ).style.display="flex";
+
+        sessionStorage.setItem(
+
+        "servicePaymentMethod",
+
+        method
+
+        );
+
+    },2500);
+
+}
+// =====================================
+// GENERATE RECEIPT
+// =====================================
+
+async function printReceipt(){
+
+    const bill =
+        JSON.parse(
+            sessionStorage.getItem("serviceBill")
+        );
+
+    const method =
+        sessionStorage.getItem(
+            "servicePaymentMethod"
+        );
+
+    if(!bill){
+
+        alert("Receipt data is missing.");
+        return;
+
+    }
+
+    if(!method){
+
+        alert("Payment method is missing.");
+        return;
+
+    }
+
+    const button =
+        document.querySelector(
+            '.successPopup button'
+        );
+
+    if(button){
+
+        button.disabled = true;
+        button.innerText = "🖨 Printing...";
+
+    }
+
+    const now = new Date();
+
+    const services =
+        Array.isArray(bill.Services)
+        ? bill.Services
+        : [];
+
+    let serviceRows = "";
+
+    services.forEach(function(item){
+
+        serviceRows += `
+            <tr>
+                <td>${item.Service || ""}</td>
+                <td align="right">₹ ${item.Amount || ""}</td>
+            </tr>
+        `;
+
+    });
+
+    const receiptHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    color:black;
+    background:white;
+}
+
+.receipt{
+    width:700px;
+    margin:30px auto;
+    background:white;
+    padding:35px;
+    color:black;
+}
+
+.receipt h1{
+    text-align:center;
+    margin:0;
+}
+
+.receipt h2{
+    text-align:center;
+    margin-top:5px;
+    color:#555;
+}
+
+.receipt table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.receipt td{
+    padding:10px;
+    font-size:18px;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    font-size:24px;
+    font-weight:bold;
+    border-top:2px solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="receipt">
+
+<h1>CITY HOSPITAL</h1>
+
+<h2>SERVICE PAYMENT RECEIPT</h2>
+
+<hr>
+
+<table>
+
+<tr>
+<td>Receipt No</td>
+<td>SR-${Date.now()}</td>
+</tr>
+
+<tr>
+<td>Date</td>
+<td>${now.toLocaleDateString()}</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>${now.toLocaleTimeString()}</td>
+</tr>
+
+<tr>
+<td>Patient ID</td>
+<td>${bill["Patient ID"] || ""}</td>
+</tr>
+
+<tr>
+<td>Patient Name</td>
+<td>${bill["Patient Name"] || ""}</td>
+</tr>
+
+<tr>
+<td>Consultant</td>
+<td>${bill["Consultant"] || ""}</td>
+</tr>
+
+</table>
+
+<br>
+
+<h3>Services</h3>
+
+<table>
+
+${serviceRows}
+
+</table>
+
+<br>
+
+<table>
+
+<tr class="total">
+
+<td>TOTAL PAID</td>
+
+<td align="right">
+₹ ${bill.Total || ""}
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<table>
+
+<tr>
+<td>Payment Method</td>
+<td>${method}</td>
+</tr>
+
+<tr>
+<td>Status</td>
+<td>PAID</td>
+</tr>
+
+</table>
+
+<br>
+
+<center>
+<h3>Thank You</h3>
+</center>
+
+</div>
+
+</body>
+</html>
+`;
+
+    try{
+
+        const response =
+            await fetch(
+                "/api/print_receipt",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        html: receiptHTML
+                    })
+                }
+            );
+
+        const result =
+            await response.json();
+
+        if(!response.ok || !result.success){
+
+            throw new Error(
+                result.message ||
+                result.error ||
+                "Receipt printing failed."
+            );
+
+        }
+
+        window.location.href =
+            "../menu.html";
+
+    }
+    catch(error){
+
+        console.error(
+            "Receipt printing error:",
+            error
+        );
+
+        alert(
+            "Receipt printing failed: " +
+            error.message
+        );
+
+        if(button){
+
+            button.disabled = false;
+            button.innerText =
+                "🖨 Generate Receipt";
+
+        }
+
+    }
+
+}
+// =====================================
+// CARD NUMBER FORMATTING
+// =====================================
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const card =
+    document.getElementById("cardNumber");
+
+    if(card){
+
+        card.addEventListener("input",function(e){
+
+            let value =
+            e.target.value
+            .replace(/\D/g,"")
+            .substring(0,16);
+
+            value =
+            value.replace(/(.{4})/g,"$1 ").trim();
+
+            e.target.value=value;
+
+        });
+
+    }
+
+});
+
+// =====================================
+// UPI VALIDATION
+// =====================================
+
+function validUPI(){
+
+    const upi =
+    document.getElementById("upiId").value.trim();
+
+    const regex =
+    /^[a-zA-Z0-9.\-_]{2,}@[a-zA-Z]{2,}$/;
+
+    return regex.test(upi);
+
+}
+
+// =====================================
+// CARD VALIDATION
+// =====================================
+
+function validCard(){
+
+    let number =
+    document.getElementById(
+    "cardNumber").value.replace(/\s/g,"");
+
+    let holder =
+    document.getElementById(
+    "cardHolder").value.trim();
+
+    let expiry =
+    document.getElementById(
+    "expiryDate").value;
+
+    let cvv =
+    document.getElementById(
+    "cvv").value;
+
+    if(number.length!=16){
+
+        alert("Invalid Card Number");
+
+        return false;
+
+    }
+
+    if(holder==""){
+
+        alert("Enter Card Holder Name");
+
+        return false;
+
+    }
+
+    if(expiry==""){
+
+        alert("Select Expiry Date");
+
+        return false;
+
+    }
+
+    if(cvv.length!=3){
+
+        alert("Invalid CVV");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+// =====================================
+// INSURANCE VALIDATION
+// =====================================
+
+function validInsurance(){
+
+    if(
+
+        document.getElementById(
+        "insuranceCompany").value==""
+
+    ){
+
+        alert("Select Insurance Company");
+
+        return false;
+
+    }
+
+    if(
+
+        document.getElementById(
+        "policyNumber").value==""
+
+    ){
+
+        alert("Enter Policy Number");
+
+        return false;
+
+    }
+
+    if(
+
+        document.getElementById(
+        "authorization").value==""
+
+    ){
+
+        alert("Enter Authorization Number");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+// =====================================
+// RECEIPT NUMBER
+// =====================================
+
+function generateReceiptNo(){
+
+    const now =
+    new Date();
+
+    const receipt =
+
+    "SR-" +
+
+    now.getFullYear() +
+
+    String(now.getMonth()+1).padStart(2,"0") +
+
+    String(now.getDate()).padStart(2,"0") +
+
+    "-" +
+
+    Math.floor(
+        1000+
+        Math.random()*9000
+    );
+
+    sessionStorage.setItem(
+
+        "receiptNo",
+
+        receipt
+
+    );
+
+}
+
+// =====================================
+// IMPROVED PAYMENT PROCESS
+// =====================================
+
+function processPayment(method){
+
+    if(method=="Card"){
+
+        if(!validCard()){
+
+            return;
+
+        }
+
+    }
+
+    if(method=="UPI"){
+
+        if(!validUPI()){
+
+            alert("Invalid UPI ID");
+
+            return;
+
+        }
+
+    }
+
+    if(method=="Cash"){
+
+        let bill =
+        Number(
+        document.getElementById(
+        "billAmount").value);
+
+        let received =
+        Number(
+        document.getElementById(
+        "cashReceived").value);
+
+        if(received<bill){
+
+            alert(
+
+            "Cash received is less than bill amount."
+
+            );
+
+            return;
+
+        }
+
+    }
+
+    if(method=="Insurance"){
+
+        if(!validInsurance()){
+
+            return;
+
+        }
+
+    }
+
+    closeAllPopups();
+
+    document.getElementById(
+    "processingPopup"
+    ).style.display="flex";
+
+    generateReceiptNo();
+
+    sessionStorage.setItem(
+
+    "servicePaymentMethod",
+
+    method
+
+    );
+
+    setTimeout(function(){
+
+        document.getElementById(
+        "processingPopup"
+        ).style.display="none";
+
+        document.getElementById(
+        "successPopup"
+        ).style.display="flex";
+
+    },2500);
+
+}
+
+
+</script>
+</body>
+</html>

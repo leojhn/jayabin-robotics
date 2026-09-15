@@ -1,0 +1,159 @@
+import html as html_lib
+import re
+from html.parser import HTMLParser
+
+from escpos.printer import Usb
+
+
+class HTMLToText(HTMLParser):
+
+    BLOCK_TAGS = {
+        "p", "div", "br",
+        "h1", "h2", "h3", "h4",
+        "tr", "li", "section"
+    }
+
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "br":
+            self.parts.append("\n")
+        elif tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag):
+        if tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+        elif tag in ["td", "th"]:
+            self.parts.append("    ")
+
+    def handle_data(self, data):
+        self.parts.append(data)
+
+    def get_text(self):
+        text = "".join(self.parts)
+        text = html_lib.unescape(text)
+        text = re.sub(r"[ \t]+\n", "\n", text)
+        text = re.sub(r"\n{3,}", "\n\n", text)
+        return text.strip()
+
+
+class ThermalPrinter:
+
+    VENDOR_ID = 0x4B43
+    PRODUCT_ID = 0x3830
+
+    IN_EP = 0x81
+    OUT_EP = 0x02
+
+    def __init__(self):
+        self.printer_name = "Caysn CN811-U"
+
+    def connect(self):
+
+        return Usb(
+            idVendor=self.VENDOR_ID,
+            idProduct=self.PRODUCT_ID,
+            in_ep=self.IN_EP,
+            out_ep=self.OUT_EP
+        )
+
+    def receipt_to_text(self, receipt):
+
+        patient_name = str(receipt.get("patientName", "N/A"))
+        patient_id = str(receipt.get("patientId", "N/A"))
+        appointment_id = str(receipt.get("appointmentId", "N/A"))
+        token = str(receipt.get("token", "N/A"))
+        receipt_no = str(receipt.get("receiptNo", "N/A"))
+        consultant = str(receipt.get("consultant", "N/A"))
+        payment_method = str(receipt.get("paymentMethod", "N/A"))
+        status = str(receipt.get("status", "N/A"))
+        date = str(receipt.get("date", "N/A"))
+        time = str(receipt.get("time", "N/A"))
+        amount = str(receipt.get("amount", "0"))
+
+        return f"""
+================================
+         CITY HOSPITAL
+       PAYMENT RECEIPT
+================================
+
+Receipt No : {receipt_no}
+
+--------------------------------
+PATIENT INFORMATION
+--------------------------------
+
+Patient Name : {patient_name}
+Patient ID   : {patient_id}
+
+Appointment ID : {appointment_id}
+Token          : {token}
+
+--------------------------------
+CONSULTATION BILL
+--------------------------------
+
+Consultant     : {consultant}
+Payment Method : {payment_method}
+Status         : {status}
+
+Date : {date}
+Time : {time}
+
+--------------------------------
+
+TOTAL AMOUNT : Rs. {amount}
+
+================================
+          THANK YOU
+================================
+"""
+
+    def html_to_text(self, content):
+
+        parser = HTMLToText()
+        parser.feed(str(content))
+
+        return parser.get_text()
+
+    def print_text(self, text):
+
+        try:
+
+            printer = self.connect()
+
+            printer.set(
+                align="center",
+                bold=False
+            )
+
+            printer.text(text)
+            printer.text("\n\n\n")
+            printer.cut()
+
+            return {
+                "success": True,
+                "printer": self.printer_name,
+                "job": "USB-ESC-POS"
+            }
+
+        except Exception as e:
+
+            raise RuntimeError(
+                f"ESC/POS printer error: {str(e)}"
+            )
+
+    def print_html(self, content):
+
+        if isinstance(content, dict):
+            text = self.receipt_to_text(content)
+        else:
+            text = self.html_to_text(content)
+
+        return self.print_text(text)
+
+
+printer = ThermalPrinter()
