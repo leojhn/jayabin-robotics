@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Backend Test</title>
+
+</head>
+
+<body>
+
+<h1>Patients</h1>
+
+<div id="patients"></div>
+
+<script src="api.js"></script>
+
+<script>
+
+async function loadPatients(){
+
+    let patients = await getPatients();
+
+    let html = "";
+
+    patients.forEach(patient=>{
+
+        html += `
+            <p>
+            ${patient["PATIENT ID"]} -
+            ${patient["PATIENT NAME"]}
+            </p>
+        `;
+
+    });
+
+    document.getElementById("patients").innerHTML = html;
+
+}
+
+loadPatients();
+
+</script>
+
+</body>
+
+</html>

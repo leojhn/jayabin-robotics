@@ -1,0 +1,1345 @@
+/* ============================================================
+   NEO NANO AI
+   Medical AI Introduction Theme
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   INTRO CONTAINER
+   ------------------------------------------------------------ */
+
+.neo-intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0, 190, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 120, 255, 0.08),
+            transparent 30%
+        ),
+        #020b14;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/* ------------------------------------------------------------
+   MEDICAL PARTICLES
+   ------------------------------------------------------------ */
+
+.medical-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(80,220,255,.8) 1px,
+            transparent 2px
+        );
+
+    background-size: 70px 70px;
+
+    opacity: .25;
+
+    animation:
+        particleMove 12s linear infinite;
+
+}
+
+
+@keyframes particleMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-70px);
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   ECG
+   ------------------------------------------------------------ */
+
+.ecg-background {
+
+    position: absolute;
+
+    width: 100%;
+
+    bottom: 7%;
+
+    opacity: .25;
+
+}
+
+
+.ecg-background svg {
+
+    width: 100%;
+
+    height: 180px;
+
+}
+
+
+.ecg-background polyline {
+
+    fill: none;
+
+    stroke: #20dfff;
+
+    stroke-width: 3;
+
+    stroke-dasharray: 20 12;
+
+    animation:
+        ecgMove 3s linear infinite;
+
+}
+
+
+@keyframes ecgMove {
+
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -200;
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   STAGES
+   ------------------------------------------------------------ */
+
+.neo-stage {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.neo-stage.active {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+/* ------------------------------------------------------------
+   JRA INTRO
+   ------------------------------------------------------------ */
+
+.stage-jra {
+
+    animation:
+        jraStage 3s ease forwards;
+
+}
+
+
+@keyframes jraStage {
+
+    0% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+}
+
+
+.jra-symbol {
+
+    width: 150px;
+
+    height: 150px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.jra-ring {
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+
+        2px solid
+        rgba(40,220,255,.7);
+
+    border-radius: 50%;
+
+    animation:
+        jraSpin 5s linear infinite;
+
+}
+
+
+@keyframes jraSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+.jra-text {
+
+    font-size: 58px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    color: #e8fbff;
+
+    text-shadow:
+
+        0 0 15px #00dfff,
+        0 0 35px rgba(0,200,255,.6);
+
+}
+
+
+.jra-name {
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    color: #8fdfff;
+
+}
+
+
+.jra-line {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: #20dfff;
+
+    margin: 25px 0;
+
+}
+
+
+.jra-present {
+
+    font-size: 11px;
+
+    letter-spacing: 7px;
+
+    color: #bcefff;
+
+}
+
+
+/* ------------------------------------------------------------
+   MEDICAL STAGE
+   ------------------------------------------------------------ */
+
+.stage-medical {
+
+    animation:
+        medicalStage 4s ease forwards;
+
+}
+
+
+@keyframes medicalStage {
+
+    0%,
+    20% {
+
+        opacity: 0;
+
+        transform:
+            scale(.7)
+            rotate(-8deg);
+
+    }
+
+    30% {
+
+        opacity: 1;
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.1);
+
+    }
+
+}
+
+
+.medical-core {
+
+    width: 180px;
+
+    height: 180px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.medical-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(30,220,255,.6);
+
+}
+
+
+.ring-one {
+
+    width: 100%;
+
+    height: 100%;
+
+    animation:
+        medicalRotate 7s linear infinite;
+
+}
+
+
+.ring-two {
+
+    width: 75%;
+
+    height: 75%;
+
+    border-style: dashed;
+
+    animation:
+        medicalRotateReverse 5s linear infinite;
+
+}
+
+
+.ring-three {
+
+    width: 50%;
+
+    height: 50%;
+
+    animation:
+        medicalRotate 3s linear infinite;
+
+}
+
+
+@keyframes medicalRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes medicalRotateReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+
+.medical-cross {
+
+    font-size: 100px;
+
+    line-height: 1;
+
+    color: #dffcff;
+
+    text-shadow:
+
+        0 0 15px #00dfff,
+        0 0 40px #0099ff;
+
+    animation:
+        medicalPulse 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes medicalPulse {
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+.stage-medical h2 {
+
+    margin: 2px;
+
+    font-size: 28px;
+
+    letter-spacing: 6px;
+
+    font-weight: 600;
+
+}
+
+
+.stage-medical p {
+
+    margin-top: 18px;
+
+    color: #8ddff4;
+
+    font-size: 14px;
+
+}
+
+
+/* ------------------------------------------------------------
+   NEO NANO CORE
+   ------------------------------------------------------------ */
+
+.stage-reveal {
+
+    animation:
+        revealStage 4s ease forwards;
+
+}
+
+
+@keyframes revealStage {
+
+    0%,
+    20% {
+
+        opacity: 0;
+
+        transform: scale(.5);
+
+    }
+
+    35% {
+
+        opacity: 1;
+
+    }
+
+    75% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+.neo-core {
+
+    width: 230px;
+
+    height: 230px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.neo-core-inner {
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #08344a,
+            #020e18
+        );
+
+    border:
+
+        2px solid
+        #5ceaff;
+
+    box-shadow:
+
+        0 0 15px #00dfff,
+        0 0 50px rgba(0,210,255,.7),
+        inset 0 0 30px rgba(0,210,255,.3);
+
+    z-index: 5;
+
+}
+
+
+.nn-logo {
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    color: #e9fdff;
+
+    text-shadow:
+
+        0 0 10px #00dfff;
+
+}
+
+
+.neo-orbit {
+
+    position: absolute;
+
+    inset: 10px;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(45,225,255,.65);
+
+}
+
+
+.orbit-a {
+
+    transform:
+        rotate(25deg)
+        scaleX(.45);
+
+    animation:
+        orbitSpin 4s linear infinite;
+
+}
+
+
+.orbit-b {
+
+    transform:
+        rotate(90deg)
+        scaleX(.45);
+
+    animation:
+        orbitSpinReverse 5s linear infinite;
+
+}
+
+
+.orbit-c {
+
+    transform:
+        rotate(150deg)
+        scaleX(.45);
+
+    animation:
+        orbitSpin 6s linear infinite;
+
+}
+
+
+@keyframes orbitSpin {
+
+    to {
+        transform:
+            rotate(385deg)
+            scaleX(.45);
+    }
+
+}
+
+
+@keyframes orbitSpinReverse {
+
+    to {
+        transform:
+            rotate(-270deg)
+            scaleX(.45);
+    }
+
+}
+
+
+.neo-name {
+
+    margin-top: 30px;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    color: #ecfdff;
+
+    text-shadow:
+
+        0 0 15px #00dfff,
+        0 0 40px rgba(0,200,255,.5);
+
+}
+
+
+.neo-tagline {
+
+    margin-top: 12px;
+
+    color: #89e8fa;
+
+    letter-spacing: 2px;
+
+    font-size: 15px;
+
+}
+
+
+.neo-ecg {
+
+    margin-top: 25px;
+
+    color: #2ce8ff;
+
+    letter-spacing: 2px;
+
+    animation:
+        ecgGlow 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes ecgGlow {
+
+    50% {
+        opacity: .35;
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   AI AVATAR
+   ------------------------------------------------------------ */
+
+.stage-ai {
+
+    animation:
+        aiStage 4s ease forwards;
+
+}
+
+
+@keyframes aiStage {
+
+    0%,
+    20% {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(.8);
+
+    }
+
+    35% {
+
+        opacity: 1;
+
+    }
+
+    75% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-30px)
+            scale(1.05);
+
+    }
+
+}
+
+
+.ai-avatar {
+
+    width: 190px;
+
+    height: 250px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.avatar-head {
+
+    width: 150px;
+
+    height: 120px;
+
+    border-radius:
+        45px 45px 38px 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4fbff,
+            #9fb8c7
+        );
+
+    border:
+        2px solid #dffaff;
+
+    box-shadow:
+
+        0 0 20px
+        rgba(0,220,255,.7);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 2;
+
+}
+
+
+.avatar-eyes {
+
+    display: flex;
+
+    gap: 38px;
+
+}
+
+
+.avatar-eyes span {
+
+    width: 15px;
+
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #00dfff;
+
+    box-shadow:
+        0 0 12px #00dfff;
+
+}
+
+
+.avatar-mouth {
+
+    width: 35px;
+
+    height: 10px;
+
+    margin-top: 16px;
+
+    border-bottom:
+        3px solid #00bfe8;
+
+    border-radius: 50%;
+
+}
+
+
+.avatar-body {
+
+    width: 125px;
+
+    height: 110px;
+
+    margin-top: -5px;
+
+    border-radius:
+        35px 35px 15px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edfaff,
+            #7193a4
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.avatar-nn {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: #032130;
+
+    border: 2px solid #31e6ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    color: #9ef5ff;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,220,255,.5);
+
+}
+
+
+.avatar-glow {
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,220,255,.18),
+            transparent 65%
+        );
+
+    animation:
+        avatarGlow 2s infinite;
+
+}
+
+
+@keyframes avatarGlow {
+
+    50% {
+        transform: scale(1.2);
+
+        opacity: .5;
+    }
+
+}
+
+
+.ai-greeting {
+
+    margin-top: 20px;
+
+    line-height: 1.4;
+
+}
+
+
+.hello {
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+}
+
+
+.iam {
+
+    margin-top: 5px;
+
+    color: #91e6f5;
+
+}
+
+
+.ai-greeting strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 24px;
+
+    letter-spacing: 3px;
+
+    color: #5ceaff;
+
+}
+
+
+.ai-greeting p {
+
+    margin-top: 8px;
+
+    color: #9ac7d3;
+
+    font-size: 14px;
+
+}
+
+
+/* ------------------------------------------------------------
+   READY
+   ------------------------------------------------------------ */
+
+.stage-ready {
+
+    animation:
+        readyStage 5s ease forwards;
+
+}
+
+
+@keyframes readyStage {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(.8);
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+    80% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.ready-core {
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid #3deaff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    box-shadow:
+
+        0 0 20px #00dfff,
+        0 0 60px
+        rgba(0,220,255,.5);
+
+}
+
+
+.ready-core span {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: #dfffff;
+
+}
+
+
+.ready-pulse {
+
+    position: absolute;
+
+    inset: -15px;
+
+    border:
+        1px solid
+        rgba(0,220,255,.5);
+
+    border-radius: 50%;
+
+    animation:
+        readyPulse 1.5s infinite;
+
+}
+
+
+@keyframes readyPulse {
+
+    0% {
+
+        transform: scale(.7);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(1.4);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+.ready-small {
+
+    margin-top: 30px;
+
+    font-size: 12px;
+
+    letter-spacing: 7px;
+
+    color: #8ddff5;
+
+}
+
+
+.ready-title {
+
+    font-size: 45px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-top: 5px;
+
+}
+
+
+.stage-ready p {
+
+    color: #8fbac5;
+
+    margin-top: 10px;
+
+}
+
+
+.neo-begin {
+
+    margin-top: 28px;
+
+    width: 210px;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid #61edff;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #007c9d,
+            #00c7e8
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 0 20px
+        rgba(0,210,255,.4);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+
+}
+
+
+.neo-begin span {
+
+    margin-left: 10px;
+
+    font-size: 20px;
+
+}
+
+
+.neo-begin:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+
+        0 0 35px
+        rgba(0,220,255,.7);
+
+}
+
+
+/* ------------------------------------------------------------
+   HOSPITAL MENU
+   Initially hidden.
+   ------------------------------------------------------------ */
+
+#hospitalMenu {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(20px)
+        scale(.98);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+
+}
+
+
+/* Menu becomes visible */
+
+#hospitalMenu.neo-menu-visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+    .neo-name {
+
+        font-size: 25px;
+
+        letter-spacing: 5px;
+
+    }
+
+
+    .stage-medical h2 {
+
+        font-size: 21px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .ready-title {
+
+        font-size: 35px;
+
+    }
+
+
+    .jra-name {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+}

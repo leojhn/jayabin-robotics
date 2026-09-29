@@ -1,0 +1,172 @@
+/* ============================================================
+   NEO NANO AI INTRO CONTROLLER
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const intro =
+        document.getElementById("neoNanoIntro");
+
+    const menu =
+        document.getElementById("hospitalMenu");
+
+    const beginButton =
+        document.getElementById("neoBeginButton");
+
+
+    if (!intro || !menu) {
+        return;
+    }
+
+
+    /*
+     * --------------------------------------------------------
+     * INTRO TIMELINE
+     * --------------------------------------------------------
+     *
+     * 0 - 3 sec     JRA
+     * 3 - 7 sec     Medical Intelligence
+     * 7 - 11 sec    Neo Nano AI
+     * 11 - 15 sec   AI Introduction
+     * 15+ sec       Ready
+     */
+
+
+    const stages = [
+
+        {
+            selector: ".stage-jra",
+            start: 0
+        },
+
+        {
+            selector: ".stage-medical",
+            start: 3000
+        },
+
+        {
+            selector: ".stage-reveal",
+            start: 7000
+        },
+
+        {
+            selector: ".stage-ai",
+            start: 11000
+        },
+
+        {
+            selector: ".stage-ready",
+            start: 15000
+        }
+
+    ];
+
+
+    function activateStage(selector) {
+
+        document
+            .querySelectorAll(".neo-stage")
+            .forEach(stage => {
+
+                stage.classList.remove("active");
+
+            });
+
+
+        const stage =
+            document.querySelector(selector);
+
+
+        if (stage) {
+
+            stage.classList.add("active");
+
+        }
+
+    }
+
+
+    /* Start */
+
+    stages.forEach(stage => {
+
+        setTimeout(() => {
+
+            activateStage(stage.selector);
+
+        }, stage.start);
+
+    });
+
+
+    /*
+     * The READY screen remains visible.
+     *
+     * User can press "Let's Begin".
+     */
+
+
+    function enterHospital() {
+
+        /*
+         * Fade Neo Nano intro
+         */
+
+        intro.style.transition =
+            "opacity 0.9s ease, transform 0.9s ease";
+
+
+        intro.style.opacity = "0";
+
+        intro.style.transform =
+            "scale(1.04)";
+
+
+        /*
+         * Reveal existing hospital menu
+         */
+
+        setTimeout(() => {
+
+            intro.style.display = "none";
+
+            menu.classList.add(
+                "neo-menu-visible"
+            );
+
+        }, 850);
+
+    }
+
+
+    if (beginButton) {
+
+        beginButton.addEventListener(
+            "click",
+            enterHospital
+        );
+
+    }
+
+
+    /*
+     * Optional automatic entry.
+     *
+     * If you don't want the patient to press
+     * "Let's Begin", change 30000 to 19000.
+     */
+
+    setTimeout(() => {
+
+        if (
+            intro.style.display !== "none"
+        ) {
+
+            enterHospital();
+
+        }
+
+    }, 30000);
+
+
+});

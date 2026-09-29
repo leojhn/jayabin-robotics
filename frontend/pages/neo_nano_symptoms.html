@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Nano AI - Symptoms</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+body{
+    overflow:hidden;
+    color:#fff;
+    background:radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);
+    background-size:40px 40px;
+    animation:grid 18s linear infinite;
+}
+@keyframes grid{
+    from{transform:translateY(0)}
+    to{transform:translateY(40px)}
+}
+.container{
+    position:relative;
+    width:92%;
+    max-width:1000px;
+    margin:auto;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.header{
+    position:absolute;
+    top:25px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid #4DD6FF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    color:#7DE8FF;
+    box-shadow:0 0 20px rgba(77,214,255,.5);
+}
+select{
+    background:#08284B;
+    color:#fff;
+    border:1px solid #38BDF8;
+    padding:10px;
+    border-radius:10px;
+}
+.patient{
+    margin-top:70px;
+    background:rgba(7,40,73,.8);
+    border:1px solid rgba(77,214,255,.25);
+    border-radius:15px;
+    padding:18px;
+}
+.patient h3{
+    color:#7DE8FF;
+}
+.title{
+    text-align:center;
+    margin:25px 0;
+}
+.title h1{
+    font-size:38px;
+}
+.title p{
+    color:#B8E7FF;
+    margin-top:8px;
+}
+.box{
+    background:rgba(8,34,58,.85);
+    border:1px solid rgba(56,189,248,.25);
+    border-radius:18px;
+    padding:22px;
+}
+textarea{
+    width:100%;
+    height:170px;
+    margin-top:15px;
+    background:#04192B;
+    color:#fff;
+    border:1px solid rgba(56,189,248,.25);
+    border-radius:12px;
+    padding:15px;
+    resize:none;
+    font-size:15px;
+}
+textarea::placeholder{
+    color:#88B9D8;
+}
+.quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+.chip{
+    padding:9px 14px;
+    border-radius:30px;
+    background:#103A67;
+    border:1px solid rgba(56,189,248,.3);
+    cursor:pointer;
+}
+.voice{
+    margin-top:18px;
+    background:#0B3157;
+    border-radius:12px;
+    padding:16px;
+    text-align:center;
+}
+.mic{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#1EA7FF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(30,167,255,.4);
+}
+.status{
+    margin-top:10px;
+    color:#CDEEFF;
+}
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+.left{
+    display:flex;
+    gap:10px;
+}
+button{
+    padding:14px 22px;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+}
+.back{
+    background:#173A63;
+    color:#fff;
+}
+.skip{
+    background:#103A67;
+    color:#fff;
+}
+.next{
+    background:linear-gradient(90deg,#1EA7FF,#2563EB);
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="brand">
+<div class="logo">NN</div>
+<div>
+<h2>NEO NANO AI</h2>
+<p id="brandSub">Medical Intelligence</p>
+</div>
+</div>
+
+<select id="language" onchange="changeLanguage()">
+<option value="en">English</option>
+<option value="ml">മലയാളം</option>
+<option value="ta">தமிழ்</option>
+<option value="hi">ഹിन्दी</option>
+<option value="ar">العربية</option>
+</select>
+
+</div>
+
+<div class="patient">
+<h3 id="pidTitle">Patient ID : Loading...</h3>
+<p id="langInfo">You may speak in English or Malayalam.</p>
+</div>
+
+<div class="title">
+<h1 id="mainTitle">Describe Your Symptoms</h1>
+<p id="subTitle">Please explain your health concern naturally.</p>
+</div>
+
+<div class="box">
+
+<h3 id="q1">What symptoms are you experiencing?</h3>
+
+<textarea id="symptoms"
+placeholder="Example: I have fever, headache and vomiting for 2 days."></textarea>
+
+<div class="quick">
+
+<div class="chip" onclick="addChip('Fever')">Fever</div>
+<div class="chip" onclick="addChip('Headache')">Headache</div>
+<div class="chip" onclick="addChip('Cough')">Cough</div>
+<div class="chip" onclick="addChip('Stomach Pain')">Stomach Pain</div>
+<div class="chip" onclick="addChip('Vomiting')">Vomiting</div>
+<div class="chip" onclick="addChip('Chest Pain')">Chest Pain</div>
+
+</div>
+
+<div class="voice">
+
+<div class="mic" onclick="voiceDemo()">🎤</div>
+
+<div class="status" id="voiceStatus">
+Voice API active
+</div>
+
+</div>
+
+<div class="buttons">
+
+<div class="left">
+
+<button class="back" onclick="goBack()" id="backBtn">Back</button>
+
+<button class="skip" onclick="skipNeoNano()" id="skipBtn">Skip</button>
+
+</div>
+
+<button class="next" onclick="analyze()" id="nextBtn">
+Analyze Symptoms
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+// Check patient session
+const patient = JSON.parse(sessionStorage.getItem("patient") || "null");
+if (!patient) {
+    alert("Please complete patient check-in first.");
+    window.location.href = "checkin.html";
+} else {
+    const pName = patient["PATIENT NAME"] || patient["Patient Name"] || patient.patient_name || "";
+    const pId = patient["PATIENT ID"] || patient["Patient ID"] || patient.patient_id || "";
+    document.getElementById("pidTitle").textContent = "Patient: " + pName + " (" + pId + ")";
+}
+
+const text={
+en:{
+title:"Describe Your Symptoms",
+sub:"Please explain your health concern naturally.",
+q1:"What symptoms are you experiencing?",
+placeholder:"Example: I have fever, headache and vomiting for 2 days.",
+back:"Back",
+skip:"Skip",
+next:"Analyze Symptoms",
+lang:"You may speak in English or Malayalam."
+},
+
+ml:{
+title:"ലക്ഷണങ്ങൾ വിവരിക്കുക",
+sub:"സ്വാഭാവികമായി നിങ്ങളുടെ ആരോഗ്യ പ്രശ്നം പറയുക.",
+q1:"നിങ്ങൾക്ക് എന്തൊക്കെ ലക്ഷണങ്ങളുണ്ട്?",
+placeholder:"ഉദാഹരണം: രണ്ട് ദിവസമായി പനിയും തലവേദനയും ഉണ്ട്.",
+back:"തിരികെ",
+skip:"ഒഴിവാക്കുക",
+next:"വിശകലനം ചെയ്യുക",
+lang:"ഇംഗ്ലീഷിലോ മലയാളത്തിലോ സംസാരിക്കാം."
+},
+
+ta:{
+title:"உங்கள் அறிகுறிகளை விவரிக்கவும்",
+sub:"உங்கள் சுகாதார பிரச்சனையை இயல்பாக விளக்கவும்.",
+q1:"உங்களுக்கு என்ன அறிகுறிகள் உள்ளன?",
+placeholder:"எடுத்துக்காட்டு: 2 நாட்களாக காய்ச்சல், தலைவலி மற்றும் வாந்தி உள்ளது.",
+back:"பின்",
+skip:"தவிர்",
+next:"பகுப்பாய்வு செய்",
+lang:"நீங்கள் ஆங்கிலம் அல்லது தமிழில் பேசலாம்."
+},
+
+hi:{
+title:"अपने लक्षणों का वर्णन करें",
+sub:"कृपया अपनी स्वास्थ्य समस्या स्वाभाविक रूप से बताएं।",
+q1:"आप किन लक्षणों का अनुभव कर रहे हैं?",
+placeholder:"उदाहरण: मुझे 2 दिनों से बुखार, सिरदर्द और उल्टी है।",
+back:"वापस",
+skip:"छोड़ें",
+next:"विश्लेषण करें",
+lang:"आप अंग्रेजी या हिंदी में बोल सकते हैं।"
+},
+
+ar:{
+title:"صف أعراضك",
+sub:"يرجى شرح مشكلتك الصحية بشكل طبيعي.",
+q1:"ما هي الأعراض التي تعاني منها؟",
+placeholder:"مثال: أعاني من الحمى والصداع والقيء لمدة يومين.",
+back:"رجوع",
+skip:"تخطي",
+next:"تحليل الأعراض",
+lang:"يمكنك التحدث باللغة الإنجليزية أو العربية."
+}
+};
+
+function changeLanguage(){
+    const l=document.getElementById("language").value;
+    const t=text[l] || text.en;
+
+    document.getElementById("mainTitle").innerHTML=t.title;
+    document.getElementById("subTitle").innerHTML=t.sub;
+    document.getElementById("q1").innerHTML=t.q1;
+    document.getElementById("symptoms").placeholder=t.placeholder;
+    document.getElementById("backBtn").innerHTML=t.back;
+    document.getElementById("skipBtn").innerHTML=t.skip;
+    document.getElementById("nextBtn").innerHTML=t.next;
+    document.getElementById("langInfo").innerHTML=t.lang;
+
+    sessionStorage.setItem("neo_language",l);
+}
+
+// Check saved language
+const savedLang = sessionStorage.getItem("neo_language");
+if (savedLang && text[savedLang]) {
+    document.getElementById("language").value = savedLang;
+    changeLanguage();
+}
+
+// Pre-fill previous symptoms if going back
+const savedSymptoms = sessionStorage.getItem("neo_symptoms");
+if (savedSymptoms) {
+    document.getElementById("symptoms").value = savedSymptoms;
+}
+
+function addChip(word){
+    const box=document.getElementById("symptoms");
+    if(box.value==="")
+        box.value=word;
+    else
+        box.value+=", "+word;
+}
+
+function voiceDemo(){
+    const status = document.getElementById("voiceStatus");
+    status.innerHTML="🎙 Listening...";
+    setTimeout(()=>{
+        status.innerHTML="Voice captured successfully.";
+    },2000);
+}
+
+function analyze(){
+    const txt=document.getElementById("symptoms").value.trim();
+    if(txt===""){
+        alert("Please describe the symptoms.");
+        return;
+    }
+
+    sessionStorage.setItem("neo_symptoms",txt);
+    window.location.href="neo_nano_result.html";
+}
+
+function skipNeoNano(){
+    sessionStorage.removeItem("neoNanoRecommendedDepartment");
+    sessionStorage.removeItem("neo_symptoms");
+    sessionStorage.removeItem("neo_department");
+    sessionStorage.removeItem("neo_tests");
+    sessionStorage.removeItem("neo_doctors");
+    window.location.href="appointments.html";
+}
+
+function goBack(){
+    window.location.href="neo_nano_welcome.html";
+}
+
+</script>
+
+</body>
+</html>

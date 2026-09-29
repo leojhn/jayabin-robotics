@@ -1,0 +1,124 @@
+{"department": "General Medicine", "test_name": "Complete Blood Count (CBC)", "category": "Laboratory", "priority": "High", "reason": "Detect infection, anemia and inflammation"}
+{"department": "General Medicine", "test_name": "ESR", "category": "Laboratory", "priority": "Medium", "reason": "Assess inflammation"}
+{"department": "General Medicine", "test_name": "C-Reactive Protein (CRP)", "category": "Laboratory", "priority": "High", "reason": "Detect acute inflammation"}
+{"department": "General Medicine", "test_name": "Procalcitonin", "category": "Laboratory", "priority": "Medium", "reason": "Evaluate bacterial infection"}
+{"department": "General Medicine", "test_name": "Peripheral Smear", "category": "Laboratory", "priority": "Medium", "reason": "Detect blood disorders"}
+{"department": "General Medicine", "test_name": "Blood Group & Rh", "category": "Laboratory", "priority": "Low", "reason": "Determine blood type"}
+{"department": "General Medicine", "test_name": "Reticulocyte Count", "category": "Laboratory", "priority": "Medium", "reason": "Assess bone marrow function"}
+{"department": "General Medicine", "test_name": "Hemoglobin", "category": "Laboratory", "priority": "High", "reason": "Evaluate anemia"}
+{"department": "General Medicine", "test_name": "Blood Glucose", "category": "Biochemistry", "priority": "High", "reason": "Screen diabetes"}
+{"department": "General Medicine", "test_name": "HbA1c", "category": "Biochemistry", "priority": "Medium", "reason": "Assess long-term diabetes"}
+{"department": "General Medicine", "test_name": "Urea", "category": "Biochemistry", "priority": "Medium", "reason": "Assess kidney function"}
+{"department": "General Medicine", "test_name": "Creatinine", "category": "Biochemistry", "priority": "Medium", "reason": "Assess kidney function"}
+{"department": "General Medicine", "test_name": "eGFR", "category": "Biochemistry", "priority": "Medium", "reason": "Estimate renal filtration"}
+{"department": "General Medicine", "test_name": "Uric Acid", "category": "Biochemistry", "priority": "Low", "reason": "Evaluate gout"}
+{"department": "General Medicine", "test_name": "Electrolytes", "category": "Biochemistry", "priority": "High", "reason": "Assess sodium, potassium and chloride"}
+{"department": "General Medicine", "test_name": "Calcium", "category": "Biochemistry", "priority": "Medium", "reason": "Evaluate bone metabolism"}
+{"department": "General Medicine", "test_name": "Magnesium", "category": "Biochemistry", "priority": "Medium", "reason": "Assess electrolyte balance"}
+{"department": "General Medicine", "test_name": "Phosphate", "category": "Biochemistry", "priority": "Low", "reason": "Evaluate bone metabolism"}
+{"department": "General Medicine", "test_name": "ALT", "category": "Liver", "priority": "Medium", "reason": "Assess liver injury"}
+{"department": "General Medicine", "test_name": "AST", "category": "Liver", "priority": "Medium", "reason": "Assess liver injury"}
+{"department": "General Medicine", "test_name": "ALP", "category": "Liver", "priority": "Low", "reason": "Evaluate biliary disease"}
+{"department": "General Medicine", "test_name": "GGT", "category": "Liver", "priority": "Low", "reason": "Evaluate liver disease"}
+{"department": "General Medicine", "test_name": "Total Bilirubin", "category": "Liver", "priority": "Medium", "reason": "Assess jaundice"}
+{"department": "General Medicine", "test_name": "Direct Bilirubin", "category": "Liver", "priority": "Medium", "reason": "Assess hepatobiliary disease"}
+{"department": "General Medicine", "test_name": "Albumin", "category": "Liver", "priority": "Low", "reason": "Evaluate nutritional and liver status"}
+{"department": "General Medicine", "test_name": "Total Protein", "category": "Liver", "priority": "Low", "reason": "Assess protein status"}
+{"department": "General Medicine", "test_name": "Urine Routine", "category": "Urine", "priority": "High", "reason": "General urinary screening"}
+{"department": "General Medicine", "test_name": "Urine Microscopy", "category": "Urine", "priority": "Medium", "reason": "Detect urinary abnormalities"}
+{"department": "General Medicine", "test_name": "Urine Culture", "category": "Urine", "priority": "Medium", "reason": "Identify urinary infection"}
+{"department": "General Medicine", "test_name": "Urine Protein", "category": "Urine", "priority": "Medium", "reason": "Assess kidney damage"}
+{"department": "General Medicine", "test_name": "Microalbumin", "category": "Urine", "priority": "Medium", "reason": "Early kidney disease"}
+{"department": "General Medicine", "test_name": "24-hour Urine Protein", "category": "Urine", "priority": "Low", "reason": "Quantify protein loss"}
+{"department": "General Medicine", "test_name": "Creatinine Clearance", "category": "Urine", "priority": "Low", "reason": "Measure kidney filtration"}
+{"department": "Cardiology", "test_name": "ECG", "category": "Cardiac", "priority": "High", "reason": "Evaluate heart rhythm"}
+{"department": "Cardiology", "test_name": "Echocardiogram", "category": "Imaging", "priority": "High", "reason": "Assess heart structure"}
+{"department": "Cardiology", "test_name": "Troponin", "category": "Cardiac", "priority": "High", "reason": "Detect myocardial injury"}
+{"department": "Cardiology", "test_name": "CK-MB", "category": "Cardiac", "priority": "Medium", "reason": "Support heart attack diagnosis"}
+{"department": "Cardiology", "test_name": "BNP", "category": "Cardiac", "priority": "Medium", "reason": "Evaluate heart failure"}
+{"department": "Cardiology", "test_name": "Holter Monitoring", "category": "Monitoring", "priority": "Medium", "reason": "Detect intermittent arrhythmia"}
+{"department": "Cardiology", "test_name": "Stress Test", "category": "Functional", "priority": "Medium", "reason": "Assess coronary disease"}
+{"department": "Cardiology", "test_name": "Coronary CT Angiography", "category": "Imaging", "priority": "Low", "reason": "Visualize coronary arteries"}
+{"department": "Pulmonology", "test_name": "Chest X-ray", "category": "Imaging", "priority": "High", "reason": "Evaluate lung pathology"}
+{"department": "Pulmonology", "test_name": "Spirometry", "category": "Respiratory", "priority": "High", "reason": "Assess pulmonary function"}
+{"department": "Pulmonology", "test_name": "Peak Flow", "category": "Respiratory", "priority": "Medium", "reason": "Monitor airway obstruction"}
+{"department": "Pulmonology", "test_name": "ABG", "category": "Respiratory", "priority": "High", "reason": "Assess oxygenation"}
+{"department": "Pulmonology", "test_name": "Sputum Culture", "category": "Microbiology", "priority": "Medium", "reason": "Identify respiratory infection"}
+{"department": "Pulmonology", "test_name": "GeneXpert (TB)", "category": "Molecular", "priority": "Medium", "reason": "Detect tuberculosis"}
+{"department": "Pulmonology", "test_name": "CT Chest", "category": "Imaging", "priority": "Medium", "reason": "Detailed lung imaging"}
+{"department": "Gastroenterology", "test_name": "Stool Routine", "category": "Stool", "priority": "High", "reason": "Evaluate intestinal disorders"}
+{"department": "Gastroenterology", "test_name": "Stool Culture", "category": "Stool", "priority": "Medium", "reason": "Identify GI infection"}
+{"department": "Gastroenterology", "test_name": "Occult Blood", "category": "Stool", "priority": "Medium", "reason": "Detect gastrointestinal bleeding"}
+{"department": "Gastroenterology", "test_name": "H. pylori Test", "category": "Laboratory", "priority": "Medium", "reason": "Diagnose peptic ulcer"}
+{"department": "Gastroenterology", "test_name": "Endoscopy", "category": "Endoscopy", "priority": "High", "reason": "Visualize upper GI tract"}
+{"department": "Gastroenterology", "test_name": "Colonoscopy", "category": "Endoscopy", "priority": "Medium", "reason": "Examine colon"}
+{"department": "Gastroenterology", "test_name": "Amylase", "category": "Biochemistry", "priority": "Medium", "reason": "Assess pancreas"}
+{"department": "Gastroenterology", "test_name": "Lipase", "category": "Biochemistry", "priority": "Medium", "reason": "Evaluate pancreatitis"}
+{"department": "Neurology", "test_name": "CT Brain", "category": "Imaging", "priority": "High", "reason": "Detect acute brain pathology"}
+{"department": "Neurology", "test_name": "MRI Brain", "category": "Imaging", "priority": "High", "reason": "Evaluate neurological disease"}
+{"department": "Neurology", "test_name": "EEG", "category": "Neurophysiology", "priority": "Medium", "reason": "Assess seizure disorders"}
+{"department": "Neurology", "test_name": "EMG", "category": "Neurophysiology", "priority": "Medium", "reason": "Evaluate muscle disorders"}
+{"department": "Neurology", "test_name": "Nerve Conduction Study", "category": "Neurophysiology", "priority": "Medium", "reason": "Assess peripheral nerves"}
+{"department": "Neurology", "test_name": "Lumbar Puncture", "category": "Procedure", "priority": "Low", "reason": "Investigate CNS infection"}
+{"department": "Endocrinology", "test_name": "TSH", "category": "Hormone", "priority": "High", "reason": "Evaluate thyroid"}
+{"department": "Endocrinology", "test_name": "Free T3", "category": "Hormone", "priority": "Medium", "reason": "Assess thyroid hormone"}
+{"department": "Endocrinology", "test_name": "Free T4", "category": "Hormone", "priority": "Medium", "reason": "Assess thyroid hormone"}
+{"department": "Endocrinology", "test_name": "Insulin", "category": "Hormone", "priority": "Low", "reason": "Evaluate insulin disorders"}
+{"department": "Endocrinology", "test_name": "Cortisol", "category": "Hormone", "priority": "Medium", "reason": "Assess adrenal function"}
+{"department": "Endocrinology", "test_name": "Vitamin D", "category": "Vitamin", "priority": "Medium", "reason": "Detect deficiency"}
+{"department": "Endocrinology", "test_name": "Vitamin B12", "category": "Vitamin", "priority": "Medium", "reason": "Assess neuropathy"}
+{"department": "Obstetrics & Gynecology", "test_name": "Pregnancy Test", "category": "OBGYN", "priority": "High", "reason": "Confirm pregnancy"}
+{"department": "Obstetrics & Gynecology", "test_name": "β-hCG", "category": "Hormone", "priority": "High", "reason": "Evaluate pregnancy"}
+{"department": "Obstetrics & Gynecology", "test_name": "Pelvic Ultrasound", "category": "Imaging", "priority": "High", "reason": "Assess uterus and ovaries"}
+{"department": "Obstetrics & Gynecology", "test_name": "Pap Smear", "category": "Cytology", "priority": "Medium", "reason": "Screen cervical cancer"}
+{"department": "Obstetrics & Gynecology", "test_name": "HPV Test", "category": "Molecular", "priority": "Medium", "reason": "Detect HPV infection"}
+{"department": "Obstetrics & Gynecology", "test_name": "Hormone Profile", "category": "Hormone", "priority": "Medium", "reason": "Evaluate reproductive hormones"}
+{"department": "Orthopedics", "test_name": "X-ray", "category": "Imaging", "priority": "High", "reason": "Detect fractures"}
+{"department": "Orthopedics", "test_name": "CT Bone", "category": "Imaging", "priority": "Medium", "reason": "Detailed bone imaging"}
+{"department": "Orthopedics", "test_name": "MRI Joint", "category": "Imaging", "priority": "Medium", "reason": "Assess ligaments and cartilage"}
+{"department": "Orthopedics", "test_name": "Bone Density (DEXA)", "category": "Imaging", "priority": "Low", "reason": "Measure bone density"}
+{"department": "Orthopedics", "test_name": "Vitamin D", "category": "Vitamin", "priority": "Medium", "reason": "Bone health"}
+{"department": "Orthopedics", "test_name": "Calcium", "category": "Biochemistry", "priority": "Medium", "reason": "Bone metabolism"}
+{"department": "Nephrology", "test_name": "Serum Creatinine", "category": "Renal", "priority": "High", "reason": "Assess kidney function"}
+{"department": "Nephrology", "test_name": "Blood Urea", "category": "Renal", "priority": "High", "reason": "Evaluate renal disease"}
+{"department": "Nephrology", "test_name": "eGFR", "category": "Renal", "priority": "High", "reason": "Estimate kidney filtration"}
+{"department": "Nephrology", "test_name": "Electrolytes", "category": "Renal", "priority": "High", "reason": "Assess electrolyte imbalance"}
+{"department": "Nephrology", "test_name": "Urinalysis", "category": "Urine", "priority": "High", "reason": "Detect urinary abnormalities"}
+{"department": "Nephrology", "test_name": "Renal Ultrasound", "category": "Imaging", "priority": "Medium", "reason": "Visualize kidneys"}
+{"department": "Hematology", "test_name": "Coagulation Profile", "category": "Hematology", "priority": "High", "reason": "Evaluate clotting disorders"}
+{"department": "Hematology", "test_name": "PT", "category": "Hematology", "priority": "High", "reason": "Assess coagulation"}
+{"department": "Hematology", "test_name": "INR", "category": "Hematology", "priority": "High", "reason": "Monitor anticoagulant therapy"}
+{"department": "Hematology", "test_name": "APTT", "category": "Hematology", "priority": "Medium", "reason": "Evaluate intrinsic pathway"}
+{"department": "Hematology", "test_name": "D-Dimer", "category": "Hematology", "priority": "Medium", "reason": "Screen thrombosis"}
+{"department": "Hematology", "test_name": "Ferritin", "category": "Iron", "priority": "Medium", "reason": "Assess iron deficiency"}
+{"department": "Hematology", "test_name": "Iron Profile", "category": "Iron", "priority": "Medium", "reason": "Evaluate anemia"}
+{"department": "Oncology", "test_name": "Biopsy", "category": "Pathology", "priority": "High", "reason": "Confirm malignancy"}
+{"department": "Oncology", "test_name": "Histopathology", "category": "Pathology", "priority": "High", "reason": "Tissue diagnosis"}
+{"department": "Oncology", "test_name": "FNAC", "category": "Pathology", "priority": "Medium", "reason": "Evaluate masses"}
+{"department": "Oncology", "test_name": "PET Scan", "category": "Imaging", "priority": "Medium", "reason": "Cancer staging"}
+{"department": "Oncology", "test_name": "Tumor Markers", "category": "Oncology", "priority": "Low", "reason": "Support cancer diagnosis"}
+{"department": "Oncology", "test_name": "Immunohistochemistry", "category": "Pathology", "priority": "Medium", "reason": "Characterize tumors"}
+{"department": "Infectious Disease", "test_name": "HIV", "category": "Serology", "priority": "Medium", "reason": "Screen HIV infection"}
+{"department": "Infectious Disease", "test_name": "HBsAg", "category": "Serology", "priority": "Medium", "reason": "Detect hepatitis B"}
+{"department": "Infectious Disease", "test_name": "HCV", "category": "Serology", "priority": "Medium", "reason": "Detect hepatitis C"}
+{"department": "Infectious Disease", "test_name": "Dengue NS1", "category": "Serology", "priority": "High", "reason": "Early dengue diagnosis"}
+{"department": "Infectious Disease", "test_name": "Dengue IgM", "category": "Serology", "priority": "Medium", "reason": "Recent dengue infection"}
+{"department": "Infectious Disease", "test_name": "Malaria Smear", "category": "Microscopy", "priority": "High", "reason": "Detect malaria"}
+{"department": "Infectious Disease", "test_name": "Widal", "category": "Serology", "priority": "Low", "reason": "Support typhoid diagnosis"}
+{"department": "Infectious Disease", "test_name": "Blood Culture", "category": "Microbiology", "priority": "High", "reason": "Identify bloodstream infection"}
+{"department": "Radiology", "test_name": "X-ray", "category": "Imaging", "priority": "High", "reason": "General radiography"}
+{"department": "Radiology", "test_name": "Ultrasound", "category": "Imaging", "priority": "High", "reason": "Soft tissue imaging"}
+{"department": "Radiology", "test_name": "CT Scan", "category": "Imaging", "priority": "High", "reason": "Cross-sectional imaging"}
+{"department": "Radiology", "test_name": "MRI", "category": "Imaging", "priority": "High", "reason": "Detailed soft tissue imaging"}
+{"department": "Radiology", "test_name": "Mammography", "category": "Imaging", "priority": "Medium", "reason": "Breast screening"}
+{"department": "Radiology", "test_name": "Fluoroscopy", "category": "Imaging", "priority": "Low", "reason": "Real-time X-ray imaging"}
+{"department": "Radiology", "test_name": "Doppler Ultrasound", "category": "Imaging", "priority": "Medium", "reason": "Evaluate blood flow"}
+{"department": "Ophthalmology", "test_name": "Visual Acuity", "category": "Eye", "priority": "High", "reason": "Assess vision"}
+{"department": "Ophthalmology", "test_name": "Fundus Examination", "category": "Eye", "priority": "High", "reason": "Evaluate retina"}
+{"department": "Ophthalmology", "test_name": "OCT", "category": "Imaging", "priority": "Medium", "reason": "Retinal imaging"}
+{"department": "Ophthalmology", "test_name": "Tonometry", "category": "Eye", "priority": "Medium", "reason": "Measure intraocular pressure"}
+{"department": "Ophthalmology", "test_name": "Visual Field Test", "category": "Eye", "priority": "Low", "reason": "Assess peripheral vision"}
+{"department": "ENT", "test_name": "Audiometry", "category": "ENT", "priority": "Medium", "reason": "Assess hearing"}
+{"department": "ENT", "test_name": "Tympanometry", "category": "ENT", "priority": "Low", "reason": "Evaluate middle ear"}
+{"department": "ENT", "test_name": "Nasal Endoscopy", "category": "Endoscopy", "priority": "Medium", "reason": "Visualize nasal cavity"}
+{"department": "ENT", "test_name": "Laryngoscopy", "category": "Endoscopy", "priority": "Medium", "reason": "Examine vocal cords"}

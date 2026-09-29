@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Neo Nano AI</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+/* ============================================================
+   NEO NANO AI
+   MEDICAL INTELLIGENCE INTERFACE
+   ============================================================ */
+
+:root {
+
+    --neo-cyan: #27e8ff;
+    --neo-blue: #168cff;
+    --neo-deep: #03111d;
+    --neo-panel: rgba(5, 25, 39, 0.82);
+    --neo-line: rgba(39, 232, 255, 0.22);
+    --neo-text: #ecfbff;
+    --neo-muted: #8db5c5;
+
+}
+
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 190, 255, 0.18),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(0, 90, 255, 0.10),
+            transparent 30%
+        ),
+
+        #020a12;
+
+    color: var(--neo-text);
+
+    overflow-x: hidden;
+
+}
+
+
+/* ============================================================
+   MEDICAL BACKGROUND
+   ============================================================ */
+
+.neo-medical-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+}
+
+
+/* floating particles */
+
+.neo-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(40,225,255,.75) 1px,
+            transparent 1.5px
+        );
+
+    background-size: 65px 65px;
+
+    opacity: .18;
+
+    animation:
+        particlesMove 18s linear infinite;
+
+}
+
+
+@keyframes particlesMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-65px);
+    }
+
+}
+
+
+/* ============================================================
+   DNA PATTERN
+   ============================================================ */
+
+.neo-dna {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 500px;
+
+    right: 4%;
+
+    top: 10%;
+
+    opacity: .13;
+
+    transform: rotate(15deg);
+
+}
+
+
+.neo-dna::before,
+.neo-dna::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    border-left:
+        2px solid var(--neo-cyan);
+
+    border-right:
+        2px solid var(--neo-cyan);
+
+    border-radius: 50%;
+
+}
+
+
+.neo-dna::before {
+
+    transform:
+        rotate(0deg)
+        scaleX(.5);
+
+}
+
+
+.neo-dna::after {
+
+    transform:
+        rotate(180deg)
+        scaleX(.5);
+
+}
+
+
+.neo-dna span {
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--neo-cyan);
+
+    transform-origin: left center;
+
+}
+
+
+.neo-dna span:nth-child(1) {
+    top: 30px;
+    transform: rotate(25deg);
+}
+
+.neo-dna span:nth-child(2) {
+    top: 80px;
+    transform: rotate(-25deg);
+}
+
+.neo-dna span:nth-child(3) {
+    top: 130px;
+    transform: rotate(25deg);
+}
+
+.neo-dna span:nth-child(4) {
+    top: 180px;
+    transform: rotate(-25deg);
+}
+
+.neo-dna span:nth-child(5) {
+    top: 230px;
+    transform: rotate(25deg);
+}
+
+.neo-dna span:nth-child(6) {
+    top: 280px;
+    transform: rotate(-25deg);
+}
+
+.neo-dna span:nth-child(7) {
+    top: 330px;
+    transform: rotate(25deg);
+}
+
+.neo-dna span:nth-child(8) {
+    top: 380px;
+    transform: rotate(-25deg);
+}
+
+.neo-dna span:nth-child(9) {
+    top: 430px;
+    transform: rotate(25deg);
+}
+
+
+/* ============================================================
+   ECG
+   ============================================================ */
+
+.neo-ecg {
+
+    position: fixed;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 100px;
+
+    opacity: .12;
+
+    z-index: 0;
+
+}
+
+
+.neo-ecg svg {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+.neo-ecg polyline {
+
+    fill: none;
+
+    stroke: var(--neo-cyan);
+
+    stroke-width: 2;
+
+    stroke-dasharray: 15 12;
+
+    animation:
+        ecgFlow 4s linear infinite;
+
+}
+
+
+@keyframes ecgFlow {
+
+    to {
+        stroke-dashoffset: -200;
+    }
+
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.neo-page {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1100px, 94%);
+
+    margin: auto;
+
+    padding:
+        35px
+        0
+        70px;
+
+}
+
+
+/* ============================================================
+   NEO NANO HEADER
+   ============================================================ */
+
+.neo-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+    animation:
+        headerIn .8s ease;
+
+}
+
+
+@keyframes headerIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.neo-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.neo-logo {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #073c52,
+            #02101a
+        );
+
+    border:
+        1px solid var(--neo-cyan);
+
+    box-shadow:
+
+        0 0 15px
+        rgba(39,232,255,.45),
+
+        inset 0 0 20px
+        rgba(39,232,255,.15);
+
+}
+
+
+.neo-logo::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border:
+        1px solid
+        rgba(39,232,255,.3);
+
+    border-radius: 50%;
+
+    animation:
+        logoOrbit 5s linear infinite;
+
+}
+
+
+@keyframes logoOrbit {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+.neo-logo-text {
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    color: white;
+
+    text-shadow:
+        0 0 12px var(--neo-cyan);
+
+}
+
+
+.neo-title {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.neo-subtitle {
+
+    margin: 4px 0 0;
+
+    color: var(--neo-muted);
+
+    font-size: 13px;
+
+}
+
+
+.neo-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px
+        14px;
+
+    border:
+        1px solid
+        rgba(50,255,180,.3);
+
+    border-radius: 30px;
+
+    background:
+        rgba(0,100,80,.15);
+
+    font-size: 12px;
+
+}
+
+
+.neo-status-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #32ffad;
+
+    box-shadow:
+        0 0 12px #32ffad;
+
+    animation:
+        statusPulse 1.5s infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    50% {
+        opacity: .35;
+        transform: scale(.7);
+    }
+
+}
+
+
+/* ============================================================
+   AI CORE
+   ============================================================ */
+
+.neo-ai-core {
+
+    position: relative;
+
+    width: 150px;
+
+    height: 150px;
+
+    margin:
+        10px
+        auto
+        25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.neo-core-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(39,232,255,.5);
+
+}
+
+
+.neo-core-ring.one {
+
+    inset: 0;
+
+    animation:
+        coreSpin 7s linear infinite;
+
+}
+
+
+.neo-core-ring.two {
+
+    inset: 14px;
+
+    border-style: dashed;
+
+    animation:
+        coreSpinReverse 5s linear infinite;
+
+}
+
+
+.neo-core-ring.three {
+
+    inset: 29px;
+
+    animation:
+        coreSpin 4s linear infinite;
+
+}
+
+
+@keyframes coreSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes coreSpinReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+
+.neo-core-center {
+
+    width: 78px;
+
+    height: 78px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #07516a,
+            #03111b
+        );
+
+    border:
+        2px solid
+        var(--neo-cyan);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(39,232,255,.55),
+
+        inset 0 0 25px
+        rgba(39,232,255,.25);
+
+    animation:
+        corePulse 2.2s ease-in-out infinite;
+
+}
+
+
+@keyframes corePulse {
+
+    50% {
+
+        transform: scale(1.08);
+
+        box-shadow:
+
+            0 0 40px
+            rgba(39,232,255,.7),
+
+            inset 0 0 35px
+            rgba(39,232,255,.3);
+
+    }
+
+}
+
+
+.neo-nn {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+}
+
+
+/* ============================================================
+   INTRO TEXT
+   ============================================================ */
+
+.neo-introduction {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    animation:
+        introFade 1s ease;
+
+}
+
+
+@keyframes introFade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.neo-introduction h1 {
+
+    margin: 0;
+
+    font-size: clamp(
+        30px,
+        5vw,
+        48px
+    );
+
+    letter-spacing: 6px;
+
+    font-weight: 800;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #6cefff,
+            #ffffff
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        titleShine 4s linear infinite;
+
+}
+
+
+@keyframes titleShine {
+
+    to {
+        background-position:
+            200% center;
+    }
+
+}
+
+
+.neo-introduction p {
+
+    color: var(--neo-muted);
+
+    font-size: 15px;
+
+    margin-top: 10px;
+
+}
+
+
+/* ============================================================
+   PATIENT IDENTITY
+   ============================================================ */
+
+.neo-patient {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.neo-patient-card {
+
+    padding: 15px 18px;
+
+    border:
+        1px solid
+        var(--neo-line);
+
+    border-radius: 14px;
+
+    background:
+        rgba(4,22,34,.65);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.neo-patient-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(39,232,255,.5);
+
+}
+
+
+.neo-label {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color:
+        var(--neo-muted);
+
+    margin-bottom: 5px;
+
+}
+
+
+.neo-value {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+}
+
+
+/* ============================================================
+   MAIN AI PANEL
+   ============================================================ */
+
+.neo-panel {
+
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    padding: 28px !important;
+
+    border:
+        1px solid
+        rgba(39,232,255,.25) !important;
+
+    border-radius: 24px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8,31,46,.92),
+            rgba(2,13,22,.88)
+        ) !important;
+
+    box-shadow:
+
+        0 20px 70px
+        rgba(0,0,0,.35),
+
+        0 0 40px
+        rgba(0,180,255,.06),
+
+        inset 0 1px
+        rgba(255,255,255,.05);
+
+    backdrop-filter:
+        blur(20px);
+
+    animation:
+        panelIn .9s ease;
+
+}
+
+
+@keyframes panelIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ============================================================
+   PANEL HEADER
+   ============================================================ */
+
+.neo-panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.neo-medical-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    background:
+        rgba(39,232,255,.08);
+
+    border:
+        1px solid
+        rgba(39,232,255,.25);
+
+}
+
+
+.neo-panel-header h2 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+}
+
+
+.neo-panel-header p {
+
+    margin: 3px 0 0;
+
+    color:
+        var(--neo-muted);
+
+    font-size: 12px;
+
+}
+
+
+/* ============================================================
+   INPUT
+   ============================================================ */
+
+.neo-input {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(39,232,255,.18);
+
+    background:
+        rgba(1,12,20,.75);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.neo-input::placeholder {
+
+    color:
+        #668694;
+
+}
+
+
+.neo-input:focus {
+
+    border-color:
+        rgba(39,232,255,.65);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(39,232,255,.07),
+
+        0 0 25px
+        rgba(39,232,255,.08);
+
+}
+
+
+/* ============================================================
+   QUICK MEDICAL HINTS
+   ============================================================ */
+
+.neo-hints {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-top: 12px;
+
+}
+
+
+.neo-hint {
+
+    padding:
+        7px
+        11px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(39,232,255,.14);
+
+    background:
+        rgba(39,232,255,.04);
+
+    color:
+        #8fc6d5;
+
+    font-size: 11px;
+
+}
+
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+
+.neo-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+
+}
+
+
+.neo-actions button {
+
+    min-height: 48px;
+
+    padding:
+        0
+        24px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(39,232,255,.5);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #087e9e,
+            #0752a0
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,130,200,.2);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.neo-actions button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(0,190,255,.25);
+
+}
+
+
+.neo-back {
+
+    text-decoration: none;
+
+}
+
+
+.neo-back button {
+
+    background:
+        rgba(255,255,255,.04);
+
+    border-color:
+        rgba(255,255,255,.12);
+
+    color:
+        #c2dce5;
+
+}
+
+
+/* ============================================================
+   ANALYZING STATE
+   ============================================================ */
+
+.neo-analyzing {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+}
+
+
+.neo-analyzing-core {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        rgba(39,232,255,.25);
+
+    border-top-color:
+        var(--neo-cyan);
+
+    animation:
+        analyzingSpin 1s linear infinite;
+
+}
+
+
+@keyframes analyzingSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+.neo-analyzing-text {
+
+    color:
+        #9ed9e8;
+
+}
+
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+
+.neo-result {
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(239,250,253,.97);
+
+    color: #111 !important;
+
+    animation:
+        resultIn .55s ease;
+
+}
+
+
+@keyframes resultIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.neo-result p,
+.neo-result h2,
+.neo-result h3,
+.neo-result b {
+
+    color: #111 !important;
+
+    opacity: 1 !important;
+
+}
+
+
+.neo-card {
+
+    border:
+        1px solid
+        #d7e1e5 !important;
+
+    border-radius: 15px;
+
+    padding: 17px;
+
+    margin: 12px 0;
+
+    background:
+        white !important;
+
+    color: #111 !important;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.neo-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.08);
+
+}
+
+
+.neo-card h3,
+.neo-card p {
+
+    color: #111 !important;
+
+}
+
+
+.neo-departments {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin:
+        12px 0
+        18px;
+
+}
+
+
+.neo-departments button {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding:
+        10px
+        14px;
+
+    background:
+        #087e9e;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+}
+
+
+.urgent {
+
+    border-left:
+        6px solid
+        #c62828 !important;
+
+}
+
+
+.routine {
+
+    border-left:
+        6px solid
+        #2e7d32 !important;
+
+}
+
+
+.small-note {
+
+    font-size: 13px;
+
+    color: #444 !important;
+
+}
+
+
+/* ============================================================
+   MEDICAL DATA STREAM
+   ============================================================ */
+
+.neo-data-stream {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 28px;
+
+    color:
+        #608896;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.neo-data-stream span {
+
+    animation:
+        dataBlink 2s infinite;
+
+}
+
+
+.neo-data-stream span:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.neo-data-stream span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.neo-data-stream span:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+
+@keyframes dataBlink {
+
+    50% {
+        color: var(--neo-cyan);
+        opacity: .8;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .neo-page {
+
+        width: 92%;
+
+        padding-top: 20px;
+
+    }
+
+
+    .neo-header {
+
+        align-items: flex-start;
+
+    }
+
+
+    .neo-status {
+
+        font-size: 10px;
+
+    }
+
+
+    .neo-patient {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .neo-panel {
+
+        padding: 18px !important;
+
+    }
+
+
+    .neo-introduction h1 {
+
+        font-size: 28px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .neo-ai-core {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .neo-core-center {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .neo-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .neo-actions button {
+
+        width: 100%;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ============================================================
+     MEDICAL BACKGROUND
+     ============================================================ -->
+
+<div class="neo-medical-background">
+
+    <div class="neo-particles"></div>
+
+
+    <div class="neo-dna">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="neo-ecg">
+
+        <svg viewBox="0 0 1200 100"
+             preserveAspectRatio="none">
+
+            <polyline
+                points="
+                0,55
+                120,55
+                160,55
+                185,35
+                205,80
+                225,55
+                350,55
+                390,55
+                410,48
+                430,62
+                450,55
+                570,55
+                620,55
+                650,20
+                675,88
+                700,55
+                820,55
+                870,55
+                900,40
+                920,70
+                940,55
+                1200,55"
+            />
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================================================
+     NEO NANO PAGE
+     ============================================================ -->
+
+<div class="neo-page">
+
+
+    <!-- HEADER -->
+
+    <header class="neo-header">
+
+        <div class="neo-brand">
+
+            <div class="neo-logo">
+
+                <span class="neo-logo-text">
+                    NN
+                </span>
+
+            </div>
+
+            <div>
+
+                <h1 class="neo-title">
+                    NEO NANO AI
+                </h1>
+
+                <p class="neo-subtitle">
+                    Intelligent Healthcare Assistant
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="neo-status">
+
+            <span class="neo-status-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================================================
+         AI CORE / INTRODUCTION
+         ======================================================== -->
+
+    <section class="neo-introduction">
+
+
+        <div class="neo-ai-core">
+
+            <div class="neo-core-ring one"></div>
+
+            <div class="neo-core-ring two"></div>
+
+            <div class="neo-core-ring three"></div>
+
+
+            <div class="neo-core-center">
+
+                <span class="neo-nn">
+                    NN
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <h1>
+            NEO NANO AI
+        </h1>
+
+
+        <p>
+            Medical intelligence designed to understand,
+            organize and assist.
+        </p>
+
+
+        <div class="neo-data-stream">
+
+            <span>BIOMEDICAL</span>
+
+            <span>KNOWLEDGE</span>
+
+            <span>CLINICAL</span>
+
+            <span>INTELLIGENCE</span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================================
+         PATIENT
+         ======================================================== -->
+
+    <div class="neo-patient">
+
+
+        <div class="neo-patient-card">
+
+            <span class="neo-label">
+                Patient
+            </span>
+
+            <span
+                class="neo-value"
+                id="neoPatientName">
+            </span>
+
+        </div>
+
+
+        <div class="neo-patient-card">
+
+            <span class="neo-label">
+                Patient ID
+            </span>
+
+            <span
+                class="neo-value"
+                id="neoPatientId">
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================================================
+         MAIN AI PANEL
+         ======================================================== -->
+
+    <div class="glass-card neo-panel">
+
+
+        <div class="neo-panel-header">
+
+            <div class="neo-medical-icon">
+                🧬
+            </div>
+
+            <div>
+
+                <h2>
+                    Medical AI Consultation
+                </h2>
+
+                <p>
+                    Describe your symptoms or ask a medical question
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <textarea
+            id="neoQuery"
+            class="neo-input"
+            inputmode="none"
+            placeholder="Example: I have headache, palpitations and sweating. Which department should I visit?"
+        ></textarea>
+
+
+
+        <!-- QUICK HINTS -->
+
+        <div class="neo-hints">
+
+            <span class="neo-hint">
+                Symptoms
+            </span>
+
+            <span class="neo-hint">
+                Department
+            </span>
+
+            <span class="neo-hint">
+                Medical Question
+            </span>
+
+            <span class="neo-hint">
+                Clinical Guidance
+            </span>
+
+        </div>
+
+
+
+        <!-- ACTIONS -->
+
+        <div class="neo-actions">
+
+
+            <button
+                onclick="runNeoNano()">
+
+                <span>
+                    ✦
+                </span>
+
+                Ask Neo Nano
+
+            </button>
+
+
+            <a
+                href="checkin.html"
+                class="neo-back">
+
+                <button
+                    type="button">
+
+                    ← Back to Patient Check-In
+
+                </button>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div id="neoResult"></div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ============================================================
+     EXISTING JAVASCRIPT
+     FUNCTIONALITY PRESERVED
+     ============================================================ -->
+
+<script src="../api.js"></script>
+
+<script>
+const neoPatient = JSON.parse(sessionStorage.getItem("patient"));
+if (!neoPatient) {
+    alert("Please complete patient check-in first.");
+    window.location.href = "checkin.html";
+} else {
+    document.getElementById("neoPatientName").textContent = neoPatient["PATIENT NAME"] || "";
+    document.getElementById("neoPatientId").textContent = neoPatient["PATIENT ID"] || "";
+}
+
+function runNeoNano() {
+    const query = document.getElementById("neoQuery").value.trim();
+    if (!query) {
+        const box = document.getElementById("neoResult");
+        box.innerHTML = `<div class="neo-result"><h3>Neo Nano AI</h3><p>Please enter symptoms or a medical question.</p></div>`;
+        return;
+    }
+    sessionStorage.setItem("neoNanoQuery", query);
+    sessionStorage.removeItem("neoNanoResult");
+    sessionStorage.removeItem("neoNanoRecommendedDepartment");
+    window.location.href = "neo_nano_result.html";
+}
+</script>
+
+<script src="../keyboard.js"></script>
+
+
+</body>
+
+</html>

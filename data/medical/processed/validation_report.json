@@ -1,0 +1,15 @@
+{
+  "status": "ready",
+  "source": "diseases_master(1).jsonl",
+  "record_count": 1667,
+  "unique_ids": 1667,
+  "id_range": [
+    "DIS_000001",
+    "DIS_005001"
+  ],
+  "unique_disease_names": 426,
+  "body_system_populated": 0,
+  "lookup_disease_terms": 426,
+  "lookup_symptoms": 6995,
+  "note": "All processed disease/symptom lookup files are generated from the 1667-row source. No 1186-record dataset is used."
+}

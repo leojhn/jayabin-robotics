@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Nano AI - Welcome</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    color:white;
+    background:
+        radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);
+}
+
+/* Animated Grid */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);
+    background-size:40px 40px;
+    animation:gridMove 18s linear infinite;
+}
+@keyframes gridMove{
+    from{transform:translateY(0);}
+    to{transform:translateY(40px);}
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:92%;
+    max-width:1000px;
+    height:100vh;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* Header */
+.header{
+    position:absolute;
+    top:30px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid #4DD6FF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#7DE8FF;
+    font-weight:bold;
+    font-size:20px;
+    box-shadow:0 0 20px rgba(77,214,255,.5);
+}
+
+.brand h2{
+    letter-spacing:2px;
+}
+
+.brand p{
+    font-size:13px;
+    color:#9FD9FF;
+}
+
+/* Language */
+select{
+    background:#08284B;
+    color:white;
+    border:1px solid #38BDF8;
+    padding:10px 15px;
+    border-radius:10px;
+    outline:none;
+}
+
+/* AI Core */
+.ai-core{
+    width:180px;
+    height:180px;
+    margin:auto;
+    position:relative;
+}
+
+.ring{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:2px solid rgba(77,214,255,.4);
+    animation:rotate 10s linear infinite;
+}
+
+.ring:nth-child(2){
+    inset:15px;
+    animation-direction:reverse;
+}
+
+.ring:nth-child(3){
+    inset:30px;
+}
+
+.center{
+    position:absolute;
+    inset:45px;
+    border-radius:50%;
+    background:radial-gradient(circle,#38BDF8,#062C4A);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+    font-weight:bold;
+    color:white;
+    box-shadow:0 0 25px #38BDF8;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg);}
+}
+
+/* Title */
+.title{
+    text-align:center;
+    margin-top:25px;
+}
+
+.title h1{
+    font-size:48px;
+    letter-spacing:3px;
+}
+
+.title p{
+    margin-top:10px;
+    color:#B8E7FF;
+    font-size:18px;
+}
+
+/* Description */
+.description{
+    margin:30px auto;
+    width:100%;
+    background:rgba(7,40,73,.78);
+    border:1px solid rgba(77,214,255,.25);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    line-height:1.7;
+    color:#D7F3FF;
+}
+
+/* Features */
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:10px;
+}
+
+.card{
+    background:rgba(11,56,104,.75);
+    border:1px solid rgba(77,214,255,.18);
+    border-radius:14px;
+    padding:18px;
+}
+
+.card h3{
+    color:#7DE8FF;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#D3EEFF;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* Buttons */
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:30px;
+}
+
+button{
+    padding:15px 24px;
+    border:none;
+    border-radius:12px;
+    font-size:15px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.back{
+    background:#173A63;
+    color:white;
+}
+
+.skip{
+    background:#103A67;
+    color:white;
+}
+
+.continue{
+    background:linear-gradient(90deg,#1EA7FF,#2563EB);
+    color:white;
+    box-shadow:0 0 20px rgba(30,167,255,.35);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="brand">
+            <div class="logo">NN</div>
+            <div>
+                <h2 id="brandTitle">NEO NANO AI</h2>
+                <p id="brandSub">Intelligent Healthcare Assistant</p>
+            </div>
+        </div>
+
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ta">தமிழ்</option>
+            <option value="hi">ഹിन्दी</option>
+            <option value="ar">العربية</option>
+        </select>
+
+    </div>
+
+    <div class="ai-core">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="center">AI</div>
+    </div>
+
+    <div class="title">
+        <h1 id="mainTitle">NEO NANO AI</h1>
+        <p id="mainSub">Your Intelligent Medical Reception Assistant</p>
+    </div>
+
+    <div class="description" id="description">
+        Welcome to Neo Nano AI. I can analyze patient symptoms,
+        recommend the appropriate hospital department,
+        suggest available doctors, recommend medical tests,
+        and continue directly to appointment booking.
+    </div>
+
+    <div class="features">
+
+        <div class="card">
+            <h3 id="f1h">AI Symptom Analysis</h3>
+            <p id="f1p">Analyze symptoms using the medical knowledge database.</p>
+        </div>
+
+        <div class="card">
+            <h3 id="f2h">Department Matching</h3>
+            <p id="f2p">Automatically recommends the best hospital department.</p>
+        </div>
+
+        <div class="card">
+            <h3 id="f3h">Doctor Recommendation</h3>
+            <p id="f3p">Displays available doctors from the HMS database.</p>
+        </div>
+
+        <div class="card">
+            <h3 id="f4h">Medical Tests</h3>
+            <p id="f4p">Suggests investigations before consultation.</p>
+        </div>
+
+    </div>
+
+    <div class="buttons">
+        <button class="back" id="backBtn">Back</button>
+        <button class="skip" id="skipBtn">Skip</button>
+        <button class="continue" id="continueBtn">Continue</button>
+    </div>
+
+</div>
+
+<script>
+// Check patient session
+const patient = JSON.parse(sessionStorage.getItem("patient") || "null");
+if (!patient) {
+    alert("Please complete patient check-in first.");
+    window.location.href = "checkin.html";
+}
+
+const lang = {
+en:{
+back:"Back",
+skip:"Skip",
+continue:"Continue",
+subtitle:"Your Intelligent Medical Reception Assistant",
+desc:"Welcome to Neo Nano AI. I can analyze patient symptoms, recommend the appropriate hospital department, suggest available doctors, recommend medical tests, and continue directly to appointment booking.",
+f1:"AI Symptom Analysis",
+f1p:"Analyze symptoms using the medical knowledge database.",
+f2:"Department Matching",
+f2p:"Automatically recommends the best hospital department.",
+f3:"Doctor Recommendation",
+f3p:"Displays available doctors from the HMS database.",
+f4:"Medical Tests",
+f4p:"Suggests investigations before consultation."
+},
+
+ml:{
+back:"തിരികെ",
+skip:"ഒഴിവാക്കുക",
+continue:"തുടരുക",
+subtitle:"നിങ്ങളുടെ ബുദ്ധിമാനായ മെഡിക്കൽ റിസപ്ഷൻ സഹായി",
+desc:"നിയോ നാനോ എഐയിലേക്ക് സ്വാഗതം. രോഗിയുടെ ലക്ഷണങ്ങൾ വിശകലനം ചെയ്യുകയും, അനുയോജ്യമായ വിഭാഗം, ഡോക്ടർമാർ, മെഡിക്കൽ പരിശോധനകൾ എന്നിവ ശുപാർശ ചെയ്യുകയും ചെയ്യുന്നു.",
+f1:"ലക്ഷണ വിശകലനം",
+f1p:"മെഡിക്കൽ ഡാറ്റാബേസ് ഉപയോഗിച്ച് ലക്ഷണങ്ങൾ വിശകലനം ചെയ്യുന്നു.",
+f2:"വിഭാഗ ശുപാർശ",
+f2p:"ഏറ്റവും അനുയോജ്യമായ ആശുപത്രി വിഭാഗം കണ്ടെത്തുന്നു.",
+f3:"ഡോക്ടർ ശുപാർശ",
+f3p:"HMS ഡാറ്റാബേസിൽ നിന്ന് ഡോക്ടർമാരെ കാണിക്കുന്നു.",
+f4:"മെഡിക്കൽ പരിശോധനകൾ",
+f4p:"കൺസൾട്ടേഷനു മുമ്പ് ആവശ്യമായ പരിശോധനകൾ നിർദ്ദേശിക്കുന്നു."
+},
+
+ta:{
+back:"பின்",
+skip:"தவிர்",
+continue:"தொடர்",
+subtitle:"உங்கள் புத்திசாலி மருத்துவ வரவேற்பாளர்",
+desc:"நோயாளியின் அறிகுறிகளை ஆய்வு செய்து, துறை, மருத்துவர் மற்றும் மருத்துவ பரிசோதனைகளை பரிந்துரைக்கிறது.",
+f1:"அறிகுறி பகுப்பாய்வு",
+f1p:"மருத்துவ தரவுத்தளத்தை பயன்படுத்துகிறது.",
+f2:"துறை பரிந்துரை",
+f2p:"சரியான மருத்துவ துறையை தேர்வு செய்கிறது.",
+f3:"மருத்துவர்",
+f3p:"HMS தரவிலிருந்து மருத்தவர்களை காட்டுகிறது.",
+f4:"மருத்துவ பரிசோதனைகள்",
+f4p:"தேவையான பரிசோதனைகளை பரிந்துரைக்கிறது."
+},
+
+hi:{
+back:"वापस",
+skip:"छोड़ें",
+continue:"जारी रखें",
+subtitle:"आपका बुद्धिमान चिकित्सा सहायक",
+desc:"रोगी के लक्षणों का विश्लेषण करके विभाग, डॉक्टर और मेडिकल टेस्ट सुझाता है।",
+f1:"लक्षण विश्लेषण",
+f1p:"मेडिकल डेटाबेस का उपयोग करता है।",
+f2:"विभाग सुझाव",
+f2p:"उपयुक्त अस्पताल विभाग चुनता है।",
+f3:"डॉक्टर सुझाव",
+f3p:"HMS डेटाबेस से डॉक्टर दिखाता है।",
+f4:"मेडिकल टेस्ट",
+f4p:"आवश्यक जांच की सिफारिश करता है।"
+},
+
+ar:{
+back:"رجوع",
+skip:"تخطي",
+continue:"متابعة",
+subtitle:"مساعدك الطبي الذكي",
+desc:"يقوم بتحليل الأعراض واقتراح القسم والأطباء والفحوصات الطبية المناسبة.",
+f1:"تحليل الأعراض",
+f1p:"باستخدام قاعدة البيانات الطبية.",
+f2:"اقتراح القسم",
+f2p:"اختيار القسم الأنسب للمريض.",
+f3:"اقتراح الطبيب",
+f3p:"عرض الأطباء من قاعدة بيانات المستشفى.",
+f4:"الفحوصات الطبية",
+f4p:"اقتراح الفحوصات قبل الموعد."
+}
+};
+
+function changeLanguage(){
+    const l=document.getElementById("language").value;
+    const t=lang[l] || lang.en;
+
+    document.getElementById("mainSub").innerHTML=t.subtitle;
+    document.getElementById("description").innerHTML=t.desc;
+
+    document.getElementById("f1h").innerHTML=t.f1;
+    document.getElementById("f1p").innerHTML=t.f1p;
+
+    document.getElementById("f2h").innerHTML=t.f2;
+    document.getElementById("f2p").innerHTML=t.f2p;
+
+    document.getElementById("f3h").innerHTML=t.f3;
+    document.getElementById("f3p").innerHTML=t.f3p;
+
+    document.getElementById("f4h").innerHTML=t.f4;
+    document.getElementById("f4p").innerHTML=t.f4p;
+
+    document.getElementById("backBtn").innerHTML=t.back;
+    document.getElementById("skipBtn").innerHTML=t.skip;
+    document.getElementById("continueBtn").innerHTML=t.continue;
+
+    sessionStorage.setItem("neo_language", l);
+}
+
+// Check if language was set previously
+const savedLang = sessionStorage.getItem("neo_language");
+if (savedLang && lang[savedLang]) {
+    document.getElementById("language").value = savedLang;
+    changeLanguage();
+}
+
+document.getElementById("continueBtn").onclick=()=>{
+    window.location.href="neo_nano_symptoms.html";
+};
+
+document.getElementById("skipBtn").onclick=()=>{
+    sessionStorage.removeItem("neoNanoRecommendedDepartment");
+    sessionStorage.removeItem("neo_symptoms");
+    sessionStorage.removeItem("neo_department");
+    sessionStorage.removeItem("neo_tests");
+    sessionStorage.removeItem("neo_doctors");
+    window.location.href="appointments.html";
+};
+
+document.getElementById("backBtn").onclick=()=>{
+    window.location.href="checkin.html";
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Nano AI - Medical Tests</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    color:#fff;
+    min-height:100vh;
+    background:
+    radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);
+    background-size:40px 40px;
+    animation:grid 18s linear infinite;
+}
+
+@keyframes grid{
+    from{transform:translateY(0)}
+    to{transform:translateY(40px)}
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:92%;
+    max-width:1000px;
+    margin:auto;
+    padding:30px 0 40px;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid #4DD6FF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    color:#7DE8FF;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:38px;
+}
+
+.title p{
+    color:#B8E7FF;
+    margin-top:8px;
+}
+
+.info{
+    background:#0B3157;
+    border-left:4px solid #38BDF8;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:22px;
+    line-height:1.6;
+    color:#D7F3FF;
+}
+
+.test{
+    background:rgba(8,34,58,.85);
+    border:1px solid rgba(56,189,248,.25);
+    border-radius:15px;
+    padding:18px;
+    margin-bottom:15px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.name{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.priority{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.high{background:#DC2626;}
+.medium{background:#F59E0B;}
+.low{background:#16A34A;}
+
+.purpose{
+    color:#D7F3FF;
+    line-height:1.6;
+    margin-top:10px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+button{
+    padding:14px 24px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.back{
+    background:#173A63;
+    color:#fff;
+}
+
+.continue{
+    background:linear-gradient(90deg,#1EA7FF,#2563EB);
+    color:#fff;
+    box-shadow:0 0 18px rgba(30,167,255,.35);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="logo">NN</div>
+<div>
+<h2>NEO NANO AI</h2>
+<p>Recommended Medical Tests</p>
+</div>
+</div>
+
+<div class="title">
+<h1>Suggested Investigations</h1>
+<p>These tests are recommended before consultation</p>
+</div>
+
+<div class="info">
+<strong>Department :</strong>
+<span id="dept"></span>
+
+<br><br>
+
+These investigations are AI recommendations generated from the hospital medical database. The consulting doctor may modify the final tests.
+</div>
+
+<div id="testList"></div>
+
+<div class="buttons">
+
+<button class="back" onclick="goBack()">
+Back
+</button>
+
+<button class="continue" onclick="goAppointment()">
+Continue to Appointment
+</button>
+
+</div>
+
+</div>
+
+<script>
+// Check patient session
+const patient = JSON.parse(sessionStorage.getItem("patient") || "null");
+if (!patient) {
+    alert("Please complete patient check-in first.");
+    window.location.href = "checkin.html";
+}
+
+const department =
+sessionStorage.getItem("neoNanoRecommendedDepartment") || sessionStorage.getItem("neo_department") || "General Medicine";
+
+document.getElementById("dept").innerHTML = department;
+
+const tests =
+JSON.parse(sessionStorage.getItem("neo_tests") || "[]");
+
+const list = document.getElementById("testList");
+
+if(tests.length === 0){
+    list.innerHTML = `
+    <div class="test">
+        <div class="name">
+            No Specific Medical Tests Recommended
+        </div>
+        <div class="purpose">
+            Proceed directly to consultation with the recommended department.
+        </div>
+    </div>`;
+}else{
+    tests.forEach(test=>{
+        const name = typeof test === "string" ? test : (test.name || test.test_name || "Investigation");
+        const purpose = typeof test === "object" && test.purpose ? test.purpose : "Recommended based on symptom analysis.";
+        const priority = (typeof test === "object" && test.priority ? test.priority : "Medium").toLowerCase();
+
+        list.innerHTML += `
+        <div class="test">
+            <div class="top">
+                <div class="name">
+                    ${name}
+                </div>
+                <div class="priority ${priority}">
+                    ${priority.toUpperCase()}
+                </div>
+            </div>
+            <div class="purpose">
+                ${purpose}
+            </div>
+        </div>`;
+    });
+}
+
+function goBack(){
+    window.location.href="neo_nano_result.html";
+}
+
+function goAppointment(){
+    sessionStorage.setItem("neoNanoRecommendedDepartment", department);
+    window.location.href="appointments.html";
+}
+
+</script>
+
+</body>
+</html>
