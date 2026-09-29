@@ -636,16 +636,27 @@ section.visible {
     z-index: 1;  
 }  
   
+/* =========================
+   HEADER BRAND
+========================= */
+
 .brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .recognition {
-    font-size: 12px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 500;
     color: #777;
-    text-align: center;
-    line-height: 1.3;
+    letter-spacing: 0.2px;
 }
