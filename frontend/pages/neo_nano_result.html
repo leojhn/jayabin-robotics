@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Nano AI - Result</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{
+    color:#fff;
+    min-height:100vh;
+    background:radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);
+    background-size:40px 40px;
+    animation:grid 18s linear infinite;
+}
+@keyframes grid{
+    from{transform:translateY(0)}
+    to{transform:translateY(40px)}
+}
+.container{
+    position:relative;
+    z-index:2;
+    width:92%;
+    max-width:950px;
+    margin:auto;
+    padding:30px 0 40px;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid #4DD6FF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    color:#7DE8FF;
+}
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+.title h1{
+    font-size:38px;
+}
+.title p{
+    color:#B8E7FF;
+    margin-top:8px;
+}
+.loading{
+    text-align:center;
+    padding:70px 20px;
+}
+.spinner{
+    width:70px;
+    height:70px;
+    border:5px solid rgba(255,255,255,.1);
+    border-top:5px solid #38BDF8;
+    border-radius:50%;
+    margin:auto;
+    animation:spin 1s linear infinite;
+}
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+.panel{
+    background:rgba(8,34,58,.85);
+    border:1px solid rgba(56,189,248,.25);
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:18px;
+}
+.panel h2{
+    color:#7DE8FF;
+    margin-bottom:15px;
+}
+.department{
+    font-size:30px;
+    font-weight:bold;
+}
+.confidence{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#0F766E;
+    border-radius:30px;
+    font-weight:bold;
+}
+.reason{
+    margin-top:15px;
+    line-height:1.7;
+    color:#D7F3FF;
+}
+.doctor{
+    background:#103A67;
+    border-radius:12px;
+    padding:14px;
+    margin-top:10px;
+}
+.doctor-name{
+    font-size:18px;
+    font-weight:600;
+}
+.spec{
+    color:#9FD9FF;
+}
+.conditions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.tag{
+    background:#0B3157;
+    border:1px solid rgba(56,189,248,.25);
+    padding:10px 16px;
+    border-radius:30px;
+}
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+button{
+    padding:14px 22px;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+}
+.back{
+    background:#173A63;
+    color:#fff;
+}
+.next{
+    background:linear-gradient(90deg,#1EA7FF,#2563EB);
+    color:#fff;
+}
+.error{
+    background:#7F1D1D;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="brand">
+<div class="logo">NN</div>
+<div>
+<h2>NEO NANO AI</h2>
+<p>Medical Intelligence Engine</p>
+</div>
+</div>
+</div>
+
+<div class="title">
+<h1>AI Recommendation</h1>
+<p>Analyzing symptoms using Hospital Medical Database</p>
+</div>
+
+<div id="loading" class="loading">
+<div class="spinner"></div>
+<p style="margin-top:18px;">Neo Nano is analyzing...</p>
+</div>
+
+<div id="result" style="display:none;">
+
+<div class="panel">
+<h2>Recommended Department</h2>
+
+<div class="department" id="department"></div>
+
+<div class="confidence" id="confidence"></div>
+
+<div class="reason" id="reason"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Available Doctors</h2>
+
+<div id="doctorList"></div>
+
+</div>
+
+<div class="panel">
+
+<h2>Possible Conditions</h2>
+
+<div id="conditionList" class="conditions"></div>
+
+</div>
+
+<div class="buttons">
+
+<button class="back" onclick="goBack()">Back</button>
+
+<button class="next" onclick="goNext()">Continue</button>
+
+</div>
+
+</div>
+
+<div id="error" style="display:none;" class="error">
+<p id="errorMessage">Unable to connect to Neo Nano backend.</p>
+<br>
+<button class="back" onclick="goBack()">Go Back</button>
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+<script>
+// Check patient session
+const patient = JSON.parse(sessionStorage.getItem("patient") || "null");
+if (!patient) {
+    alert("Please complete patient check-in first.");
+    window.location.href = "checkin.html";
+}
+
+const symptoms = sessionStorage.getItem("neo_symptoms") || "";
+
+if(symptoms === ""){
+    window.location.href = "neo_nano_symptoms.html";
+}
+
+async function analyze(){
+    const loading = document.getElementById("loading");
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+    const departmentEl = document.getElementById("department");
+    const confidenceEl = document.getElementById("confidence");
+    const reasonEl = document.getElementById("reason");
+    const doctorListEl = document.getElementById("doctorList");
+    const conditionListEl = document.getElementById("conditionList");
+
+    try{
+        const data = await analyzeWithNeoNano(symptoms);
+
+        if(!data || !data.success){
+            throw new Error(data?.message || "Analysis failed.");
+        }
+
+        loading.style.display="none";
+        result.style.display="block";
+
+        // Extract primary recommended department
+        const recommendedDept = (data.recommended_departments && data.recommended_departments.length > 0)
+            ? data.recommended_departments[0]
+            : (data.department || "General Medicine");
+
+        departmentEl.innerText = recommendedDept;
+
+        const confValue = data.confidence || (data.triage?.urgency === "high" ? 95 : 85);
+        confidenceEl.innerText = "Confidence : " + confValue + "%";
+
+        reasonEl.innerText = data.triage?.message || data.reason || "Department selected from AI symptom analysis.";
+
+        doctorListEl.innerHTML="";
+
+        const doctors = data.doctors || [];
+        if(doctors.length === 0){
+            doctorListEl.innerHTML=`
+            <div class="doctor">
+                <div class="doctor-name">Doctor will be assigned</div>
+                <div class="spec">${recommendedDept}</div>
+            </div>`;
+        }else{
+            doctors.forEach(doc=>{
+                doctorListEl.innerHTML += `
+                <div class="doctor">
+                    <div class="doctor-name">${doc.name || doc["Doctor Name"]}</div>
+                    <div class="spec">${doc.specialization || doc["Specialization"] || recommendedDept}</div>
+                </div>`;
+            });
+        }
+
+        conditionListEl.innerHTML="";
+
+        const conditions = data.possible_conditions || data.conditions || [];
+        if (conditions.length === 0) {
+            conditionListEl.innerHTML = `<div class="tag">General Health Assessment</div>`;
+        } else {
+            conditions.forEach(c=>{
+                const cName = typeof c === "string" ? c : (c.name || c.disease || "Condition");
+                conditionListEl.innerHTML += `<div class="tag">${cName}</div>`;
+            });
+        }
+
+        // Store keys for downstream pages & appointments
+        sessionStorage.setItem("neo_department", recommendedDept);
+        sessionStorage.setItem("neoNanoRecommendedDepartment", recommendedDept);
+        sessionStorage.setItem("neo_tests", JSON.stringify(data.tests || []));
+        sessionStorage.setItem("neo_doctors", JSON.stringify(doctors));
+
+    }catch(err){
+        console.error("Neo Nano analysis error:", err);
+        loading.style.display="none";
+        document.getElementById("errorMessage").innerText = "Error: " + err.message;
+        error.style.display="block";
+    }
+}
+
+function goNext(){
+    window.location.href="neo_nano_tests.html";
+}
+
+function goBack(){
+    window.location.href="neo_nano_symptoms.html";
+}
+
+analyze();
+
+</script>
+
+</body>
+</html>

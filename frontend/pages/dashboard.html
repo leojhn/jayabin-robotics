@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Wait Dashboard</title>
+
+<link rel="stylesheet"
+href="../style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="glass-card dashboard-card">
+
+<h1>⏳ Live Wait Dashboard</h1>
+
+<!-- Queue Section -->
+
+<div class="queue-grid">
+
+<div class="queue-card">
+
+<h2>
+🎟️ Your Token
+</h2>
+
+<div class="big-number">
+
+B-205
+
+</div>
+
+</div>
+
+<div class="queue-card">
+
+<h2>
+🔢 Current Token
+</h2>
+
+<div class="big-number">
+
+B-198
+
+</div>
+
+</div>
+
+<div class="queue-card">
+
+<h2>
+⏱️ Wait Time
+</h2>
+
+<div class="big-number">
+
+20 Min
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Doctor Status -->
+
+<h2 class="section-title">
+
+👨‍⚕️ Doctor Status
+
+</h2>
+
+<div class="doctor-status-grid">
+
+<div class="status-card">
+
+<h3>
+Dr. Sarah
+</h3>
+
+<p>
+🟢 Available
+</p>
+
+</div>
+
+<div class="status-card">
+
+<h3>
+Dr. John
+</h3>
+
+<p>
+🟠 Busy
+</p>
+
+</div>
+
+<div class="status-card">
+
+<h3>
+Dr. David
+</h3>
+
+<p>
+🔴 Emergency Case
+</p>
+
+</div>
+
+</div>
+
+<!-- Announcements -->
+
+<h2 class="section-title">
+
+📢 Live Announcements
+
+</h2>
+
+<div class="announcement-box">
+
+<marquee>
+
+Token B-198 please proceed to Cabin 203 |
+Token B-199 proceed to Lab |
+Emergency patient to ICU immediately
+
+</marquee>
+
+</div>
+
+<!-- Emergency Help -->
+
+<div class="emergency-box">
+
+<h2>
+🚨 Emergency Assistance
+</h2>
+
+<div class="emergency-buttons">
+
+<button id="wheelchairBtn">
+
+♿ Wheelchair Assistance
+
+</button>
+
+<button id="nurseBtn">
+
+🆘 Nurse Assistance
+
+</button>
+
+</div>
+
+<!-- Next -->
+
+<a href="consultant_bill.html">
+
+<button onclick="goBilling()">
+
+💳 Proceed to Consultant Billing
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<script src="../api.js"></script>
+<script src="../language.js"></script>
+<script src="../app.js"></script>
+
+</body>
+
+</html>
