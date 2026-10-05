@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Neo Nano - Tell Us What Happened</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
+body{min-height:100vh;color:#fff;background:radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);overflow:auto}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);background-size:40px 40px;animation:grid 18s linear infinite;pointer-events:none}
+@keyframes grid{from{transform:translateY(0)}to{transform:translateY(40px)}}
+.container{position:relative;z-index:2;width:92%;max-width:1050px;margin:auto;padding:25px 0 40px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:55px;height:55px;border-radius:50%;border:2px solid #4DD6FF;display:flex;align-items:center;justify-content:center;color:#7DE8FF;font-weight:bold;box-shadow:0 0 20px rgba(77,214,255,.5)}select{background:#08284B;color:#fff;border:1px solid #38BDF8;padding:10px;border-radius:10px}.patient{background:rgba(7,40,73,.8);border:1px solid rgba(77,214,255,.25);border-radius:15px;padding:14px 18px;margin-bottom:20px}.patient h3{color:#7DE8FF}.title{text-align:center;margin:15px 0 22px}.title h1{font-size:36px}.title p{color:#B8E7FF;margin-top:8px}.box{background:rgba(8,34,58,.88);border:1px solid rgba(56,189,248,.25);border-radius:18px;padding:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{color:#BDEBFF;font-weight:600}.field small{color:#7FAFCB}.field input,.field textarea{width:100%;background:#04192B;color:#fff;border:1px solid rgba(56,189,248,.3);border-radius:10px;padding:13px;font-size:15px;outline:none}.field textarea{height:110px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#38BDF8}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.chip{padding:8px 12px;border-radius:20px;background:#103A67;border:1px solid rgba(56,189,248,.3);cursor:pointer}.voice{margin-top:18px;background:#0B3157;border-radius:12px;padding:14px;text-align:center}.mic{width:58px;height:58px;border-radius:50%;background:#1EA7FF;display:flex;align-items:center;justify-content:center;margin:auto;font-size:25px;cursor:pointer}.status{margin-top:8px;color:#CDEEFF}.buttons{display:flex;justify-content:space-between;margin-top:22px}.left{display:flex;gap:10px}button{padding:13px 21px;border:0;border-radius:12px;font-weight:600;cursor:pointer}.back{background:#173A63;color:#fff}.skip{background:#103A67;color:#fff}.next{background:linear-gradient(90deg,#1EA7FF,#2563EB);color:#fff}@media(max-width:700px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.header{align-items:flex-start;gap:10px}.title h1{font-size:28px}}
+.followup-field{display:none !important}.quick{display:none !important}.voice{display:none !important}.buttons .back,.buttons .skip{display:none !important}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><div class="brand"><div class="logo">NN</div><div><h2>NEO NANO</h2><p>Medical Intelligence</p></div></div><select id="language" onchange="changeLanguage()"><option value="en">English</option><option value="ml">മലയാളം</option></select></div>
+<div class="patient"><h3 id="pidTitle">Patient</h3><p id="ageInfo"></p></div>
+<div class="title"><h1 id="mainTitle">Tell Us What Happened</h1><p id="subTitle">Tell us what happened. We will take care of the rest.</p></div>
+<div class="box">
+<div class="grid">
+<div class="field full"><label id="symptomLabel">What happened?</label><textarea id="symptoms" placeholder="Example: I have been feeling unwell since yesterday."></textarea><div class="quick"><span class="chip" onclick="addChip('Fever')">Fever</span><span class="chip" onclick="addChip('Headache')">Headache</span><span class="chip" onclick="addChip('Cough')">Cough</span><span class="chip" onclick="addChip('Stomach Pain')">Stomach Pain</span><span class="chip" onclick="addChip('Vomiting')">Vomiting</span><span class="chip" onclick="addChip('Chest Pain')">Chest Pain</span></div></div>
+<div class="field followup-field"><label id="onsetLabel">When did it start?</label><input id="onset" placeholder="e.g. 3 days ago"></div>
+<div class="field followup-field"><label id="durationLabel">How long has it been present?</label><input id="duration" placeholder="e.g. 3 days"></div>
+<div class="field followup-field"><label id="feelLabel">How does it feel / how severe is it?</label><textarea id="characteristics" placeholder="Describe the feeling, severity, or pattern."></textarea></div>
+<div class="field followup-field"><label id="relatedLabel">Any related symptoms?</label><textarea id="related_symptoms" placeholder="e.g. nausea, weakness, fever"></textarea></div>
+<div class="field followup-field"><label id="familyLabel">Family history / similar condition?</label><input id="family_history" placeholder="Yes / No / Not sure"></div>
+<div class="field followup-field"><label id="medLabel">Current medications?</label><input id="medications" placeholder="List medicines or say none"></div>
+<div class="field followup-field"><label id="allergyLabel">Known allergies?</label><input id="allergies" placeholder="Medicines, food, or other allergies"></div>
+<div class="field followup-field"><label id="doctorLabel">When did you last see a doctor for this?</label><input id="last_doctor_visit" placeholder="e.g. 2 months ago / Never"></div>
+</div>
+<div class="voice"><div class="mic" onclick="voiceDemo()">🎤</div><div class="status" id="voiceStatus">Voice will be connected after the HMS flow is fixed.</div></div>
+<div class="buttons"><div class="left"><button class="back" onclick="goBack()" id="backBtn">Back</button><button class="skip" onclick="skipNeoNano()" id="skipBtn">Skip</button></div><button class="next" onclick="analyze()" id="nextBtn">Continue</button></div>
+</div></div>
+<script>
+const patient=JSON.parse(sessionStorage.getItem('patient')||'null');
+if(patient){document.getElementById('pidTitle').textContent='Patient: '+(patient['PATIENT NAME']||patient['Patient Name']||patient.patient_name||'-');const age=patient['AGE']||patient['Age']||patient.age||'';document.getElementById('ageInfo').textContent=age?'Age: '+age:'Age is available from the patient record.';}
+const text={en:{title:'Tell Us What Happened',sub:'Tell us what happened. We will take care of the rest.',symptom:'What happened?',onset:'When did it start?',duration:'How long has it been present?',feel:'How does it feel / how severe is it?',related:'Any related symptoms?',family:'Family history / similar condition?',med:'Current medications?',allergy:'Known allergies?',doctor:'When did you last see a doctor for this?',back:'Back',skip:'Skip',next:'Continue',placeholder:'Example: I have been feeling unwell since yesterday.',status:'Voice will be connected after the HMS flow is fixed.'},ml:{title:'എന്താണ് സംഭവിച്ചത്?',sub:'എന്താണ് സംഭവിച്ചതെന്ന് പറയൂ. ബാക്കി കാര്യങ്ങൾ ഞങ്ങൾ ചോദിച്ചറിയാം.',symptom:'എന്താണ് സംഭവിച്ചത്?',onset:'ഇത് എപ്പോൾ ആരംഭിച്ചു?',duration:'എത്ര ദിവസമായി തുടരുന്നു?',feel:'ഇത് എങ്ങനെ അനുഭവപ്പെടുന്നു / എത്രത്തോളം ഗുരുതരമാണ്?',related:'മറ്റേതെങ്കിലും അനുബന്ധ ലക്ഷണങ്ങളുണ്ടോ?',family:'കുടുംബത്തിൽ സമാനമായ രോഗചരിത്രമുണ്ടോ?',med:'ഇപ്പോൾ കഴിക്കുന്ന മരുന്നുകൾ?',allergy:'അറിയാവുന്ന അലർജികളുണ്ടോ?',doctor:'ഈ പ്രശ്നത്തിന് അവസാനമായി ഡോക്ടറെ കണ്ടത് എപ്പോൾ?',back:'തിരികെ',skip:'ഒഴിവാക്കുക',next:'തുടരുക',placeholder:'ഉദാഹരണം: രണ്ട് ദിവസമായി പനിയും തലവേദനയും ഛർദ്ദിയും ഉണ്ട്.',status:'HMS flow ശരിയാക്കിയതിന് ശേഷം voice ബന്ധിപ്പിക്കും.'}};
+function changeLanguage(){const l=document.getElementById('language').value,t=text[l]||text.en;mainTitle.textContent=t.title;subTitle.textContent=t.sub;symptomLabel.textContent=t.symptom;onsetLabel.textContent=t.onset;durationLabel.textContent=t.duration;feelLabel.textContent=t.feel;relatedLabel.textContent=t.related;familyLabel.textContent=t.family;medLabel.textContent=t.med;allergyLabel.textContent=t.allergy;doctorLabel.textContent=t.doctor;backBtn.textContent=t.back;skipBtn.textContent=t.skip;nextBtn.textContent=t.next;symptoms.placeholder=t.placeholder;voiceStatus.textContent=t.status;sessionStorage.setItem('neo_language',l);}
+function addChip(word){const b=document.getElementById('symptoms');b.value=b.value?b.value+', '+word:word;}
+function voiceDemo(){voiceStatus.textContent='Voice integration will be enabled in the next step.';}
+function analyze(){const main=document.getElementById('symptoms').value.trim();if(!main){alert('Please describe the symptoms.');return;}const context={onset:onset.value.trim(),duration:duration.value.trim(),characteristics:characteristics.value.trim(),related_symptoms:related_symptoms.value.trim(),age:patient?.['AGE']||patient?.['Age']||patient?.age||'',family_history:family_history.value.trim(),medications:medications.value.trim(),allergies:allergies.value.trim(),last_doctor_visit:last_doctor_visit.value.trim()};sessionStorage.setItem('neo_symptoms',main);sessionStorage.setItem('neo_symptom_context',JSON.stringify(context));window.location.href='neo_nano_result.html';}
+function skipNeoNano(){sessionStorage.removeItem('neo_symptoms');sessionStorage.removeItem('neo_symptom_context');sessionStorage.removeItem('neoNanoRecommendedDepartment');window.location.href='appointments.html';}
+function goBack(){window.location.href='neo_nano_welcome.html';}
+changeLanguage();
+</script>
+<script src="../gemini_live.js"></script>
+</body></html>
