@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Neo Nano - Tell Us What Happened</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
+body{min-height:100vh;color:#fff;background:radial-gradient(circle at top,#0A4D8C 0%,#03172D 45%,#010C18 100%);overflow:auto}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(80,180,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(80,180,255,.08) 1px,transparent 1px);background-size:40px 40px;animation:grid 18s linear infinite;pointer-events:none}
+@keyframes grid{from{transform:translateY(0)}to{transform:translateY(40px)}}
+.container{position:relative;z-index:2;width:92%;max-width:1050px;margin:auto;padding:25px 0 40px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:55px;height:55px;border-radius:50%;border:2px solid #4DD6FF;display:flex;align-items:center;justify-content:center;color:#7DE8FF;font-weight:bold;box-shadow:0 0 20px rgba(77,214,255,.5)}select{background:#08284B;color:#fff;border:1px solid #38BDF8;padding:10px;border-radius:10px}.patient{background:rgba(7,40,73,.8);border:1px solid rgba(77,214,255,.25);border-radius:15px;padding:14px 18px;margin-bottom:20px}.patient h3{color:#7DE8FF}.title{text-align:center;margin:15px 0 22px}.title h1{font-size:36px}.title p{color:#B8E7FF;margin-top:8px}.box{background:rgba(8,34,58,.88);border:1px solid rgba(56,189,248,.25);border-radius:18px;padding:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{color:#BDEBFF;font-weight:600}.field small{color:#7FAFCB}.field input,.field textarea{width:100%;background:#04192B;color:#fff;border:1px solid rgba(56,189,248,.3);border-radius:10px;padding:13px;font-size:15px;outline:none}.field textarea{height:110px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#38BDF8}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.chip{padding:8px 12px;border-radius:20px;background:#103A67;border:1px solid rgba(56,189,248,.3);cursor:pointer}.voice{margin-top:18px;background:#0B3157;border-radius:12px;padding:14px;text-align:center}.mic{width:58px;height:58px;border-radius:50%;background:#1EA7FF;display:flex;align-items:center;justify-content:center;margin:auto;font-size:25px;cursor:pointer}.status{margin-top:8px;color:#CDEEFF}.buttons{display:flex;justify-content:space-between;margin-top:22px}.left{display:flex;gap:10px}button{padding:13px 21px;border:0;border-radius:12px;font-weight:600;cursor:pointer}.back{background:#173A63;color:#fff}.skip{background:#103A67;color:#fff}.next{background:linear-gradient(90deg,#1EA7FF,#2563EB);color:#fff}@media(max-width:700px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.header{align-items:flex-start;gap:10px}.title h1{font-size:28px}}
+.followup-field{display:none}.quick{display:none !important}.voice{display:none !important}.buttons .back,.buttons .skip{display:none !important}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><div class="brand"><div class="logo">NN</div><div><h2>NEO NANO</h2><p>Medical Intelligence</p></div></div><select id="language" onchange="changeLanguage()"><option value="en">English</option><option value="ml">മലയാളം</option></select></div>
+<div class="patient"><h3 id="pidTitle">Patient</h3><p id="ageInfo"></p></div>
+<div class="title"><h1 id="mainTitle">Tell Us What Happened</h1><p id="subTitle">Tell us what happened. We will take care of the rest.</p></div>
+<div class="box">
+<div class="grid">
+<div class="field full"><label id="symptomLabel">What happens now?</label><textarea id="symptoms" placeholder="Describe what is bothering you."></textarea></div>
+<div class="field followup-field"><label id="onsetLabel">When did this problem start?</label><input id="onset"></div>
+<div class="field followup-field"><label id="durationLabel">How long have you been experiencing it?</label><input id="duration"></div>
+<div class="field followup-field"><label id="priorLabel">Has this happened to you before?</label><input id="prior_occurrence"></div>
+<div class="field followup-field"><label id="feelLabel">How does it feel?</label><textarea id="characteristics"></textarea></div>
+<div class="field followup-field"><label id="severityLabel">How severe is it right now?</label><input id="severity"></div>
+<div class="field followup-field"><label id="trendLabel">Is the problem getting better, getting worse, or staying the same?</label><input id="trend"></div>
+<div class="field followup-field"><label id="relatedLabel">Have you noticed any other difficulties along with it?</label><textarea id="related_symptoms"></textarea></div>
+<div class="field followup-field"><label id="aggravatingLabel">Is there anything that makes it better or worse?</label><textarea id="aggravating_relief"></textarea></div>
+<div class="field followup-field"><label id="medLabel">Have you taken any medicine or treatment for this problem?</label><input id="medications"></div>
+<div class="field followup-field"><label id="allergyLabel">Do you have any allergies to medicines or anything else?</label><input id="allergies"></div>
+<div class="field followup-field"><label id="doctorLabel">Have you consulted a doctor about this problem before?</label><input id="last_doctor_visit"></div>
+<div class="field followup-field"><label id="previousLabel">Do you have any previous medical condition or related to this problem?</label><textarea id="previous_condition"></textarea></div>
+</div>
+
+<div class="buttons"><div class="left"><button class="back" onclick="goBack()" id="backBtn">Back</button><button class="skip" onclick="skipNeoNano()" id="skipBtn">Skip</button></div><button class="next" onclick="analyze()" id="nextBtn">Continue</button></div>
+</div></div>
+<script>
+const patient=JSON.parse(sessionStorage.getItem('patient')||'null');
+if(patient){document.getElementById('pidTitle').textContent='Patient: '+(patient['PATIENT NAME']||patient['Patient Name']||patient.patient_name||'-');const age=patient['AGE']||patient['Age']||patient.age||'';document.getElementById('ageInfo').textContent=age?'Age: '+age:'Age is available from the patient record.';}
+const questions={
+ en:[['symptoms','What happens now?'],['onset','When did this problem start?'],['duration','How long have you been experiencing it?'],['prior_occurrence','Has this happened to you before?'],['characteristics','How does it feel?'],['severity','How severe is it right now?'],['trend','Is the problem getting better, getting worse, or staying the same?'],['related_symptoms','Have you noticed any other difficulties along with it?'],['aggravating_relief','Is there anything that makes it better or worse?'],['medications','Have you taken any medicine or treatment for this problem?'],['allergies','Do you have any allergies to medicines or anything else?'],['last_doctor_visit','Have you consulted a doctor about this problem before?'],['previous_condition','Do you have any previous medical condition or related to this problem?']],
+ ml:[['symptoms','ഇപ്പോൾ നിങ്ങളെ എന്താണ് ബുദ്ധിമുട്ടിക്കുന്നത്?'],['onset','ഈ പ്രശ്നം എപ്പോഴാണ് തുടങ്ങിയത്?'],['duration','എത്ര കാലമായി നിങ്ങൾക്ക് ഈ പ്രശ്നം അനുഭവപ്പെടുന്നു?'],['prior_occurrence','ഇതുപോലൊരു പ്രശ്നം മുമ്പും ഉണ്ടായിട്ടുണ്ടോ?'],['characteristics','ഇത് എങ്ങനെയാണ് അനുഭവപ്പെടുന്നത്?'],['severity','ഇപ്പോൾ ഈ പ്രശ്നം എത്രത്തോളം ബുദ്ധിമുട്ടാണ്?'],['trend','ഈ പ്രശ്നം കുറയുകയാണോ, കൂടുകയാണോ, അതോ മാറ്റമില്ലാതെ തുടരുകയാണോ?'],['related_symptoms','ഇതിനോടൊപ്പം മറ്റെന്തെങ്കിലും ബുദ്ധിമുട്ടുകളോ ലക്ഷണങ്ങളോ ശ്രദ്ധിച്ചിട്ടുണ്ടോ?'],['aggravating_relief','ഈ പ്രശ്നം കുറയാനോ കൂടാനോ കാരണമാകുന്ന മറ്റ് എന്തെങ്കിലും ഉണ്ടോ?'],['medications','ഈ പ്രശ്നത്തിനായി എന്തെങ്കിലും മരുന്നോ ചികിത്സയോ എടുത്തിട്ടുണ്ടോ?'],['allergies','മരുന്നുകളോട് അലർജി ഉണ്ടോ?'],['last_doctor_visit','ഈ പ്രശ്നത്തെക്കുറിച്ച് മുമ്പ് ഏതെങ്കിലും ഡോക്ടറെ കണ്ടിട്ടുണ്ടോ?'],['previous_condition','നിങ്ങൾക്ക് മുമ്പ് ഉണ്ടായിരുന്ന ഏതെങ്കിലും രോഗാവസ്ഥയോ, ഈ പ്രശ്നവുമായി ബന്ധപ്പെട്ട ആരോഗ്യപ്രശ്നങ്ങളോ ഉണ്ടോ?']]
+};
+let qIndex=0;
+function setQuestion(i){
+ const l=sessionStorage.getItem('language')==='ml'?'ml':'en';
+ const [id,q]=questions[l][i];
+ document.querySelectorAll('.followup-field').forEach(e=>e.style.display='none');
+ if(id!=='symptoms'){
+   const el=document.getElementById(id); if(el){const field=el.closest('.field');field.style.display='flex';}
+ }
+ document.getElementById('symptomLabel').textContent=q;
+ const btn=document.getElementById('nextBtn');
+ btn.textContent=i===questions[l].length-1?(l==='ml'?'ഫലം കാണുക':'View Result'):(l==='ml'?'തുടരുക':'Continue');
+ if(window.MarykuttyVoice)window.MarykuttyVoice.speak(q,l==='ml'?'ml-IN':'en-IN');
+}
+function changeLanguage(){
+ const l=document.getElementById('language').value;sessionStorage.setItem('neo_language',l);qIndex=0;setQuestion(0);
+}
+function addChip(word){const b=document.getElementById('symptoms');b.value=b.value?b.value+', '+word:word;}
+function analyze(){
+ const l=sessionStorage.getItem('language')==='ml'?'ml':'en';
+ const list=questions[l];
+ const current=list[qIndex][0];
+ const value=document.getElementById(current)?.value.trim()||'';
+ if(!value){alert(l==='ml'?'ദയവായി ഉത്തരം നൽകുക.':'Please enter an answer.');return;}
+ if(qIndex<list.length-1){qIndex++;setQuestion(qIndex);return;}
+ const context={}; list.slice(1).forEach(([id])=>{context[id]=document.getElementById(id)?.value.trim()||'';});
+ context.age=patient?.['AGE']||patient?.['Age']||patient?.age||'';
+ sessionStorage.setItem('neo_symptoms',document.getElementById('symptoms').value.trim());
+ sessionStorage.setItem('neo_symptom_context',JSON.stringify(context));
+ window.location.href='neo_nano_result.html';
+}
+function skipNeoNano(){window.location.href='neo_nano_result.html';}
+function goBack(){window.location.href='neo_nano_welcome.html';}
+changeLanguage();
+</script>
+
+<script src="../gemini_live.js"></script>
+</body></html>

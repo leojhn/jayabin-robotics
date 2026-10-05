@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Billing</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.billing-card{width:900px;max-width:95%;margin:auto;}
+.history-card{margin-bottom:18px;}
+.service-table{width:100%;border-collapse:collapse;margin-top:12px;}
+.service-table th,.service-table td{padding:13px 12px;border-bottom:1px solid rgba(255,255,255,.18);text-align:left;}
+.service-table th:last-child,.service-table td:last-child{text-align:right;}
+.bill-total{font-size:26px;font-weight:700;margin-top:18px;text-align:right;}
+.payment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;}
+.payment-btn{min-height:80px;font-size:20px;cursor:pointer;}
+.payment-btn.selected-payment{outline:3px solid #00ff99;transform:translateY(-2px);}
+.status-pending{color:#ffd166;font-weight:700;}
+.status-paid{color:#00ff99;font-weight:700;}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;z-index:9999;}
+.modal-card{width:460px;max-width:92%;background:white;color:#111;border-radius:18px;padding:28px;box-sizing:border-box;}
+.modal-card h2{text-align:center;margin-top:0;}
+.modal-card label{display:block;font-weight:700;margin-top:13px;}
+.modal-card input,.modal-card select{width:100%;box-sizing:border-box;padding:12px;margin-top:6px;border:1px solid #bbb;border-radius:10px;font-size:17px;}
+.modal-card button{width:100%;margin-top:18px;}
+@media(max-width:700px){.payment-grid{grid-template-columns:1fr;}.billing-card{max-width:96%;}.service-table th,.service-table td{padding:10px 7px;font-size:14px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="glass-card billing-card">
+<h1>💳 Service Billing</h1>
+<div class="progress-bar"><div class="progress" style="width:100%;"></div></div>
+<br>
+
+<div class="history-card">
+<h2>Patient Information</h2>
+<p><b>Patient Name :</b> <span id="patientName">Loading...</span></p>
+<p><b>Patient ID :</b> <span id="patientId">Loading...</span></p>
+<p><b>Appointment ID :</b> <span id="appointmentId">Loading...</span></p>
+<p><b>Token :</b> <span id="tokenNo">Loading...</span></p>
+</div>
+
+<div class="history-card">
+<h2>Consultant Details</h2>
+<p><b>Department :</b> <span id="department">Loading...</span></p>
+<p><b>Consultant :</b> <span id="doctorName">Loading...</span></p>
+<p><b>Date :</b> <span id="appointmentDate">Loading...</span></p>
+<p><b>Time :</b> <span id="appointmentTime">Loading...</span></p>
+</div>
+
+<div class="history-card">
+<h2>Services</h2>
+<table class="service-table">
+<thead><tr><th>Service</th><th>Amount</th></tr></thead>
+<tbody id="serviceTable"><tr><td colspan="2">Loading...</td></tr></tbody>
+</table>
+<div class="bill-total">Grand Total : ₹ <span id="grandTotal">0</span></div>
+<p><b>Payment Status :</b> <span id="paymentStatus" class="status-pending">PENDING</span></p>
+</div>
+
+<h2>Select Payment Method</h2>
+<div class="payment-grid">
+<button class="payment-btn" id="upiBtn">📱 UPI</button>
+<button class="payment-btn" id="cardBtn">💳 Card</button>
+<button class="payment-btn" id="cashBtn">💵 Cash</button>
+</div>
+<br>
+<button id="payButton">💳 Pay Now</button>
+</div>
+</div>
+
+<div id="modal" class="modal"><div class="modal-card">
+<h2 id="modalTitle">Payment</h2>
+<div id="modalBody"></div>
+<button id="confirmPayment">Confirm Payment</button>
+<button onclick="closeModal()">Cancel</button>
+</div></div>
+
+<script src="../api.js"></script>
+<script>
+let bill=null, method="";
+const patient=JSON.parse(sessionStorage.getItem('patient')||'null');
+const appointment=JSON.parse(sessionStorage.getItem('appointment')||'null');
+const patientId=new URLSearchParams(location.search).get('patient') || (patient && patient['PATIENT ID']);
+
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+async function loadBill(){
+ if(!patientId){alert('Patient not found.');location.href='checkin.html';return;}
+ try{
+  bill=await getServiceBill(patientId);
+  if(!bill){throw new Error('Service bill not found.');}
+  document.getElementById('patientName').textContent=bill['Patient Name']||patient?.['PATIENT NAME']||'';
+  document.getElementById('patientId').textContent=bill['Patient ID']||patientId;
+  document.getElementById('appointmentId').textContent=bill['Appointment ID']||appointment?.['Appointment ID']||'-';
+  document.getElementById('tokenNo').textContent=bill['Token']||appointment?.['Token']||'-';
+  document.getElementById('department').textContent=bill['Department']||appointment?.['Department']||'-';
+  document.getElementById('doctorName').textContent=bill['Consultant']||appointment?.['Doctor']||'-';
+  document.getElementById('appointmentDate').textContent=bill['Date']||appointment?.['Date']||'-';
+  document.getElementById('appointmentTime').textContent=bill['Time']||appointment?.['Time']||'-';
+  document.getElementById('grandTotal').textContent=Number(bill.Total||0).toLocaleString('en-IN');
+  document.getElementById('paymentStatus').textContent=(bill['Payment Status']||'Pending').toUpperCase();
+  const tbody=document.getElementById('serviceTable');
+  if(!bill.Services?.length){tbody.innerHTML='<tr><td colspan="2">No service charges found.</td></tr>';}
+  else tbody.innerHTML=bill.Services.map(x=>`<tr><td>${esc(x.Service)}</td><td>₹ ${Number(x.Amount||0).toLocaleString('en-IN')}</td></tr>`).join('');
+ }catch(e){console.error(e);alert(e.message||'Unable to load service bill.');}
+}
+function selectMethod(m){method=m;document.querySelectorAll('.payment-btn').forEach(b=>b.classList.remove('selected-payment'));document.getElementById(m.toLowerCase()+'Btn').classList.add('selected-payment');}
+document.getElementById('upiBtn').onclick=()=>selectMethod('UPI');
+document.getElementById('cardBtn').onclick=()=>selectMethod('Card');
+document.getElementById('cashBtn').onclick=()=>selectMethod('Cash');
+document.getElementById('payButton').onclick=()=>{
+ if(!bill){return alert('Service bill is not loaded.');}
+ if(!method){return alert('Select a payment method.');}
+ let body='';
+ if(method==='Cash') body='<label>Cash Received</label><input id="cashReceived" type="number" min="0" step="0.01">';
+ if(method==='Card') body='<label>Card Number</label><input id="cardNumber" maxlength="19"><label>Card Holder Name</label><input id="cardHolder"><label>Expiry</label><input id="expiry" type="month"><label>CVV</label><input id="cvv" maxlength="3" type="password">';
+ if(method==='UPI') body='<label>UPI ID</label><input id="upiId" placeholder="example@upi">';
+ document.getElementById('modalTitle').textContent='💳 '+method+' Payment';
+ document.getElementById('modalBody').innerHTML=body||'<p>Confirm payment.</p>';
+ document.getElementById('modal').style.display='flex';
+};
+function closeModal(){document.getElementById('modal').style.display='none';}
+document.getElementById('confirmPayment').onclick=()=>{
+ const total=Number(bill.Total||0);
+ if(method==='Cash' && Number(document.getElementById('cashReceived').value||0)<total)return alert('Cash received is less than bill amount.');
+ if(method==='Card' && (!document.getElementById('cardNumber').value || !document.getElementById('cardHolder').value || !document.getElementById('expiry').value || document.getElementById('cvv').value.length!==3))return alert('Complete valid card details.');
+ if(method==='UPI' && !/^[\w.-]+@[\w.-]+$/.test(document.getElementById('upiId').value.trim()))return alert('Enter a valid UPI ID.');
+ sessionStorage.setItem('serviceBill',JSON.stringify(bill));
+ sessionStorage.setItem('servicePaymentMethod',method);
+ sessionStorage.setItem('servicePaymentStatus','PAID');
+ closeModal();
+ location.href='service_receipt.html?patient='+encodeURIComponent(patientId);
+};
+loadBill();
+</script>
+<div style="text-align:center;margin:20px"><button onclick="location.href='../menu.html'">🏠 Return to Menu</button></div>
+
+<script src="../gemini_live.js"></script>
+</body>
+</html>

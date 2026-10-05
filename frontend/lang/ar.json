@@ -1,0 +1,42 @@
+{
+    "menu":"القائمة",
+    "appointments":"الموعد",
+    "billing":"الفواتير",
+    "faq":"الأسئلة الشائعة",
+    "wait_dashboard":"لوحة الانتظار",
+    "location":"الموقع",
+    "thank_you":"شكراً لك",
+    "wayfinding":"إرشاد الطريق",
+    "department":"القسم",
+    "floor":"الطابق",
+    "room":"رقم الغرفة",
+    "doctor":"الطبيب",
+    "patient":"المريض",
+    "back":"رجوع",
+    "next":"التالي",
+    "close":"إغلاق",
+    "search":"بحث",
+    "continue":"متابعة",
+    "yes":"نعم",
+    "no":"لا",
+
+    "patient_checkin":"تسجيل المريض",
+
+    "automatic_authentication":"التحقق التلقائي من المريض",
+
+    "welcome_message":"مرحبًا بكم في مستشفى المدينة.",
+
+    "patient_detected":"تم اكتشاف المريض.<br><br>جارٍ بدء التحقق...",
+
+    "scanning_face":"جارٍ مسح الوجه...",
+
+    "verifying_voice":"جارٍ التحقق من الصوت...",
+
+    "checking_database":"جارٍ التحقق من قاعدة بيانات المستشفى...",
+
+    "authentication_successful":"تم التحقق بنجاح.<br><br>مرحبًا ",
+
+    "patient_not_found":"لم يتم العثور على المريض.<br><br>جارٍ فتح التسجيل...",
+
+    "server_error":"تعذر الاتصال بخادم المستشفى."
+}
