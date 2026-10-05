@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>New Patient Registration</title><link rel="stylesheet" href="../style.css"><style>.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.form-grid label{display:block;font-weight:600;margin-bottom:6px}.form-grid input,.form-grid select,.form-grid textarea{width:100%;padding:12px;box-sizing:border-box;border-radius:8px;border:1px solid #ccc}.full{grid-column:1/-1}.status{margin-top:14px;padding:12px;border-radius:8px}</style></head><body>
+<div class="container"><div class="glass-card checkin-card"><h1>🆕 Patient Registration</h1>
+<form id="patientForm"><div class="form-grid">
+<div><label>Full Name *</label><input id="patientName" required></div>
+<div><label>Mobile Number *</label><input id="patientPhone" type="tel" required></div>
+<div><label>Date of Birth *</label><input id="patientDob" type="date" required></div>
+<div><label>Age</label><input id="patientAge" type="number" min="0" max="130" readonly></div>
+<div><label>Email</label><input id="patientEmail" type="email"></div>
+<div class="full"><label>Address *</label><textarea id="patientAddress" rows="3" required></textarea></div>
+</div><br><button type="submit">Register & Proceed to Appointment</button></form><div id="status"></div></div></div>
+
+<script src="../api.js"></script>
+<script src="../keyboard.js"></script>
+<script>
+const form=document.getElementById('patientForm');
+patientDob.addEventListener('change',e=>{const d=new Date(e.target.value);if(!isNaN(d)){const t=new Date();let age=t.getFullYear()-d.getFullYear();const m=t.getMonth()-d.getMonth();if(m<0||(m===0&&t.getDate()<d.getDate()))age--;patientAge.value=age;}});
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=form.querySelector('button[type=submit]');
+  btn.disabled=true;
+  const patient={'PATIENT NAME':patientName.value.trim(),'AGE':parseInt(patientAge.value,10)||'','DATE OF BIRTH':patientDob.value,'PHONE':patientPhone.value.trim(),'EMAIL':patientEmail.value.trim(),'ADDRESS':patientAddress.value.trim()};
+  try{
+    const r=await registerPatient(patient);
+    if(!r.success)throw new Error(r.message||'Registration failed');
+    patient['PATIENT ID']=r.patient_id;
+    sessionStorage.setItem('patient',JSON.stringify(patient));
+    try{
+      const fd=new FormData();
+      fd.append('patient_id',patient['PATIENT ID']);
+      await fetch('/api/face/enroll-from-camera',{method:'POST',body:fd});
+    }catch(e){console.warn('Face enrollment:',e);}
+    location.href='appointments.html';
+  }catch(err){
+    document.getElementById('status').textContent='❌ '+err.message;
+    btn.disabled=false;
+  }
+});
+</script><script src="../gemini_live.js"></script>
+</body></html>

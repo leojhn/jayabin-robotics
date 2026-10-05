@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Patient Check-in</title><link rel="stylesheet" href="../style.css"><style>.camera-card{max-width:760px;margin:auto;text-align:center}.status{font-size:21px;margin:18px}.small{opacity:.7;font-size:14px}.spinner{width:46px;height:46px;border:4px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;margin:20px auto}@keyframes spin{to{transform:rotate(360deg)}}.manual-btns{display:flex;gap:15px;justify-center:center;margin-top:20px;flex-wrap:wrap}</style></head>
+<body>
+<div class="container"><div class="glass-card checkin-card camera-card">
+<h1>🏥 Patient Check-in</h1><div class="spinner"></div><p id="faceStatus" class="status">Checking your patient record…</p><p class="small">Patient identification via hospital camera or select an option below.</p>
+<div id="manualChoices" style="margin-top:25px;">
+<p>Continue as:</p>
+<div style="display:flex;gap:15px;justify-content:center;margin-top:12px;">
+  <button type="button" onclick="sessionStorage.setItem('is_existing_user','false');sessionStorage.removeItem('patient');location.href='neo_nano_welcome.html'">New Patient</button>
+  <button type="button" onclick="location.href='existing_patient.html'">Existing Patient</button>
+</div>
+</div>
+</div></div>
+<script src="../face_checkin.js"></script>
+<script src="../gemini_live.js"></script>
+</body></html>

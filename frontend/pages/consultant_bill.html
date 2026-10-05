@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Consultant Billing</title><link rel="stylesheet" href="../style.css"><style>
+.billing{max-width:900px;margin:auto}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{padding:18px;border-radius:14px;background:rgba(255,255,255,.12)}.payments{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.payment-btn{padding:22px;font-size:20px}.selected{outline:3px solid #00ff99}.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.68);align-items:center;justify-content:center;z-index:1000}.popup-content{background:white;color:#111;width:520px;max-width:92%;padding:28px;border-radius:18px;text-align:center}.popup-content input{width:100%;box-sizing:border-box;padding:12px;margin:8px 0;border:1px solid #aaa;border-radius:8px}.popup-content button{width:100%;margin-top:12px}@media(max-width:700px){.grid,.payments{grid-template-columns:1fr}}
+</style></head><body><div class="container"><div class="glass-card billing billing-card"><h1>💳 Consultant Billing</h1><p id="billingMessage">Loading your consultation bill…</p><div class="grid"><div class="card"><b>Patient</b><div id="patientName">-</div></div><div class="card"><b>Patient ID</b><div id="patientId">-</div></div><div class="card"><b>Appointment</b><div id="appointmentId">-</div></div><div class="card"><b>Token</b><div id="tokenNo">-</div></div><div class="card"><b>Department</b><div id="department">-</div></div><div class="card"><b>Consultant</b><div id="doctorName">-</div></div><div class="card"><b>Date</b><div id="appointmentDate">-</div></div><div class="card"><b>Time</b><div id="appointmentTime">-</div></div></div><br><div class="card"><h2>Total Consultation Bill: ₹<span id="grandTotal">0</span></h2></div><br><h2>Payment Method</h2><div class="payments"><button class="payment-btn" id="upiBtn">📱 UPI</button><button class="payment-btn" id="cardBtn">💳 Card</button><button class="payment-btn" id="cashBtn">💵 Cash</button></div><p style="margin-top:18px">Select a payment method on the touchscreen. Payment itself is completed manually in the popup.</p></div></div>
+<div id="paymentPopup" class="popup"><div class="popup-content"><h2 id="popupTitle">Payment</h2><p id="popupBody"></p><div id="manualArea"></div><button id="manualConfirm">Payment Completed</button><button onclick="closePaymentPopup()">Cancel</button></div></div>
+<script src="../api.js"></script><script>
+let bill=null,method='';const patient=JSON.parse(sessionStorage.getItem('patient')||'null')||{},appointment=JSON.parse(sessionStorage.getItem('appointment')||'null')||{};
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+async function load(){const pid=patient['PATIENT ID'];if(!pid){location.href='checkin.html';return;}bill=await getConsultantBill(pid);if(!bill){document.getElementById('billingMessage').textContent='Unable to load the consultation bill.';return;}document.getElementById('billingMessage').textContent='Please choose UPI, card, or cash.';const map={patientName:patient['PATIENT NAME'],patientId:pid,appointmentId:appointment['Appointment ID'],tokenNo:appointment['Token'],department:appointment['Department']||appointment['department']||bill['Department'],doctorName:bill['Consultant']||appointment['Doctor'],appointmentDate:bill['Date']||appointment['Date'],appointmentTime:bill['Time']||appointment['Time'],grandTotal:bill['Total']||0};Object.entries(map).forEach(([k,v])=>document.getElementById(k).textContent=v??'-');}
+function select(m){method=m;document.querySelectorAll('.payment-btn').forEach(x=>x.classList.remove('selected'));document.getElementById(m.toLowerCase()+'Btn').classList.add('selected');openPaymentMethod(m);}
+function openPaymentMethod(m){method=m;const title={UPI:'📱 UPI Payment',Card:'💳 Card Payment',Cash:'💵 Cash Payment'}[m];document.getElementById('popupTitle').textContent=title;const amount=Number(bill?.Total||0).toLocaleString('en-IN');if(m==='UPI'){document.getElementById('popupBody').innerHTML='<b>Amount: ₹'+amount+'</b><br><br>Complete the UPI payment using the hospital QR/payment gateway.';document.getElementById('manualArea').innerHTML='<p>After the UPI payment is completed, press Payment Completed.</p>';}else if(m==='Card'){document.getElementById('popupBody').innerHTML='<b>Amount: ₹'+amount+'</b><br><br>Use the secure hospital card terminal/gateway. Do not enter or speak card number, CVV, or PIN into the robot.';document.getElementById('manualArea').innerHTML='<p>After the card payment is completed, press Payment Completed.</p>';}else{document.getElementById('popupBody').innerHTML='<b>Amount: ₹'+amount+'</b><br><br>Please pay this amount at the human reception counter.';document.getElementById('manualArea').innerHTML='<p>After handing over the cash, press Payment Completed.</p>';}document.getElementById('paymentPopup').style.display='flex';}
+function closePaymentPopup(){document.getElementById('paymentPopup').style.display='none';}
+window.openPaymentMethod=openPaymentMethod;
+document.getElementById('upiBtn').onclick=()=>select('UPI');document.getElementById('cardBtn').onclick=()=>select('Card');document.getElementById('cashBtn').onclick=()=>select('Cash');
+document.getElementById('manualConfirm').onclick = async () => {
+    if(!method) return;
+
+    sessionStorage.setItem('servicePaymentMethod', method);
+    sessionStorage.setItem('servicePaymentStatus', 'PAID');
+    closePaymentPopup();
+
+    if(window.MarykuttyVoice){
+        await window.MarykuttyVoice.notifyPayment(method);
+    }else{
+        location.replace('/pages/wayfinding.html');
+    }
+};
+load();
+</script><script src="../gemini_live.js"></script>
+</body></html>

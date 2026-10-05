@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jayabin Hospital</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="welcome-section">
+    <img src="https://cdn.creativefabrica.com/2018/11/Medical-Logo-by-Acongraphic-52.jpg" class="hospital-logo" alt="Jayabin Hospital">
+    <h1>Welcome to Jayabin Hospital</h1>
+    <p id="languagePrompt">Please select your language.</p>
+  </div>
+  <div class="glass-card home-card">
+    <div class="menu-buttons">
+      <button type="button" onclick="selectLanguage('en')">English</button>
+      <button type="button" onclick="selectLanguage('ml')">മലയാളം</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let languageChosen=false;
+function selectLanguage(language){
+  if(languageChosen)return;
+  languageChosen=true;
+  sessionStorage.setItem('language',language);
+  location.href='pages/checkin.html';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  sessionStorage.removeItem('language');
+  sessionStorage.removeItem('patient');
+  sessionStorage.removeItem('appointment');
+  sessionStorage.removeItem('receipt');
+  sessionStorage.removeItem('neo_nano_result');
+  sessionStorage.removeItem('is_existing_user');
+});
+</script>
+<script src="api.js"></script>
+<script src="language.js"></script>
+<script src="app.js"></script>
+<script src="gemini_live.js"></script>
+</body>
+</html>
