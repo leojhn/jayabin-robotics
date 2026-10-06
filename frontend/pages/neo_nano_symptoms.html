@@ -55,7 +55,7 @@ function setQuestion(i){
  document.getElementById('symptomLabel').textContent=q;
  const btn=document.getElementById('nextBtn');
  btn.textContent=i===questions[l].length-1?(l==='ml'?'ഫലം കാണുക':'View Result'):(l==='ml'?'തുടരുക':'Continue');
- if(window.MarykuttyVoice)window.MarykuttyVoice.speak(q,l==='ml'?'ml-IN':'en-IN');
+
 }
 function changeLanguage(){
  const l=document.getElementById('language').value;sessionStorage.setItem('neo_language',l);qIndex=0;setQuestion(0);

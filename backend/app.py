@@ -1,3 +1,4 @@
+from config import DOCTOR_FILE, PROJECT_DIR
 from flask import Flask, jsonify, request, send_from_directory
 import os
 from flask_cors import CORS
@@ -15,7 +16,7 @@ from neo_nano_ai.disease_retriever import analyze, retrieve
 from neo_nano_ai.knowledge_graph_service import build_global_graph
 from neo_nano_ai.genomics_service import get_genomics
 from neo_nano import neo
-from voice.face_service import (
+from face_service import (
     identify as identify_face, enroll as enroll_face,
     start_camera, camera_status, latest_frame, enroll_from_camera
 )
@@ -34,13 +35,22 @@ pm = PatientManager()
 import pandas as pd
 import json
 
-doctors_df = pd.read_excel("../excel/Doctors.xlsx").fillna("")
+if os.path.exists(DOCTOR_FILE):
+    doctors_df = pd.read_excel(DOCTOR_FILE).fillna("")
+elif os.path.exists("../excel/Doctors.xlsx"):
+    doctors_df = pd.read_excel("../excel/Doctors.xlsx").fillna("")
+else:
+    doctors_df = pd.DataFrame()
 
 medical_tests = []
 
-with open("../data/medical/processed/medical_tests_master.jsonl","r",encoding="utf-8") as f:
-    for line in f:
-        medical_tests.append(json.loads(line))
+tests_path = os.path.join(PROJECT_DIR, "data", "medical", "processed", "medical_tests_master.jsonl")
+if not os.path.exists(tests_path):
+    tests_path = "../data/medical/processed/medical_tests_master.jsonl"
+if os.path.exists(tests_path):
+    with open(tests_path, "r", encoding="utf-8") as f:
+        for line in f:
+            medical_tests.append(json.loads(line))
 
 
 def make_json_safe(value):
@@ -540,23 +550,9 @@ def neo_nano_genomics(disease_id):
 ###########################################################
 # VOICE ASSISTANT
 ###########################################################
-from voice.conversation import ConversationManager
-from voice.local_piper_tts import LocalPiperTTS
 
-voice_manager = ConversationManager()
-local_tts = LocalPiperTTS()
 
-def _tts_result(result):
-    """Attach local Piper audio to a voice result; no cloud voice API."""
-    speech = str(result.get("speech") or "").strip()
-    if not speech:
-        return result
-    try:
-        result["audio_base64"] = local_tts.audio_base64(speech, result.get("language") or "en-IN")
-        result["audio_mime"] = "audio/wav"
-    except Exception as exc:
-        result["tts_error"] = str(exc)
-    return result
+
 
 @app.route("/api/patients/search", methods=["GET"])
 def search_patients():
@@ -575,336 +571,6 @@ def search_patients():
         if any(ql in str(v).lower() for v in fields):
             matches.append(p)
     return jsonify({"success": True, "patients": make_json_safe(matches[:10])})
-
-@app.route("/api/voice/session", methods=["POST"])
-def voice_session():
-    data = request.get_json(silent=True) or {}
-    lang = data.get("language")
-    if lang not in ("en-IN", "ml-IN"):
-        lang = None
-    s = voice_manager.create(lang)
-    # The camera check-in owns the welcome/identity step. Voice sessions created
-    # here remain idle until /api/voice/checkin selects existing or new.
-    result = voice_manager._result(s, "")
-    return jsonify(result)
-
-@app.route("/api/voice/checkin", methods=["POST"])
-def voice_checkin():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    mode = data.get("mode")
-    s = voice_manager.get(sid)
-    if not s or mode not in ("existing", "new"):
-        return jsonify({"success": False, "message": "session_id and valid mode are required"}), 400
-    try:
-        s["camera_checkin"] = True
-        # Language is selected on the index page and locked for this visit.
-        selected_lang = data.get("language") or s.get("language")
-        if selected_lang in ("en-IN", "ml-IN"):
-            s["language"] = selected_lang
-        if mode == "existing":
-            patient = data.get("patient") or {}
-            pid = patient.get("PATIENT ID") or patient.get("Patient ID") or patient.get("patient_id")
-            if not pid:
-                return jsonify({"success": False, "message": "patient_id is required for existing patient"}), 400
-            if not patient:
-                patient = pm.get_patient_by_id(pid)
-            if not patient:
-                return jsonify({"success": False, "message": "Patient not found"}), 404
-            s["patient"] = patient
-            s["patient_id"] = pid
-            s["camera_mode"] = "existing"
-            s["state"] = "INITIAL_CONCERN"
-            s["symptom_index"] = 0
-            name = patient.get("PATIENT NAME") or "there"
-            speech = voice_manager.say(s, "welcome_back").format(name=name)
-            result = voice_manager._result(s, speech, "neo_nano_symptoms.html")
-        else:
-            s["patient"] = None
-            s["patient_id"] = None
-            s["camera_mode"] = "new"
-            s["state"] = "REG_NAME"
-            s["symptom_index"] = 0
-            speech = voice_manager.say(s, "new_patient")
-            result = voice_manager._result(s, speech, "new_patient.html")
-        result["success"] = True
-        _tts_result(result)
-        return jsonify(result)
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 500
-
-@app.route("/api/voice/text", methods=["POST"])
-def voice_text():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    text = str(data.get("text", "")).strip()
-    if not sid or not text:
-        return jsonify({"success": False, "message": "session_id and text are required"}), 400
-    try:
-        result = voice_manager.text(sid, text)
-        result["success"] = True
-        _tts_result(result)
-        return jsonify(result)
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 500
-
-@app.route("/api/voice/audio", methods=["POST"])
-def voice_audio():
-    return jsonify({"success": False, "message": "Patient voice input is disabled for the touchscreen-first demo."}), 410
-
-@app.route("/api/voice/tts", methods=["POST"])
-def voice_tts():
-    data = request.get_json(silent=True) or {}
-    text = str(data.get("text", "")).strip()
-    language = data.get("language", "en-IN")
-    if not text:
-        return jsonify({"success": False, "message": "text required"}), 400
-    if language not in ("en-IN", "ml-IN"):
-        language = "en-IN"
-    try:
-        audio = local_tts.audio_base64(text, language)
-        return jsonify({"success": True, "audio_base64": audio, "audio_mime": "audio/wav"})
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 502
-
-
-@app.route("/api/voice/bind-patient", methods=["POST"])
-def voice_bind_patient():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    patient = data.get("patient")
-    s = voice_manager.get(sid)
-    if not s or not isinstance(patient, dict):
-        return jsonify({"success": False, "message": "Invalid voice session or patient"}), 400
-    s["patient"] = patient
-    s["patient_id"] = patient.get("PATIENT ID") or patient.get("Patient ID") or patient.get("patient_id")
-    s["camera_checkin"] = True
-    s["camera_mode"] = "new" if s.get("camera_mode") == "new" else s.get("camera_mode")
-    s["state"] = "INITIAL_CONCERN"
-    s["symptom_index"] = 1 if s.get("initial_concern") else 0
-    name = patient.get("PATIENT NAME", "there")
-    speech = voice_manager.say(s, "new_registered").format(name=name) if s.get("camera_mode") == "new" else voice_manager.say(s, "welcome_back").format(name=name)
-    result = voice_manager._result(s, speech, "neo_nano_symptoms.html")
-    result["success"] = True
-    _tts_result(result)
-    return jsonify(result)
-
-@app.route("/api/voice/sync-appointment", methods=["POST"])
-def voice_sync_appointment():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    ap = data.get("appointment") or {}
-    s = voice_manager.get(sid)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    s["appointment"] = ap
-    s["patient_id"] = s.get("patient_id") or ap.get("Patient ID")
-    s["department"] = ap.get("Department") or s.get("department")
-    s["doctor"] = ap.get("Doctor") or s.get("doctor")
-    s["date"] = ap.get("Date") or s.get("date")
-    s["time"] = ap.get("Time") or s.get("time")
-    s["state"] = "DASHBOARD"
-    result = voice_manager._result(s, voice_manager.say(s, "booked").format(department=s["department"], doctor=s["doctor"], date=s["date"], time=s["time"]), "dashboard.html")
-    result["success"] = True
-    _tts_result(result)
-    return jsonify(result)
-
-@app.route("/api/voice/manual-sync", methods=["POST"])
-def voice_manual_sync():
-    """Synchronize visible touchscreen fields into the active voice session.
-    Touch input wins for fields the patient edits manually, so the voice layer
-    continues from the first field that is still missing instead of asking for
-    a field that was already entered on the touchscreen.
-    """
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    page = str(data.get("page") or "").strip()
-    fields = data.get("fields") or {}
-    s = voice_manager.get(sid)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    if not isinstance(fields, dict):
-        return jsonify({"success": False, "message": "fields must be an object"}), 400
-
-    if page == "new_patient":
-        mapping = {
-            "patientName": "PATIENT NAME", "patientDob": "DATE OF BIRTH",
-            "patientAge": "AGE", "patientPhone": "PHONE",
-            "patientEmail": "EMAIL", "patientAddress": "ADDRESS",
-        }
-        for eid, key in mapping.items():
-            if str(fields.get(eid, "")).strip() != "":
-                s["patient_draft"][key] = fields[eid]
-        if s["patient_draft"].get("DATE OF BIRTH") and not s["patient_draft"].get("AGE"):
-            try:
-                dob = date.fromisoformat(str(s["patient_draft"]["DATE OF BIRTH"])[:10])
-                today = date.today()
-                s["patient_draft"]["AGE"] = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
-            except Exception:
-                pass
-        required = [
-            ("REG_NAME", "PATIENT NAME"), ("REG_PHONE", "PHONE"),
-            ("REG_DOB", "DATE OF BIRTH"), ("REG_EMAIL", "EMAIL"),
-            ("REG_ADDRESS", "ADDRESS")
-        ]
-        missing = next((state for state, key in required if not str(s["patient_draft"].get(key, "")).strip()), None)
-        s["state"] = missing or "INITIAL_CONCERN"
-
-    elif page == "neo_nano":
-        mapping = {
-            "symptoms": "symptoms", "onset": "onset", "duration": "duration",
-            "prior_occurrence": "prior_occurrence", "characteristics": "characteristics",
-            "severity": "severity", "trend": "trend", "related_symptoms": "related_symptoms",
-            "aggravating_relief": "aggravating_relief", "medications": "medications",
-            "allergies": "allergies", "last_doctor_visit": "last_doctor_visit", "previous_condition": "previous_condition"
-        }
-        for eid, key in mapping.items():
-            if str(fields.get(eid, "")).strip() != "":
-                s["symptom_context"][key] = fields[eid]
-        if str(fields.get("symptoms", "")).strip():
-            s["initial_concern"] = str(fields["symptoms"]).strip()
-        checks = [(i, key) for i, key in enumerate(["symptoms","onset","duration","prior_occurrence","characteristics","severity","trend","related_symptoms","aggravating_relief","medications","allergies","last_doctor_visit","previous_condition"])]
-        missing_index = next((idx for idx, key in checks if not str(s["symptom_context"].get(key, "")).strip()), len(checks))
-        s["symptom_index"] = missing_index
-        s["state"] = "NEO_ANALYZE" if missing_index >= len(checks) else ("INITIAL_CONCERN" if missing_index == 0 else "SYMPTOM_INTAKE")
-
-    elif page == "appointments":
-        if str(fields.get("department", "")).strip(): s["department"] = str(fields["department"]).strip()
-        if str(fields.get("doctor", "")).strip(): s["doctor"] = str(fields["doctor"]).strip()
-        if str(fields.get("appointmentDate", "")).strip(): s["date"] = str(fields["appointmentDate"]).strip()
-        if str(fields.get("opdTime", "")).strip() and str(fields["opdTime"]).strip() not in {"Select OPD Time", "No Time Available"}: s["time"] = str(fields["opdTime"]).strip()
-        if not s.get("department"): s["state"] = "APPT_DEPARTMENT"
-        elif not s.get("doctor"): s["state"] = "APPT_DOCTOR"
-        elif not s.get("date"): s["state"] = "APPT_DATE"
-        elif not s.get("time"): s["state"] = "APPT_TIME"
-        else: s["state"] = "APPT_CONFIRM"
-
-    return jsonify({"success": True, "state": s.get("state"), "autofill": voice_manager._autofill(s)})
-
-@app.route("/api/voice/state/<session_id>", methods=["GET"])
-def voice_state(session_id):
-    s = voice_manager.get(session_id)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    return jsonify(voice_manager._result(s, ""))
-
-@app.route("/api/voice/advance", methods=["POST"])
-def voice_advance():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    s = voice_manager.get(sid)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    try:
-        if s["state"] == "LANGUAGE_SELECTION":
-            result = voice_manager._result(s, voice_manager._language_prompt(s))
-        elif s["state"] == "DASHBOARD":
-            result = voice_manager._load_bill(s)
-        elif s["state"] == "BILLING":
-            result = voice_manager._load_bill(s)
-        else:
-            result = voice_manager._result(s, "")
-        result["success"] = True
-        _tts_result(result)
-        return jsonify(result)
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 500
-
-def _print_voice_payment_receipt(session_data, method):
-    """Print the consultant payment receipt before continuing to wayfinding.
-
-    Printing is deliberately best-effort: a printer failure must not block the
-    patient's completed payment workflow or the transition to wayfinding.
-    """
-    now = datetime.now()
-    patient = session_data.get("patient") or {}
-    appointment = session_data.get("appointment") or {}
-    bill = session_data.get("bill") or {}
-
-    receipt = {
-        "receiptNo": f"RCPT-{now.strftime('%Y%m%d%H%M%S')}",
-        "date": now.strftime("%d-%m-%Y"),
-        "time": now.strftime("%I:%M:%S %p"),
-        "patientId": patient.get("PATIENT ID") or session_data.get("patient_id", ""),
-        "patientName": patient.get("PATIENT NAME", ""),
-        "appointmentId": appointment.get("Appointment ID") or bill.get("Appointment ID", ""),
-        "token": appointment.get("Token") or bill.get("Token", "A-001"),
-        "consultant": bill.get("Consultant") or appointment.get("Doctor") or session_data.get("doctor", ""),
-        "amount": bill.get("Total") or bill.get("total") or bill.get("Amount") or bill.get("amount") or 0,
-        "paymentMethod": method,
-        "status": "PAID",
-    }
-
-    # Printing is performed by frontend/pages/receipt.html so the workflow
-    # visibly passes through the dedicated printing page before wayfinding.
-    return {
-        "success": True,
-        "receipt": receipt,
-    }
-
-
-@app.route("/api/voice/payment-complete", methods=["POST"])
-def voice_payment_complete():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    s = voice_manager.get(sid)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    method = data.get("method") or s.get("payment_method")
-    if method:
-        s["payment_method"] = method
-    try:
-        if s["payment_method"] in ("UPI", "Card"):
-            voice_manager.hms.payment_status(s["patient_id"], "Paid")
-
-        # Build the receipt data and open the dedicated printing page.
-        # The printing page sends the receipt to the thermal printer exactly once.
-        print_result = _print_voice_payment_receipt(s, s["payment_method"])
-        s["receipt"] = print_result.get("receipt")
-        # The visible receipt page is a printing step, but the next voice state
-        # is already wayfinding so the patient's "thank you" is handled there.
-        s["state"] = "WAYFINDING"
-        s["wayfinding"] = voice_manager.hms.map(s.get("department", "")) or {}
-        result = voice_manager._result(s, "Payment completed. Your receipt is being prepared.", "receipt.html")
-        result["success"] = True
-        result["receipt"] = print_result.get("receipt")
-        _tts_result(result)
-        return jsonify(result)
-    except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 500
-
-@app.route("/api/voice/cash", methods=["POST"])
-def voice_cash():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    s = voice_manager.get(sid)
-    if not s:
-        return jsonify({"success": False, "message": "Unknown voice session"}), 404
-    s["payment_method"] = "Cash"
-
-    # Build receipt data and open the dedicated printing page.
-    print_result = _print_voice_payment_receipt(s, "Cash")
-    s["receipt"] = print_result.get("receipt")
-    s["state"] = "WAYFINDING"
-    s["wayfinding"] = voice_manager.hms.map(s.get("department", "")) or {}
-    result = voice_manager._result(s, "Cash payment confirmed. Your receipt is being prepared.", "receipt.html")
-    result["success"] = True
-    result["receipt"] = print_result.get("receipt")
-    _tts_result(result)
-    return jsonify(result)
-
-@app.route("/api/voice/end", methods=["POST"])
-def voice_end():
-    data = request.get_json(silent=True) or {}
-    sid = data.get("session_id")
-    if sid in voice_manager.sessions:
-        voice_manager.sessions.pop(sid, None)
-    return jsonify({"success": True})
-
-
-###########################################################
-# FACE CHECK-IN
-###########################################################
 
 @app.route("/api/face/status", methods=["GET"])
 def face_status():

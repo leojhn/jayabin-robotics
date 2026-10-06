@@ -665,12 +665,6 @@ async function confirmAppointment(){
         sessionStorage.removeItem("neoNanoRecommendedDepartments");
         sessionStorage.removeItem("neoNanoSelectedDepartment");
         sessionStorage.removeItem("neoNanoQuery");
-                if(sid){
-            try{
-                                const vd = await vr.json();
-                if(vd.success && window.MarykuttyVoice){ await window.MarykuttyVoice.applyResult(vd); return; }
-            }catch(e){ console.warn("Voice appointment sync failed",e); }
-        }
         window.location.href = "dashboard.html";
 
     }

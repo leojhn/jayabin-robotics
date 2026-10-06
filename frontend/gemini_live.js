@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  // =========================================================================
+  // PASTE YOUR GEMINI API KEY HERE BELOW IF YOU WANT TO SET IT IN CODE:
+  // =========================================================================
+  const GEMINI_API_KEY = "";
+  // =========================================================================
+
   let lastSpokenText = "";
 
   const GeminiLive = {
@@ -9,7 +15,7 @@
     },
 
     getApiKey: function() {
-      return sessionStorage.getItem('gemini_api_key') || window.GEMINI_API_KEY || "";
+      return GEMINI_API_KEY || sessionStorage.getItem('gemini_api_key') || window.GEMINI_API_KEY || "";
     },
 
     // Explains a form or specific field using Gemini Live API

@@ -19,11 +19,7 @@ document.getElementById('manualConfirm').onclick = async () => {
     sessionStorage.setItem('servicePaymentStatus', 'PAID');
     closePaymentPopup();
 
-    if(window.MarykuttyVoice){
-        await window.MarykuttyVoice.notifyPayment(method);
-    }else{
-        location.replace('/pages/wayfinding.html');
-    }
+    location.href="receipt.html";
 };
 load();
 </script><script src="../gemini_live.js"></script>

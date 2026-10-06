@@ -7,7 +7,7 @@ const a=JSON.parse(sessionStorage.getItem('appointment')||'null')||{};
 const vals={patientName:p['PATIENT NAME']||'',patientId:p['PATIENT ID']||'',department:a['Department']||'',doctor:a['Doctor']||'',date:a['Date']||'',time:a['Time']||'',token:a['Token']||'',appointmentId:a['Appointment ID']||''};
 Object.entries(vals).forEach(([k,v])=>document.getElementById(k).textContent=v||'-');
 let advanced=false;
-async function goToBilling(){if(advanced)return;advanced=true;document.getElementById('nextMessage').textContent='Opening consultant billing…';if(window.MarykuttyVoice){await window.MarykuttyVoice.advance();}else{location.href='consultant_bill.html';}}
+async function goToBilling(){if(advanced)return;advanced=true;document.getElementById('nextMessage').textContent='Opening consultant billing…';location.href='consultant_bill.html';}
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(goToBilling,2200);});
 </script><script src="../gemini_live.js"></script>
 </body></html>
