@@ -74,7 +74,7 @@ function analyze(){
  sessionStorage.setItem('neo_symptom_context',JSON.stringify(context));
  window.location.href='neo_nano_result.html';
 }
-function skipNeoNano(){window.location.href='neo_nano_result.html';}
+function skipNeoNano(){sessionStorage.setItem('neo_symptoms','General consultation / checkup');window.location.href='neo_nano_result.html';}
 function goBack(){window.location.href='neo_nano_welcome.html';}
 changeLanguage();
 </script>
