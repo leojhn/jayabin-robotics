@@ -3,28 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>News | Jayabin Robotics & Aviation</title>
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-          rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* =========================
-           NEWS SECTION
-        ========================== */
-
-        #news {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-
         .featured-product {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
@@ -42,7 +27,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
         .featured-product-image video {
@@ -82,10 +66,6 @@
             font-weight: 600;
         }
 
-        /* =========================
-           RESPONSIVE LAYOUT
-        ========================== */
-
         @media (max-width: 768px) {
             .featured-product {
                 grid-template-columns: 1fr;
@@ -101,217 +81,128 @@
                 font-size: 26px;
             }
         }
-
-        @media (max-width: 480px) {
-            #news {
-                padding: 2.5rem 0;
-            }
-
-            .featured-product {
-                padding: 18px;
-                gap: 22px;
-                margin-top: 25px;
-            }
-
-            .featured-product-info h3 {
-                font-size: 23px;
-            }
-
-            .featured-product-info p {
-                font-size: 15px;
-                line-height: 1.7;
-            }
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         GLOBAL HEADER
-         MATCHED TO contact.html
-    ========================== -->
+<!-- =========================
+     GLOBAL HEADER
+========================== -->
+<header id="global-header">
+    <div class="container">
 
-    <header id="global-header">
+        <!-- Brand -->
+        <div class="brand">
+            <div class="logo">
+                <a href="index.html">Jayabin Robotics & Aviation</a>
+            </div>
+            <div class="recognition">
+                Startup India and Kerala Startup Mission Recognized
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="vision.html">Vision</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Request Demo -->
+        <a href="contact.html" class="btn">Request Demo</a>
+
+        <!-- Mobile Menu -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+    </div>
+</header>
+
+<!-- =========================
+     MAIN CONTENT
+========================== -->
+<main>
+
+    <!-- NEWS SECTION -->
+    <section id="news" style="padding: 4rem 0; background: #f8f9fa;">
         <div class="container">
+            <h2>Latest News & Events</h2>
 
-            <!-- Brand -->
-            <div class="brand">
-                <div class="logo">
-                    <a href="index.html">Jayabin Robotics & Aviation</a>
+            <div class="featured-product">
+
+                <!-- LEFT: VIDEO SPACE -->
+                <div class="featured-product-image">
+                    <video autoplay loop muted playsinline width="100%">
+                        <source src="images/marrykuttyjunior-Video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
 
-                <div class="recognition">
-                    Startup India and Kerala Startup Mission Recognized
+                <!-- RIGHT: CONTENT -->
+                <div class="featured-product-info">
+                    <span class="product-label">Events & Highlights</span>
+                    <h3>Marykutty Junior at BioConnect 4.0</h3>
+                    <p>
+                        We were delighted to participate in <strong>BioConnect 4.0 at Hyatt Regency, Thiruvananthapuram</strong>, where we introduced <strong>Marykutty Junior, the first product in our ecosystem, designed to advance hospital automation through robotics and artificial intelligence</strong>. During the event, we showcased our solution to attendees, industry professionals, and innovators, sharing our vision for smarter, more efficient, and technology-driven healthcare environments. Marykutty Junior aims to support hospital operations through intelligent interaction and automation, contributing to a more seamless experience for both patients and healthcare professionals. The event provided a valuable platform to exchange ideas, explore emerging technologies, and connect with potential collaborators. This milestone marks an important step in our journey toward building an integrated ecosystem of intelligent solutions. We believe that <strong>collaboration drives innovation</strong>, and we look forward to partnering with healthcare institutions, industry experts, and technology innovators to shape the future of hospital automation.
+                    </p>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================== -->
+<footer id="global-footer">
+    <div class="container">
+        <div class="footer-content">
+
+            <!-- Footer Brand -->
+            <div class="footer-logo">
+                <h2>Jayabin Robotics & Aviation</h2>
+                <p>Engineering intelligent systems for healthcare</p>
             </div>
 
-            <!-- Navigation -->
-            <nav>
+            <!-- Footer Navigation -->
+            <div class="footer-links">
+                <h3>Navigation</h3>
                 <ul>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-
-                    <li>
-                        <a href="vision.html">Vision</a>
-                    </li>
-
-                    <li>
-                        <a href="news.html" class="active">News</a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-            </nav>
-
-            <!-- Request Demo -->
-            <a href="contact.html" class="btn">
-                Request Demo
-            </a>
-
-            <!-- Mobile Menu -->
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-
-        </div>
-    </header>
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
-
-    <main>
-
-        <!-- NEWS SECTION -->
-        <section id="news">
-            <div class="container">
-
-                <h2>Latest News & Events</h2>
-
-                <article class="featured-product">
-
-                    <!-- LEFT: EVENT VIDEO -->
-                    <div class="featured-product-image">
-                        <video autoplay loop muted playsinline controls preload="metadata">
-                            <source src="images/bioconnect-1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-
-                    <!-- RIGHT: EVENT DETAILS -->
-                    <div class="featured-product-info">
-
-                        <span class="product-label">
-                            Events & Highlights
-                        </span>
-
-                        <h3>Marykutty Junior at BioConnect 4.0</h3>
-
-                        <p>
-                            We were delighted to participate in
-                            <strong>BioConnect 4.0 at Hyatt Regency,
-                            Thiruvananthapuram</strong>, where we introduced
-                            <strong>Marykutty Junior, the first product in our
-                            ecosystem, designed to advance hospital automation
-                            through robotics and artificial intelligence.</strong>
-                            During the event, we showcased our solution to
-                            attendees, industry professionals, and innovators,
-                            sharing our vision for smarter, more efficient, and
-                            technology-driven healthcare environments.
-                            Marykutty Junior aims to support hospital operations
-                            through intelligent interaction and automation,
-                            contributing to a more seamless experience for both
-                            patients and healthcare professionals.
-                            The event provided a valuable platform to exchange
-                            ideas, explore emerging technologies, and connect
-                            with potential collaborators. This milestone marks
-                            an important step in our journey toward building an
-                            integrated ecosystem of intelligent solutions.
-                            We believe that <strong>collaboration drives
-                            innovation</strong>, and we look forward to
-                            partnering with healthcare institutions, industry
-                            experts, and technology innovators to shape the
-                            future of hospital automation.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- =========================
-         GLOBAL FOOTER
-    ========================== -->
-
-    <footer id="global-footer">
-        <div class="container">
-
-            <div class="footer-content">
-
-                <!-- Footer Brand -->
-                <div class="footer-logo">
-                    <h2>Jayabin Robotics & Aviation</h2>
-
-                    <p>
-                        Engineering intelligent systems for healthcare
-                    </p>
-                </div>
-
-                <!-- Footer Navigation -->
-                <div class="footer-links">
-                    <h3>Navigation</h3>
-
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="vision.html">Vision</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Footer Contact -->
-                <div class="footer-contact">
-                    <h3>Contact</h3>
-
-                    <p>
-                        Email: jayabinroboavion@gmail.com
-                    </p>
-
-                    <p>
-                        Phone: +91 90741 29113
-                    </p>
-
-                    <p>Kerala, India</p>
-                </div>
-
             </div>
 
-            <!-- Copyright -->
-            <div class="copyright">
-                <p>
-                    © 2024 Jayabin Robotics & Aviation.
-                    All rights reserved.
-                </p>
+            <!-- Footer Contact -->
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Email: jayabinroboavion@gmail.com</p>
+                <p>Phone: +91 90741 29113</p>
+                <p>Kerala, India</p>
             </div>
 
         </div>
-    </footer>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2024 Jayabin Robotics & Aviation. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
