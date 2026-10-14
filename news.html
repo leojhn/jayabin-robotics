@@ -15,10 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
+        /* NEWS FEATURE CARD */
         .featured-product {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
             margin-top: 45px;
             padding: 35px;
@@ -27,24 +28,29 @@
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
         }
 
+        /* FOUR-IMAGE GRID */
         .featured-product-image {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            align-items: stretch;
         }
 
         .featured-product-image img {
             width: 100%;
-            max-width: 600px;
+            aspect-ratio: 4 / 3;
             height: auto;
             display: block;
+            object-fit: cover;
             border-radius: 12px;
-            object-fit: contain;
+            background: #f1f3f5;
         }
 
+        /* NEWS TEXT */
         .featured-product-info {
             padding: 20px 10px;
+            min-width: 0;
         }
 
         .featured-product-info h3 {
@@ -61,6 +67,7 @@
             margin-bottom: 25px;
         }
 
+        /* CATEGORY LABEL */
         .product-label {
             display: inline-block;
             padding: 7px 14px;
@@ -72,11 +79,16 @@
             font-weight: 600;
         }
 
+        /* RESPONSIVE LAYOUT */
         @media (max-width: 768px) {
             .featured-product {
                 grid-template-columns: 1fr;
                 gap: 30px;
                 padding: 25px;
+            }
+
+            .featured-product-image {
+                gap: 10px;
             }
 
             .featured-product-info {
@@ -85,6 +97,20 @@
 
             .featured-product-info h3 {
                 font-size: 26px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .featured-product {
+                padding: 16px;
+            }
+
+            .featured-product-image {
+                gap: 8px;
+            }
+
+            .featured-product-info h3 {
+                font-size: 23px;
             }
         }
     </style>
@@ -106,6 +132,7 @@
                 </div>
             </div>
 
+            <!-- NAVIGATION -->
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -118,17 +145,24 @@
 
             <a href="contact.html" class="btn">Request Demo</a>
 
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+            <!-- MOBILE MENU -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+            >
                 <i class="fas fa-bars"></i>
             </button>
 
         </div>
     </header>
 
-    <!-- NEWS HERO -->
+    <!-- NEWS HERO BANNER -->
     <section id="vision-hero">
         <div class="container">
             <h2>News & Events</h2>
+
             <p>
                 Discover our latest milestones, innovations, and collaborations
                 as we advance robotics and artificial intelligence for smarter
@@ -142,62 +176,107 @@
     <main>
 
         <!-- NEWS SECTION -->
-        <section id="news" style="padding: 4rem 0; background: #f8f9fa;">
+        <section
+            id="news"
+            style="padding: 4rem 0; background: #f8f9fa;"
+        >
             <div class="container">
 
                 <h2>Latest News & Events</h2>
 
-                <div class="featured-product">
+                <article class="featured-product">
 
-                    <!-- LEFT: KMTC IMAGE -->
+                    <!-- LEFT: FOUR-IMAGE GRID -->
                     <div class="featured-product-image">
+
                         <img
-                            src="images/kmtc.jpeg"
-                            alt="Jayabin Robotics and Aviation at BioConnect 4.0 with KMTC sponsorship"
+                            src="images/kmtc1.jpeg"
+                            alt="BioConnect 4.0 event photo 1"
                             loading="lazy"
                         >
+
+                        <img
+                            src="images/kmtc2.jpeg"
+                            alt="BioConnect 4.0 event photo 2"
+                            loading="lazy"
+                        >
+
+                        <img
+                            src="images/kmtc3.jpeg"
+                            alt="BioConnect 4.0 event photo 3"
+                            loading="lazy"
+                        >
+
+                        <img
+                            src="images/kmtc4.jpeg"
+                            alt="BioConnect 4.0 event photo 4"
+                            loading="lazy"
+                        >
+
                     </div>
 
                     <!-- RIGHT: NEWS CONTENT -->
                     <div class="featured-product-info">
-                        <span class="product-label">Events & Highlights</span>
+
+                        <span class="product-label">
+                            Events & Highlights
+                        </span>
 
                         <h3>Marykutty Junior at BioConnect 4.0</h3>
 
                         <p>
                             We were delighted to participate in
-                            <strong>BioConnect 4.0 at Hyatt Regency,
-                            Thiruvananthapuram, with sponsorship support from
-                            Kerala Medical Technology Consortium (KMTC)</strong>.
-                            The event provided an excellent opportunity to introduce
-                            <strong>Marykutty Junior, the first product in our growing
-                            technology ecosystem, designed to advance hospital automation
-                            through robotics and artificial intelligence.</strong>
-
-                            During the event, we showcased our solution to attendees,
-                            industry professionals, and innovators, sharing our vision
-                            for smarter, more efficient, and technology-driven healthcare
-                            environments.
-
-                            Marykutty Junior aims to support hospital operations through
-                            intelligent interaction and automation, contributing to a
-                            smoother experience for patients and healthcare professionals.
-
-                            The event offered a valuable platform to exchange ideas,
-                            explore emerging technologies, and connect with potential
-                            collaborators. This milestone marks an important step in our
-                            journey toward building an integrated ecosystem of intelligent
-                            solutions.
-
-                            We believe that <strong>collaboration drives innovation</strong>,
-                            and we look forward to partnering with healthcare institutions,
-                            industry experts, and technology innovators to shape the future
-                            of hospital automation. We are grateful to KMTC for its support
-                            in enabling our participation in this event.
+                            <strong>
+                                BioConnect 4.0 at Hyatt Regency,
+                                Thiruvananthapuram, with sponsorship support from
+                                Kerala Medical Technology Consortium (KMTC).
+                            </strong>
+                            The event provided an excellent opportunity to
+                            introduce
+                            <strong>
+                                Marykutty Junior, the first product in our growing
+                                technology ecosystem, designed to advance hospital
+                                automation through robotics and artificial
+                                intelligence.
+                            </strong>
                         </p>
+
+                        <p>
+                            During the event, we showcased our solution to
+                            attendees, industry professionals, and innovators,
+                            sharing our vision for smarter, more efficient,
+                            and technology-driven healthcare environments.
+                        </p>
+
+                        <p>
+                            Marykutty Junior aims to support hospital operations
+                            through intelligent interaction and automation,
+                            contributing to a smoother experience for patients
+                            and healthcare professionals.
+                        </p>
+
+                        <p>
+                            The event offered a valuable platform to exchange
+                            ideas, explore emerging technologies, and connect
+                            with potential collaborators. This milestone marks
+                            an important step in our journey toward building an
+                            integrated ecosystem of intelligent solutions.
+                        </p>
+
+                        <p>
+                            We believe that
+                            <strong>collaboration drives innovation</strong>,
+                            and we look forward to partnering with healthcare
+                            institutions, industry experts, and technology
+                            innovators to shape the future of hospital automation.
+                            We are grateful to KMTC for its support in enabling
+                            our participation in this event.
+                        </p>
+
                     </div>
 
-                </div>
+                </article>
+
             </div>
         </section>
 
@@ -209,13 +288,16 @@
 
             <div class="footer-content">
 
+                <!-- FOOTER BRAND -->
                 <div class="footer-logo">
                     <h2>Jayabin Robotics & Aviation</h2>
                     <p>Engineering intelligent systems for healthcare</p>
                 </div>
 
+                <!-- FOOTER NAVIGATION -->
                 <div class="footer-links">
                     <h3>Navigation</h3>
+
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
@@ -225,6 +307,7 @@
                     </ul>
                 </div>
 
+                <!-- FOOTER CONTACT -->
                 <div class="footer-contact">
                     <h3>Contact</h3>
                     <p>Email: jayabinroboavion@gmail.com</p>
@@ -234,6 +317,7 @@
 
             </div>
 
+            <!-- COPYRIGHT -->
             <div class="copyright">
                 <p>
                     &copy; 2024 Jayabin Robotics & Aviation.
